@@ -1,0 +1,35 @@
+IN LMS (Leave Management System) Project, we need to perform
+
+1) Employ Show
+2) Employ Search
+3) Apply Leave
+
+     empId, leaveStartDate, leaveEndDate, leaveType, leaveReason 
+
+	-> No.of Days to be calculated automatically  {Done}  
+
+	-> leaveStatus is Pending By Default  {Done}
+
+	-> leaveStartDate, leaveEndDate cannot be yesterday's date {Done}
+
+	-> leaveStartDate cannot be greater than leaveEndDate  {Done}
+
+	-> Check the leave Available Balance is there in Employ Table  {Done}
+
+	-> ONce leave applied successfully update the leavebalance, example Employ 2000 have 16 leaves
+	and he took 3 days leave then balance is 13  {Done} 
+
+4) Employ Leave History
+
+5) Pending Leaves
+
+6) Accept Or Reject Leave
+
+   leaveId,managerId, status (Yes/No),managerComments 
+
+	-> Check he is authorized manager or not 
+
+	-> if Status is Yes then change the leaveStatus to ÁPPROVED
+	-> if status is No then change the leaveStatus to DENIED
+	      and update the leaveBalance (increase it) 
+
