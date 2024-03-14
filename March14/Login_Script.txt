@@ -1,0 +1,10 @@
+use practice ;
+
+create table users
+(
+   username varchar(30) primary key,
+   passcode varchar(30) not null
+);
+
+insert into users(username, passcode) values('Karthik','Karanam'), ('Raj','Kishore'),
+('Srinivas','Prakash');
