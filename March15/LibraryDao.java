@@ -5,4 +5,5 @@ import java.sql.SQLException;
 public interface LibraryDao {
 
 	String createUser(String user, String password) throws ClassNotFoundException, SQLException;
+	int loginCheck(String user, String password) throws ClassNotFoundException, SQLException;
 }

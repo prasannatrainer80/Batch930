@@ -33,5 +33,17 @@ public class LibraryDaoImpl implements LibraryDao {
 		pst.executeUpdate();
 		return "Login Created Successfully...";
 	}
+	@Override
+	public int loginCheck(String user, String password) throws ClassNotFoundException, SQLException {
+		connection = ConnectionHelper.getConnection();
+		String cmd = "select count(*) cnt from libusers where username = ? AND Password = ?";
+		pst = connection.prepareStatement(cmd);
+		pst.setString(1, user);
+		pst.setString(2, password);
+		ResultSet rs = pst.executeQuery();
+		rs.next();
+		int count = rs.getInt("cnt");
+		return count;
+	}
 
 }
