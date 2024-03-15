@@ -1,3 +1,5 @@
+<%@page import="com.java.lib.LibraryDaoImpl"%>
+<%@page import="com.java.lib.LibraryDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -31,5 +33,20 @@
 			</tr>
 		</table>
 	</form>
+	<%
+		if (request.getParameter("userName") !=null && 
+		request.getParameter("passWord") !=null) {
+			String user = request.getParameter("userName");
+			String pwd = request.getParameter("passWord");
+			String reType = request.getParameter("retypePassword");
+			if (pwd.equals(reType)) {
+				LibraryDao dao = new LibraryDaoImpl();
+				out.println(dao.createUser(user, pwd));				
+			} else {
+				out.println("Passwod Mismatch...");
+			}
+			
+		}
+	%>
 </body>
 </html>
