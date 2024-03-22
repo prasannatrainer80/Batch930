@@ -13,6 +13,7 @@
 	<c:set var="searchType" value="${param.searchtype}" />
 	<c:set var="searchValue" value="${param.searchvalue}" />
 	<c:set var="booksList" value="${beanLibraryDao.searchBooks(searchType, searchValue)}" />
+	<form method="get" action="Issue.jsp">
 	<table border="3">
 		<tr>
 			<th>Id</th>
@@ -21,6 +22,7 @@
 			<th>Edition</th>
 			<th>Dept</th>
 			<th>TotalBooks</th>
+			<th>Select</th>
 		</tr>
 	<c:forEach var="book" items="${booksList}">
 		<tr> 
@@ -30,8 +32,19 @@
 			<td><c:out value="${book.edition}" /> </td>
 			<td><c:out value="${book.dept}" /> </td>
 			<td><c:out value="${book.totalBooks}" /> </td>
+			<td>
+				<c:if test="${book.totalBooks <= 0}">
+					<input type='checkbox' name='bookid' disabled='true' value="${book.totalBooks}" >
+				</c:if>
+				<c:if test="${book.totalBooks >= 1}">
+					<input type='checkbox' name='bookid' value="${book.id}" >
+				</c:if>
+				
+			</td>
 		</tr>
 	</c:forEach>
 	</table>
+	<input type="submit" value="Issue Books" />
+	</form>
 </body>	
 </html>

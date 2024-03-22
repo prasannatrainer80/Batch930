@@ -86,5 +86,19 @@ public class LibraryDaoImpl implements LibraryDao {
 		}
 		return booksList;
 	}
+	@Override
+	public String issueBook(String user, int bookId) throws ClassNotFoundException, SQLException {
+		connection = ConnectionHelper.getConnection();
+		String cmd = "Insert into TranBook(UserName,BookId) values(?, ?)";
+		pst = connection.prepareStatement(cmd);
+		pst.setString(1, user);
+		pst.setInt(2, bookId);
+		pst.executeUpdate();
+		cmd = "Update Books set TotalBooks = TotalBooks - 1 where id = ?";
+		pst = connection.prepareStatement(cmd);
+		pst.setInt(1, bookId);
+		pst.executeUpdate();
+		return "Book with id " +bookId + " Issued Successfully...";
+	}
 
 }
