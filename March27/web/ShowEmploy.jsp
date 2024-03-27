@@ -18,6 +18,8 @@
 			<th>Department</th>
 			<th>Designation</th>
 			<th>Basic</th>
+			<th>Delete</th>
+			<th>Update</th>
 		</tr>
 		<c:forEach var="employ" items="${employList}">
 			<tr>
@@ -27,6 +29,12 @@
 				<td><c:out value="${employ.dept}" />  </td>
 				<td><c:out value="${employ.desig}" />  </td>
 				<td><c:out value="${employ.basic}" />  </td>
+				<td>
+					<a href="DeleteEmploy.jsp">Delete Employ</a>
+				</td>
+				<td>
+					<a href=UpdateEmploy.jsp?empno=${employ.empno}>Update Employ</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
