@@ -1,3 +1,9 @@
+drop database if exists exam;
+
+create database exam;
+
+use exam;
+
 Create Table Agent
 (
 	AgentID INT AUTO_INCREMENT,
