@@ -1,0 +1,9 @@
+Jquery is used to make any size 0 applications. 
+
+Traditional code in javascript we write in 20 lines in jquery we can fix in 5 lines. 
+
+It uses $ symbol for operations, as $ we call as magic $. 
+
+the mandetory command we use in jquery is 
+
+document.ready() -> Ensures the code to be executed only once the page fully loaded. 
