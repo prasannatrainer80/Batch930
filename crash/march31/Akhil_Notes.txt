@@ -1,0 +1,14 @@
+Purpose of company
+
+its a sales company like amazon which takes care of beds and matrises,
+
+my job is to accept the data and display in dashboard, 
+
+i have to write java, jpa code and generate restful api, 
+
+api to be tested and consumed by the end users.
+
+Mostly i works on java and Spring Boot, deployment to be happen in Cloud specified
+
+from that anyone can access
+
