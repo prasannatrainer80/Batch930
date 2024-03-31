@@ -1,0 +1,19 @@
+Softtek helps its clients to gain a competitive edge by implementing digital solutions that propel their business strategies. We do this via our value-creating, human-centric platform that thrives at the intersection of people, business, and technology. A global company and the first to introduce the Nearshore model, discover how we create value through technology at www.softtek.com and connect with @Softtek in social media.
+
+My Job : 
+
+Need to work on database and writing queries, and now migrating application from Restful Services using Spring Boot.
+
+Deployment to be involved
+
+Daily Activities : 
+
+	-> Conducting scrum meetings/daily standups
+
+	-> Updates about sprint
+
+	-> Spring Closures
+
+	-> Creating Services and Deployment
+
+	-> Debugging Services
