@@ -1,20 +1,14 @@
-What about your company/Client : 
+Purpose of company
 
-HMS Holdings Corp (HMS), a subsidiary of Gainwell Technologies LLC, is a provider of advance healthcare technology solutions. It offers coordination of benefits, payment integrity services, and care management, advisory services and population health management to government and private healthcare payers and sponsors. HMS enables its clients recover amounts due from liable third parties, prevent future inappropriate payments, reduce fraud, waste and abuse, improve clinical outcomes and increase retention, and enable regulatory compliance. The company caters to state Medicaid programs, commercial health plans, federal government health agencies, and government and private employers. HMS is headquartered in Irving, Texas, the US.
+its a sales company like amazon which takes care of beds and matrises,
 
-What is the purpose : 
-call the agency's toll-free number at (855) 845-1114. This line is answered from 8:00 a.m. through 5:00 p.m.,
+my job is to accept the data and display in dashboard, 
 
-What is your role : 
+i have to write java, jpa code and generate restful api, 
 
-Used to take appointments
+api to be tested and consumed by the end users.
 
-Look previous medical history
+Mostly i works on java and Spring Boot, deployment to be happen in Cloud specified
 
-Create Appoinments
+from that anyone can access
 
-Sending alert mails/messages 
-
-Based on confirming and cancel appointments
-
-*** Using Spring and some part of hibernate and migrating the project to JPA and Sprint Boot Needs ****
