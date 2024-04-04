@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS `vendor`;
+CREATE TABLE `vendor` (
+  `VEN_ID` int unsigned NOT NULL AUTO_INCREMENT,
+  `VEN_NAME` varchar(50) NOT NULL,
+  `VEN_PHN_NO` varchar(40) NOT NULL,
+  `VEN_USERNAME` varchar(40) NOT NULL,
+  `VEN_PASSWORD` varchar(30) NOT NULL,
+  `VEN_EMAIL` varchar(50) NOT NULL,
+  PRIMARY KEY (`VEN_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `vendor` VALUES (1,'Balan','8554535400','balan89','chennai@123','balan@gmail.com'),(2,'Anukriti','9184532455','anu56','bordia@123','anu.delhi@gmail.com'),(3,'Aarifa','9115879011','aarifk','saleem@123','aarifkhan@gmail.com'),(4,'Ksheerabdi','9874499011','ksheera','kolkata@123','ramki9@gmail.com'),(5,'Sai Kumar','88234555','saikumarm','infinite','sai@gmail.com'),(55,'Swiggy','84823855','swizzy999','AlwaysDeliver','swizzy99@gmail.com');
