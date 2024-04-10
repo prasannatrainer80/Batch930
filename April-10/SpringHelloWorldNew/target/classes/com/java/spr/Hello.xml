@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="welcomeScreen" class="com.java.spr.HelloWorld">
+		<property name="welcomeText" value="Good Morning to Mr/Miss..." />
+		<property name="bodyText" value="Thanks for Contacting Us...Please follow Menu Options "/>
+		<property name="endNoteText" value="Hope you solved by this app...Thank You Bye for Today..." />
+	</bean>
+</beans>
