@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="beanAppointmentCardio" class="com.java.spr.Appointment">
+		<property name="disease" value="Heart Issues" />
+		<property name="doctorName" value="Mr. Mallik" />
+		<property name="timing" value="8 AM to 2 PM" />
+		<property name="consultionFee" value="1200" />
+	</bean>
+	<bean id="beanAppointmentBones" class="com.java.spr.Appointment">
+		<property name="disease" value="Finger Fracture" />
+		<property name="doctorName" value="Mr. Raheem" />
+		<property name="timing" value="4 PM to 9 PM" />
+		<property name="consultionFee" value="800" />
+	</bean>
+	<bean id="beanAppointmentKidney" class="com.java.spr.Appointment">
+		<property name="disease" value="Kidney Treatment" />
+		<property name="doctorName" value="Mr. Sai Krishna" />
+		<property name="timing" value="10 AM to 1 PM AND 5 PM to 10 PM" />
+		<property name="consultionFee" value="400" />
+	</bean>
+</beans>

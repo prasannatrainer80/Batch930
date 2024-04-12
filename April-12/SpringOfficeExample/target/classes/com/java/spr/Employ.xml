@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="office1" class="com.java.spr.OfficeAddress">
+		<property name="streetName" value="Near Madhapur" />
+		<property name="landMark" value="Hitech City ciber Towers" />
+		<property name="floor" value="8th floor" />
+		<property name="city" value="Hyderabad" />
+	</bean>
+	
+	<bean id="office2" class="com.java.spr.OfficeAddress">
+		<property name="streetName" value="Near Gachibowli" />
+		<property name="landMark" value="IIIT Campus" />
+		<property name="floor" value="Vindhya Towers" />
+		<property name="city" value="Hyderabad" />
+	</bean>
+	
+	<bean id="employSet1" class="com.java.spr.EmployInfo">
+		<property name="officeAddress" ref="office1" />
+	</bean>
+	<bean id="employSet2" class="com.java.spr.EmployInfo">
+		<property name="officeAddress" ref="office2" />
+	</bean>
+</beans>
