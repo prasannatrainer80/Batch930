@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="javaDeveloper1" class="com.java.spr.JobDetails">
+		<property name="desig" value="Sr. Consultant" />
+		<property name="manager" value="Mani" />
+		<property name="location" value="Hyderabad" />
+		<property name="workmode" value="Monday/Wednesday Office...Reamining WFH" />
+	</bean>
+	<bean id="javaDeveloper2" class="com.java.spr.JobDetails">
+		<property name="desig" value="Trainee" />
+		<property name="manager" value="Murari" />
+		<property name="location" value="Bangalore" />
+		<property name="workmode" value="Weekly 5 days Work from Office Strict" />
+	</bean>
+	<bean id="hrEmploy" class="com.java.spr.JobDetails">
+		<property name="desig" value="Hr Manager" />
+		<property name="manager" value="Parvathy" />
+		<property name="location" value="Bangalore" />
+		<property name="workmode" value="Weekly 3 days Work from Office Strict/WFH 2 Days" />
+	</bean>
+</beans>
