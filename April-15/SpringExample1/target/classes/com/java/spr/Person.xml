@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+"-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="beanTejaswi" class="com.java.spr.Person">
+		<property name="id" value="1" />
+		<property name="name" value="Tejaswi" />
+		<property name="jobDetails">
+			<bean class="com.java.spr.JobDetails">
+				<property name="job" value="Software Engineer..." />
+				<property name="company" value="Excelr" />
+				<property name="location" value="Hyderabad Cyber Towers" />
+			</bean>
+		</property>
+		<property name="familyDetails">
+			<bean class="com.java.spr.Family">
+				<property name="city" value="Hyderabad" />
+				<property name="state" value="TS" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="beanKarthik" class="com.java.spr.Person">
+		<property name="id" value="2" />
+		<property name="name" value="Karthik Karanam" />
+		<property name="jobDetails">
+			<bean class="com.java.spr.JobDetails">
+				<property name="job" value="Software Engineer..." />
+				<property name="company" value="SonixHub" />
+				<property name="location" value="Hyderabad IIIT campus" />
+			</bean>
+		</property>
+		<property name="familyDetails">
+			<bean class="com.java.spr.Family">
+				<property name="city" value="Bangalore" />
+				<property name="state" value="KA" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="beanAkhil" class="com.java.spr.Person">
+		<property name="id" value="3" />
+		<property name="name" value="Akhil Adapala" />
+		<property name="jobDetails">
+			<bean class="com.java.spr.JobDetails">
+				<property name="job" value="Software Engineer..." />
+				<property name="company" value="Excelr" />
+				<property name="location" value="Hyderabad Cyber Towers..." />
+			</bean>
+		</property>
+		<property name="familyDetails">
+			<bean class="com.java.spr.Family">
+				<property name="city" value="Chennai" />
+				<property name="state" value="TN" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="beanMeghana" class="com.java.spr.Person">
+		<property name="id" value="4" />
+		<property name="name" value="Meghana" />
+		<property name="jobDetails">
+			<bean class="com.java.spr.JobDetails">
+				<property name="job" value="Software Engineer..." />
+				<property name="company" value="SonixHub" />
+				<property name="location" value="Hyderabad IIIT Campus..." />
+			</bean>
+		</property>
+		<property name="familyDetails">
+			<bean class="com.java.spr.Family">
+				<property name="city" value="Mumbai" />
+				<property name="state" value="MH" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>
