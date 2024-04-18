@@ -1,0 +1,169 @@
+
+
+Application Architectures : 
+___________________________
+
+There are 3 types of application architectures known as 
+
+	(i) Single Tier
+
+	(ii) Two Tier
+
+	(iii) Three Tier
+
+Each application architecture contains 3 layers known as
+
+	  (i) User Services : Presentation Layer 
+
+	 (ii) Business Services : Responsible for implementing Business and logical operations. 
+
+	(iii) Data Services : Database 
+
+
+	In Single-Tier architecture, one single executable file handles all these operations. Single Tier architecture applications are called monolythic applications. 
+
+In 2-tier architecture, combination of 2 layers will be there in one application and another layer will be there in another application. 
+
+{User Services + Business Services} + {Data Services}  Client-Based 
+
+{User Services} + {Business Services + Data Services}  Server-Based 
+
+These two layers will be resided in a single system or different system. 
+
+In Three-Tier architecture all the 3 layers resides in a single system or different system and performs job as a single unit. 
+
+The above architectures now a days no body is using, because each layer tightly binded with another layer, ensures changes in one layer will have huge impact on another layer. But, now a days we need the applications to be as loosely coupled and tightly integrated, then we need the help of MVC. 
+
+Model : Contains pure business logic, as whatever business logic or code to be written please implement in Model class. 
+
+View  : Contains UI pages.  The pages will be either jsp input pages or any redirection output or error pages. 
+
+Controller  : It acts as a glue between model and view. As for particular action you need to redirect to specific page, then we need the help of controller. 
+
+MVC is the best solution for TDD environment (Test Driven Development ) 
+
+co.ntier
+
+Once you create mvc project, by default it gives the template files 
+
+1) MvcConfiguration.java 
+
+This file is responsible for implementing any configuration information, as previously we are writing all configurations in bean.xml file, as now please write all in MvcConfiguration.java file. 
+
+@Configuration
+@ComponentScan(basePackages="com.java.mvc")
+@EnableWebMvc
+
+The above annotations will help you to implement the configuration. 
+
+@Configuration -> Ensures this is a configuration file, not the java program. 
+@ComponentScan -> It contains the basic package name where we can write all the business logic. 
+
+If your project code exists in multiple packages, please specify in @ComponentScan as
+@ComponentScan(basePackages="com.java.cms,com.java.lms")
+
+@EnableWebMvc -> Ensures your application supporting MVC design pattern, as DispatcherServelt job can be done
+
+@Bean
+	public ViewResolver getViewResolver(){
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".jsp");
+		return resolver;
+	}
+
+The above @Bean method, ensures where the jsp files are located. 
+
+As jsp files are located in /web-inf/views folder. 
+
+Now please add suffix to the action as .jsp assume you specified action name as home then please redirect to home.jsp as suffix specified as jsp. 
+
+@Controller
+public class HomeController {
+
+	@RequestMapping(value="/")
+	public ModelAndView test(HttpServletResponse response) throws IOException{
+		return new ModelAndView("home");
+	}
+}
+
+
+If any class name specified with @Controller annotation, please ensure that it is an Controller class, which is responsible for redirecting to target page based on action. 
+
+If you specify here as @RequestMapping(value="/") then it would be redirected to default action page. 
+
+@RequestMapping : This annotation is responsible for redirecting to the target page, 
+
+@RequestMapping(value="/") -> this is the default mapping as once you run the project by default it redirct to the page specified in this
+
+as we specify as home as it redirect to home.jsp as we specified suffic as .jsp
+
+For suppose if you write the code as
+
+	@RequestMapping(value="/menu")
+	public ModelAndView menu(HttpServletResponse response) throws IOException{
+		return new ModelAndView("menu");
+	}
+
+Then if any action comes as /menu, then it would be redirected to menu.jsp page. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
