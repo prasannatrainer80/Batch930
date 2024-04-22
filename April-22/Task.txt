@@ -1,0 +1,12 @@
+Please implement the following operations
+
+1) Add Insurance
+2) Show Insurance
+3) Search Insurance
+4) Update Insurance
+5) Delete Insurance
+
+using Hibernate and JSP
+
+Please make it circular.
+
