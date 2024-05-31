@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+"-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="beanName" class="com.java.spr.NameBean">
+		<property name="welcome" value="Welcome to Sonix Hub...Good Morning to Mr/Ms" />
+		<property name="support" value="We can provide all trainings for various technologies..." />
+		<property name="bye" value="Please visit our website for details...Bye for now" />
+	</bean>
+</beans>
