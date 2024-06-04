@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC 
+"-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="agent1" class="com.java.spr.Agent">
+				<property name="agentName" value="Bhagavan" />
+				<property name="city" value="Hyderabad" />
+				<property name="agentId" value="1" />
+				<property name="maritalStatus" value="1" />		
+	</bean>
+	<bean id="policy1" class="com.java.spr.Policy">
+		<property name="policyId" value="1" />
+		<property name="policyName" value="Jeevan Anand" />
+		<property name="premiumAmount" value="88234" />
+		<property name="agent" ref="agent1" />
+	</bean>
+	<bean id="policy2" class="com.java.spr.Policy">
+		<property name="policyId" value="2" />
+		<property name="policyName" value="Jeevan Saral" />
+		<property name="premiumAmount" value="90042" />
+		<property name="agent" ref="agent1" />
+	</bean>
+	<bean id="policy3" class="com.java.spr.Policy">
+		<property name="policyId" value="3" />
+		<property name="policyName" value="Jeevan Mantra" />
+		<property name="premiumAmount" value="100444" />
+		<property name="agent">
+			<bean class="com.java.spr.Agent">
+				<property name="agentName" value="Mithra" />
+				<property name="city" value="Secunderabad" />
+				<property name="agentId" value="2" />
+				<property name="maritalStatus" value="1" />
+			</bean>
+		</property>
+	</bean>
+</beans>
