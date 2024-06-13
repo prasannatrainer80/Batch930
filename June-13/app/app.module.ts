@@ -1,0 +1,28 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FirstComponent } from './first/first.component';
+import { TwoWayComponent } from './two-way/two-way.component';
+import { FormsModule } from '@angular/forms';
+import { CalculationComponent } from './calculation/calculation.component';
+import { NameDemoComponent } from './name-demo/name-demo.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    FirstComponent,
+    TwoWayComponent,
+    CalculationComponent,
+    NameDemoComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
