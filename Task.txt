@@ -1,0 +1,18 @@
+
+
+
+1) Create an angular project and i need 5 components
+
+	-> FirstComponent static test
+
+	-> SecondComponent declare 2 variables as examName and batchCode and print in html page
+
+	-> ThirdComponent place 3 buttons and write evetns and display alert messages
+
+	-> FourthComponent implement your own example of two way binding
+
+	-> FifthComponent Take firstname and lastName and print fullName 
+
+
+
+ng new Examp --no-standalone --routing --ssr=false
