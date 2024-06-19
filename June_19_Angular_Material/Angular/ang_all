@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta chrset="UTF 8">
+    <title>Event Registration</title>
+</head>
+<body>
+
+<script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<div ng-app="sampleApp" ng-controller="AngularController">
+    <h1> Guru99 Global Event</h1>
+    {{value}}
+</div>
+<script>
+    var sampleApp = angular.module('sampleApp',[]);
+    sampleApp.controller('AngularController',function($scope){
+        $scope.a=1;
+        $scope.b=1;
+
+        $scope.value=$scope.$eval('a+b');
+    });
+</script>
+
+</body>
+</html>
+______________________________________________________________
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Angular Filter Example</title>
+<script
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module("myApp", []);
+    app.controller("employeeCotroller", function($scope) {
+        $scope.employees = [ {
+            empId:1001,
+            empName : "john",
+            deptId : "3005",
+        }, {
+            empId:1002,
+            empName : "scott",
+            deptId : "3006",
+        }, {
+            empId:1003,
+            empName : "james",
+            deptId : "3005",
+        } , {
+            empId:1004,
+            empName : "smith",
+            deptId : "3001",
+        } , {
+            empId:1005,
+            empName : "adam",
+            deptId : "3001",
+        } , {
+            empId:1006,
+            empName : "philips",
+            deptId : "3005",
+        } , {
+            empId:1007,
+            empName : "chandra",
+            deptId : "3008",
+        }, {
+            empId:1008,
+            empName : "shekhar",
+            deptId : "3007",
+        }, {
+            empId:1009,
+            empName : "rahul",
+            deptId : "3007",
+        }, {
+            empId:1010,
+            empName : "dravid",
+            deptId : "3001",
+        }]
+    })
+</script>
+</head>
+<body ng-app="myApp">
+    <h1>AngularJs Searching using Filters</h1>
+    <br><br>
+    Enter Employee Name To Search :
+    <input type="text" ng-model="searchByName"/>
+    <br><br>
+    Select Departmet to Search :
+    <select ng-model="searchByDept">
+        <option value="">All</option>
+        <option>3001</option>
+        <option>3005</option>
+        <option>3006</option>
+        <option>3007</option>
+        <option>3008</option>
+    </select>
+    <br><br>
+    <table ng-controller="employeeCotroller" border="2">
+        <tr style="background-color:green">
+            <td>Employee Id</td>
+            <td>Employee Name</td>
+            <td>Department Id</td>
+        </tr>
+        <tr ng-repeat="employee in employees | filter:{’empName’:searchByName,’deptId’:searchByDept}">
+            <td>{{employee.empId }}</td>
+            <td>{{employee.empName }}</td>
+            <td>{{employee.deptId }}</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+__________________________________________________________________________
+
+<!DOCTYPE html>
+<html>
+<script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+        <p>Welcome to AngularJs Services</p>
+
+        <h1>Hello World</h1>
+
+    </div>
+
+    <p>Your Session will be expired, after 60 Sec of inactive.</p>
+
+    <script>
+        var app = angular.module(‘myApp’, []);
+        app.controller(‘myCtrl’, function($scope, $timeout) {
+            $timeout(function() {
+                alert("Your Session is going to expire in 57 Sec..")
+            }, 3000);
+        });
+    </script>
+
+</body>
+</html>
+
+______________________________________________________________
+<html>
+<style>
+#time {
+    color: green;
+}
+
+#message {
+    width: 750px;
+    height: 250px;
+    border: 2px solid green;
+    padding: 5px;
+}
+
+h1 {
+    color: red;
+}
+</style>
+
+<script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+    <div ng-app="myApp" ng-controller="intervalService">
+        <p>
+        <h2 id="time">Read this message with in the time period :
+            {{secs}}</h2>
+        </p>
+        <div id="message">
+            <i> Intervals created by this service must be explicitly
+                destroyed when you are finished with them. In particular they are
+                not automatically destroyed when a controller’s scope or a
+                directive’s element are destroyed. You should take this into
+                consideration and make sure to always cancel the interval at the
+                appropriate moment. See the example below for more details on how
+                and when to do this </i>
+            <div></div>
+            <script>
+                var app = angular.module(‘myApp’, []);
+                app.controller(‘intervalService’, function($scope, $interval) {
+                    $scope.secs = 12;
+                    $scope.theTime = new Date().toLocaleTimeString();
+                    var inter = $interval(function() {
+                        if ($scope.secs > 0 && $scope.secs > 0) {
+                            $scope.secs = $scope.secs – 1;
+
+                        } else {
+                            $scope.stop();
+                        }
+                    }, 1000);
+
+                    $scope.stop = function() {
+
+                        if (angular.isDefined(inter)) {
+                            $interval.cancel(inter);
+                            inter = undefined;
+                            alert("Your Time is up !");
+                        }
+                    };
+                });
+            </script>
+</body>
+</html>
+[/html]
+
+_______________________________________________________________________
+
+[html]
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AngularJs Services Example</title>
+<script
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+    var myApp = angular.module("myApp", []);
+    myApp.directive(‘welcomeDirective’, function() {
+        var obj = {};
+        obj.restrict = ‘E’;
+        obj.template = ‘<h2>Welcome {{sname}} : This is Custom Element Directive</h2>’;
+        return obj;
+    })
+    myApp.controller("myCtrl", function($scope) {
+        $scope.sname = "Chandra Shekhar G";
+    })
+</script>
+
+</head>
+<body ng-app="myApp">
+    <h1>AngularJs Custom Directives Demo</h1>
+    <hr>
+    <div ng-controller="myCtrl">
+        <welcome-directive/>
+    </div>
+</body>
+</html>
+
+_____________________________________________________________________
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AngularJs Services Example</title>
+<script
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+    var myApp = angular.module("myApp", []);
+    myApp.directive(‘welcomeDirective’, function() {
+        var obj = {};
+        obj.restrict = ‘A’;
+        obj.template = ‘<h2>Welcome {{sname}} : This is Custom Directive</h2>’;
+        return obj;
+    })
+    myApp.controller("myCtrl", function($scope) {
+        $scope.sname = "Chandra Shekhar G";
+    })
+</script>
+
+</head>
+<body ng-app="myApp">
+    <h1>AngularJs Custom Directives Demo</h1>
+    <hr>
+    <div ng-controller="myCtrl">
+        <div welcome-directive></div>
+    </div>
+</body>
+</html>
+
+____________________________________________________________________________
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AngularJs Services Example</title>
+<script
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+h2 {
+    background-color: green;
+}
+</style>
+<script>
+    var myApp = angular.module("myApp", []);
+    myApp
+            .directive(
+                    ‘myCustomcss’,
+                    function() {
+                        var obj = {};
+                        obj.restrict = ‘C’;
+                        obj.template = ‘<h2>Welcome {{sname}} : This is Custom Element Directive</h2>’;
+                        return obj;
+                    })
+    myApp.controller("myCtrl", function($scope) {
+        $scope.sname = "Chandra Shekhar G";
+    })
+</script>
+
+</head>
+<body ng-app="myApp">
+    <h1>AngularJs Custom Directives Demo</h1>
+    <hr>
+    <div ng-controller="myCtrl">
+        <div class="my-customcss"></div>
+    </div>
+</body>
+</html>
+
+___________________________________________________________________________
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Creating Object in AngularJs Example</title>
+<script
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module("myApp", []);
+    app.controller("studentCotroller", function($scope) {
+        $scope.student = {
+                sId:1001,
+                sName:"chandra shekhar",
+                sAddress:"Hyderabad",
+                marks:[65,85,68,75,72,97]
+                
+        }
+    })
+</script>
+</head>
+<body ng-app="myApp">
+    <h1>Student Marks List</h1>
+    <table ng-controller="studentCotroller">
+        <tr>
+            <td>StudentId</td>
+            <td>StudentName</td>
+            <td>StudentAddress</td>
+            <td>StudentMarks</td>
+        </tr>
+        <tr>
+            <td>{{student.sId}}</td>
+            <td>{{student.sName}}</td>
+            <td>{{student.sAddress}}</td>
+            <td><ul></ul><li ng-repeat="mark in student.marks">{{mark}}</li></ul></td>
+        </tr>
+    </table>
+</body>
+</html>
+_____________________________________________________________________
+
+<html>
+   <head>
+      <title>Angular JS Custom Directives</title>
+   </head>
+   
+   <body>
+      <h2>AngularJS Sample Application</h2>
+      
+      <div ng-app = "mainApp" ng-controller = "StudentController">
+         <student name = "Mahesh"></student><br/>
+         <student name = "Piyush"></student>
+      </div>
+		
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js">
+      </script>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.directive('student', function() {
+            var directive = {};
+            directive.restrict = 'E';
+            directive.template = "Student: <b>{{student.name}}</b> , 
+               Roll No: <b>{{student.rollno}}</b>";
+            
+            directive.scope = {
+               student : "=name"
+            }
+            directive.compile = function(element, attributes) {
+               element.css("border", "1px solid #cccccc");
+               
+               var linkFunction = function($scope, element, attributes) {
+                  element.html("Student: <b>"+$scope.student.name +"</b> , 
+                     Roll No: <b>"+$scope.student.rollno+"</b><br/>");
+                  element.css("background-color", "#ff00ff");
+               }
+               return linkFunction;
+            }
+            
+            return directive;
+         });
+         mainApp.controller('StudentController', function($scope) {
+            $scope.Mahesh = {};
+            $scope.Mahesh.name = "Mahesh Parashar";
+            $scope.Mahesh.rollno  = 1;
+
+            $scope.Piyush = {};
+            $scope.Piyush.name = "Piyush Parashar";
+            $scope.Piyush.rollno  = 2;
+         });
+      </script>
+      
+   </body>
+</html>
+___________________________________________________________________________
+
+What is AngularJS DOM?
+DOM stands for Document Object Model. AngularJS’s directives are used to bind application data to the attributes of HTML DOM elements. The directives are –
+
+1. ng-disabled –
+It disables the attribute of HTML elements.
+e.g.
+
+<! DOCTYPE html>
+<html>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body>
+<div ng-app="">
+<p>
+<button ng-disabled="disabledbutton">Click Me!</button>
+</p>
+<p>
+<input type="checkbox" ng-model="disabledbutton"/>Disable Button
+</p>
+</div>
+</body>
+</html>
+_____________________________________________________________________
+
+<! DOCTYPE html>
+<html>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body>
+<div ng-app="">
+<input type = "checkbox" ng-model = "showhidebutton">Show Button
+<button ng-show = "showhidebutton">Click Me!</button>
+</div>
+</body>
+</html>
+
+___________________________________________________________________
+
+<!DOCTYPE html>
+<html>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body>
+<div ng-app="">
+<input type = "checkbox" ng-model = "shbutton">Hide Button
+<button ng-hide = "shbutton">Click Me!</button>
+</div>
+</body>
+</html>
+
+__________________________________________________________________
+
+<!DOCTYPE html>
+<html>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body>
+<div ng-app="">
+<p>Total Number of Clicks: {{ ClickCount }}</p>
+<button ng-click = "ClickCount = ClickCount + 1">Click Me!</button>
+</div>
+</body>
+</html>
+
+_______________________________________________________________________
+
+  <html>  
+  
+    <head>  
+        <title>Angular JS Example</title>  
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js">  
+            </script>  
+  
+    </head>  
+  
+    <body>  
+        <h2>AngularJS Custom Directive Example</h2>  
+        <div ng-app="mainApp" ng-controller="MyController">  
+  
+  
+            <userinfouser="pankaj">  
+                </userinfo><br/>  
+                <userinfouser="rahul">  
+                    </userinfo><br/>  
+                    <userinfouser="sandeep">  
+                        </userinfo><br/>  
+                        </div>  
+    </body>  
+  
+  
+  
+    <script>  
+        var myapp = angular.module("mainApp", []);  
+        myapp.directive('userinfo', function()  
+         {  
+            var directive = {};  
+  
+            directive.restrict = 'E';  
+  
+            directive.template = "User : {{user.firstName}} {{user.lastName}} {{user.age}}";  
+  
+            directive.scope =  
+            {  
+                user: "=user"  
+            }  
+  
+            return directive;  
+        });  
+        myapp.controller("MyController", function($scope, $http)  
+         {  
+            $scope.pankaj = {};  
+            $scope.pankaj.firstName = "Pankaj";  
+            $scope.pankaj.lastName = "Choudhary";  
+            $scope.pankaj.age = 21;  
+  
+            $scope.rahul = {};  
+            $scope.rahul.firstName = "Rahul";  
+            $scope.rahul.lastName = "Prajapat";  
+            $scope.rahul.age = 20;  
+  
+            $scope.sandeep = {};  
+            $scope.sandeep.firstName = "Sandeep";  
+            $scope.sandeep.lastName = "Sandeep";  
+            $scope.sandeep.age = 22;  
+        });  
+    </script>  
+  
+  
+    </html>  
+________________________________________________________________
+

@@ -1,0 +1,25 @@
+Commonly used properties
+1. Restrict
+It specify how a directive is implemented in angular app. There are 4 restrict options:
+restrict : ‘A’ – attribute (default one) | <div my-directive></div>
+restrict : ‘C’ – Class | <div class=”my-directive: expression;”></div>
+restrict : ‘E’ – element | <my-directive></my-directive>
+restrict : ‘M’ – Comment | <!– Directive : my-directive expression; –>
+You can also specify multiple restrict like as follows:
+restrict : ‘EC’
+
+2. Scope
+Scope accesses data or methods inside template and link function. By default the directives do not produce their own scope without explicitly set.
+Different types of scopes are able to define which are as follows:
+
+scope : true – Get new scope
+scope : false – Use its parent scope
+scope : {} – Get new isolated scope that doesn’t inherit from parent and exists on its own
+
+The compile() and link() functions
+
+If we want to do something extra in our custom directive then everything is not possible within the HTML template, for this we can use the compile() and link() function. Both methods are used to define how the directive modifies the HTML that matches the directive.
+
+The compile() function used a one time configuration needed of the element containing the directive. The compile() function is called only one time for each occurrence of the directive in the HTML page. The compile() function contains two parameters: element and attributes. The element parameter is a jqLite wrapped DOM element, and the attributes parameter is a JavaScript object containing properties for all the attributes of the DOM element.
+
+The compile() function returns a link function, this link() function is called every time the element is to be bound to data in the $scope object. The link() function takes three parameters: $scope, element, and attributes. The $scope parameter is a normal scope object or an isolated scope if we specified one in the directive definition object. The element and attributes element are same as compile parameters.
