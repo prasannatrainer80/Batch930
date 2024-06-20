@@ -1,0 +1,25 @@
+<p>menu works!</p>
+<a [routerLink]="['/menu',{outlets:{'sonix':['first']}}]">First</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/menu',{outlets:{'sonix':['calc']}}]">Calculation</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/menu',{outlets:{'sonix':['second']}}]">Second</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/menu',{outlets:{'sonix':['third']}}]">Third</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/menu',{outlets:{'sonix':['name']}}]">Name</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<!-- 
+<a [routerLink]="['first']">First</a>
+
+<a [routerLink]="['second']">Second</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['third']">Third</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['name']">Name</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['calc']">Calculation</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<hr/>
+<router-outlet name="sonix"></router-outlet>

@@ -1,0 +1,12 @@
+<p>switch-example1 works!</p>
+Enter Choice : 
+<input type="number" name="choice" [(ngModel)]="choice" />
+<br/><Br/>
+<div [ngSwitch]="choice">
+    <div *ngSwitchCase="1">Selected 1</div>
+    <div *ngSwitchCase="2">Selected 2</div>
+    <div *ngSwitchCase="3">Selected 3</div>
+    <div *ngSwitchCase="4">Selected 4</div>
+    <div *ngSwitchCase="5">Selected 5</div>
+    <div *ngSwitchDefault>Invalid Option</div>
+</div>

@@ -1,0 +1,9 @@
+<p>condition2 works!</p>
+Enter a Number : 
+<input type="number" name="no" [(ngModel)]="no" />
+<div *ngIf="no < 0;else elseBlock">
+    <p>Negative Number...</p>
+</div>
+<ng-template #elseBlock>
+    <p>Positive Number...</p>
+</ng-template>
