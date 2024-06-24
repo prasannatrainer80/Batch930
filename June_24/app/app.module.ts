@@ -1,0 +1,35 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { EmployFormComponent } from './employ-form/employ-form.component';
+import { MenuFormComponent } from './menu-form/menu-form.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes : Routes = [
+  {path:'',component:LoginFormComponent},
+  {path:'menu',component:MenuFormComponent},
+  {path:'menu',component:MenuFormComponent, children : [
+    {path:'employForm',component:EmployFormComponent,outlet:'sonix'}
+  ]}
+]
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginFormComponent,
+    EmployFormComponent,
+    MenuFormComponent
+  ],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
