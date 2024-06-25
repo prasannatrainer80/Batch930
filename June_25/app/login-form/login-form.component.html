@@ -1,0 +1,21 @@
+<p>login-form works!</p>
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    User Name : 
+    <input type="text" name="userName" [(ngModel)]="userName" required />
+    <br/><br/>
+    <div *ngIf="loginForm.submitted && !isFormSubmitted">
+        <p style="color: red;">
+            Please Enter UserName
+        </p>
+    </div>
+    <br/>
+    Password : 
+    <input type="password" name="passWord" [(ngModel)]="passWord" required />
+    <br/><br/>
+    <div *ngIf="loginForm.submitted && !isFormSubmitted">
+        <p style="color: red;">
+            Please Enter Password
+        </p>
+    </div>
+    <input type="submit" value="Login" />
+</form>
