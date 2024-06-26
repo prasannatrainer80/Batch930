@@ -1,0 +1,47 @@
+1) What is object oriented programming
+
+2) What are OOPS features
+
+3) JDK Architecure
+
+4) What are access modifiers in java
+
+5) What is package in java
+
+6) What are data types in java
+
+7) Explain about arrays concept in details
+
+8) What is method overloading
+
+9) What is constructors
+
+10) Explain about static block and static variables in detail
+
+11) What is inheritance
+
+12) What is super keyword
+
+13) What is abstract class
+
+14) What is interface
+
+15) Difference between abstract class and interface
+
+16) What is marker interface
+
+17) Difference between IS-A and HAS-A relation (explain with program)
+
+18) What is default methods in java
+
+19) Explain about foreach method in java
+
+20) What is lambda expression explain with program. 
+
+__________________________________________________________________________________________________________________________________________
+
+
+1) Implement your own program for method overriding
+
+2) Explain program for Object class and override toString(), equals(), hashCode() methods
+
