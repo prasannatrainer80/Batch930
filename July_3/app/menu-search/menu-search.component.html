@@ -1,0 +1,11 @@
+<p>menu-search works!</p>
+Menu Id : 
+<input type="number" name="id" [(ngModel)]="id" /> 
+<br/><br/>
+<input type="button" value="Show" (click)="searchMenu()" />
+Menu id : <b> {{menu.menId}} </b>
+<br/>
+Menu Item : <b> {{menu.menItem}}</b> <br/>
+Menu Price : <b>{{menu.menPrice}}</b> <br/>
+Calories : <b> {{menu.menCalories}}</b> <br/>
+Speciality : <b> {{menu.menSpeciality}}</b>

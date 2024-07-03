@@ -1,0 +1,13 @@
+<p>menu works!</p>
+<a [routerLink]="['/menu',{outlets:{'sonix':['userShow']}}]">User Show</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/menu',{outlets:{'sonix':['userSearch']}}]">User Search</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/menu',{outlets:{'sonix':['customerShow']}}]">Customer Show</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/menu',{outlets:{'sonix':['menuShow']}}]">Menu Show</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/menu',{outlets:{'sonix':['menuSearch']}}]">Menu Search</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<hr/>
+<router-outlet name="sonix"></router-outlet>

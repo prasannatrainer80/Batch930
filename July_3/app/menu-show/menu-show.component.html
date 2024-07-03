@@ -1,0 +1,17 @@
+<p>menu-show works!</p>
+<table border="3" align="center">
+    <tr>
+        <th>Menu Id</th>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Calories</th>
+        <th>Speciality</th>
+    </tr>
+    <tr *ngFor="let m of menus">
+        <td>{{m.menId}}</td>
+        <td>{{m.menItem}}</td>
+        <td>{{m.menPrice}}</td>
+        <td>{{m.menCalories}}</td>
+        <td>{{m.menSpeciality}}</td>
+    </tr>
+</table>
