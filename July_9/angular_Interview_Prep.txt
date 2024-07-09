@@ -1,0 +1,213 @@
+1) What is Angular 
+
+	Angular is a framework that which allows you to create any standalone,desktop and distributed applications. 
+
+If you want to make any single page applications, then angular is best. 
+
+2) What is Single Page Applciation
+
+An application that which interacts with user by dynamically rewriting the current page rather than loading entire new pages
+from server, which is known as partial page rendering
+
+3) What are elements of angular
+
+ 	-> Modules
+
+	-> Components
+
+	-> Templates
+
+	-> Directives
+
+	-> Pipes
+
+	-> Services 
+
+	=> Routing
+
+4) What is module 
+
+Module is a place where we can refer group of components, directives, pipes, and services. Each angular application contains atleast one module and module will be decorated with annotation known as @NgModule
+
+
+In Angular by default we have a file called app.module.ts file which is known as module file. 
+
+This file contains various sections known as 
+
+1) Declarations : Contains group of custom components available 
+
+2) Imports  : Any system directives to be imported, then we need imports Example : FormsModule, HttpClientModule, 
+
+3) providers : Contains list of user defined services available.
+
+4) bootstrap : Which component to be started will be there in bootstrap. 
+
+5) What is Component
+
+Components are heart w.r.t. Coding... Any kind of code we need to write in component and call them in the given application.  
+
+You can create any component as 
+
+ng g c component_name
+
+Once component created, it generates 4 files known as
+
+component.html
+component.ts
+component.css
+component.spec.ts
+
+
+html contains all databinding code
+ts file contains all business logic
+css for design
+spec.ts file contains any test cases
+
+
+DataBinding : Used to bind values/properties/events to the given component.
+
+Angular supports two-way binding, means model to view and view to model any modifications be taken affected automatically 
+
+For two-way binding, we need to import FormsModule in app.module.ts file, and use [(ngModel)] directive for this. 
+
+For event binding we need to use (click) ->
+
+Angular stores all dependencies in package.json file. as it is heart and registers all the dependency version numbers etc...
+
+For printing data, we have interpolation {{ }} for display any values.
+
+*ngIf
+
+*ngFor
+
+*ngSwitch
+
+Services : 
+___________
+
+What is Angular HTTP Service : 
+
+Angular contains Http Services, which allows you to consume restful apis in angular application. 
+
+For this first, we need to add HttpClientModule to the imports section of app.module.ts file that enables HttpServices in your application. 
+
+What is Dependency Injection : 
+
+It is a coding design pattern, in which a class receives its dependencies from external resources rather than creating themself. 
+
+Example : 
+
+the code without DI
+
+employ : Employ;
+
+constructor(
+   this.employ = new Employ();
+)
+
+the code with DI
+
+constructor(employ) {
+	this.employ = employ;
+}
+
+
+Example : 
+
+in service, we wrote 
+
+constructor(private _httpClient : HttpClient) {
+}
+
+then it allocated memory for HttpClient that is called DI
+
+in component we wrote as
+
+
+constructor(private _employService : EmployService) {
+...
+...
+...
+}
+
+How the HTTP Mechansim will work
+
+At first, using any programming language, we need to consume database records in json format and generate url. Example 
+
+http://jsonplaceholder.typicode.com/users
+
+Now this service we need to consume in angular and render this in angular form. 
+
+For this we have various angular services as
+
+get  -> Used to get any resoures (select command) 
+
+ validateCustomer(user : string, pwd : string) : Observable<any> {
+    return this._httpClient.get("http://localhost:1111/custAuthenticate/"+user+"/"+pwd);
+  }
+
+post : Used to for inserting data into database 
+
+
+put  : used for insert/update operations 
+
+delete : Used for delete operation.
+
+What is Observables : 
+
+If you want to capture values from the service we need the help of observables. 
+
+Why we prefer observables are, they are powerful and we can process them asynchronously 
+
+Observables can be cancellable. 
+
+The data in observables will be stored in HttpResonse format. 
+
+We need to capture data by using subscribe method in angular components. 
+
+subscribe method converts http observable response into class objects or specific string or etc...
+
+Most Front-end applciations will communicate with backend services over the HTTP protocol using XMLHttpRequest interface. The HttpClient in @angular/common/http offers a simple Http Client API for angular applications where data can be exposed to outside world. 
+
+Steps to be followed : 
+
+1) Add HttpClientModule in app.module.ts imports with header file @angular/common/http
+
+2) Create a service and in service file constructor create an object to HttpClientModule
+
+		constructor(private _httpClient :HttpClient) { }
+
+3) Consume the services using HttpGet or HttpPost 
+
+Get for retrieve resources, Post for insert data into DB
+
+4) Create a component and in that component invoke the services  
+
+5) Render the result in HTML page. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
