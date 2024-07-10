@@ -1,0 +1,59 @@
+What is Angular 16 
+
+     Angular 16 introduces the signal pattern, similar to push/pull pattern. This pattern allows you to retrieve values (pull) and update them (push) 
+synchronously.  Signals always have a value that increases the performance of Angular's change detection mechanism. 
+
+Faster Builds with Developer preview
+
+	Angular CLI new bulders based on esBuild promise significally reduces the build time, as these components are independenc
+as anything to be loaded for component separately. How to achieve standalone component, we need to specify 
+standalone : 'yes' 
+
+
+
+Standalone Components : 
+
+	Angular 16 purely works on standalone components 
+
+What is new in Angular 16
+
+Changes in Angular 16
+
+_______________________________________________________
+
+What is Standalone components in angular 16/17
+
+Standalone components provides developers with a way to create reusable, encapsulated components that can be easily shared across multiple angular applications.  You can make any standalone components in angular as
+
+ng g c component_name --standalone
+
+then the component will be created with following options 
+
+  selector: 'app-first',
+  standalone: true,
+  imports: [],
+  template: `
+    <p>
+      first works!
+    </p>
+    <p>
+      This is my First Ang 16/17 component
+    </p>
+  `,
+  styleUrl: './first.component.css'
+
+
+These components are designed to be self-contained, meaning they have their own dependencies, styles, and functionality, making them independent of application they are used in. 
+
+Standalone components will exist and function independently, making them highly versatile and portable.  This independence allows developers to create components that can be used across diff projects or even shared with angular community. 
+
+Pros : 
+_______
+
+   Reusability : Standalone components promote code reuse by encapsulating functionality into self-contained units. Once created, these components can be easily reused across different projects, reducing duplication of code and development time. 
+
+   Portability : Standalone components are independent of any specific angular application, they can be easily shared and distributed.  Developers can package these components as libraries and distribute hem via packages managers like npm, etc...
+
+   Simplified Maintenance : By encapsulating functionality into standalone units, developers can better manage and maintain their codebase. 
+
+   Enhanced Testing : They can be easily tested w.r.t. different testing strategies 
