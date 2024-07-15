@@ -1,0 +1,30 @@
+th{
+  margin: 0 4px ;
+  float: right;
+
+}
+
+fieldset{
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+    border-image: initial;
+}
+fieldset, legend {
+   all: revert;
+}
+
+.btn-add-service{
+  margin: 5px 0px;
+  border-radius: 20px;
+  color: #fff;
+}
+

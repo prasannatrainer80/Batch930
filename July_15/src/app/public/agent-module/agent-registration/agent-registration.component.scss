@@ -1,0 +1,108 @@
+.section-margin{
+    margin: 110px 30px !important;
+    .card{
+        padding: 1.2rem;
+    }
+}
+.agents-title-txt-clr{
+    color: #005588;
+}
+.lap-ic-clr {
+    color: #33A0DE;
+}
+.flex-center-items{
+    display: flex;
+    align-items: center !important;
+}
+
+.card{
+  background: rgb(245,245,255);
+  background: linear-gradient(30deg, rgba(245,245,255,1) 0%, rgba(235,251,255,0.14058123249299714) 70%, rgba(213,219,218,0.2274159663865546) 100%);
+}
+.header-text {
+  padding: 0 10px;
+  font-weight: bold;
+  color: #546116;
+
+}
+.listViewtable {
+    width: 100%;
+    tr {
+        text-align: center;
+        td {
+            padding: 5px 1px;
+            font-size: 14px;
+            width: 50%;
+            &:first-child {
+                text-align: right;
+                font-weight: 500;
+                // width: 40%;
+                padding: 5px 20px 1px 20px;
+            }
+
+            &:last-child {
+                text-align: left;
+                width: 60%;
+            }
+        }
+    }
+}
+.checkBox-txt-color{
+  color: #006699;
+  .material-symbols-outlined{
+    color: #4D82D8;
+  }
+}
+.agency-status{
+  .material-symbols-outlined{
+    color: #4D82D8;
+  }
+  div{
+    padding: 5px;
+  }
+  span{
+    color: #006699;
+  }
+}
+.noDataTable{
+    div{
+        margin: 0;
+        display: flex;
+        align-items: center !important;
+        padding: 6px;
+        width: fit-content;
+    }
+    .empty-caption{
+        font-size: 12px;
+        font-style: italic;
+        color: grey;
+    }
+    .empty-data{
+        font-size: 14px;
+        color: #CC0000;
+        background-color: #FFF5EB;
+        border: 1px dotted #FFB4A0;
+        border-radius: 0;
+    }
+}
+#btn-agent-reg{
+  margin-top: 50px;
+  button{
+    color: #000000;
+    background-color: #CAE3F1;
+    margin:0px 10px 10px 5px;
+    padding: 10px 15px;
+    font-size: 22px;
+    border: 1px dotted #6699CC;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color: #a8d7f2;
+  }
+}
+
+.ref-header{
+  padding: 20px 10px;
+  background-color: #fff;
+}

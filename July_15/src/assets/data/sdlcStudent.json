@@ -1,0 +1,4682 @@
+[
+  {
+    "id": "001",
+    "code": "E240000100001",
+    "title": "mr ",
+    "firstname": "firstName 001",
+    "middlename": "middle 001",
+    "lastname": "LastName 001",
+    "nickname": "Nock 001",
+    "emailid": "testing001@gmail.com",
+    "createtime": "04/20/2024 07:13:06",
+    "updatetime": "04/20/2024 07:13:06",
+    "mobileno": "655 6564 001",
+    "approvedon": "04/20/2023 07:13:06",
+    "status": "1",
+    "gender": "M",
+    "dob": "02/01/1993 00:00:00",
+    "countrybirth": "AUS",
+    "nationality": "AUS",
+    "passportno": "Ap123yu789",
+    "passportexpirydate": "04/20/2044 07:13:06",
+    "visatype": "Domestic",
+    "alternameemail": "alter 001 @gmail.com",
+    "origin": "OS",
+    "firstlanguage": "eng 001",
+    "englishlanginclass": "eng 001",
+    "englishtesttype": "eng 001",
+    "englishtestscore": "40%",
+    "engilshtestdate": "04/20/2024 07:13:07",
+    "knowfrom": "youtube 001",
+    "workflowstatus": "1",
+    "studentid": "001343 001",
+    "visanumber": "fr5tgy67 001",
+    "visaexpirydate": "04/20/2034 07:13:06",
+    "idgenerationtime": "05/20/2024 07:13:06",
+    "approvedby": "Approve 001",
+    "idgeneratedby": "igen 001",
+    "coursecode": "123456 001",
+    "collegecode": "zgamipdik8vuft5br65p 001",
+    "agentid": "500 001",
+    "agentcode": "5000121 001",
+    "intakecode": "lZzu9E",
+    "studentCources": [
+      {
+        "enrolled": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "2",
+            "PaymentDetails": "Done",
+            "Courses": [
+              {
+                "Course_Name": "management of data structres",
+                "Course_Code": "mds",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "05/20/2025 07:13:06",
+                "Duration": "365 ",
+                "Attendance": "60",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "data",
+                    "subCode": "data_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": "90",
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Javascript",
+                "Course_Code": "js",
+                "Starting_date": "03/20/2024 07:13:06",
+                "Ending_date": "07/20/2024 07:13:06",
+                "Duration": "120 ",
+                "Attendance": "75",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "currying",
+                    "subCode": "currying_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "throttling",
+                    "subCode": "throttling_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "Vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "10",
+            "PaymentDetails": "Done",
+            "Courses": [
+              {
+                "Course_Name": "COURSE 1",
+                "Course_Code": "C1_Code",
+                "Starting_date": "DATE here",
+                "Ending_date": "DATE here",
+                "Duration": "300 ",
+                "Attendance": "80 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "sub1",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "sub2",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 70
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 60
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 90
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "COURSE 2",
+                "Course_Code": "C1_Code",
+                "Starting_date": "DATE here",
+                "Ending_date": "DATE here",
+                "Duration": "300 ",
+                "Attendance": "79 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "sub1",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "sub2",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "current": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "JAVA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "50",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "ABC",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "95 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "completed": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "XYZ",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "95 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "XYZ",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "65",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "studentFiles": [
+      {
+        "studentcode": "E24000010 001",
+        "offerdoccode": "2tcko0qcnpw6z04c9bjg",
+        "filecode": "9b420329-b8e5-4bad-8e4d-d96698b1bee2",
+        "status": "1",
+        "createtime": "01/24/2024 16:32:37",
+        "updatetime": "02/20/2024 09:58:46"
+      },
+      {
+        "studentcode": "E240000100003",
+        "offerdoccode": "2tcko0qcnpw6z04c9bjh",
+        "filecode": "9b420329-b8e5-4bad-8e4d-d96698b1bee2",
+        "status": "1",
+        "createtime": "01/24/2022 16:32:37",
+        "updatetime": "02/20/2022 09:58:46"
+      }
+    ],
+    "studentAttendence": [
+      {
+        "date": "2018-02-11T14:22:18Z",
+        "check_in": "09:38 AM",
+        "break": "31 mins",
+        "check_out": "17:33 PM",
+        "hours": "09h:11 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2019-02-25T14:22:18Z",
+        "check_in": "09:35 AM",
+        "break": "37 mins",
+        "check_out": "17:25 PM",
+        "hours": "09h:36 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2017-02-11T14:22:18Z",
+        "check_in": "09:38 AM",
+        "break": "31 mins",
+        "check_out": "17:33 PM",
+        "hours": "09h:11 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2016-02-25T14:22:18Z",
+        "check_in": "09:35 AM",
+        "break": "40 mins",
+        "check_out": "17:25 PM",
+        "hours": "09h:36 mins",
+        "percentage": ""
+      }
+    ],
+    "StudentEmergencyDetails": {
+      "img": "assets/images/user/usrbig 001.jpg",
+      "name": "Sarah Smith",
+      "age": 22,
+      "bloodGroup": "O+",
+      "ParentsContact1": 9090908909,
+      "ParentsContact2": 9090908908,
+      "email": "test 001 @email.com",
+      "mobile": "1234567890",
+      "birthDate": "1985-04-14T14:22:18Z",
+      "address": "Celeste Slater 606-3727 Ullamcorper. Street Roseville NH 11523",
+      "description": "description of the emergency contact"
+    },
+    "StudentOverallPaymentDetails": {
+      "semrelated": "all completed",
+      "courcerelated": "Pending",
+      "TotalFee": 1000,
+      "PaidFee": 500,
+      "PendFee": 500
+    },
+    "StudentOverLibraryDetails": [
+      {
+        "no": "B123451",
+        "title": "Web Programming",
+        "subject": "mathematics",
+        "date": "2019-02-25T14:22:18Z",
+        "department": "civil",
+        "type": "news paper",
+        "returnDt": ""
+      },
+      {
+        "no": "B123452",
+        "title": "java Black Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "sprib Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "Angulark Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "React ",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      }
+    ]
+  },
+  {
+    "id": "002",
+    "code": "E240000200002",
+    "title": "mr ",
+    "firstname": "firstName 002",
+    "middlename": "middle 002",
+    "lastname": "LastName 002",
+    "nickname": "Nock 002",
+    "emailid": "testing001@gmail.com",
+    "createtime": "04/20/2024 07:13:06",
+    "updatetime": "04/20/2024 07:13:06",
+    "mobileno": "655 6564 001",
+    "approvedon": "04/20/2023 07:13:06",
+    "status": "1",
+    "gender": "M",
+    "dob": "02/01/1993 00:00:00",
+    "countrybirth": "AUS",
+    "nationality": "AUS",
+    "passportno": "Ap123yu789",
+    "passportexpirydate": "04/20/2044 07:13:06",
+    "visatype": "Domestic",
+    "alternameemail": "alter 001 @gmail.com",
+    "origin": "OS",
+    "firstlanguage": "eng 001",
+    "englishlanginclass": "eng 001",
+    "englishtesttype": "eng 001",
+    "englishtestscore": "40%",
+    "engilshtestdate": "04/20/2024 07:13:07",
+    "knowfrom": "youtube 001",
+    "workflowstatus": "1",
+    "studentid": "001343 001",
+    "visanumber": "fr5tgy67 001",
+    "visaexpirydate": "04/20/2034 07:13:06",
+    "idgenerationtime": "05/20/2024 07:13:06",
+    "approvedby": "Approve 001",
+    "idgeneratedby": "igen 001",
+    "coursecode": "123456 001",
+    "collegecode": "zgamipdik8vuft5br65p 001",
+    "agentid": "500 001",
+    "agentcode": "5000121 001",
+    "intakecode": "lZzu9E",
+    "studentCources": [
+      {
+        "enrolled": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "2",
+            "PaymentDetails": "Done",
+            "Courses": [
+              {
+                "Course_Name": "management of data structres",
+                "Course_Code": "mds",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "05/20/2025 07:13:06",
+                "Duration": "365 ",
+                "Attendance": "79",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "data",
+                    "subCode": "data_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": "90",
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Javascript",
+                "Course_Code": "js",
+                "Starting_date": "03/20/2024 07:13:06",
+                "Ending_date": "07/20/2024 07:13:06",
+                "Duration": "120 ",
+                "Attendance": "100 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "currying",
+                    "subCode": "currying_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "throttling",
+                    "subCode": "throttling_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "Vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "10",
+            "PaymentDetails": "Done",
+            "Courses": [
+              {
+                "Course_Name": "COURSE 1",
+                "Course_Code": "C1_Code",
+                "Starting_date": "DATE here",
+                "Ending_date": "DATE here",
+                "Duration": "300 ",
+                "Attendance": "52",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "sub1",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "sub2",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 70
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 60
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 90
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "COURSE 2",
+                "Course_Code": "C1_Code",
+                "Starting_date": "DATE here",
+                "Ending_date": "DATE here",
+                "Duration": "300 ",
+                "Attendance": "80",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "sub1",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "sub2",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "current": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "JAVA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "85 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "JAVA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "60 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "completed": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "JAVA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "100 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "95 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "studentFiles": [
+      {
+        "studentcode": "E24000010 001",
+        "offerdoccode": "2tcko0qcnpw6z04c9bjg",
+        "filecode": "9b420329-b8e5-4bad-8e4d-d96698b1bee2",
+        "status": "1",
+        "createtime": "01/24/2024 16:32:37",
+        "updatetime": "02/20/2024 09:58:46"
+      },
+      {
+        "studentcode": "E240000100003",
+        "offerdoccode": "2tcko0qcnpw6z04c9bjh",
+        "filecode": "9b420329-b8e5-4bad-8e4d-d96698b1bee2",
+        "status": "1",
+        "createtime": "01/24/2022 16:32:37",
+        "updatetime": "02/20/2022 09:58:46"
+      }
+    ],
+    "studentAttendence": [
+      {
+        "date": "2018-02-11T14:22:18Z",
+        "check_in": "09:38 AM",
+        "break": "31 mins",
+        "check_out": "17:33 PM",
+        "hours": "09h:11 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2019-02-25T14:22:18Z",
+        "check_in": "09:35 AM",
+        "break": "37 mins",
+        "check_out": "17:25 PM",
+        "hours": "09h:36 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2017-02-11T14:22:18Z",
+        "check_in": "09:38 AM",
+        "break": "31 mins",
+        "check_out": "17:33 PM",
+        "hours": "09h:11 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2016-02-25T14:22:18Z",
+        "check_in": "09:35 AM",
+        "break": "40 mins",
+        "check_out": "17:25 PM",
+        "hours": "09h:36 mins",
+        "percentage": ""
+      }
+    ],
+    "StudentEmergencyDetails": {
+      "img": "assets/images/user/usrbig 001.jpg",
+      "name": "Sarah Smith",
+      "age": 22,
+      "bloodGroup": "O+",
+      "ParentsContact1": 9090908909,
+      "ParentsContact2": 9090908908,
+      "email": "test 001 @email.com",
+      "mobile": "1234567890",
+      "birthDate": "1985-04-14T14:22:18Z",
+      "address": "Celeste Slater 606-3727 Ullamcorper. Street Roseville NH 11523",
+      "description": "description of the emergency contact"
+    },
+    "StudentOverallPaymentDetails": {
+      "semrelated": "all completed",
+      "courcerelated": "Pending",
+      "TotalFee": 1000,
+      "PaidFee": 500,
+      "PendFee": 500
+    },
+    "StudentOverLibraryDetails": [
+      {
+        "no": "B123451",
+        "title": "Web Programming",
+        "subject": "mathematics",
+        "date": "2019-02-25T14:22:18Z",
+        "department": "civil",
+        "type": "news paper",
+        "returnDt": ""
+      },
+      {
+        "no": "B123452",
+        "title": "java Black Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "sprib Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "Angulark Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "React ",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      }
+    ]
+  },
+  {
+    "id": "003",
+    "code": "E240000300003",
+    "title": "mr ",
+    "firstname": "firstName 003",
+    "middlename": "middle 003",
+    "lastname": "LastName 003",
+    "nickname": "Nock 003",
+    "emailid": "testing001@gmail.com",
+    "createtime": "04/20/2024 07:13:06",
+    "updatetime": "04/20/2024 07:13:06",
+    "mobileno": "655 6564 001",
+    "approvedon": "04/20/2023 07:13:06",
+    "status": "1",
+    "gender": "M",
+    "dob": "02/01/1993 00:00:00",
+    "countrybirth": "AUS",
+    "nationality": "AUS",
+    "passportno": "Ap123yu789",
+    "passportexpirydate": "04/20/2044 07:13:06",
+    "visatype": "Domestic",
+    "alternameemail": "alter 001 @gmail.com",
+    "origin": "OS",
+    "firstlanguage": "eng 001",
+    "englishlanginclass": "eng 001",
+    "englishtesttype": "eng 001",
+    "englishtestscore": "40%",
+    "engilshtestdate": "04/20/2024 07:13:07",
+    "knowfrom": "youtube 001",
+    "workflowstatus": "1",
+    "studentid": "001343 001",
+    "visanumber": "fr5tgy67 001",
+    "visaexpirydate": "04/20/2034 07:13:06",
+    "idgenerationtime": "05/20/2024 07:13:06",
+    "approvedby": "Approve 001",
+    "idgeneratedby": "igen 001",
+    "coursecode": "123456 001",
+    "collegecode": "zgamipdik8vuft5br65p 001",
+    "agentid": "500 001",
+    "agentcode": "5000121 001",
+    "intakecode": "lZzu9E",
+    "studentCources": [
+      {
+        "enrolled": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "2",
+            "PaymentDetails": "Done",
+            "Courses": [
+              {
+                "Course_Name": "management of data structres",
+                "Course_Code": "mds",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "05/20/2025 07:13:06",
+                "Duration": "365 ",
+                "Attendance": "90 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "data",
+                    "subCode": "data_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": "90",
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Javascript",
+                "Course_Code": "js",
+                "Starting_date": "03/20/2024 07:13:06",
+                "Ending_date": "07/20/2024 07:13:06",
+                "Duration": "120 ",
+                "Attendance": "100 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "currying",
+                    "subCode": "currying_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "throttling",
+                    "subCode": "throttling_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "Vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "10",
+            "PaymentDetails": "Done",
+            "Courses": [
+              {
+                "Course_Name": "COURSE 1",
+                "Course_Code": "C1_Code",
+                "Starting_date": "DATE here",
+                "Ending_date": "DATE here",
+                "Duration": "300 ",
+                "Attendance": "85 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "sub1",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "sub2",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 70
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 60
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 90
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "COURSE 2",
+                "Course_Code": "C1_Code",
+                "Starting_date": "DATE here",
+                "Ending_date": "DATE here",
+                "Duration": "300 ",
+                "Attendance": "96 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "sub1",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "sub2",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "current": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "75 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "79 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "53",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "87 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "completed": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "JAVA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "90",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "88 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "43",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "78",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "studentFiles": [
+      {
+        "studentcode": "E24000010 001",
+        "offerdoccode": "2tcko0qcnpw6z04c9bjg",
+        "filecode": "9b420329-b8e5-4bad-8e4d-d96698b1bee2",
+        "status": "1",
+        "createtime": "01/24/2024 16:32:37",
+        "updatetime": "02/20/2024 09:58:46"
+      },
+      {
+        "studentcode": "E240000100003",
+        "offerdoccode": "2tcko0qcnpw6z04c9bjh",
+        "filecode": "9b420329-b8e5-4bad-8e4d-d96698b1bee2",
+        "status": "1",
+        "createtime": "01/24/2022 16:32:37",
+        "updatetime": "02/20/2022 09:58:46"
+      }
+    ],
+    "studentAttendence": [
+      {
+        "date": "2018-02-11T14:22:18Z",
+        "check_in": "09:38 AM",
+        "break": "31 mins",
+        "check_out": "17:33 PM",
+        "hours": "09h:11 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2019-02-25T14:22:18Z",
+        "check_in": "09:35 AM",
+        "break": "37 mins",
+        "check_out": "17:25 PM",
+        "hours": "09h:36 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2017-02-11T14:22:18Z",
+        "check_in": "09:38 AM",
+        "break": "31 mins",
+        "check_out": "17:33 PM",
+        "hours": "09h:11 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2016-02-25T14:22:18Z",
+        "check_in": "09:35 AM",
+        "break": "40 mins",
+        "check_out": "17:25 PM",
+        "hours": "09h:36 mins",
+        "percentage": ""
+      }
+    ],
+    "StudentEmergencyDetails": {
+      "img": "assets/images/user/usrbig 001.jpg",
+      "name": "Sarah Smith",
+      "age": 22,
+      "bloodGroup": "O+",
+      "ParentsContact1": 9090908909,
+      "ParentsContact2": 9090908908,
+      "email": "test 001 @email.com",
+      "mobile": "1234567890",
+      "birthDate": "1985-04-14T14:22:18Z",
+      "address": "Celeste Slater 606-3727 Ullamcorper. Street Roseville NH 11523",
+      "description": "description of the emergency contact"
+    },
+    "StudentOverallPaymentDetails": {
+      "semrelated": "all completed",
+      "courcerelated": "Pending",
+      "TotalFee": 1000,
+      "PaidFee": 500,
+      "PendFee": 500
+    },
+    "StudentOverLibraryDetails": [
+      {
+        "no": "B123451",
+        "title": "Web Programming",
+        "subject": "mathematics",
+        "date": "2019-02-25T14:22:18Z",
+        "department": "civil",
+        "type": "news paper",
+        "returnDt": ""
+      },
+      {
+        "no": "B123452",
+        "title": "java Black Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "sprib Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "Angulark Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "React ",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      }
+    ]
+  },
+  {
+    "id": "004",
+    "code": "E240000400004",
+    "title": "mr ",
+    "firstname": "firstName 004",
+    "middlename": "middle 004",
+    "lastname": "LastName 004",
+    "nickname": "Nock 004",
+    "emailid": "testing001@gmail.com",
+    "createtime": "04/20/2024 07:13:06",
+    "updatetime": "04/20/2024 07:13:06",
+    "mobileno": "655 6564 001",
+    "approvedon": "04/20/2023 07:13:06",
+    "status": "1",
+    "gender": "M",
+    "dob": "02/01/1993 00:00:00",
+    "countrybirth": "AUS",
+    "nationality": "AUS",
+    "passportno": "Ap123yu789",
+    "passportexpirydate": "04/20/2044 07:13:06",
+    "visatype": "Domestic",
+    "alternameemail": "alter 001 @gmail.com",
+    "origin": "OS",
+    "firstlanguage": "eng 001",
+    "englishlanginclass": "eng 001",
+    "englishtesttype": "eng 001",
+    "englishtestscore": "40%",
+    "engilshtestdate": "04/20/2024 07:13:07",
+    "knowfrom": "youtube 001",
+    "workflowstatus": "1",
+    "studentid": "001343 001",
+    "visanumber": "fr5tgy67 001",
+    "visaexpirydate": "04/20/2034 07:13:06",
+    "idgenerationtime": "05/20/2024 07:13:06",
+    "approvedby": "Approve 001",
+    "idgeneratedby": "igen 001",
+    "coursecode": "123456 001",
+    "collegecode": "zgamipdik8vuft5br65p 001",
+    "agentid": "500 001",
+    "agentcode": "5000121 001",
+    "intakecode": "lZzu9E",
+    "studentCources": [
+      {
+        "enrolled": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "2",
+            "PaymentDetails": "Done",
+            "Courses": [
+              {
+                "Course_Name": "management of data structres",
+                "Course_Code": "mds",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "05/20/2025 07:13:06",
+                "Duration": "365 ",
+                "Attendance": "70",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "data",
+                    "subCode": "data_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": "90",
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Javascript",
+                "Course_Code": "js",
+                "Starting_date": "03/20/2024 07:13:06",
+                "Ending_date": "07/20/2024 07:13:06",
+                "Duration": "120 ",
+                "Attendance": "100 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "currying",
+                    "subCode": "currying_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "throttling",
+                    "subCode": "throttling_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "Vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "10",
+            "PaymentDetails": "Done",
+            "Courses": [
+              {
+                "Course_Name": "COURSE 1",
+                "Course_Code": "C1_Code",
+                "Starting_date": "DATE here",
+                "Ending_date": "DATE here",
+                "Duration": "300 ",
+                "Attendance": "75",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "sub1",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "sub2",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 70
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 60
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 90
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "COURSE 2",
+                "Course_Code": "C1_Code",
+                "Starting_date": "DATE here",
+                "Ending_date": "DATE here",
+                "Duration": "300 ",
+                "Attendance": "62",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "sub1",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "sub2",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "current": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "ABC",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "100",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "ABC",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "100",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "completed": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "60 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "82",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "81 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "studentFiles": [
+      {
+        "studentcode": "E24000010 001",
+        "offerdoccode": "2tcko0qcnpw6z04c9bjg",
+        "filecode": "9b420329-b8e5-4bad-8e4d-d96698b1bee2",
+        "status": "1",
+        "createtime": "01/24/2024 16:32:37",
+        "updatetime": "02/20/2024 09:58:46"
+      },
+      {
+        "studentcode": "E240000100003",
+        "offerdoccode": "2tcko0qcnpw6z04c9bjh",
+        "filecode": "9b420329-b8e5-4bad-8e4d-d96698b1bee2",
+        "status": "1",
+        "createtime": "01/24/2022 16:32:37",
+        "updatetime": "02/20/2022 09:58:46"
+      }
+    ],
+    "studentAttendence": [
+      {
+        "date": "2018-02-11T14:22:18Z",
+        "check_in": "09:38 AM",
+        "break": "31 mins",
+        "check_out": "17:33 PM",
+        "hours": "09h:11 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2019-02-25T14:22:18Z",
+        "check_in": "09:35 AM",
+        "break": "37 mins",
+        "check_out": "17:25 PM",
+        "hours": "09h:36 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2017-02-11T14:22:18Z",
+        "check_in": "09:38 AM",
+        "break": "31 mins",
+        "check_out": "17:33 PM",
+        "hours": "09h:11 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2016-02-25T14:22:18Z",
+        "check_in": "09:35 AM",
+        "break": "40 mins",
+        "check_out": "17:25 PM",
+        "hours": "09h:36 mins",
+        "percentage": ""
+      }
+    ],
+    "StudentEmergencyDetails": {
+      "img": "assets/images/user/usrbig 001.jpg",
+      "name": "Sarah Smith",
+      "age": 22,
+      "bloodGroup": "O+",
+      "ParentsContact1": 9090908909,
+      "ParentsContact2": 9090908908,
+      "email": "test 001 @email.com",
+      "mobile": "1234567890",
+      "birthDate": "1985-04-14T14:22:18Z",
+      "address": "Celeste Slater 606-3727 Ullamcorper. Street Roseville NH 11523",
+      "description": "description of the emergency contact"
+    },
+    "StudentOverallPaymentDetails": {
+      "semrelated": "all completed",
+      "courcerelated": "Pending",
+      "TotalFee": 1000,
+      "PaidFee": 500,
+      "PendFee": 500
+    },
+    "StudentOverLibraryDetails": [
+      {
+        "no": "B123451",
+        "title": "Web Programming",
+        "subject": "mathematics",
+        "date": "2019-02-25T14:22:18Z",
+        "department": "civil",
+        "type": "news paper",
+        "returnDt": ""
+      },
+      {
+        "no": "B123452",
+        "title": "java Black Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "sprib Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "Angulark Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "React ",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      }
+    ]
+  },
+  {
+    "id": "005",
+    "code": "E240000500005",
+    "title": "mr ",
+    "firstname": "firstName 005",
+    "middlename": "middle 005",
+    "lastname": "LastName 005",
+    "nickname": "Nock 005",
+    "emailid": "testing001@gmail.com",
+    "createtime": "04/20/2024 07:13:06",
+    "updatetime": "04/20/2024 07:13:06",
+    "mobileno": "655 6564 001",
+    "approvedon": "04/20/2023 07:13:06",
+    "status": "1",
+    "gender": "M",
+    "dob": "02/01/1993 00:00:00",
+    "countrybirth": "AUS",
+    "nationality": "AUS",
+    "passportno": "Ap123yu789",
+    "passportexpirydate": "04/20/2044 07:13:06",
+    "visatype": "Domestic",
+    "alternameemail": "alter 001 @gmail.com",
+    "origin": "OS",
+    "firstlanguage": "eng 001",
+    "englishlanginclass": "eng 001",
+    "englishtesttype": "eng 001",
+    "englishtestscore": "40%",
+    "engilshtestdate": "04/20/2024 07:13:07",
+    "knowfrom": "youtube 001",
+    "workflowstatus": "1",
+    "studentid": "001343 001",
+    "visanumber": "fr5tgy67 001",
+    "visaexpirydate": "04/20/2034 07:13:06",
+    "idgenerationtime": "05/20/2024 07:13:06",
+    "approvedby": "Approve 001",
+    "idgeneratedby": "igen 001",
+    "coursecode": "123456 001",
+    "collegecode": "zgamipdik8vuft5br65p 001",
+    "agentid": "500 001",
+    "agentcode": "5000121 001",
+    "intakecode": "lZzu9E",
+    "studentCources": [
+      {
+        "enrolled": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "2",
+            "PaymentDetails": "Done",
+            "Courses": [
+              {
+                "Course_Name": "management of data structres",
+                "Course_Code": "mds",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "05/20/2025 07:13:06",
+                "Duration": "365 ",
+                "Attendance": "56",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "data",
+                    "subCode": "data_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": "90",
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Javascript",
+                "Course_Code": "js",
+                "Starting_date": "03/20/2024 07:13:06",
+                "Ending_date": "07/20/2024 07:13:06",
+                "Duration": "120 ",
+                "Attendance": "56",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "currying",
+                    "subCode": "currying_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "throttling",
+                    "subCode": "throttling_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "Vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "10",
+            "PaymentDetails": "Done",
+            "Courses": [
+              {
+                "Course_Name": "COURSE 1",
+                "Course_Code": "C1_Code",
+                "Starting_date": "DATE here",
+                "Ending_date": "DATE here",
+                "Duration": "300 ",
+                "Attendance": "100 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "sub1",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "sub2",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 70
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 60
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 90
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "COURSE 2",
+                "Course_Code": "C1_Code",
+                "Starting_date": "DATE here",
+                "Ending_date": "DATE here",
+                "Duration": "300 ",
+                "Attendance": "95",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "750",
+                "Subjects": [
+                  {
+                    "subName": "sub1",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "sub2",
+                    "subCode": "subCode",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "current": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "JAVA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "56",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "79",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "90",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "46",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Assigned"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "In Progress"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "completed": [
+          {
+            "Course_Type": "ELICOS",
+            "Course_Type_Code": "ELICOS",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "45 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "89 ",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Course_Type": "vet",
+            "Course_Type_Code": "vet",
+            "course_cnt": "09",
+            "PaymentDetails": "in progress",
+            "Courses": [
+              {
+                "Course_Name": "DSA",
+                "Course_Code": "dsa",
+                "Starting_date": "04/20/2024 07:13:06",
+                "Ending_date": "06/01/2024 07:13:06",
+                "Duration": "125 ",
+                "Attendance": "96",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "720",
+                "Subjects": [
+                  {
+                    "subName": "science",
+                    "subCode": "science_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "Algrithm",
+                    "subCode": "algorithm_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "Course_Name": "Angular",
+                "Course_Code": "angular_001",
+                "Starting_date": "04/20/2024 09:13:06",
+                "Ending_date": "06/01/2024 09:13:06",
+                "Duration": "120 ",
+                "Attendance": "37",
+                "Total_Score": "1000",
+                "Total_Gained_Score": "650",
+                "Subjects": [
+                  {
+                    "subName": "rxjs",
+                    "subCode": "rxjs",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  },
+                  {
+                    "subName": "lifecycle",
+                    "subCode": "lifecycle_001",
+                    "assignments": [
+                      {
+                        "assignment_name": "assignment_1",
+                        "Max_Score": 100,
+                        "Gained_Score": 90,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_2",
+                        "Max_Score": 100,
+                        "Gained_Score": 80,
+                        "Status": "Submitted"
+                      },
+                      {
+                        "assignment_name": "assignment_3",
+                        "Max_Score": 100,
+                        "Gained_Score": 96,
+                        "Status": "Submitted"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "studentFiles": [
+      {
+        "studentcode": "E24000010 001",
+        "offerdoccode": "2tcko0qcnpw6z04c9bjg",
+        "filecode": "9b420329-b8e5-4bad-8e4d-d96698b1bee2",
+        "status": "1",
+        "createtime": "01/24/2024 16:32:37",
+        "updatetime": "02/20/2024 09:58:46"
+      },
+      {
+        "studentcode": "E240000100003",
+        "offerdoccode": "2tcko0qcnpw6z04c9bjh",
+        "filecode": "9b420329-b8e5-4bad-8e4d-d96698b1bee2",
+        "status": "1",
+        "createtime": "01/24/2022 16:32:37",
+        "updatetime": "02/20/2022 09:58:46"
+      }
+    ],
+    "studentAttendence": [
+      {
+        "date": "2018-02-11T14:22:18Z",
+        "check_in": "09:38 AM",
+        "break": "31 mins",
+        "check_out": "17:33 PM",
+        "hours": "09h:11 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2019-02-25T14:22:18Z",
+        "check_in": "09:35 AM",
+        "break": "37 mins",
+        "check_out": "17:25 PM",
+        "hours": "09h:36 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2017-02-11T14:22:18Z",
+        "check_in": "09:38 AM",
+        "break": "31 mins",
+        "check_out": "17:33 PM",
+        "hours": "09h:11 mins",
+        "percentage": ""
+      },
+      {
+        "date": "2016-02-25T14:22:18Z",
+        "check_in": "09:35 AM",
+        "break": "40 mins",
+        "check_out": "17:25 PM",
+        "hours": "09h:36 mins",
+        "percentage": ""
+      }
+    ],
+    "StudentEmergencyDetails": {
+      "img": "assets/images/user/usrbig 001.jpg",
+      "name": "Sarah Smith",
+      "age": 22,
+      "bloodGroup": "O+",
+      "ParentsContact1": 9090908909,
+      "ParentsContact2": 9090908908,
+      "email": "test 001 @email.com",
+      "mobile": "1234567890",
+      "birthDate": "1985-04-14T14:22:18Z",
+      "address": "Celeste Slater 606-3727 Ullamcorper. Street Roseville NH 11523",
+      "description": "description of the emergency contact"
+    },
+    "StudentOverallPaymentDetails": {
+      "semrelated": "all completed",
+      "courcerelated": "Pending",
+      "TotalFee": 1000,
+      "PaidFee": 500,
+      "PendFee": 500
+    },
+    "StudentOverLibraryDetails": [
+      {
+        "no": "B123451",
+        "title": "Web Programming",
+        "subject": "mathematics",
+        "date": "2019-02-25T14:22:18Z",
+        "department": "civil",
+        "type": "news paper",
+        "returnDt": ""
+      },
+      {
+        "no": "B123452",
+        "title": "java Black Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "sprib Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "Angulark Book",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      },
+      {
+        "no": "B123452",
+        "title": "React ",
+        "subject": "java",
+        "date": "2019-02-17T14:22:18Z",
+        "department": "computer",
+        "type": "book",
+        "returnDt": "2019-02-28T14:22:18Z"
+      }
+    ]
+  }
+]

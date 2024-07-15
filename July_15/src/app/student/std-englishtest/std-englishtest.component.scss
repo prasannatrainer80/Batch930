@@ -1,0 +1,45 @@
+.titlelabel {
+  padding: 10px;
+  font-size: 16px;
+}
+
+hr {
+  margin: 10px 0;
+}
+
+.listViewtable {
+  width: 100%;
+
+  tr {
+    text-align: center;
+
+    td {
+      padding: 5px 5px;
+      font-size: 12px;
+      letter-spacing: 0.6px;
+      width: 50%;
+
+      &:first-child {
+        text-align: right;
+        font-weight: 600;
+      }
+
+      &:last-child {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.mat-mdc-radio-button~.mat-mdc-radio-button {
+  margin-left: 16px;
+}
+
+
+
+.header-text {
+  padding: 0 10px;
+  font-weight: bold;
+  color: #546116;
+
+}

@@ -1,0 +1,43 @@
+<div class="row section-margin">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="agents-title-txt-clr flex-center-items mb-2 fs-4">
+        <mat-icon class="material-symbols-outlined lap-ic-clr">
+          laptop_windows
+        </mat-icon>
+        <div class="ms-1">Agency Registration Terms & Conditions</div>
+      </div>
+      <div class="card-body">
+        <div class="container-fluid">
+          <div class="glassmorphism">
+            <div class="fw-bolder agents-title-txt-clr mb-1">
+              Terms and Conditions of agreement between College and agent
+            </div>
+            <div class="snackbar-msg w-50 d-flex align-items-center mb-2">
+              <mat-icon class="material-symbols-outlined">
+                info
+              </mat-icon>
+              <div>
+                <a (click)="termClick()" class="text-decoration-underline p-1">
+                  View terms and conditions of agreement 
+                </a>
+              </div>
+              <mat-icon class="material-symbols-outlined">
+                search
+              </mat-icon>
+            </div>
+            <p>I have read and understood this document and agree to the Terms and Conditions outlined within it.</p>
+            <p>I also agree to abide by the policies and procedures regarding agent code of conduct outlined on the College website</p>
+            <button class="btn-agree" [routerLink]="['/public/agent-registration']" >I/We Agree</button>
+            <div class="noDataTable" *ngIf="isEnableTerm">
+              <div class="empty-data">
+                <mat-icon class="icon">warning</mat-icon> 
+                <div class="fw-bold w-100">Sorry, the updated terms & conditions will be back soon.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<section class="content" style="background-color: #fff;">
+    <div class="content-block">
+       
+      <div class="sticky-breadcrumb card">
+        <div class="block-header d-flex justify-content-between align-items-center "
+          *ngFor="let breadscrum of breadscrums">
+  
+          <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+          </app-breadcrumb>
+  
+          <div class="">
+            <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+                class="col-green font-weight-bold">
+                {{campusName}}</span>
+            </p>
+          </div>
+        </div>
+        </div>
+
+        <h6>Page Content here....</h6>
+
+
+
+</div>
+</section>
+

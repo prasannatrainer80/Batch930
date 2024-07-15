@@ -1,0 +1,94 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header d-flex justify-content-between align-items-center "
+        *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+        <div class=" ">
+          <mat-button-toggle-group>
+            <mat-button-toggle mat-icon-button *ngFor="let button of buttonData" [matTooltip]="button.tooltip"
+              (click)="onButtonClick(button)">
+              <mat-icon [color]="button.selected?'primary':'accent'">{{ button.icon }}</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
+        <div class="">
+          <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+              class="col-green font-weight-bold">
+              {{campusName}}</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="idcardfront">
+      <div class="row  clearfix">
+        <div class="col-lg-8 col-md-12 col-sm-12 mb-2">
+          <div class="nameInformation">
+
+
+            <div class="col-md-12 col-6 b-r">
+              <strong>Student Name</strong>
+              <br />
+              <p class="text-muted">{{groupedData?.studentInfo?.title}}.{{groupedData?.studentInfo?.firstname}}
+                {{groupedData?.studentInfo?.lastname}} </p>
+            </div>
+            <div class="col-md-12 col-6 b-r">
+              <strong>Date Of Birth</strong>
+              <br />
+              <p class="text-muted">{{groupedData?.studentInfo?.dob | date}}</p>
+            </div>
+            <div class="col-md-12 col-6 b-r">
+              <strong>Valid upto</strong>
+              <br />
+              <p class="text-muted">19/05/2027</p>
+            </div>
+            <div class="col-md-12 col-6 b-r">
+              <strong>Phone</strong>
+              <br />
+              <p class="text-muted">{{groupedData?.currentaddress?.current_mobileno}}</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 mb-2">
+          <img class="stdimg" src="assets/images/banner/male.png" />
+          <p class="text-muted"> <b>ID:</b>{{groupedData?.stdId}}</p>
+          <div class="col-md-12 col-6 b-r">
+            <strong>Address</strong>
+            <br />
+            <p class="text-muted">{{groupedData?.currentaddress?.citytown}} {{groupedData?.currentaddress?.streetname}} {{groupedData?.currentaddress?.postcode}} </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <br />
+    <div class="idcardfront">
+      <div class="row  clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+          <div class="backInformation">
+
+            <div class="sigpart ">
+
+            </div>
+            <p>Signature of Card Holder </p>
+            <div>
+              if found please return to College address of particular campus
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+</section>

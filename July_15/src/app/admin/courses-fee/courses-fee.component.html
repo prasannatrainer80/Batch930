@@ -1,0 +1,210 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header d-flex justify-content-between align-items-center" *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+        <div class="campus">
+        <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+            class="col-green font-weight-bold">
+            {{campusName}}</span>
+        </p>
+      </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-lg-12 col-md-12">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <mat-card>
+              <mat-card-header>
+                <mat-icon>school</mat-icon>
+                <h6 style="margin-left: 10px;">Courses Fee</h6>
+              </mat-card-header>
+              <table mat-table [dataSource]="courses" class="mat-elevation-z8 demo-table" >
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> Id </th>
+                  <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+                <ng-container matColumnDef="coursetypecode">
+                  <th mat-header-cell *matHeaderCellDef> Course Type </th>
+                  <td mat-cell *matCellDef="let element"> {{element.coursetypecode}} </td>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Course Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="origin">
+                  <th mat-header-cell *matHeaderCellDef> Origin </th>
+                  <td mat-cell *matCellDef="let element"> {{element.origin_code}} </td>
+                </ng-container>
+                <ng-container matColumnDef="tutionfee">
+                  <th mat-header-cell *matHeaderCellDef> Tution Fee </th>
+                  <td mat-cell *matCellDef="let element"> {{element.tutionfee}} </td>
+                </ng-container>
+                <!-- <ng-container matColumnDef="upfront_tutionfee">
+                  <th mat-header-cell *matHeaderCellDef> Upfront Tution Fee </th>
+                  <td mat-cell *matCellDef="let element"> {{element.upfront_tutionfee}} </td>
+                </ng-container> -->
+                <ng-container matColumnDef="materialfee">
+                  <th mat-header-cell *matHeaderCellDef> Material Fee </th>
+                  <td mat-cell *matCellDef="let element"> {{element.materialfee}} </td>
+                </ng-container>
+                <!-- <ng-container matColumnDef="upfront_materialfee">
+                  <th mat-header-cell *matHeaderCellDef> Upfront Material Fee </th>
+                  <td mat-cell *matCellDef="let element"> {{element.upfront_materialfee}} </td>
+                </ng-container> -->
+                <ng-container matColumnDef="enrollmentfee">
+                  <th mat-header-cell *matHeaderCellDef> Enrollment Fee </th>
+                  <td mat-cell *matCellDef="let element"> {{element.enrollmentfee}} </td>
+                </ng-container>
+                <ng-container matColumnDef="coursefee_total">
+                  <th mat-header-cell *matHeaderCellDef> Course Fee Total </th>
+                  <td mat-cell *matCellDef="let element"> {{isNumber(toNumber(toNumber(element.tutionfee)+toNumber(element.materialfee)+toNumber(element.enrollmentfee)).toFixed(2))?toNumber(toNumber(element.tutionfee)+toNumber(element.materialfee)+toNumber(element.enrollmentfee)).toFixed(2):0}}</td>
+                </ng-container>
+                <ng-container matColumnDef="upfronfee_total">
+                  <th mat-header-cell *matHeaderCellDef> Upfront Fee Total</th>
+                  <td mat-cell *matCellDef="let element"> {{isNumber(toNumber(toNumber(element.upfront_tutionfee)+toNumber(element.upfront_materialfee)+toNumber(element.upfront_enrollmentfee)).toFixed(2))?toNumber(toNumber(element.upfront_tutionfee)+toNumber(element.upfront_enrollmentfee)+toNumber(element.upfront_enrollmentfee)).toFixed(2):0}} </td>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef> Status </th>
+                  <td mat-cell *matCellDef="let element"> {{element.status=='1'?'Active':'In Active'}} </td>
+                </ng-container>
+                <ng-container matColumnDef="action">
+                  <th mat-header-cell *matHeaderCellDef> Action </th>
+                  <td mat-cell *matCellDef="let element;let i=index"> 
+                    <div class="d-flex justify-content-between align-items-center">
+                    <mat-icon class="material-symbols-outlined edit-icon" (click)="editCourseFee(i)">
+                    edit
+                    </mat-icon>
+                    <!-- <mat-icon class="material-symbols-outlined add-icon">
+                    add
+                    </mat-icon> -->
+                    </div>
+                  </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+                 <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)" [class.selected]="selectedItem == row"></tr>
+                <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                    (click)="selectRow(row)" [class.selected]="selectedRow === row"></tr> -->
+              </table>  
+            </mat-card>
+          </div>
+        </div>
+        <div class="row m-5">
+          <div class="col-12"></div>
+        </div>
+        <form [formGroup]="courseFee" *ngIf="isEditFromEnable">
+          <div class="row">
+            <div class="col-12">
+              <div class="fw-bold">
+                Selected Course
+              </div>
+              <!-- <mat-card appearance="outline">
+              <mat-card-header>
+                <mat-icon>school</mat-icon>
+                <h6 style="margin-left: 10px;">Courses Fee</h6>
+                </mat-card-header>
+              </mat-card> -->
+              <hr/>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Course Type</mat-label>
+                <input matInput type="text" placeholder="Enter Your Selected Course" formControlName="coursetype" readonly>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Course Name</mat-label>
+                <input matInput type="text" placeholder="Enter Your Course" formControlName="coursecode" readonly>
+              </mat-form-field>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Origin</mat-label>
+                <input matInput type="text" placeholder="Enter Your origin" formControlName="origin" readonly>
+              </mat-form-field>
+            </div>
+            <div class="col-12">
+              <div class="fw-bold">
+                Course Fee Configuration
+              </div>              
+              <hr>
+            </div> 
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Tution Fee</mat-label>
+                <input matInput type="number" formControlName="tutionfee" (change)="totalCourseFee()">
+              </mat-form-field>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Material Fee</mat-label>
+                <input matInput type="number" formControlName="materialfee" (change)="totalCourseFee()">
+              </mat-form-field>
+            </div>
+            
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Enrollment Fee</mat-label>
+                <input matInput type="number" formControlName="enrollmentfee" (change)="totalCourseFee()">
+              </mat-form-field>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Total Course Fee</mat-label>
+                <input matInput formControlName="coursefee_total"  required readonly>
+              </mat-form-field>
+            </div>
+            <div class="col-12">
+              <div class="fw-bold">
+                 Upfront Fee Configuration
+              </div>
+              <hr>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Up Front Tution Fee</mat-label>
+                <input matInput formControlName="upfront_tutionfee" (change)="totalUpfrontCouresFee()" >
+              </mat-form-field>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Up Front Material Fee</mat-label>
+                <input matInput formControlName="upfront_materialfee" (change)="totalUpfrontCouresFee()">
+              </mat-form-field>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Up Front Enrollment Fee</mat-label>
+                <input matInput formControlName="upfront_enrollmentfee" (change)="totalUpfrontCouresFee()" >
+              </mat-form-field>
+            </div>
+            
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Up Front Fee total</mat-label>
+                <input matInput formControlName="upfronfee_total" readonly>
+              </mat-form-field>
+            </div>
+            <!-- <div class="col-lg-4 col-md-4 col-sm-12">
+              <mat-form-field appearance="outline" class="w-95">
+                <mat-label>Status</mat-label>
+                <input [value]="1" matInput formControlName="status">
+              </mat-form-field>
+            </div> -->
+            <div class="text-center">
+              <button mat-raised-button  (click)="updateCourseFee()" color="primary">Update
+           </button>
+            </div>
+            <div class="row m-3">
+              <div class="col-12"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

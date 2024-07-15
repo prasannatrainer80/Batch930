@@ -1,0 +1,87 @@
+<div class="editContainer">
+  <div class="modalHeader">
+    <div class="editRowModal">
+      <div class="modalHeader clearfix">
+        <div class="modal-about">
+          {{dialogTitle}}
+        </div>
+      </div>
+    </div>
+    <button mat-icon-button (click)="onCancel()" class="modal-close-button" aria-label="Close dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <hr />
+  <div mat-dialog-content>
+    <form class="register-form m-4" name="editcommform">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Agent</mat-label>
+            <input name="agent" id="agent" disabled="disabled" matInput [(ngModel)]="editCommInfo.agentname" [maxlength]="9"
+                   appTwoDigitDecimaNumber>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Course</mat-label>
+            <input name="coursename" id="coursename" disabled="disabled" matInput [(ngModel)]="editCommInfo.coursename" [maxlength]="9"
+                   appTwoDigitDecimaNumber>
+          </mat-form-field>
+        </div>
+        
+
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Commission %</mat-label>
+            <input name="comission" id="comission" disabled="disabled" matInput [(ngModel)]="editCommInfo.comission" [maxlength]="9"
+                   appTwoDigitDecimaNumber>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Commission Period</mat-label>
+            <input name="comissionperiod" id="comissionperiod" disabled="disabled" matInput [(ngModel)]="editCommInfo.comissionperiod" [maxlength]="9"
+                   appTwoDigitDecimaNumber>
+          </mat-form-field>
+        </div>
+        <!--<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>GST </mat-label>
+      <input name="gst" id="gst" disabled="disabled" matInput [(ngModel)]="editCommInfo.gst" [maxlength]="9">
+    </mat-form-field>
+  </div>-->
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>From Date</mat-label>
+            <input name="fromdate" [matDatepicker]="editfromdatePicker" [min]="mindate" matInput [(ngModel)]="editCommInfo.fromdate" [maxlength]="50"
+                   required>
+            <mat-datepicker-toggle matSuffix [for]="editfromdatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #editfromdatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>To Date</mat-label>
+            <input name="todate" [matDatepicker]="edittodatePicker" [min]="mindate" matInput [(ngModel)]="editCommInfo.todate" [maxlength]="50"
+                   required>
+            <mat-datepicker-toggle matSuffix [for]="edittodatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #edittodatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="btn-popup-styles">
+    <mat-dialog-actions align="end">
+      <button class="btn-space" mat-raised-button (click)="onSubmit()" color="primary">
+        Update
+      </button>
+      <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+    </mat-dialog-actions>
+  </div>
+</div>

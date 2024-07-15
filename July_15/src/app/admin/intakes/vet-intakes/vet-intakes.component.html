@@ -1,0 +1,100 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items"
+                      [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="body overflow-auto">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Select Course</mat-label>
+                      <mat-select placeholder="Course" [(ngModel)]="coursecode" id="ddlcourses"
+                                  name="course" (selectionChange)="onChangeCourse($event.value)">
+                        <mat-option *ngFor="let cs of coursesList"
+                                    [value]="cs.code">{{coursetypecode}} - {{cs.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 mt-3">
+                    <div class="m-l-10" matTooltip="Add VET Intake">
+                      <button mat-mini-fab color="primary" (click)="addNew()">
+                        <mat-icon class="col-white">add</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="body overflow-auto">
+                <div class="table-responsive">
+                  <table class="table table-hover w-100">
+                    <thead>
+                      <tr>
+                        <th *ngFor="let item of columns">
+                          <span (click)="sortBy(item.key, item.sorting)"
+                                class="sorting-header">{{item.name}}</span><i class="{{sortIcon(item.key)}} sort-spacing"></i>
+                        </th>
+                        <th *ngIf="actions.hidden!='Y'">{{actions.name}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let row of rows">
+                        <td *ngFor="let item of columns">
+
+                          <div *ngIf="item.key =='status';else other_content"
+                               class="{{getCSS(row[item.key])}}">{{getStatusText(row[item.key])}}</div>
+                          <ng-template #other_content>
+                            <div [ngSwitch]="item.key">
+                              <ng-container *ngSwitchCase="'startdate'"><div>{{row[item.key]| date:'dd/MM/yyyy'}}</div></ng-container>
+                              <ng-container *ngSwitchCase="'coursefinishdate'"><div>{{row[item.key]| date:'dd/MM/yyyy'}}</div></ng-container>
+                              <ng-container *ngSwitchCase="'closedate'"><div>{{row[item.key]| date:'dd/MM/yyyy'}}</div></ng-container>
+                              <ng-container *ngSwitchDefault><div>{{row[item.key]}}</div></ng-container>
+                            </div>
+                          </ng-template>
+                        </td>
+                        <td *ngIf="actions.hidden!='Y'" width="120px"
+                            class="mat-mdc-row cdk-row mat-ripple">
+                          <button mat-icon-button [matMenuTriggerFor]="appMenu" aria-label=""
+                                  (click)="selectedElement = row">
+                            <mat-icon>more_vert</mat-icon>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+                  <pagination *ngIf="showPagination" [totalItems]="totalItems"
+                              (changePage)="onChangePage($event)" [pageLimits]="pageSizeOptions"
+                              [pageSize]="pageSize">
+                  </pagination>
+                </div>
+                <mat-menu #appMenu="matMenu" [overlapTrigger]="true">
+                  <button mat-menu-item (click)="IntakeEdit(selectedElement)">
+                    <span>Edit</span>
+                  </button>
+                  <ng-container *ngIf="selectedElement.status =='1'">
+                    <button mat-menu-item (click)="StatusChange(selectedElement,0)">
+                      <span>Status Change</span>
+                    </button>
+                  </ng-container>
+                  <ng-container *ngIf="selectedElement.status =='0'">
+                    <button mat-menu-item (click)="StatusChange(selectedElement,1)">
+                      <span>Status Change</span>
+                    </button>
+                  </ng-container>
+                </mat-menu>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

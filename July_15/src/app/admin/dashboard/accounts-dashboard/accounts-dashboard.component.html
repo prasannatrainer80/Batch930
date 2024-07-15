@@ -1,0 +1,196 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header test" *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+      </div>
+      <div class="campus">
+        <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+            class="col-green font-weight-bold">
+            {{campusName}}</span>
+        </p>
+      </div>
+
+
+    </div>
+
+
+
+    <!-- Code start here-->
+    <div class="row ">
+      <div class="col-lg-3 col-md-12 col-sm-12 ">
+        <div class="card cardbackpad bg-info">
+          <h6><mat-icon class="icon">info</mat-icon> profile</h6>
+          <small>Edit your Profile</small>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-12 col-sm-12 ">
+        <div class="card cardbackpad bg-warning ">
+          <h6><mat-icon class="icon">money</mat-icon> Reports</h6>
+          <small>View and generate reports</small>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-12 col-sm-12 ">
+        <div class="card cardbackpad ">
+          <h6><mat-icon class="icon">bolt</mat-icon> Reports Overview</h6>
+          <small>View Reports Overview</small>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row card mh540">
+      <div class="container">
+        <label for="quarter-select">Select Quarter:</label>
+        <select id="quarter-select" [(ngModel)]="selectedQuarter" (change)="onQuarterChange()"
+          style="width: 100px; height: 40px; border-radius: 5px;">
+          <option *ngFor="let quarter of quarters" [value]="quarter">{{ quarter }}</option>
+        </select>
+
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 W-100">
+        <div class="row d-flex mt-2">
+
+
+          <mat-accordion class="w-25 mb-1">
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Student Fee Details
+                </mat-panel-title>
+                <!-- <mat-panel-description></mat-panel-description> -->
+              </mat-expansion-panel-header>
+              <!-- <div class="container"> -->
+
+              <div echarts [options]="chartOptions" class="chart-container mb-1"></div>
+              <!-- </div> -->
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <mat-accordion class="w-25 mb-1">
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Agent Payment Info
+                </mat-panel-title>
+                <!-- <mat-panel-description></mat-panel-description> -->
+              </mat-expansion-panel-header>
+              <!-- Chart here -->
+              <div echarts [options]="paymentChartOptions" class="chart-container"></div>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <mat-accordion class="w-25 mb-1">
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title style="width: 50px;">
+                 Bulk Payment
+                </mat-panel-title>
+                <!-- <mat-panel-description></mat-panel-description> -->
+              </mat-expansion-panel-header>
+              <!-- Chart here -->
+              <div echarts [options]="attendanceChartOptions" class="chart-container"></div>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+
+          <mat-accordion class="w-25 mb-1">
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title style="width: 50px;">
+                Others
+                </mat-panel-title>
+                <!-- <mat-panel-description></mat-panel-description> -->
+              </mat-expansion-panel-header>
+              <!-- Chart here -->
+              <div echarts [options]="assignmentChartOptions" class="chart-container"></div>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+
+
+
+        </div>
+
+      </div>
+
+
+      <div *ngIf="showData">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" *ngIf="dataSource && showData ">
+
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z10" style="margin-bottom: 10px;">
+            <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef> Student ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+            </ng-container>
+            <!-- Position Column -->
+            <ng-container matColumnDef="firstname">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="dob">
+              <th mat-header-cell *matHeaderCellDef> Date of birth </th>
+              <td mat-cell *matCellDef="let element"> {{element.dob | date}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="emailid">
+              <th mat-header-cell *matHeaderCellDef> E-Mail </th>
+              <td mat-cell *matCellDef="let element"> {{element.emailid}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="studenttype">
+              <th mat-header-cell *matHeaderCellDef>Student Type </th>
+              <td mat-cell *matCellDef="let element"> {{element.studenttype}} </td>
+            </ng-container>
+            <ng-container matColumnDef="createtime">
+              <th mat-header-cell *matHeaderCellDef> Created time </th>
+              <td mat-cell *matCellDef="let element"> {{element.createtime | date}} </td>
+            </ng-container>
+
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="nationality">
+              <th mat-header-cell *matHeaderCellDef> Nationality </th>
+              <td mat-cell *matCellDef="let element"> {{element.nationality}} </td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef aria-label="row actions">Actions</th>
+              <td mat-cell *matCellDef="let element" (click)="showStdProfile(element)" matTooltip="View Student Info"
+                style="cursor: pointer;">
+                <mat-icon>visibility</mat-icon>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showStudentDetails(row)"
+              [class.selected]="selectedItem === row"></tr>
+          </table>
+
+          <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" [pageSize]="5" showFirstLastButtons>
+          </mat-paginator>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</section>

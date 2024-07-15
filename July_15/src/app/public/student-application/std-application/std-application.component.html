@@ -1,0 +1,61 @@
+<div class="row section-margin">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header">
+          <h2 style="color: #4c2be2;">Student Online Application</h2>
+        </div>
+        <div class="body">
+          <div class="row col-md-8" style="margin-left: 20px;">
+            <div class="border border-danger p-3 rounded w-50 h-50">
+              <div>
+                  <span class="me-1">
+                      <i class="fas fa-arrow-right"></i>
+                    </span>
+                 <a mat-button (click)="onClick()">Start NEW online Application</a>
+              </div>
+              <div>
+                  <span class="me-1">
+                      <i class="fas fa-arrow-right"></i>
+                    </span>
+                  <a mat-button (click)="savedAppllication()">Continue a SAVED online Application</a>
+              </div>
+              
+          </div>
+          <!-- Terms -->
+          <div class="border border-danger p-3 rounded w-50 h-20" *ngIf="show" style="    transform: translate(5px);">
+            <div>
+              <span style="font-weight: 600;">Terms and conditions of acceptance</span>
+          </div>
+            <div>
+                <span class="me-1">
+                    <i class="fas fa-check"></i>
+                  </span>
+               <a mat-button (click)="gotoStep1()">I agree Terms and Conditions. START</a>
+            </div>
+            
+        </div>
+        <!-- Start with savedApplication -->
+        <div class="border border-danger p-3 rounded w-50 h-20" *ngIf="showSaved " style="    transform: translate(5px);">
+          <div>
+            <span style="font-weight: 600;">
+              
+              <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Enter Application Ref Id or Email</mat-label>
+                  <input matInput type="text" [(ngModel)]="ApplicationRefID" required>
+                </mat-form-field>
+              
+             <button mat-raised-button (click)="onStartClick()" color="primary" class="mt-2">Start</button>
+            </span>
+        </div>
+        
+          
+      </div>
+          </div>
+        
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

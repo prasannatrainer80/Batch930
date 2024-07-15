@@ -1,0 +1,103 @@
+<div class="addContainer">
+    <div class="modalHeader">
+        <div class="editRowModal">
+            <div class="modalHeader clearfix">
+                <div class="modal-about">
+                    {{dialogTitle}}
+                </div>
+            </div>
+        </div>
+        <button mat-icon-button (click)="onCancel()" class="modal-close-button" aria-label="Close dialog">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <hr/>
+    <div mat-dialog-content>
+        <form class="register-form m-4" name="rgForm">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Grading Type</mat-label>
+                        <mat-select [(ngModel)]="rgData.gradetypecode" id="ddlrgtype" name="rgtype">
+                            <mat-option *ngFor="let ct of gradeTypes" [value]="ct.code">{{ct.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Final Outcome Code</mat-label>
+                        <mat-select [(ngModel)]="rgData.finaloutcomecode" id="ddlfinaloutcomecode"
+                            name="finaloutcomecode">
+                            <mat-option *ngFor="let ct of outcomeTypes" [value]="ct.code">{{ct.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-6 col-lg-4 col-md-4 col-sm-12">
+                    <mat-slide-toggle [(ngModel)]="rgData.isusemarks" name="isusemarks">Use Marks
+                        ?</mat-slide-toggle>
+                </div>
+                <div class="col-xs-6 col-lg-4 col-md-4 col-sm-12">
+                    <mat-slide-toggle [(ngModel)]="rgData.isexcemption" name="isexcemption">Force Matching Outcome Code
+                        ?</mat-slide-toggle>
+                </div>
+                <div class="col-xs-6 col-lg-4 col-md-4 col-sm-12">
+                    <mat-slide-toggle [(ngModel)]="rgData.isusefinaloutcome" name="isusefinaloutcome">Use in final
+                        Outcome Calculation
+                        ?</mat-slide-toggle>
+                </div>
+            </div>
+            <div class="row  mt-3">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12" *ngIf="rgData.isusemarks">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Max Marks</mat-label>
+                        <input name="maxmarks" id="txtmaxmarks" matInput [(ngModel)]="rgData.maxmarks" [maxlength]="3"
+                            required>
+                    </mat-form-field>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Transcript Display</mat-label>
+                        <input name="transcriptdisplay" id="txttranscriptdisplay" matInput [(ngModel)]="rgData.transcriptdisplay" [maxlength]="100"
+                            required>
+                    </mat-form-field>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Grade</mat-label>
+                        <input name="grade" id="txtgrade" matInput [(ngModel)]="rgData.grade" [maxlength]="100"
+                            required>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Use for Tcsi Report</mat-label>
+                        <mat-select [(ngModel)]="rgData.usetcsireport" id="usetcsireport" name="usetcsireport">
+                            <mat-option *ngFor="let ct of TcsiReportOptions" [value]="ct.id">{{ct.id}} -
+                                {{ct.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <input name="description" id="txtdescription" matInput [(ngModel)]="rgData.description" [maxlength]="500"
+                            required>
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="btn-popup-styles" style="position: fixed; bottom: 30px; right: 40px;">
+        <mat-dialog-actions align="end">
+            <button class="btn-space" mat-raised-button color="primary" (click)="onSaveClick()">
+                Save
+            </button>
+            <button type="button" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+        </mat-dialog-actions>
+    </div>
+</div>

@@ -1,0 +1,414 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header d-flex justify-content-between align-items-center "
+        *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+        <div class=" ">
+          <mat-button-toggle-group>
+            <mat-button-toggle mat-icon-button *ngFor="let button of buttonData" [matTooltip]="button.tooltip"
+              (click)="onButtonClick(button)">
+              <mat-icon [color]="button.selected?'primary':'accent'">{{ button.icon }}</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
+        <div class="">
+          <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+              class="col-green font-weight-bold">
+              {{campusName}}</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 mb-1">
+          <div class="card border border-3">
+            <mat-label class="titlelabel" style="color:#fff; background-color: #656eec;">Student Course Information
+            </mat-label>
+           
+            <div class="row">
+              <div class="col-lg-6 col-md-12 col-sm-12 ">
+                <table class="listViewtable">
+                  <tr>
+                    <td>Student ID
+                    </td>
+                    <td>: {{groupedData?.stdId}}</td>
+                  </tr>
+                  <tr>
+                    <td> Country of Birth</td>
+                    <td>: {{groupedData?.["studentInfo"]?.countrybirth}}</td>
+
+                  </tr>
+                </table>
+              </div>
+              <div class="col-lg-6 col-md-12 col-sm-12 mb-1">
+                <table class="listViewtable">
+                  <tr>
+                    <td>Student Name :
+                    </td>
+                    <td>{{groupedData?.["studentInfo"]?.firstname}}</td>
+                  </tr>
+                  <tr>
+                    <td> Nationality :</td>
+                    <td> {{groupedData?.["studentInfo"]?.nationality}} </td>
+
+                  </tr>
+                </table>
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                <table class="listViewtable">
+                  <tr>
+                    <td>Course :
+                    </td>
+                    <td>
+                      <select class="form-select" aria-label="Default select example">
+
+                        <option selected value="1">AUR30620 : Certificate III in Light Vehicle Mechanical
+                          Technology-21/11/2022 - Completed</option>
+                        <option value="2">AUR40216 : Certificate IV in Automotive Mechanical Diagnosis-20/11/2023 -
+                          Current Student</option>
+                        <option value="3">AUR50216 : Diploma of Automotive Technology-20/05/2024 - Enrolled</option>
+                      </select>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                  </tr>
+
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 mb-1">
+          <div class="card border border-3">
+            <mat-label class="titlelabel" style="color:#fff; background-color: #656eec;">English Test Information from
+              Application </mat-label>
+          
+            <div class="row">
+              <div class="col-lg-6 col-md-12 col-sm-12 mb-1">
+                <table class="listViewtable">
+                  <tr>
+                    <td>Student recorded completing a test:
+
+                    </td>
+                    <td>{{groupedData?.["Language&EnglishTest"]?.overallscore}}</td>
+                  </tr>
+                  <tr>
+                    <td>English Language Proficiency Test :
+
+                    </td>
+                    <td>{{groupedData?.["Language&EnglishTest"]?.overallscore}}</td>
+                  </tr>
+                  <tr>
+                    <td>When :
+
+                    </td>
+                    <td>{{groupedData?.["Language&EnglishTest"]?.overallscore}}</td>
+                  </tr>
+                  <tr>
+
+                  </tr>
+
+
+
+                </table>
+              </div>
+              <div class="col-lg-6 col-md-12 col-sm-12 mb-1">
+                <table class="listViewtable">
+                  <tr>
+                    <td> Listening Score :</td>
+                    <td>{{groupedData?.["Language&EnglishTest"]?.overallscore}}</td>
+
+                  </tr>
+                  <tr>
+                    <td> Reading Score :</td>
+                    <td>{{groupedData?.["Language&EnglishTest"]?.overallscore}}</td>
+
+                  </tr>
+                  <tr>
+                    <td> Writing Score :</td>
+                    <td>{{groupedData?.["Language&EnglishTest"]?.overallscore}}</td>
+
+                  </tr>
+                  <tr>
+                    <td> Speaking Score :</td>
+                    <td>{{groupedData?.["Language&EnglishTest"]?.overallscore}}</td>
+
+                  </tr>
+                  <tr>
+                    <td> Over All Score :</td>
+                    <td>{{groupedData?.["Language&EnglishTest"]?.overallscore}}</td>
+
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+
+          <div class="row">
+            <div class="glassmorphism">
+              <div class="header-text">Language and Cultural Diversity</div>
+              <hr />
+              <form action="" [formGroup]="language">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <mat-radio-group formControlName="aboriginal" aria-label="Select an option">
+                          <mat-label>Are you Austrilian Aboriginal or tories</mat-label>
+                          <mat-radio-button value="Yes">Yes</mat-radio-button>
+                          <mat-radio-button value="No">No</mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-md-4">
+                      <mat-radio-group formControlName="engmain" aria-label="Select an option"
+                        (selectionChange)="selectionChangeOfengMain($event)">
+                        <mat-label>is English Your Main Language?</mat-label>
+                        <mat-radio-button value="Yes"
+                          (change)="selectFormValues($event,'ENGMAIN_YES')">Yes</mat-radio-button>
+                        <mat-radio-button value="No"
+                          (change)="selectFormValues($event,'ENGMAIN_NO')">No</mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4" *ngIf="isLanguageSpokenatHome_Field">
+                      <label for="spokenhouse" class="form-label">If No what is your language spoken at home ?</label>
+                      <select formControlName="spokenhouse" class="form-select" id="spokenhouse" required>
+                        <option selected>Select Language</option>
+                        <option *ngFor="let language of languagesData" [value]="language.name">
+                          {{language.name}} </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-3 mt-3">
+                    <mat-radio-group formControlName="secondary" aria-label="Select an option">
+                      <mat-label>was English the language of instruction in previous secondary or terirory
+                        studies?</mat-label>
+                      <mat-radio-button value="Yes">Yes</mat-radio-button>
+                      <mat-radio-button value="No">No</mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <mat-radio-group formControlName="testenglish" aria-label="Select an option">
+                      <mat-label>Have you completed a test of English language Proficiency?</mat-label>
+                      <mat-radio-button value="Yes">Yes</mat-radio-button>
+                      <mat-radio-button value="No">No</mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                </div>
+              </form>
+              <div class="row">
+                <div class="col-md-7">
+                  <form action="" [formGroup]="englishtest">
+                    <div class="header-text">English Test</div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-sm-12 col-md-4 col-lg-4">
+                        <label for="testname" class="form-label">If Yes,What the test did you sit?</label>
+                        <select formControlName="testname" class="form-select" id="testname" required>
+                          <option selected>Select Test English</option>
+                          <option *ngFor="let engTest of engtestsData" [value]="engTest.eng_test_name">
+                            {{engTest.eng_test_name}} </option>
+                        </select>
+
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="dob" class="form-label">When</label><br>
+                        <input matInput [matDatepicker]="picker" (focus)="picker.open()" id="dateOfBirth"
+                          class="dobClass" readonly="true" formControlName="whencomplete" required
+                          [ngClass]="{ 'is-invalid': englishtest.controls.whencomplete.touched && englishtest.controls.whencomplete.errors }" />
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+
+                        <div
+                          *ngIf="englishtest.controls.whencomplete.touched && englishtest.controls.whencomplete.errors "
+                          class="invalid-feedback">
+                          <div *ngIf="englishtest.controls.whencomplete.errors['required']">English Test Date is
+                            Required</div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-5">
+                          <mat-radio-group formControlName="scoretype" aria-label="Select an option">
+                            <mat-label>Score Type</mat-label>
+                            <mat-radio-button value="4skills" (change)="selectFormValues($event,'SCORETYPE_4SKILLS')">4
+                              Skills</mat-radio-button>
+                            <mat-radio-button value="overallonly"
+                              (change)="selectFormValues($event,'SCORETYPE_OVERALLONLY')">Overall
+                              only</mat-radio-button>
+                          </mat-radio-group>
+                        </div>
+                        <div class="col-md-7">
+                          <div class="row" *ngIf="isScoreOverall_Field">
+                            <div class="col-md-3">
+                              <label for="birthplace" class="form-label">Over All</label>
+                              <input type="number" formControlName="overallscore" class="form-control" id="birthplace"
+                                placeholder="Enter Over All Score">
+
+                            </div>
+                          </div>
+                          <div class="row" *ngIf="isScore4Skills_Field">
+                            <div class="col-md-3">
+                              <label for="birthplace" class="form-label">Listening</label>
+                              <input type="number" formControlName="listeningscore" class="form-control" id="birthplace"
+                                placeholder="Enter Listening Score">
+
+                            </div>
+                            <div class="col-md-3">
+                              <label for="birthplace" class="form-label">Reading</label>
+                              <input type="number" formControlName="readingscore" class="form-control" id="birthplace"
+                                placeholder="Enter Reading Score">
+
+                            </div>
+                            <div class="col-md-3">
+                              <label for="birthplace" class="form-label">Writing</label>
+                              <input type="number" formControlName="writingscore" class="form-control" id="birthplace"
+                                placeholder="Enter Writing Score">
+
+                            </div>
+                            <div class="col-md-3">
+                              <label for="birthplace" class="form-label">Speaking</label>
+                              <input type="number" formControlName="speakingscore" class="form-control" id="birthplace"
+                                placeholder="Enter Speaking">
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-5">
+                  <form action="" [formGroup]="schooling">
+                    <div class="header-text">Schooling</div>
+                    <hr />
+                    <div class="row">
+                      <div class="col-md-12 mb-3">
+                        <mat-radio-group formControlName="stillsecondary" aria-label="Select an option">
+                          <mat-label>Are you Still attending Secondary School</mat-label>
+                          <mat-radio-button value="Yes">Yes</mat-radio-button>
+                          <mat-radio-button value="No">No</mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                      <div class="col-md-8 mb-3">
+                        <label for="highestschool" class="form-label">What is your highest completed school level
+                          ?</label>
+                        <select formControlName="highestschool" class="form-select">
+                          <option value="" [selected]="'isSelected'">@@ -Not Specified</option>
+                          <option *ngFor="let school of schoolingData" [value]="school.schoolingtype">
+                            {{school.schoolingtype}} </option>
+
+                        </select>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="float-end" style="margin-top: 10px;">
+                <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;"
+                  [disabled]="!englishtest.valid ">Update </button>
+              </div>
+            </div>
+
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                <table class="listViewtable">
+                  <tr>
+                    <td>Is the student exempt from providing evidence of English language proficiency?
+                    </td>
+                    <td>
+                      <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1">Yes</mat-radio-button>
+                        <mat-radio-button value="2">No </mat-radio-button>
+                      </mat-radio-group>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Has the student undertaken an English test?
+
+                    </td>
+                    <td>
+                      <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1">Yes</mat-radio-button>
+                        <mat-radio-button value="2">No </mat-radio-button>
+                      </mat-radio-group>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> English Test Type undertaken to meet Migration English requirements :</td>
+                    <td >
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Document Type</mat-label>
+                        <mat-select requried  placeholder="Document Type">
+                          <mat-option value="yes">Test of English as a Foreign Language internet-based test (TOEFL iBT)
+                          </mat-option>
+                          <mat-option value="no">International English Language Testing System (IELTS) </mat-option>
+                          <mat-option value="no">C1 Advanced (formerly Cambridge English: Advanced (CAE))</mat-option>
+                          <mat-option value="no">Pearson Test of English (PTE) Academic </mat-option>
+                          <mat-option value="no">Occupational English Test </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <td> Overall Band Score:</td>
+                    <td>
+                      <mat-form-field class="mb-3 w-95" appearance="outline">
+                        <mat-label>Overall Band Score:</mat-label>
+                        <input matInput name="startdate" id="startdate" placeholder="Choose a date">
+                      </mat-form-field>
+
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <td> Test date :</td>
+                    <td> <mat-form-field appearance="outline" class="w-95">
+                        <mat-label> Test date </mat-label>
+                        <input matInput [matDatepicker]="testDatepicker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="testDatepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #testDatepicker></mat-datepicker>
+                      </mat-form-field></td>
+
+                  </tr>
+
+                </table>
+                <div class="text-center m-2">
+                  <button mat-raised-button color="accent">Add</button>
+                </div>
+              </div> -->
+
+          </div>
+
+
+          <!-- -->
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

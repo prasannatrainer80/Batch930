@@ -1,0 +1,697 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header d-flex justify-content-between align-items-center "
+        *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+        <div class=" ">
+          <mat-button-toggle-group>
+            <mat-button-toggle mat-icon-button *ngFor="let button of buttonData" [matTooltip]="button.tooltip"
+              (click)="onButtonClick(button)">
+              <mat-icon [color]="button.selected?'primary':'accent'">{{ button.icon }}</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
+        <div class="">
+          <p class=""> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+              class="col-green font-weight-bold">
+              {{campusName}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row  clearfix">
+
+      <div class="col-lg-8 col-md-12 col-sm-12 ">
+        <div class="card mb-4 border border-3">
+          <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon msr-2">payment</mat-icon>
+                Student payment Information
+              </ng-template>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="project_widget">
+                  <div class="body">
+                    <div class="row">
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Student Id</strong>
+                        <br />
+                        <p class="text-muted">{{completeStudentData?.id}}</p>
+                      </div>
+
+
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Name</strong>
+                        <br />
+                        <p class="text-muted">{{completeStudentData?.firstname}}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Agent</strong>
+                        <br />
+                        <p class="text-muted">Zodiac</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Mobile</strong>
+                        <br />
+                        <p class="text-muted">78787778</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Status</strong>
+                        <br />
+                        <p class="text-muted">Current</p>
+                      </div>
+                      
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Start date </strong>
+                        <br />
+                        <p class="text-muted">21/02/2024</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>End date </strong>
+                        <br />
+                        <p class="text-muted">21/02/2025</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Fee Due</strong>
+                        <br />
+                        <p class="text-muted">$2000</p>
+                      </div>
+                      <div class="col-md-4 col-6 b-r">
+                     
+                        <form [formGroup]="courseFiled">
+                          <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
+                            <label for="docType" class="form-label">Document Type</label>
+                
+                            <select class="form-select" aria-label="Default select docType" formControlName="course"
+                              placeholder="Course">
+                              <option value="" selected disabled>Please select</option>
+                              <option selected value="DLM">Diploma of Leadership and Management</option>
+                              <option value="Management">Management </option>
+                            </select>
+                          </div>
+
+                          
+                        </form>
+
+                        
+                      </div>
+                    </div>
+
+                    <br />
+                  </div>
+                </div>
+              </div>
+
+            </mat-tab>
+
+          </mat-tab-group>
+        </div>
+
+      </div>
+      <div class="col-lg-4 col-md-12 mb-4">
+        <mat-accordion class=" mb-1" style="width: 250px;">
+          <mat-expansion-panel #panel2 [expanded]="panel2Expanded">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Fee Status
+              </mat-panel-title>
+              <!-- <mat-panel-description></mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <!-- Chart here -->
+
+            <div echarts [options]="feesChartOption" class="pie-chart" style="width: 100%; height: 185px;"></div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+
+     <div class="col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="PaymentDetailsInstalmentSource?.length>0">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Payment Details (Instalment)</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="PaymentDetailsInstalmentSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="instalno">
+              <th mat-header-cell *matHeaderCellDef> Instalment</th>
+              <td mat-cell *matCellDef="let element"> {{element.instalno}} </td>
+            </ng-container>
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> Id</th>
+              <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="paymentstatus">
+              <th mat-header-cell *matHeaderCellDef> Payment Status</th>
+              <td mat-cell *matCellDef="let element"> {{element.paymentstatus}} </td>
+            </ng-container>
+            <ng-container matColumnDef="tutionfee">
+              <th mat-header-cell *matHeaderCellDef> Tution Fee </th>
+              <td mat-cell *matCellDef="let element"> {{element.tutionfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="materialfee">
+              <th mat-header-cell *matHeaderCellDef> Material Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.materialfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="enrollmentfee">
+              <th mat-header-cell *matHeaderCellDef> Enrollment Fee </th>
+              <td mat-cell *matCellDef="let element"> {{element.enrollmentfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="upfrontfee">
+              <th mat-header-cell *matHeaderCellDef> Up Front Fee </th>
+              <td mat-cell *matCellDef="let element"> {{element.upfrontfee}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="duedate">
+              <th mat-header-cell *matHeaderCellDef> Due Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.duedate |date}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="paymentDetailsColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: paymentDetailsColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="materalFeeDataSource?.length>0">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Material Fee</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="materalFeeDataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="instalno">
+              <th mat-header-cell *matHeaderCellDef> Instalment</th>
+              <td mat-cell *matCellDef="let element"> {{element.instalno}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="materialfeedescription">
+              <th mat-header-cell *matHeaderCellDef> material fee description</th>
+              <td mat-cell *matCellDef="let element"> {{element.materialfeedescription}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="materialfee">
+              <th mat-header-cell *matHeaderCellDef>materialfee</th>
+              <td mat-cell *matCellDef="let element"> {{element.materialfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="duedate">
+              <th mat-header-cell *matHeaderCellDef> due date</th>
+              <td mat-cell *matCellDef="let element"> {{element.duedate |date}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="materialfeeColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: materialfeeColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="tutionfeeDataSource?.length>0">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Tution Fee</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="tutionfeeDataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="instalno">
+              <th mat-header-cell *matHeaderCellDef> Instalment</th>
+              <td mat-cell *matCellDef="let element"> {{element.instalno}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tutionfeedescription">
+              <th mat-header-cell *matHeaderCellDef> tution fee description</th>
+              <td mat-cell *matCellDef="let element"> {{element.tutionfeedescription}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="tutionfee">
+              <th mat-header-cell *matHeaderCellDef>tutionfee</th>
+              <td mat-cell *matCellDef="let element"> {{element.tutionfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="duedate">
+              <th mat-header-cell *matHeaderCellDef> due date</th>
+              <td mat-cell *matCellDef="let element"> {{element.duedate |date}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="tutionfeeColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: tutionfeeColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="enrollmentfeeDataSource?.length>0">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">enrollment Fee</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="enrollmentfeeDataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="instalno">
+              <th mat-header-cell *matHeaderCellDef> Instalment</th>
+              <td mat-cell *matCellDef="let element"> {{element.instalno}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="enrollmentdescription">
+              <th mat-header-cell *matHeaderCellDef> enrollment fee description</th>
+              <td mat-cell *matCellDef="let element"> {{element.enrollmentdescription}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="enrollmentfee">
+              <th mat-header-cell *matHeaderCellDef>enrollmentfee</th>
+              <td mat-cell *matCellDef="let element"> {{element.enrollmentfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="duedate">
+              <th mat-header-cell *matHeaderCellDef> due date</th>
+              <td mat-cell *matCellDef="let element"> {{element.duedate |date}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="enrollmentfeeColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: enrollmentfeeColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="upfrontfeeDataSource?.length>0">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">upfront Fee</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="upfrontfeeDataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="instalno">
+              <th mat-header-cell *matHeaderCellDef> Instalment</th>
+              <td mat-cell *matCellDef="let element"> {{element.instalno}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="upfrontfeedescription">
+              <th mat-header-cell *matHeaderCellDef> upfront fee description</th>
+              <td mat-cell *matCellDef="let element"> {{element.upfrontfeedescription}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="upfrontfee">
+              <th mat-header-cell *matHeaderCellDef>upfrontfee</th>
+              <td mat-cell *matCellDef="let element"> {{element.upfrontfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="duedate">
+              <th mat-header-cell *matHeaderCellDef> due date</th>
+              <td mat-cell *matCellDef="let element"> {{element.duedate |date}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="upfrontfeeColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: upfrontfeeColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div> 
+
+
+      <!-- student wise Paid Payment List Table Start-->
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="paidMaterialRes_datasource?.length>0">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Paid Material Fee</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="paidMaterialRes_datasource" class="mat-elevation-z8">
+            <ng-container matColumnDef="invno">
+              <th mat-header-cell *matHeaderCellDef> InVoice No.</th>
+              <td mat-cell *matCellDef="let element"> {{element.invno}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="invdate">
+              <th mat-header-cell *matHeaderCellDef> Invoice Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.invdate | date}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="instal_material_fee">
+              <th mat-header-cell *matHeaderCellDef>instal material fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.instal_material_fee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="paidfee">
+              <th mat-header-cell *matHeaderCellDef> Paid Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.paidfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="remainingfee">
+              <th mat-header-cell *matHeaderCellDef> Remaining Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.remainingfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status</th>
+              <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="paidmaterialfeeColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: paidmaterialfeeColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="paidTutionRes_datasource?.length>0">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Paid Tution Fee</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="paidTutionRes_datasource" class="mat-elevation-z8">
+            <ng-container matColumnDef="invno">
+              <th mat-header-cell *matHeaderCellDef> InVoice No.</th>
+              <td mat-cell *matCellDef="let element"> {{element.invno}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="invdate">
+              <th mat-header-cell *matHeaderCellDef> Invoice Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.invdate | date}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="instal_tution_fee">
+              <th mat-header-cell *matHeaderCellDef>instal tution fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.instal_tution_fee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="paidfee">
+              <th mat-header-cell *matHeaderCellDef> Paid Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.paidfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="remainingfee">
+              <th mat-header-cell *matHeaderCellDef> Remaining Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.remainingfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status</th>
+              <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="paidtutionfeeColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: paidtutionfeeColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="paidEnrolmentRes_datasource?.length>0">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Paid enrollment Fee</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="paidEnrolmentRes_datasource" class="mat-elevation-z8">
+            <ng-container matColumnDef="invno">
+              <th mat-header-cell *matHeaderCellDef> InVoice No.</th>
+              <td mat-cell *matCellDef="let element"> {{element.invno}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="invdate">
+              <th mat-header-cell *matHeaderCellDef> Invoice Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.invdate | date}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="instal_enrollment_fee">
+              <th mat-header-cell *matHeaderCellDef>instal enrollmentfee</th>
+              <td mat-cell *matCellDef="let element"> {{element.instal_enrollment_fee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="paidfee">
+              <th mat-header-cell *matHeaderCellDef> Paid Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.paidfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="remainingfee">
+              <th mat-header-cell *matHeaderCellDef> Remaining Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.remainingfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status</th>
+              <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="paidenrollmentfeeColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: paidenrollmentfeeColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2" *ngIf="paidUpfrontRes_datasource?.length>0">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Paid upfront Fee</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="paidUpfrontRes_datasource" class="mat-elevation-z8">
+            <ng-container matColumnDef="invno">
+              <th mat-header-cell *matHeaderCellDef> InVoice No.</th>
+              <td mat-cell *matCellDef="let element"> {{element.invno}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="invdate">
+              <th mat-header-cell *matHeaderCellDef> Invoice Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.invdate | date}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="instal_upfront_fee">
+              <th mat-header-cell *matHeaderCellDef>instal upfront fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.instal_upfront_fee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="paidfee">
+              <th mat-header-cell *matHeaderCellDef> Paid Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.paidfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="remainingfee">
+              <th mat-header-cell *matHeaderCellDef> Remaining Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.remainingfee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status</th>
+              <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="paidupfrontfeeColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: paidupfrontfeeColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div> 
+
+      <!-- student wise Paid Payment List Table End-->
+
+
+      <div class="col-lg-12 col-md-12 mb-4" *ngIf="Studentcourseslist?.length>0">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Course Details</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="studentappliedcoursesList_datasource" class="mat-elevation-z8">
+
+
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>Id </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="closedate">
+              <th mat-header-cell *matHeaderCellDef>Closed Date</th>
+              <td mat-cell *matCellDef="let element"> {{element.closedate | date}} </td>
+            </ng-container>
+            <ng-container matColumnDef="agentcode">
+              <th mat-header-cell *matHeaderCellDef> Agent Code</th>
+              <td mat-cell *matCellDef="let element"> {{element.agentcode}} </td>
+            </ng-container>
+            <ng-container matColumnDef="agentName">
+              <th mat-header-cell *matHeaderCellDef> Agent Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.agentName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="ctypecode">
+              <th mat-header-cell *matHeaderCellDef> ctypecode </th>
+              <td mat-cell *matCellDef="let element"> {{element.ctypecode}} </td>
+            </ng-container>
+            <ng-container matColumnDef="coursefinishdate">
+              <th mat-header-cell *matHeaderCellDef> End Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.coursefinishdate | date}} </td>
+            </ng-container>
+            <ng-container matColumnDef="duration">
+              <th mat-header-cell *matHeaderCellDef> duration </th>
+              <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="coursecode">
+              <th mat-header-cell *matHeaderCellDef> coursecode </th>
+              <td mat-cell *matCellDef="let element"> {{element.coursecode}} </td>
+            </ng-container>
+            <ng-container matColumnDef="intakeyear">
+              <th mat-header-cell *matHeaderCellDef> Intake Year </th>
+              <td mat-cell *matCellDef="let element"> {{element.intakeyear }} </td>
+            </ng-container>
+            <ng-container matColumnDef="intakecode">
+              <th mat-header-cell *matHeaderCellDef> Intake Code </th>
+              <td mat-cell *matCellDef="let element"> {{element.intakecode}}</td>
+            </ng-container>
+            <ng-container matColumnDef="selectedcourse">
+              <th mat-header-cell *matHeaderCellDef> Selected Course </th>
+              <td mat-cell *matCellDef="let element"> {{element.selectedcourse}}</td>
+            </ng-container>
+            <ng-container matColumnDef="startdate">
+              <th mat-header-cell *matHeaderCellDef>startdate </th>
+              <td mat-cell *matCellDef="let element"> {{element.startdate | date}}</td>
+            </ng-container>
+            <ng-container matColumnDef="startfinish">
+              <th mat-header-cell *matHeaderCellDef> Start Finish </th>
+              <td mat-cell *matCellDef="let element"> {{element.startfinish}}</td>
+            </ng-container>
+            <ng-container matColumnDef="enrollmentfee">
+              <th mat-header-cell *matHeaderCellDef> Enrollment Fee </th>
+              <td mat-cell *matCellDef="let element"> {{element.enrollmentfee}}</td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="tutionfee">
+              <th mat-header-cell *matHeaderCellDef> Tution Fee </th>
+              <td mat-cell *matCellDef="let element"> {{element.tutionfee}}</td>
+
+            </ng-container>
+
+            <ng-container matColumnDef="materialfee">
+              <th mat-header-cell *matHeaderCellDef> Material Fee </th>
+              <td mat-cell *matCellDef="let element"> {{element.materialfee}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="studyreason">
+              <th mat-header-cell *matHeaderCellDef> Study Reason </th>
+              <td mat-cell *matCellDef="let element"> {{element.studyreason}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status </th>
+              <td mat-cell *matCellDef="let element"> Current
+                <!-- {{element.status==1?"Enrolled":""
+                ||element.status==2?"Current":""||element.status==2?"Completed":""}} -->
+
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="studentappliedcoursesList_displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: studentappliedcoursesList_displayedColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div>
+      <div class="col-lg-12 col-md-12 mb-4">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Fee Summary</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="feeStructureSource" class="mat-elevation-z8">
+
+
+
+            <ng-container matColumnDef="fee">
+              <th mat-header-cell *matHeaderCellDef>Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.fee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="actual">
+              <th mat-header-cell *matHeaderCellDef> Actual Fee</th>
+              <td mat-cell *matCellDef="let element"> {{element.actual}} </td>
+            </ng-container>
+            <ng-container matColumnDef="invoice">
+              <th mat-header-cell *matHeaderCellDef> InVoice Amount</th>
+              <td mat-cell *matCellDef="let element"> {{element.invoice}} </td>
+            </ng-container>
+            <ng-container matColumnDef="paid">
+              <th mat-header-cell *matHeaderCellDef> Paid </th>
+              <td mat-cell *matCellDef="let element"> {{element.paid}} </td>
+            </ng-container>
+            <ng-container matColumnDef="pending">
+              <th mat-header-cell *matHeaderCellDef> Pending </th>
+              <td mat-cell *matCellDef="let element"> {{element.pending }} </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="feestructure_displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: feestructure_displayedColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div>
+
+
+
+
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+        <mat-card>
+          <mat-card-header>
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Installments</h6>
+          </mat-card-header>
+          <table mat-table [dataSource]="paymentScheduledataSource" class="mat-elevation-z8">
+
+
+
+            <ng-container matColumnDef="invid">
+              <th mat-header-cell *matHeaderCellDef>Inv Id</th>
+              <td mat-cell *matCellDef="let element"> {{element.invid}} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="invno">
+              <th mat-header-cell *matHeaderCellDef>Inv No.</th>
+              <td mat-cell *matCellDef="let element"> {{element.invno}} </td>
+            </ng-container>
+            <ng-container matColumnDef="due_date">
+              <th mat-header-cell *matHeaderCellDef>Due Date</th>
+              <td mat-cell *matCellDef="let element"> {{element.due_date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tution_fee">
+              <th mat-header-cell *matHeaderCellDef> Tution Fee </th>
+              <td mat-cell *matCellDef="let element"> {{element.tution_fee}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="material_fee">
+              <th mat-header-cell *matHeaderCellDef> Material Fee </th>
+              <td mat-cell *matCellDef="let element"> {{element.material_fee}} </td>
+            </ng-container>
+            <ng-container matColumnDef="tution_fee_paid">
+              <th mat-header-cell *matHeaderCellDef> Tution Fee paid </th>
+              <td mat-cell *matCellDef="let element"> {{element.tution_fee_paid}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="material_fee_paid">
+              <th mat-header-cell *matHeaderCellDef> Material Fee Paid </th>
+              <td mat-cell *matCellDef="let element"> {{element.material_fee_paid}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="paymentScheduledisplayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: paymentScheduledisplayedColumns;"></tr>
+          </table>
+        </mat-card>
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+  </div>
+</section>

@@ -1,0 +1,128 @@
+.section-margin{
+  margin: 70px 30px !important;
+}
+
+.bordered-div {
+    position: relative;
+    padding: 20px;
+    border: 2px solid #013128;
+    border-radius: 5px;
+}
+.bordered-div {
+    position: relative;
+    padding: 20px;
+    border: 2px solid #013128;
+    border-radius: 5px;
+  }
+  
+  
+  
+  .card{
+    background: rgb(245,245,255);
+    background: linear-gradient(30deg, rgba(245,245,255,1) 0%, rgba(235,251,255,0.14058123249299714) 70%, rgba(213,219,218,0.2274159663865546) 100%);
+}
+  
+  .header-text {
+    padding: 0 10px;
+    font-weight: bold;
+    color: #546116;
+  
+  }
+// .header-text {
+//     position: absolute;
+//     top: -0.75em;
+//     left: 10px;
+//     background-color: #fff;
+//     padding: 0 10px;
+//     font-weight: bold;
+//     color: #013128;
+
+// }
+
+.ref-header{
+  padding: 20px 10px 0;
+  background-color: #fff;
+}
+
+
+
+.table{
+  caption-side: top;
+  th{
+      background-color: rgb(232, 242, 143);
+  }
+}
+.listViewtable {
+    width: 100%;
+
+    tr {
+        text-align: center;
+
+        td {
+            padding: 5px 5px;
+            font-size: 14px;
+            width: 50%;
+
+            &:first-child {
+                text-align: right;
+                font-weight: 500;
+                // width: 40%;
+                padding: 5px 20px 1px 20px;
+            }
+
+            &:last-child {
+                text-align: left;
+                width: 60%;
+            }
+        }
+    }
+}
+
+
+
+.noDataTable{
+    p{
+        margin: 0;
+    }
+    .empty-caption{
+        font-size: 12px;
+        font-style: italic;
+        color: grey;
+    }
+    .empty-data{
+        font-size: 14px;
+        color: rgb(37, 53, 30);
+        background-color: rgb(152, 105, 190);
+        border-radius: 10px;
+    }
+}
+
+
+.icon {
+    position: relative;
+    top: 5px;
+    margin: 0 5px;
+  }
+
+.bar-tool{
+  position: absolute;
+  width: fit-content;
+  height: 20px;
+  left: 35%;
+  bottom: 6px;
+  text-align: center;
+  color: #198754;
+  font-weight: 700 !important;
+}
+.delete-icon{
+  cursor: pointer;
+  color:  #B52023;
+}
+label{
+  margin: 0.1rem 0 0 .2rem !important;
+  
+}
+.edit-icon{
+  cursor: pointer;
+  color: rgb(0, 0, 171);
+}

@@ -1,0 +1,129 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header" *ngFor="let breadscrum of breadscrums">
+            <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+            </app-breadcrumb>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="materialTableHeader">
+                        <div class="left">
+                            <ul class="header-buttons-left ms-0">
+                                <li class="tbl-title">
+                                  <h2>{{pageTitle}}</h2>
+                                </li>
+                                <li class="tbl-search-box">
+                                
+                                </li>
+                                <li class="cur-pointer">
+                                  <div class="m-l-10" *ngIf="helpText!=''">
+                                    <mat-icon (click)="showHelpText = !showHelpText">info_outline</mat-icon>
+                                  </div>
+                                </li>                
+                              </ul>
+                        </div>
+                        <div class="right"></div>
+                    </div>
+                    <div class="body overflow-auto mt-3">
+                        <div class="alert alert-info" *ngIf="helpText!='' && showHelpText" [innerHtml]="helpText"></div>
+                        <div class="table-responsive">
+                            <table class="table table-hover w-100">
+                                <thead>
+                                    <tr>
+                                        <th>Is Enable</th>
+                                        <th>Format Type</th>
+                                        <th>Order Set</th>
+                                        <th>Values</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let ct of sidFields; index as i">
+                                        <td style="width: 10%;">
+                                            <mat-checkbox [(ngModel)]="sidFields[i].status" id="chktype_{{i}}"
+                                                name="chktype{{i}}" [ngClass]="'tbl-checkbox'">
+                                            </mat-checkbox>
+                                        </td>
+                                        <td *ngIf="ct.id =='4'" style="width: 20%;">
+                                            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                                <mat-select [(ngModel)]="sidFields[i].type" id="ddlformattype_{{i}}"
+                                                    name="formattype{{i}}">
+                                                    <mat-option value="AN">Auto Number</mat-option>
+                                                    <mat-option value="RN">Random Number</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </td>
+                                        <td *ngIf="ct.id !='4'" style="width: 20%;">{{ct.name}}</td>
+                                        <td style="width: 15%;">
+                                            <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                                <mat-select [(ngModel)]="sidFields[i].order" id="ddlorder_{{i}}"
+                                                    name="order{{i}}">
+                                                    <mat-option value="1">1</mat-option>
+                                                    <mat-option value="2">2</mat-option>
+                                                    <mat-option value="3">3</mat-option>
+                                                    <mat-option value="4">4</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </td>
+                                        <td style="width: 20%;">
+                                            <ng-container *ngIf="ct.code =='YR'">
+                                                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                                    <mat-select [(ngModel)]="sidFields[i].value" id="ftvalue_{{i}}"
+                                                        name="ftvalue_{{i}}">
+                                                        <mat-option value="2">2 Digits</mat-option>
+                                                        <mat-option value="4">4 Digits</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </ng-container>
+                                            <ng-container *ngIf="ct.code =='CC'">
+                                                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                                    <input matInput [(ngModel)]="sidFields[i].value" id="ftvalue_{{i}}"
+                                                        name="ftvalue_{{i}}" maxlength="{{sidFields[i].maxlength}}">
+                                                </mat-form-field>
+                                            </ng-container>
+                                            <!-- <ng-container *ngIf="ct.type =='RN'">
+
+                                            </ng-container> -->
+                                            <ng-container *ngIf="ct.type !='RN' && ct.code !='YR' && ct.code !='CC'">
+                                                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                                    <input matInput [(ngModel)]="sidFields[i].value" id="ftvalue_{{i}}"
+                                                        name="ftvalue_{{i}}" maxlength="{{sidFields[i].maxlength}}">
+                                                </mat-form-field>
+                                            </ng-container>
+                                        </td>
+                                        <td style="width: 35%;">{{ct.description}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br />
+                        <div class="btn-popup-styles" style="bottom: 30px; right: 40px;">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="badge badge-solid-purple"><strong>Sample of Student ID Format :
+                                        </strong>
+                                        <span class="badge bg-orange">{{sid}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-dialog-actions align="end">
+                                        <button class="btn-space" mat-raised-button color="primary" (click)="onSetup()">
+                                            Setup
+                                        </button>
+                                        <button class="btn-space" mat-raised-button color="primary"
+                                            (click)="onPreviewClick()">
+                                            Preview
+                                        </button>
+                                        <!-- <button type="button" mat-raised-button color="warn"
+                                            (click)="onClear()">Clear</button> -->
+                                    </mat-dialog-actions>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

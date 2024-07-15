@@ -1,0 +1,179 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="materialTableHeader">
+            <div class="left">
+
+
+              <ul class="header-buttons-left ms-0">
+                <div class="row">
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Calendar Type </mat-label>
+                      <mat-select [(ngModel)]="calcode" id="ddlcaltype" name="calcode" (selectionChange)="onChangeCalendarType()" required>
+                        <mat-option *ngFor="let s of calendartypesList" [value]="s.code">{{s.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-3">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Year </mat-label>
+                      <mat-select [(ngModel)]="year" id="ddlyear" name="year" (selectionChange)="onYearType()" required>
+                        <mat-option *ngFor="let s of years" [value]="s.code">{{s.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Course Type</mat-label>
+                      <mat-select [(ngModel)]="ctype" id="ddlctype" name="ctype"
+                                  (selectionChange)="onChangeCourseType()">
+                        <mat-option *ngFor="let ct of coursetypesList"
+                                    [value]="ct.code">{{ct.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li class="tbl-header-btn">
+                  <div class="m-l-10" matTooltip="ADD">
+                    <button mat-mini-fab color="primary" (click)="AddNewStudyPeriod()">
+                      <mat-icon class="col-white">add</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10" matTooltip="REFRESH">
+                    <button mat-mini-fab color="primary">
+                      <mat-icon class="col-white">refresh</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="body overflow-auto">
+            <div class="table-responsive">
+              <table class="table table-hover w-100">
+                <thead>
+                  <tr>
+                    <th *ngFor="let item of columns">
+                      <span (click)="sortBy(item.key, item.sorting)"
+                            class="sorting-header">{{item.name}}</span><i class="{{sortIcon(item.key)}} sort-spacing"></i>
+                    </th>
+                    <th *ngIf="actions.hidden!='Y'">{{actions.name}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of rows">
+                    <td *ngFor="let item of columns">
+                      <div *ngIf="item.key =='status';else other_content"
+                           class="{{getCSS(row[item.key])}}">{{getStatusText(row[item.key])}}</div>
+                      <ng-template #other_content>
+                        <div>{{row[item.key]}}</div>
+                      </ng-template>
+                    </td>
+                    <td *ngIf="actions.hidden!='Y'" width="120px"
+                        class="mat-mdc-row cdk-row mat-ripple">
+                      <button mat-icon-button [matMenuTriggerFor]="appMenu" aria-label=""
+                              (click)="selectedElement = row">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+              <pagination *ngIf="showPagination" [totalItems]="totalItems"
+                          (changePage)="onChangePage($event)" [pageLimits]="pageSizeOptions"
+                          [pageSize]="pageSize">
+              </pagination>
+            </div>
+            <mat-menu #appMenu="matMenu" [overlapTrigger]="true">
+              <!--<button mat-menu-item (click)="EnrollFeeEdit(selectedElement)">
+                <span>Edit</span>
+              </button>-->
+              <ng-container *ngIf="selectedElement.status =='1'">
+                <button mat-menu-item (click)="StatusChange(selectedElement,0)">
+                  <span>Status Change</span>
+                </button>
+              </ng-container>
+              <ng-container *ngIf="selectedElement.status =='0'">
+                <button mat-menu-item (click)="StatusChange(selectedElement,1)">
+                  <span>Status Change</span>
+                </button>
+              </ng-container>
+            </mat-menu>
+          </div>
+
+          <!--<div class="body overflow-auto">
+            <div class="responsive_table">
+              <table mat-table [dataSource]="dataSource" matSort>
+
+
+                <ng-container matColumnDef="coursename">
+                  <th mat-header-cell *matHeaderCellDef>coursename</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.coursename }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="calendarset">
+                  <th mat-header-cell *matHeaderCellDef>calendarset</th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.calendarset }}
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="year">
+                  <th mat-header-cell *matHeaderCellDef>year</th>
+                  <td mat-cell *matCellDef="let element">{{ element.year }}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="code">
+                  <th mat-header-cell *matHeaderCellDef>Actions</th>
+                  <td mat-cell *matCellDef="let element">
+                    <ng-container *ngIf="element.status == 1">
+                      <button mat-icon-button (click)="UpdateStatus(element,0)"
+                              class="tbl-action-btn" matTooltip="Deactivate">
+                        <app-feather-icons [icon]="'x-circle'"
+                                           [class]="'tbl-fav-delete'"></app-feather-icons>
+                      </button>
+                    </ng-container>
+                    <ng-container *ngIf="element.status == 0">
+                      <button mat-icon-button (click)="UpdateStatus(element,1)"
+                              class="tbl-action-btn" matTooltip="Activate">
+                        <app-feather-icons [icon]="'check-square'"
+                                           [class]="'tbl-fav-check'"></app-feather-icons>
+                      </button>
+                    </ng-container>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+              </table>
+
+              <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage"
+                             [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)"
+                             aria-label="Select page">
+              </mat-paginator>
+            </div>
+          </div>-->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

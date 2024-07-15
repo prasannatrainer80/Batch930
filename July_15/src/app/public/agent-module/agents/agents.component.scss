@@ -1,0 +1,51 @@
+.section-margin{
+    margin: 110px 30px !important;
+    .card{
+        padding: 1.2rem;
+    }
+}
+.flex-center-items{
+    display: flex;
+    align-items: center !important;
+}
+// .profile-header {
+//     min-height: 50px !important;
+// }
+.agents-title-txt-clr{
+    color: #005588;
+    .material-symbols-outlined{
+        color: #33A1DE;
+    }
+}
+.snackbar-msg {
+    font-size: 12px;
+    padding: 0 10px;
+    border-radius: 0;
+    font-weight: 700 !important;
+    background-color: #e3e7ee;
+    color: #e024c7;
+    border: 1px solid #89C3FE;
+    p {
+        margin: 3px;
+        padding: 10px 0;
+
+        select{
+            width: 170px;
+        }
+    }
+}
+
+
+
+
+#agents-list .card{
+ width: 400px;
+ height: 220px;  
+ box-shadow: 2px 3px 10px rgba($color: #000000, $alpha: 0.3); 
+ 
+}
+.card-title{
+    display: flex;
+    align-items: center !important;
+    font-weight: 700 !important;
+ }

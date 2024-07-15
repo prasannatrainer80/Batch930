@@ -1,0 +1,45 @@
+<h5 mat-dialog-title>Change Role</h5>
+<mat-divider></mat-divider>
+<mat-dialog-content>
+  <p>Hello {{ userInfo.userName }},</p>
+
+  <p *ngIf="!hasSelection" class="m-t-20">You are not allowed for this action !</p>
+
+  <p *ngIf="hasSelection">Do you want to change the Role?</p>
+  <div *ngIf="hasSelection" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <!-- <mat-form-field class="example-full-width mb-3" appearance="outline" *ngIf="userInfo.roleType == '1'">
+      <mat-label>College</mat-label>
+      <mat-select [(ngModel)]="collegeId">
+        <mat-option *ngFor="let opt of collegeList" value="{{opt.id}}">{{ opt.name }}</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+    <mat-form-field class="example-full-width mb-3" appearance="outline"  *ngIf="userInfo.roleType != '1'">
+      <mat-label>Campus</mat-label>
+      <mat-select [(ngModel)]="campusId">
+        <mat-option *ngFor="let opt of campusList" value="{{opt.id}}">{{ opt.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width mb-3" appearance="outline">
+      <mat-label>Switch Role</mat-label>
+      <mat-select [(ngModel)]="roleId">
+        <mat-option *ngFor="let opt of roleList" value="{{opt.id}}">{{ opt.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" align="end">
+    <button *ngIf="hasSelection" 
+      mat-raised-button
+      class="btn-space"
+      color="primary"
+      [class.auth-spinner]="submitEffect"
+      [disabled]="submitEffect"
+      (click)="submitForm()"
+    >
+      Switch
+    </button>
+    <button mat-raised-button (click)="closeDialog()">
+      Cancel
+    </button>
+  </div>
+</mat-dialog-content>

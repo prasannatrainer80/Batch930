@@ -1,0 +1,62 @@
+.std-course-details {
+  padding: 20px;
+  height: 580px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.bordercard {
+  p {
+    span:first-child {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+  }
+
+  text-align: center;
+  margin: 20px;
+  padding: 6px;
+  text-transform: capitalize;
+  background: linear-gradient(
+      217deg,
+      rgb(198 189 189 / 93%),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(237, 243, 237, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgb(107 107 114 / 80%), rgba(0, 0, 255, 0) 70.71%);
+}
+.example-tab-icon {
+  margin-right: 8px;
+}
+.currentcourse{
+  background-color: rgb(237, 230, 227);
+}
+.completedcourse{
+  background-color: rgb(216, 229, 216);
+}
+.enrolledcourse{
+  background-color: rgb(222, 222, 209);
+}
+
+.br-3{
+  border: 1px solid black;
+  width: 30%;
+  margin-right: 25px;
+  border-radius: 20px;
+}
+
+.list-group-item:hover {
+  background-color: unset;
+}
+.brl{
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+.listitem-icon{
+  position: relative;
+  top: 10px;
+  font-size: 16px;
+}

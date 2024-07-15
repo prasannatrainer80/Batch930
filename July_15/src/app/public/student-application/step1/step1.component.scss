@@ -1,0 +1,111 @@
+.section-margin {
+  margin: 70px 30px !important;
+}
+
+
+.header-text {
+  font-weight: bold;
+  color: #179862e0;
+  font-size: 18px;
+  text-align: center;
+
+}
+
+
+
+
+::ng-deep .mdc-label {
+  font-size: 14px !important;
+}
+
+// ::ng-deep .mat-datepicker-toggle-default-icon {
+//   transform: translate(-5px, 8px);
+// }
+
+
+
+.infomsgforusi {
+  font-style: italic;
+  position: relative;
+  left: 30%;
+  font-size: 12px;
+}
+
+
+
+input[type="checkbox"] {
+  z-index: 9;
+  height: 20px;
+  width: 20px;
+  opacity: 1;
+}
+
+.form-check {
+
+  position: relative;
+  left: 0px;
+}
+
+.fullname {
+  margin-left: 95px;
+}
+
+.ref-header{
+  padding: 20px 10px 0;
+  background-color: #fff;
+}
+
+
+.alert-danger {
+  background-color: rgba(255, 54, 54, 0.8);
+  padding: 0px 10px;
+  border-radius: 6px;
+}
+
+.star-red {
+  color: red;
+  margin-left: 2px;
+  position: absolute;
+  right: -5px;
+  top: 3px;
+}
+.mat-mdc-progress-bar {
+  --mdc-linear-progress-track-height: 7px !important;
+  --mdc-linear-progress-active-indicator-height: 7px !important;
+  --mdc-linear-progress-active-indicator-color: #198754;
+}
+.bar-tool{
+  position: absolute;
+  width: fit-content;
+  height: 20px;
+  left: 8px;
+  bottom: 6px;
+  text-align: center;
+  color: #198754;
+  font-weight: 700 !important;
+}
+label{
+  margin: 0.1rem 0 0 .2rem !important;
+  
+}
+
+// input.ng-invalid.ng-touched{
+//   border: 2px solid red;
+// }
+// .error{
+//   color: red;
+// }
+
+::ng-deep th {
+  background-color: #198754 !important;
+    height: 5px !important
+}
+
+
+
+.dobClass{
+  width: 20.5rem !important;
+  height: 2rem !important
+  
+}
+

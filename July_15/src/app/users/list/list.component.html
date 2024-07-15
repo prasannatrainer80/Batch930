@@ -1,0 +1,185 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+
+    <div class="row" *ngIf="dashboardSummary.length > 0">
+      <div *ngFor="let item of dashboardSummary" [class]="item.cols" >
+        <div class="info-box7 {{item.color}} order-info-box7">
+          <div class="info-box7-block">
+            <h2 class="text-end"><h6 class="float-start">{{item.name}}</h6><span>{{item.counter}}</span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card" *ngIf="shimmerEffect">
+          <shimmer [height]="60"></shimmer>
+          <table style="width: 100%;">
+            <thead>
+              <tr>
+                <th *ngFor='let in of [0,1,2];let i = index'>
+                  <shimmer [height]="50"></shimmer>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let row of [0,1,2,3,4,5,6,7,8,9]'>
+                <td colspan="3">
+                  <shimmer [height]="50"></shimmer>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card" *ngIf="!shimmerEffect">
+          
+          <div class="materialTableHeader" >
+            <div class="left">
+              <ul class="header-buttons-left ms-0">
+                <li class="tbl-title">
+                  <h2>{{pageTitle}}</h2>
+                </li>
+                <li class="tbl-search-box">
+                  <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                  <input id="search-input" placeholder="Search" type="text" #filter (keyup)="onSearch(filter.value)"
+                    class="browser-default search-field" aria-label="Search box">
+                </li>
+                <li class="cur-pointer">
+                  <div class="m-l-10" *ngIf="helpText!=''">
+                    <mat-icon (click)="showHelpText = !showHelpText">info_outline</mat-icon>
+                  </div>
+                </li> 
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li>
+                  <span *ngFor="let chip of filterChips" class="label bg-brown font-12 m-l-10">{{chip.key}}</span>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10" matTooltip="Filter">
+                    <button mat-mini-fab color="primary" [matMenuTriggerFor]="filterMenu">
+                      <mat-icon class="col-white">filter_list</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn" *ngIf="actions.enable_add=='T'">
+                  <div class="m-l-10" matTooltip="ADD">
+                    <button mat-mini-fab color="primary" (click)="addNew()">
+                      <mat-icon class="col-white">add</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="body overflow-auto">
+            <div class="alert alert-info" *ngIf="helpText!='' && showHelpText" [innerHtml]="helpText"></div>
+
+            <div class="table-responsive">
+              <table class="table table-hover w-100">
+                <thead>
+                  <tr>
+                    <th *ngFor="let item of columns"><span (click)="sortBy(item.key, item.sorting, item.keyFor)"
+                        class="sorting-header">{{item.name}}</span><i class="{{sortIcon(item.key)}} sort-spacing"></i>
+                    </th>
+                    <th>{{actions.name}}</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="rows.length>0">
+                  <tr *ngFor="let row of rows">
+                    <td *ngFor="let item of columns">
+                      <div *ngIf="item.key =='status';else other_content" class="{{getCSS(row[item.key])}}">
+                        {{getStatusText(row[item.key])}}
+                      </div>
+                      <ng-template #other_content>
+                        <div>{{row[item.key]}}</div>
+                      </ng-template>
+                    </td>
+                    <td class="mat-mdc-row cdk-row mat-ripple">
+                      <button mat-icon-button [matMenuTriggerFor]="appMenu" aria-label=""
+                        (click)="selectedElement = row">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div *ngIf="rows.length==0" class="w-100 align-center font-20 padding-30">
+                No Data found !
+              </div>
+              <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+              <pagination *ngIf="showPagination" [totalItems]="totalItems" (changePage)="onChangePage($event)"
+                [pageLimits]="pageSizeOptions" [pageSize]="pageSize"></pagination>
+            </div>
+            <mat-menu #appMenu="matMenu" [overlapTrigger]="true">
+              <ng-container *ngIf="actions.enable_edit=='T'">
+                <button mat-menu-item (click)="UserEdit(selectedElement)">
+                  <mat-icon>edit</mat-icon><span> Edit</span>
+                </button>
+              </ng-container>
+              <ng-container *ngIf="actions.enable_statuschange=='T'">
+                <button mat-menu-item  (click)="StatusChange(selectedElement)">
+                  <mat-icon>security</mat-icon><span> Status Change</span>
+                </button>
+              </ng-container>
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+<mat-menu #filterMenu="matMenu" [overlapTrigger]="true">
+  <div class="filer-area padding-20">
+      <div class="row" (click)="$event.stopPropagation();">
+        <!-- College/Client => RoleType=1 -->
+        <!-- Campus/Branches => RoleType=2 --> 
+        <mat-form-field class="example-full-width mb-3" appearance="outline">
+          <mat-label for="roleid">Roles</mat-label>
+          <mat-select id="roleid" name="roleid" [(ngModel)]="searchRole">
+            <mat-option value="0">All</mat-option>
+            <mat-option *ngFor="let opt of rolesList" value="{{opt.roleid}}">{{ opt.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <ng-container *ngIf="userInfo.roleType !='1'">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label for="roleid">Clients</mat-label>
+            <mat-select id="clientid" name="clientid" [(ngModel)]="searchClient">
+              <mat-option value="-1">All</mat-option>
+              <mat-option *ngFor="let opt of clientsList" value="{{opt.id}}">{{ opt.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label for="roleid">Campus</mat-label>
+            <mat-select id="campusid" name="campusid" [(ngModel)]="searchCampus">
+              <mat-option value="0">All</mat-option>
+              <mat-option *ngFor="let opt of campusList" value="{{opt.id}}">{{ opt.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </ng-container>
+        <mat-form-field class="example-full-width mb-3" appearance="outline">
+          <mat-label for="status">Status</mat-label>
+          <mat-select id="status" name="status" [(ngModel)]="searchStatus">
+            <mat-option value="-1">All</mat-option>
+            <mat-option *ngFor="let opt of statusList" value="{{opt.value}}">{{ opt.key }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <button class="btn btn-primary btn-lg btn-block waves-effect btn-space" mat-raised-button [class.auth-spinner]="submitEffect" [disabled]="submitEffect" (click)="searchFilter()">Search</button>
+          <button class="btn btn-base btn-lg btn-block waves-effect" mat-raised-button [class.auth-spinner]="submitEffect" [disabled]="submitEffect" (click)="clearFilter()">Clear</button>
+        </div>
+      </div>
+  </div>
+</mat-menu>

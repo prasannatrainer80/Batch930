@@ -1,0 +1,42 @@
+
+.section-margin{
+    margin: 110px 30px !important;
+    .card{
+        padding: 1.2rem;
+    }
+}
+.agents-title-txt-clr{
+    color: #005588;
+}
+.lap-ic-clr {
+    color: #33A0DE;
+}
+.flex-center-items{
+    display: flex;
+    align-items: center !important;
+}
+
+.accordion-bg{
+  background: rgb(245,245,255);
+  background: linear-gradient(30deg, rgba(245,245,255,1) 0%, rgba(235,251,255,0.14058123249299714) 70%, rgba(213,219,218,0.2274159663865546) 100%);
+}
+.table{
+    caption-side: top;
+    th{
+        background-color: rgb(232, 242, 143);
+    }
+
+}
+::ng-deep .mat-table {
+  overflow-x: scroll !important;
+}
+// ::ng-deep .mat-mdc-tab {
+//   background-color: #ffffff !important;
+//   color: #3b4feb !important;
+//   overflow: hidden !important;
+// }
+// ::ng-deep .mat-tab-body-content {  
+//   overflow: hidden !important;
+// }
+
+

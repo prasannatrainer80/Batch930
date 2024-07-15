@@ -1,0 +1,57 @@
+<section class="content">
+    <div class="content-block">
+      <div class="sticky-breadcrumb card">
+        <div class="block-header test" *ngFor="let breadscrum of breadscrums">
+          <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+          </app-breadcrumb>
+        </div>
+        <div class="campus">
+          <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+              class="col-green font-weight-bold">
+              {{campusName}}</span>
+          </p>
+        </div>
+      </div>
+  
+  
+  
+
+        <div class="row card w-75">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="d-flex justify-content-center align-items-center w-100">
+                        <div class="card w-100 mt-2">
+                            <div class="card-title">
+                                <h6 style="margin-top: 10px; margin-left: 1rem;">Registration Start with...</h6>
+                            </div>
+                            <div class="card-body">
+                                <mat-form-field appearance="outline" style="width: 100%; margin-top: 10px;">
+                                    <mat-label>Start Option</mat-label>
+                                    <mat-select [(ngModel)]="selectedOption" (selectionChange)="onOptionChange($event.value)">
+                                      <mat-option *ngFor="let option of startOptions" [value]="option.value">
+                                        {{ option.label }}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                  <div *ngIf="selectedOption === 2">
+                                   <mat-form-field appearance="outline" style="width: 100%;">
+                                      <mat-label>Enter Email Id or Last Name</mat-label>
+                                      <input matInput type="text" [(ngModel)]="ApplicationRefID" required>
+                                    </mat-form-field>
+                                  </div>
+                                 <button mat-raised-button (click)="onStartClick()" color="primary" class="mt-2">Start</button>
+                            </div>
+                           
+                        </div>
+                       
+                    </div>
+                    
+                    
+                 </div>
+        </div>
+       
+
+
+        </div>
+
+    
+</section>

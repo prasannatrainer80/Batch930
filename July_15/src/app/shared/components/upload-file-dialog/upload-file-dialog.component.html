@@ -1,0 +1,115 @@
+<h5 mat-dialog-title>{{ dialogTitle }}</h5>
+<mat-divider></mat-divider>
+<mat-dialog-content>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <form name="uploadfile" #uploadFile="ngForm" id="uploadFile" novalidate>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="file-drop-area">
+              <input 
+                type="file"
+                ng2FileSelect
+                [uploader]="uploader"
+                multiple
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="row"
+          *ngIf="uploader.queue != undefined && uploader.queue.length > 0"
+        >
+          <div class="col-md-12">
+            <div class="upload_tab">
+              <p>Queue length: {{ uploader.queue.length }}</p>
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th width="50%">Name</th>
+                    <th>Size</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of uploader.queue">
+                    <td class="td-break20">{{ item?.file.name }}</td>
+                    <td nowrap>
+                      {{ item?.file.size / 1024 / 1024 | number : ".2" }} MB
+                    </td>
+                    <td>
+                      <div class="progress">
+                        <div
+                          class="progress-bar"
+                          role="progressbar"
+                          [ngStyle]="{ width: uploader.progress + '%' }"
+                        ></div>
+                      </div>
+                    </td>
+                    <td class="text-center">
+                      <span *ngIf="item.isSuccess">
+                        <img src="assets/images/check_green.svg" alt="" />
+                      </span>
+                      <span *ngIf="item.isCancel">
+                        <img src="assets/images/inactive.svg" alt="" />
+                      </span>
+                      <span *ngIf="item.isError">
+                        <img src="assets/images/close-x.svg" alt="" />
+                      </span>
+                    </td>
+                    <td nowrap>
+                      <span
+                        type="button"
+                        class="btn_danger btn-xs"
+                        (click)="item.remove(); checkItem()"
+                      >
+                        <img src="assets/images/close-x.svg" alt="" />
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div>
+                <div class="prog">Queue progress:
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar"[ngStyle]="{ width: uploader.progress + '%' }"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button
+    mat-raised-button
+    class="btn-space"
+    color="primary"
+    (click)="uploader.uploadAll()"
+    [class.auth-spinner]="submitEffect"
+    [disabled]="!uploader.getNotUploadedItems().length || !fileUpload"
+  >
+    Upload all
+  </button>
+
+  <button
+    mat-raised-button
+    class="btn-space"
+    color="warn"
+    (click)="uploader.clearQueue()"
+    [disabled]="!uploader.queue.length"
+  >
+    Remove All
+  </button>
+
+  <button mat-raised-button class="btn-space" (click)="close()">Close</button>
+</mat-dialog-actions>

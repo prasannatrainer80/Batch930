@@ -1,0 +1,280 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header d-flex justify-content-between align-items-center " *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+        <div class=" ">
+          <mat-button-toggle-group>
+            <mat-button-toggle mat-icon-button *ngFor="let button of buttonData" [matTooltip]="button.tooltip"
+              (click)="onButtonClick(button)">
+              <mat-icon [color]="button.selected?'primary':'accent'">{{ button.icon }}</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+  
+        <div class="">
+          <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+              class="col-green font-weight-bold">
+              {{campusName}}</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="row  clearfix">
+
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+        <mat-card>
+          <mat-card-header style="color:#fff; background-color: #656eec;"> 
+            <mat-icon>school</mat-icon>
+            <h6 style="margin-left: 10px;">Attendence Details</h6>
+
+          </mat-card-header>
+          <hr />
+          <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+            <table class="listViewtable">
+              <tr>
+                <td>Attendance Type :
+                </td>
+                <td>
+                  <select class="form-select" name="stAttdType" onchange="">
+                    <option value="full">View Full Attendance</option>
+                    <option value="subject">View Attendance By Subject</option>
+                    <option selected="selected" value="timetable">View Attendance By Class Timetable</option>
+                    <option value="total">View Total Attendance Percentage</option>
+
+                  </select>
+
+                </td>
+              </tr>
+              <tr>
+                <td>Student ID :
+                </td>
+                <td>
+
+                  <h6>E00000013</h6>
+                </td>
+              </tr>
+              <tr>
+                <td>Name :
+                </td>
+                <td>
+
+                  <h6>Dummy </h6>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td>Course :
+                </td>
+                <td>
+                  <select class="form-select" name="CourseID" id="">
+                    <option value="AUR30620-1">AUR30620 : Certificate III in Light Vehicle Mechanical
+                      Technology-21/11/2022 - Completed</option>
+                    <option selected="selected" value="AUR40216-1">AUR40216 : Certificate IV in Automotive Mechanical
+                      Diagnosis-20/11/2023 - Current Student</option>
+                    <option value="AUR50216-1">AUR50216 : Diploma of Automotive Technology-20/05/2024 - Enrolled
+                    </option>
+
+                  </select>
+                  <span>Course Length: 20/11/2023 - 19/05/2024</span>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td>Status :
+                </td>
+                <td>
+
+                  <h6>Current Student </h6>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Semester :
+                </td>
+                <td>
+                  <select class="form-select" name="stAttdType" onchange="">
+                    <option value="full">Nov Cert IV</option>
+                    <option value="subject">All</option>
+
+
+                  </select>
+
+                </td>
+              </tr>
+              <tr>
+                <td>Term :
+                </td>
+                <td>
+                  <select class="form-select" name="stAttdType" onchange="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option selected="selected" value="3">3</option>
+                    <option value="All">All</option>
+
+                  </select>
+
+                </td>
+              </tr>
+
+
+
+            </table>
+            <div class="text-center m-2">
+              <button mat-raised-button color="accent">View</button>
+            </div>
+          </div>
+
+
+        </mat-card>
+
+      </div>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+        <mat-card>
+          <div class="table-responsive">
+            <table class="table table-bordered ">
+
+              <caption>
+                <span> <mat-icon>visibility</mat-icon>
+                  Student Attendance View By Week</span>
+              </caption>
+              <tbody>
+                <tr>
+                  <th scope="col">Semester</th>
+                  <th scope="col">Term</th>
+                  <th scope="col">Week No</th>
+                  <th scope="col">Week Length</th>
+                  <th scope="col">Mon</th>
+                  <th scope="col">Tue</th>
+                  <th scope="col">Wed</th>
+                  <th scope="col">Thurs</th>
+                  <th scope="col">Fri</th>
+                  <th scope="col">Sat</th>
+                  <th scope="col">Sun</th>
+                  <th scope="col">Study Hrs</th>
+                  <th scope="col">Other Hrs</th>
+                  <th scope="col">Weekly Attd Hrs.</th>
+                  <th scope="col">
+                    <span>Weekly Class Hrs</span>
+                  </th>
+                  <th scope="col">Weekly Attd%</th>
+                  <th scope="col">Sem. Curr. Attd%</th>
+                  <th scope="col">Sem. Proj. Attd%</th>
+                  <th scope="col">Course Attd%</th>
+                  <th scope="col">Course Proj. Attd%</th>
+                  <th scope="col">Comment</th>
+                  <th scope="col">Action</th>
+                </tr>
+                <tr title="No weekly attendance found" class="grred vtip">
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_lblSessionid">Nov Cert IV</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label3">1</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label4">1</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label5">(20/11/2023 - 26/11/2023 )</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label6">NC</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label7">NC</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label8">NC</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label9">NC</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label10">NC</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label11">NC</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label12">NC</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_lblStudy">0</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label1">0</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label14">0</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label2">0</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label18">0</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label15">0</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label16">0</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label19">0</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label13">100</span>
+                  </td>
+                  <td>
+                    <span id="ctl00_Main_GridView3_ctl02_Label17">No Weekly Attd</span>
+                  </td>
+                  <td>
+
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item>
+                        <mat-icon>dialpad</mat-icon>
+                        <span>Edit the data</span>
+                      </button>
+                      <button mat-menu-item disabled>
+                        <mat-icon>voicemail</mat-icon>
+                        <span>Add</span>
+                      </button>
+                      <button mat-menu-item>
+                        <mat-icon>notifications_off</mat-icon>
+                        <span>Update </span>
+                      </button>
+                    </mat-menu>
+
+
+
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </mat-card>
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+  </div>
+</section>

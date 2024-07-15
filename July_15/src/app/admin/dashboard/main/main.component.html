@@ -1,0 +1,41 @@
+<section class="content " >
+
+  <ng-container ngSwitch="{{roleId}}">
+    <div *ngSwitchCase="1001">
+      <app-admin-dashboard></app-admin-dashboard> 
+    </div>
+    <div *ngSwitchCase="1002">
+      <app-sub-admin-dashboard></app-sub-admin-dashboard>
+    </div>
+    <div *ngSwitchCase="2002">
+      <app-client-admin-dashboard></app-client-admin-dashboard>
+    </div>
+    <div *ngSwitchCase="2001">
+     <app-accounts-dashboard></app-accounts-dashboard>
+    </div>
+    <div *ngSwitchCase="2003">
+      <app-it-dashboard></app-it-dashboard>
+    </div>
+    <div *ngSwitchCase="2004">
+      <app-marketing-dashboard></app-marketing-dashboard>
+    </div>
+    <div *ngSwitchCase="2005">
+      <app-offer-dashboard></app-offer-dashboard>
+    </div>
+    <div *ngSwitchCase="2007">
+      <app-teacher-dashboard></app-teacher-dashboard>
+    </div>
+    <div *ngSwitchCase="2008">
+      <app-dos-dashboard></app-dos-dashboard>
+    </div>
+    <div *ngSwitchCase="2009">
+      <app-dos-he-dashboard></app-dos-he-dashboard>
+    </div>
+    <div *ngSwitchCase="2010">
+      <app-dos-elicos-dashboard></app-dos-elicos-dashboard>
+    </div>
+  </ng-container>
+  
+</section>
+
+

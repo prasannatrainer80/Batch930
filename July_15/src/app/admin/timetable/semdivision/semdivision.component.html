@@ -1,0 +1,213 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="materialTableHeader">
+            <div class="left">
+
+
+              <ul class="header-buttons-left ms-0">
+                <div class="row">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Course Type</mat-label>
+                      <mat-select [(ngModel)]="ctype" id="ddlctype" name="ctype"
+                                  (selectionChange)="onChangeCourseType($event.value)">
+                        <mat-option *ngFor="let ct of coursetypesList"
+                                    [value]="ct.code">{{ct.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Semester </mat-label>
+                      <mat-select [(ngModel)]="scode" id="ddlsemester" name="scode" (selectionChange)="onChangeSemester($event.value)" required>
+                        <mat-option *ngFor="let s of semList" [value]="s.code">{{s.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li class="tbl-header-btn">
+                  <div class="m-l-10" matTooltip="ADD">
+                    <button mat-mini-fab color="primary" (click)="AddNewDivision()">
+                      <mat-icon class="col-white">add</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10" matTooltip="REFRESH">
+                    <button mat-mini-fab color="primary">
+                      <mat-icon class="col-white">refresh</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="body overflow-auto">
+            <div class="table-responsive">
+              <table class="table table-hover w-100">
+                <thead>
+                  <tr>
+                    <th *ngFor="let item of columns">
+                      <span (click)="sortBy(item.key, item.sorting)"
+                            class="sorting-header">{{item.name}}</span><i class="{{sortIcon(item.key)}} sort-spacing"></i>
+                    </th>
+                    <th *ngIf="actions.hidden!='Y'">{{actions.name}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of rows">
+                    <td *ngFor="let item of columns">
+
+                      <div *ngIf="item.key =='isholidaywk';else other_content"
+                           class="{{getCSS(row[item.key])}}">{{getStatusText(row[item.key])}}</div>
+                      <ng-template #other_content>
+                        <div [ngSwitch]="item.key">
+                          <ng-container *ngSwitchCase="'wsdate'"><div>{{row[item.key]| date:'dd/MM/yyyy'}}</div></ng-container>
+                          <ng-container *ngSwitchCase="'wsfinish'"><div>{{row[item.key]| date:'dd/MM/yyyy'}}</div></ng-container>
+                          <ng-container *ngSwitchCase="'closedate'"><div>{{row[item.key]| date:'dd/MM/yyyy'}}</div></ng-container>
+                          <ng-container *ngSwitchDefault><div>{{row[item.key]}}</div></ng-container>
+                        </div>
+                      </ng-template>
+                    </td>
+                    <td *ngIf="actions.hidden!='Y'" width="120px"
+                        class="mat-mdc-row cdk-row mat-ripple">
+                      <button mat-icon-button [matMenuTriggerFor]="appMenu" aria-label=""
+                              (click)="selectedElement = row">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+              <pagination *ngIf="showPagination" [totalItems]="totalItems"
+                          (changePage)="onChangePage($event)" [pageLimits]="pageSizeOptions"
+                          [pageSize]="pageSize">
+              </pagination>
+            </div>
+            <mat-menu #appMenu="matMenu" [overlapTrigger]="true">
+              <!--<button mat-menu-item (click)="IntakeEdit(selectedElement)">
+                <span>Edit</span>
+              </button>-->
+              <ng-container *ngIf="selectedElement.isholidaywk =='1'">
+                <button mat-menu-item (click)="UpdateHolidayWk(selectedElement,0)">
+                  <span>Update Holiday week</span>
+                </button>
+              </ng-container>
+              <ng-container *ngIf="selectedElement.isholidaywk =='0'">
+                <button mat-menu-item (click)="UpdateHolidayWk(selectedElement,1)">
+                  <span>Update Holiday week</span>
+                </button>
+              </ng-container>
+            </mat-menu>
+          </div>
+
+
+          <!--<div class="body overflow-auto">
+          <div class="responsive_table">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+
+              <ng-container matColumnDef="semester">
+                <th mat-header-cell *matHeaderCellDef>Semester</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.semester }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="term">
+                <th mat-header-cell *matHeaderCellDef>Term</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.term }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="weeks">
+                <th mat-header-cell *matHeaderCellDef>Week</th>
+                <td mat-cell *matCellDef="let element">{{ element.weeks }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="wsdate">
+                <th mat-header-cell *matHeaderCellDef>Week Start</th>
+                <td mat-cell *matCellDef="let element">{{ element.wsdate| date: 'dd/MM/yyyy' }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="wsfinish">
+                <th mat-header-cell *matHeaderCellDef>Week Finish</th>
+                <td mat-cell *matCellDef="let element">{{ element.wsfinish| date: 'dd/MM/yyyy' }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="hours">
+                <th mat-header-cell *matHeaderCellDef>No of Hours/Week</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.hours }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="isholidaywk">
+                <th mat-header-cell *matHeaderCellDef>Is Holiday Week</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.gst }}
+                  <ng-container *ngIf="element.isholidaywk == '1'">
+                    <input class="form-check-input" type="checkbox" checked="checked" disabled="disabled" />
+                  </ng-container>
+                  <ng-container *ngIf="element.isholidaywk == '0'">
+                    <input type="checkbox" disabled="disabled" />
+                  </ng-container>
+                </td>
+              </ng-container>
+
+
+
+              <ng-container matColumnDef="code">
+                <th mat-header-cell *matHeaderCellDef>Actions</th>
+                <td mat-cell *matCellDef="let element">-->
+          <!--<button mat-icon-button (click)="DivisionEdit(element)" class="tbl-action-btn"
+                  matTooltip="Edit Comission">
+            <app-feather-icons [icon]="'edit'"
+                               [class]="'tbl-fav-check'"></app-feather-icons>
+          </button>-->
+          <!--<ng-container *ngIf="element.isholidaywk == '1'">
+                      <button mat-icon-button (click)="UpdateHolidayWk(element,0)"
+                              class="tbl-action-btn" matTooltip="Remove from holiday week">
+                        <app-feather-icons [icon]="'x-circle'"
+                                           [class]="'tbl-fav-delete'"></app-feather-icons>
+                      </button>
+                    </ng-container>
+                    <ng-container *ngIf="element.isholidaywk == '0'">
+                      <button mat-icon-button (click)="UpdateHolidayWk(element,1)"
+                              class="tbl-action-btn" matTooltip="Mark as holiday week">
+                        <app-feather-icons [icon]="'check-square'"
+                                           [class]="'tbl-fav-check'"></app-feather-icons>
+                      </button>
+                    </ng-container>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+              </table>
+
+              <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage"
+                             [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)"
+                             aria-label="Select page">
+              </mat-paginator>
+            </div>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

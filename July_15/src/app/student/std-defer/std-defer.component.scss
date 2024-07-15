@@ -1,0 +1,34 @@
+
+.section-margin{
+    .card{
+        padding: 1.2rem;
+    }
+}
+.agents-title-txt-clr{
+    color: #005588;
+}
+.lap-ic-clr {
+    color: #33A0DE;
+}
+.flex-center-items{
+    display: flex;
+    align-items: center !important;
+}
+
+.card{
+  background: rgb(245,245,255);
+}
+.btn-defer{
+  color: #000000;
+  background-color: #CAE3F1;
+  font-size: 20px;
+  margin-left: 5px; 
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border: 1px dotted #6699CC;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.btn-defer:hover{
+  background-color: #a8d7f2;
+}

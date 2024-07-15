@@ -1,0 +1,571 @@
+<div class="sticky-breadcrumb card">
+  <div class="d-flex justify-content-between align-items-center ref-header">
+    <h6 style="color: #4c2be2">Student Online Application: Step-5/7</h6>
+    <h6 style="color: #000">Application reference ID: <span style="color:#4c2be2">{{appRefId}}</span></h6>
+  </div>
+  <!-- <div align="end" >
+    <button mat-icon-button color="warn" matTooltip="Previous" (click)="gotostep4()" ><mat-icon>fast_rewind</mat-icon></button>
+    <button mat-icon-button color="primary" matTooltip="Next"  (click)="gotostep6()"><mat-icon>fast_forward</mat-icon></button>
+
+  </div> -->
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0"
+      aria-valuemax="100" style="width:70%">
+      70% Complete
+    </div>
+  </div>
+  <div class="col-md-12 top-buttons-sticky">
+
+    <div class="float-end">
+      <a mat-raised-button color="primary"
+        style="margin-left: 30px; margin-bottom: 10px;" (click)="gotoStep4()">Previous</a>
+      <a mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;"
+        (click)="gotostep6()">Next</a>
+    </div>
+  </div>
+
+</div>
+<div class="row section-margin">
+  <div class="col-md-12">
+    
+      <div class="body-card">
+        <div class="container-fluid mt-1">
+          <div class="mb-3" data-aos="fade-up-right" data-aos-duration="500">
+            <mat-accordion class="w-25 mb-2" (click)="expandPanel('P')">
+              <mat-expansion-panel [expanded]="isPEnable">
+                <mat-expansion-panel-header>
+                  <mat-panel-title style="width: 50px;">
+                    Personal Information
+                  </mat-panel-title>
+                  <!-- <mat-panel-description></mat-panel-description> -->
+                </mat-expansion-panel-header>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+
+
+                    <div class="row  clearfix">
+                      <div class="row">
+
+                        <mat-icon class="editicon" mat-raised-button color="primary" (click)="editPersonalInfo()">
+                          border_color
+                        </mat-icon>
+
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Application ID</strong>
+                          <br />
+                          <p class="text-muted">{{groupedData?.studentInfo?.code}}</p>
+                        </div>
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Full Name</strong>
+                          <br />
+                          <p class="text-muted">{{groupedData?.studentInfo?.firstname}}
+                            {{groupedData?.studentInfo?.lastname}}</p>
+                        </div>
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Student Type</strong>
+                          <br />
+                          <p class="text-muted"> {{groupedData?.studentInfo?.studenttype}}</p>
+                        </div>
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Date of Birth</strong>
+                          <br />
+                          <p class="text-muted">{{groupedData?.studentInfo?.dob |date}} </p>
+                        </div>
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Country Birth</strong>
+                          <br />
+                          <p class="text-muted">{{groupedData?.studentInfo?.countrybirth}} </p>
+                        </div>
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Email</strong>
+                          <br />
+                          <p class="text-muted">{{groupedData?.studentInfo?.emailid}} </p>
+                        </div>
+
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Preffered name</strong>
+                          <br />
+                          <p class="text-muted">{{groupedData?.studentInfo?.firstname}}</p>
+                        </div>
+
+
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Gender</strong>
+                          <br />
+                          <p class="text-muted">{{groupedData?.studentInfo?.gender}}</p>
+                        </div>
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Birth Place</strong>
+                          <br />
+                          <p class="text-muted">{{groupedData?.studentInfo?.countrybirth}}</p>
+                        </div>
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Nationality</strong>
+                          <br />
+                          <p class="text-muted">{{groupedData?.studentInfo?.nationality}}</p>
+                        </div>
+                        <div class="col-md-2 col-6 b-r">
+                          <strong>Passport Expiry Date</strong>
+                          <br />
+                          <p class="text-muted"> {{groupedData?.studentInfo?.passportexpirydate |date}}</p>
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                  </div>
+                  <div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+
+                      <table class="listViewtable">
+                        <div class="row  clearfix">
+                          <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+
+
+
+
+                            <h6 class="trlabel">Current Street Address <span style="color: rgb(61, 82, 64);">(Primary
+                                Address)</span></h6>
+                            <div class="row">
+
+
+                              <div class="col-md-4 col-6 b-r">
+                                <strong>Address</strong>
+                                <br />
+                                <p class="text-muted"> {{groupedData?.currentaddress?.flatno}}
+                                  {{groupedData?.currentaddress?.streetno}}
+                                  {{groupedData?.currentaddress?.citytown}} {{groupedData?.currentaddress?.postcode}}
+                                </p>
+                              </div>
+
+                              <div class="col-md-4 col-6 b-r">
+                                <strong>Phone</strong>
+                                <br />
+                                <p class="text-muted">{{groupedData?.currentaddress?.housephone}}</p>
+                              </div>
+                              <div class="col-md-4 col-6 b-r">
+                                <strong>Mobile</strong>
+                                <br />
+                                <p class="text-muted">{{groupedData?.currentaddress?.current_mobileno}}</p>
+                              </div>
+
+
+
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+                            <h6 class="trlabel">Overseas/Permanant Address</h6>
+                            <div class="row">
+
+                              <div class="col-md-4 col-6 b-r">
+                                <strong>Address</strong>
+                                <br />
+                                <p class="text-muted">{{groupedData?.overseasaddress?.overseas_country}}
+                                  {{groupedData?.overseasaddress?.overseas_flatno}}
+                                  {{groupedData?.overseasaddress?.overseas_citytown}}
+                                  {{groupedData?.overseasaddress?.overseas_postcode}}
+                                </p>
+                              </div>
+
+                              <div class="col-md-4 col-6 b-r">
+                                <strong>Phone</strong>
+                                <br />
+                                <p class="text-muted">{{groupedData?.overseasaddress?.overseas_workphone}}</p>
+                              </div>
+                              <div class="col-md-4 col-6 b-r">
+                                <strong>Mobile</strong>
+                                <br />
+                                <p class="text-muted">{{groupedData?.overseasaddress?.overseas_mobileno}}</p>
+                              </div>
+
+
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div class="mb-3" data-aos="fade-down-left" data-aos-duration="800">
+            <mat-accordion class="w-25 mb-1" (click)="expandPanel('L')">
+              <mat-expansion-panel [expanded]="isLEnable">
+                <mat-expansion-panel-header>
+                  <mat-panel-title style="width: 50px;">
+                    Language, Cultural Diversity, Education History and Qualification History
+                  </mat-panel-title>
+                  <!-- <mat-panel-description></mat-panel-description> -->
+                </mat-expansion-panel-header>
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+
+                    <table class="listViewtable languageandCulturalDiversity">
+                      <div class="row  clearfix">
+                        <mat-icon class="editicon" mat-raised-button color="primary" (click)="editLanguage()">
+                          border_color
+                        </mat-icon>
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-1 p-2">
+                          <h6 style="color: rgb(226, 198, 43);">Language And Cultural Diversity</h6>
+                          <div class="row">
+
+                            <div class="col-md-5 col-6 b-r">
+                              <strong>Are You of Australian Aboriginal or Toress strait islander origin</strong>
+                              <br />
+                              <p class="text-muted text-center">
+                                {{groupedData?.["Language&EnglishTest"]?.aboriginal}}
+                              </p>
+                            </div>
+
+                            <div class="col-md-2 col-6 b-r">
+                              <strong>First language</strong>
+                              <br />
+                              <p class="text-muted">{{groupedData?.["Language&EnglishTest"]?.engmain}}</p>
+                            </div>
+                            <div class="col-md-5 col-6 b-r">
+                              <strong>English Was the Language of instruction in previous secondary or teritary
+                                Studies</strong>
+                              <br />
+                              <p class="text-muted text-center"> {{groupedData?.["Language&EnglishTest"]?.secondary}}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 mb-1 p-2">
+                          <h6 style="color: rgb(226, 198, 43);">Education History</h6>
+
+                          <div class="row">
+
+                            <div class="col-md-3 col-6 b-r">
+                              <strong>What is your Highest Completed School Level ?</strong>
+                              <br />
+                              <p class="text-muted">
+                                {{groupedData?.["Schooling&Employment"]?.highestschool}}
+                              </p>
+                            </div>
+
+                            <div class="col-md-3 col-6 b-r">
+                              <strong>Are you Still Attending Secondary School</strong>
+                              <br />
+                              <p class="text-muted">{{groupedData?.["Schooling&Employment"]?.stillsecondary}}</p>
+                            </div>
+                            <div class="col-md-3 col-6 b-r">
+                              <strong>English Language Profecency Test</strong>
+                              <br />
+                              <p class="text-muted ">{{groupedData?.["Language&EnglishTest"]?.testname}}</p>
+                            </div>
+                            <div class="col-md-3 col-6 b-r">
+                              <strong>When</strong>
+                              <br />
+                              <p class="text-muted ">{{groupedData?.["Language&EnglishTest"]?.whencomplete | date}}</p>
+                            </div>
+                            <div class="col-md-2 col-6 b-r" *ngIf="groupedData?.['Language&EnglishTest']?.listeningscore">
+                              <strong>Listening Score </strong>
+                              <br />
+                              <p class="text-muted ">{{groupedData?.["Language&EnglishTest"]?.listeningscore}}</p>
+                            </div>
+                            <div class="col-md-2 col-6 b-r" *ngIf="groupedData?.['Language&EnglishTest']?.readingscore">
+                              <strong>Reading Score </strong>
+                              <br />
+                              <p class="text-muted ">{{groupedData?.["Language&EnglishTest"]?.readingscore}}</p>
+                            </div>
+                            <div class="col-md-2 col-6 b-r" *ngIf="groupedData?.['Language&EnglishTest']?.writingscore">
+                              <strong>Writing Score </strong>
+                              <br />
+                              <p class="text-muted ">{{groupedData?.["Language&EnglishTest"]?.writingscore}}</p>
+                            </div>
+                            <div class="col-md-2 col-6 b-r" *ngIf="groupedData?.['Language&EnglishTest']?.speakingscore">
+                              <strong>Speaking Score </strong>
+                              <br />
+                              <p class="text-muted ">{{groupedData?.["Language&EnglishTest"]?.speakingscore}}</p>
+                            </div>
+                            <div class="col-md-2 col-6 b-r"
+                              *ngIf="  groupedData?.['Language&EnglishTest']?.overallscore">
+                              <strong>OverAll Score </strong>
+                              <br />
+                              <p class="text-muted ">{{groupedData?.["Language&EnglishTest"]?.overallscore}}</p>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </table>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div class="mb-3">
+            <mat-accordion class="w-25 mb-1" (click)="expandPanel('E')">
+              <mat-expansion-panel [expanded]="isEEnable">
+                <mat-expansion-panel-header>
+                  <mat-panel-title style="width: 50px;">
+                    Enrollment Details
+                  </mat-panel-title>
+                  <!-- <mat-panel-description></mat-panel-description> -->
+                </mat-expansion-panel-header>
+                <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                  <table class="listViewtable enrolment ">
+                    <div class="row  clearfix">
+                      <mat-icon class="editicon" mat-raised-button color="primary" (click)="editEnrollment()">
+                        border_color
+                      </mat-icon>
+
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Provider Name </strong>
+                        <br />
+                        <p class="text-muted ">{{groupedData?.["Services&OSHC"]?.provider}}</p>
+                      </div>
+                    </div>
+                  </table>
+
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table table-bordered ">
+
+                    <caption>
+                      <span class=""> <mat-icon>visibility</mat-icon>
+                        Applied Course(s) List</span>
+                    </caption>
+                    <tbody>
+                      <tr>
+                        <th scope="col">Course Id</th>
+                        <th scope="col">Course Name</th>
+                        <th scope="col">Attempt</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">Finish Date</th>
+                        <th scope="col">Material Fee</th>
+                        <th scope="col">Tution Fee</th>
+                        <th scope="col">Enroll Fee</th>
+                        <!-- <th scope="col">Application Request</th>
+                          <th scope="col">Special Condition</th> -->
+                      </tr>
+                      <tr title="" *ngFor="let course of courseList">
+                        <td>
+                          <span>
+
+                            {{course.coursecode}}
+                          </span>
+                        </td>
+                        <td>
+                          <span>
+
+                            {{groupedData?.courseList?.["0"]?.name}}
+                          </span>
+                        </td>
+                        <td>
+                          <span>
+                            1
+                            {{course.startdate | date}}
+                          </span>
+                        </td>
+                        <td>
+                          <span>
+
+                            {{course.coursefinishdate | date}}
+                          </span>
+
+                        </td>
+                        <td>
+                          <span>
+
+                            {{course.coursefinishdate | date}}
+                          </span>
+
+                        </td>
+                        <td>
+                          {{course.materialfee}}
+                          <span> </span>
+                        </td>
+                        <td>
+                          <span>{{course.tutionfee}} </span>
+                        </td>
+                        <td>
+                          <span>{{course.enrollmentfee}} </span>
+                        </td>
+                       
+
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div class="mb-3">
+            <mat-accordion class="w-25 mb-1" (click)="expandPanel('A')">
+              <mat-expansion-panel [expanded]="isAEnable">
+                <mat-expansion-panel-header>
+                  <mat-panel-title style="width: 50px;">
+                    Additional Service Information Request
+                  </mat-panel-title>
+                  <!-- <mat-panel-description></mat-panel-description> -->
+                </mat-expansion-panel-header>
+                <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                  <table class="listViewtable">
+                    <div class="row  clearfix">
+                      <mat-icon class="editicon" mat-raised-button color="primary" (click)="editAditionalService()">
+                        border_color
+                        </mat-icon> 
+
+
+                      <div class="col-lg-12 col-md-12 col-sm-12 mb-1 p-2">
+
+                        <h6 class="trlabel">Disability</h6>
+                        <div class="col-md-6 col-6 b-r">
+                          <strong>Do you Consider Yourself to have Disability ,impairment or Long term
+                            Condition ?</strong>
+                          <br />
+                          <p class="text-muted "> {{groupedData?.["Disability&Emergency"]?.disability}}</p>
+                        </div>
+
+                      </div>
+
+                      <div class="col-lg-4 col-md-12 col-sm-12 mb-1 p-2">
+                        <h6 class="trlabel">OSHC</h6>
+
+                        <div class="row">
+                          <div class="col-md-4 col-6 b-r">
+                            <strong>OSHC Duration Month </strong>
+                            <br />
+                            <p class="text-muted "> {{groupedData?.["Services&OSHC"]?.coverduration}}</p>
+                          </div>
+                          <div class="col-md-4 col-6 b-r">
+                            <strong>OSHC Fee </strong>
+                            <br />
+                            <p class="text-muted ">{{groupedData?.["Services&OSHC"]?.fee}}</p>
+                          </div>
+                          <div class="col-md-4 col-6 b-r">
+                            <strong>OSHC Start Date </strong>
+                            <br />
+                            <p class="text-muted ">{{groupedData?.["Services&OSHC"]?.startdate |date}}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-12 col-sm-12 mb-1 p-2">
+                        <h6 class="trlabel">Emergency Contact</h6>
+                        <div class="row">
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Contact Name </strong>
+                            <br />
+                            <p class="text-muted "> {{groupedData?.["Disability&Emergency"]?.contactname}}</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Contact Type </strong>
+                            <br />
+                            <p class="text-muted ">{{groupedData?.["Disability&Emergency"]?.contacttype}}</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>RelationShip </strong>
+                            <br />
+                            <p class="text-muted ">{{groupedData?.["Disability&Emergency"]?.relationship}}</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Address </strong>
+                            <br />
+                            <p class="text-muted "> {{groupedData?.["Disability&Emergency"]?.address}}</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Phone </strong>
+                            <br />
+                            <p class="text-muted "> {{groupedData?.["Disability&Emergency"]?.phone}}</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>E Mail </strong>
+                            <br />
+                            <p class="text-muted "> {{groupedData?.["Disability&Emergency"]?.email}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </table>
+
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table table-bordered ">
+                    <caption>
+                      <span class=""> <mat-icon>visibility</mat-icon>
+                        Service List </span>
+                    </caption>
+                    <tbody>
+                      <tr>
+                        <th scope="col">Service Name</th>
+                        <th scope="col">Category Name</th>
+                        <th scope="col">Facility Name</th>
+                        <th scope="col">Provideer Name</th>
+                        <th scope="col">Service Start</th>
+                        <th scope="col">Service End</th>
+                        <th scope="col">Std Price</th>
+                        <th scope="col">Comment</th>
+                      </tr>
+                      <tr title="">
+                        <td>
+                          <span>
+                            {{groupedData?.["Services&OSHC"]?.service}}
+                          </span>
+                        </td>
+                        <td>
+                          <span>
+                            {{groupedData?.["Services&OSHC"]?.categeory}}
+                          </span>
+                        </td>
+                        <td>
+                          <span>
+                            {{groupedData?.["Services&OSHC"]?.facility}}
+                          </span>
+                        </td>
+                        <td>
+                          <span>
+                            {{groupedData?.["Services&OSHC"]?.provider}}
+                          </span>
+                        </td>
+                        <td>
+                          <span>
+                            {{groupedData?.["Services&OSHC"]?.servicestartdate |date}}
+                          </span>
+                        </td>
+                        <td>
+                          <span>
+                            Jun 25, 2025
+                          </span>
+                        </td>
+                        <td>
+                          <span>
+                            {{groupedData?.["Services&OSHC"]?.price}}
+                          </span>
+                        </td>
+                        <td>
+                          <span>
+                            {{groupedData?.["Services&OSHC"]?.comment}}
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+
+        </div>
+        <div class="col-md-12 buttons-sticky">
+
+          <div class="float-end">
+            <a mat-raised-button color="primary" 
+              style="margin-left: 30px; margin-bottom: 10px;" (click)="gotoStep4()">Previous</a> 
+            <a mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;"
+              (click)="gotostep6()">Next</a>
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>

@@ -1,0 +1,252 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+
+    <div class="row" *ngIf="dashboardSummary.length > 0">
+      <div *ngFor="let item of dashboardSummary" [class]="item.cols" >
+        <div class="info-box7 {{item.color}} order-info-box7">
+          <div class="info-box7-block">
+            <h2 class="text-end"><h6 class="float-start">{{item.name}}</h6><span>{{item.counter}}</span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+
+          <shimmer [height]="60" *ngIf="shimmerEffect"></shimmer>
+
+          <div class="materialTableHeader" *ngIf="!shimmerEffect">
+            <div class="left">
+              <ul class="header-buttons-left ms-0">
+                <li class="tbl-title">
+                  <h2>{{pageTitle}}</h2>
+                </li>
+                <li class="tbl-search-box">
+                  <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                  <input id="search-input" placeholder="Search" type="text" #filter (keyup)="onSearch(filter.value)"
+                    class="browser-default search-field" aria-label="Search box">
+                </li>
+                <li class="cur-pointer">
+                  <div class="m-l-10" *ngIf="helpText!=''">
+                    <mat-icon (click)="showHelpText = !showHelpText">info_outline</mat-icon>
+                  </div>
+                </li> 
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li>
+                  <span *ngFor="let chip of filterChips" class="label bg-brown font-12 m-l-10">{{chip.key}}</span>
+                </li>
+                <li class="tbl-header-btn" *ngIf="actions.enable_filter=='T' && this.filterForm">
+                  <div class="m-l-10" matTooltip="Filter">
+                    <button mat-mini-fab color="primary" [matMenuTriggerFor]="filterMenu">
+                      <mat-icon class="col-white">filter_list</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <!-- <li class="tbl-header-btn" *ngIf="actions.enable_add=='T'">
+                  <div class="m-l-10" matTooltip="ADD">
+                    <button mat-mini-fab color="primary" (click)="addNew()">
+                      <mat-icon class="col-white">add</mat-icon>
+                    </button>
+                  </div>
+                </li> -->
+                <li class="tbl-header-btn" >
+                  <div class="m-l-10" matTooltip="ADD">
+                    <button mat-mini-fab color="primary" (click)="addNew()">
+                      <mat-icon class="col-white">add</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="body overflow-auto">
+
+            <div class="alert alert-info" *ngIf="helpText!='' && showHelpText" [innerHtml]="helpText"></div>
+            <table style="width: 100%;" *ngIf="shimmerEffect">
+              <thead>
+                <tr>
+                  <th *ngFor='let in of [0,1,2];let i = index'>
+                    <shimmer [height]="50"></shimmer>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor='let row of [0,1,2,3,4,5,6,7,8,9]'>
+                  <td colspan="3">
+                    <shimmer [height]="50"></shimmer>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="table-responsive">
+              <table class="table table-hover w-100" *ngIf="!shimmerEffect">
+                <thead>
+                  <tr>
+                    <th *ngFor="let item of columns"><span (click)="sortBy(item.key, item.sorting, item.keyFor)"
+                        class="sorting-header">{{item.name}}</span><i class="{{sortIcon(item.key)}} sort-spacing"></i>
+                    </th>
+                    <th *ngIf="actions.enable_edit=='T' || actions.enable_statuschange=='T' || actions.enable_view=='T'">{{actions.name}}</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="rows.length>0">
+                  <tr *ngFor="let row of rows">
+                    <td *ngFor="let item of columns">
+                      <div class="{{getCSS(row[item.key+'_css'])}}">{{row[item.key]}}</div>
+                    </td>
+                    <td *ngIf="actions.enable_edit=='T' || actions.enable_statuschange=='T' || actions.enable_view=='T'" width="120px" class="mat-mdc-row cdk-row mat-ripple">
+                      <!-- <button mat-icon-button class="tbl-action-btn" *ngIf="actions.enable_edit=='T'" (click)="editItem(row.code)">
+                        <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                      </button>
+                      <button mat-icon-button class="tbl-action-btn" *ngIf="actions.enable_statuschange=='T'" (click)="statusChange(row.code)">
+                        <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons>
+                      </button> -->
+                      <button mat-icon-button [matMenuTriggerFor]="appMenu" aria-label=""
+                        (click)="selectedElement = row">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div *ngIf="rows.length==0" class="w-100 align-center font-20 padding-30">
+                No Data found !
+              </div>
+              <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+              <pagination *ngIf="showPagination" [totalItems]="totalItems" (changePage)="onChangePage($event)"
+                [pageLimits]="pageSizeOptions" [pageSize]="pageSize"></pagination>
+            </div>
+            <mat-menu #appMenu="matMenu" [overlapTrigger]="true">
+              <ng-container *ngIf="actions.enable_view=='T'">
+                <button mat-menu-item (click)="viewItem(selectedElement.code)">
+                  <mat-icon>details</mat-icon><span> View</span>
+                </button>
+              </ng-container>
+              <ng-container *ngIf="actions.enable_edit=='T'">
+                <button mat-menu-item (click)="editItem(selectedElement.code)">
+                  <mat-icon>edit</mat-icon><span> Edit</span>
+                </button>
+              </ng-container>
+              <ng-container *ngIf="actions.enable_statuschange=='T'">
+                <button mat-menu-item  (click)="statusChange(selectedElement.code)">
+                  <mat-icon>security</mat-icon><span> Status Change</span>
+                </button>
+              </ng-container>
+
+              <ng-container *ngIf="actions.enable_menu1=='T'">
+                <button mat-menu-item  (click)="menuAction(selectedElement.code, 1)">
+                  <mat-icon *ngIf="actions.menuicon1!=''">{{actions.menuicon1}}</mat-icon><span> {{actions.menuname1}}</span>
+                </button>
+              </ng-container>
+
+              <ng-container *ngIf="actions.enable_menu2=='T'">
+                <button mat-menu-item  (click)="menuAction(selectedElement.code, 2)">
+                  <mat-icon *ngIf="actions.menuicon2!=''">{{actions.menuicon2}}</mat-icon><span> {{actions.menuname2}}</span>
+                </button>
+              </ng-container>
+
+              <ng-container *ngIf="actions.enable_menu3=='T'">
+                <button mat-menu-item  (click)="menuAction(selectedElement.code, 3)">
+                  <mat-icon *ngIf="actions.menuicon3!=''">{{actions.menuicon3}}</mat-icon><span> {{actions.menuname3}}</span>
+                </button>
+              </ng-container>
+
+            </mat-menu>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<mat-menu #filterMenu="matMenu" [overlapTrigger]="true">
+  <div class="filer-area" *ngIf="this.filterForm">
+    <form [formGroup]="filterForm">
+      <div class="row" (click)="$event.stopPropagation();">
+        
+          <div *ngFor="let field of formFields" [class]="field.className">
+            <!-- Form Controls -->
+            <ng-tempate [ngSwitch]="field.controlType">
+
+              <ng-container *ngSwitchCase="'hidden'">
+                <input type="hidden" [formControlName]="field.key" [id]="field.key" [name]="field.key" value="field.value"/>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="'header'">
+                <div class="row" #sectionElement>
+                  <div class="header">
+                    <h2 id="{{field.key}}">{{ field.label }}</h2>
+                  </div>
+                  <hr />
+                </div>                                  
+              </ng-container>
+
+              <ng-container *ngSwitchCase="'label'">
+                <mat-label [name]="field.key" [attr.for]="field.key">{{field.label}}</mat-label>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="'textbox'">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                  <mat-label [attr.for]="field.key">{{field.label}}</mat-label>
+                  <input matInput [formControlName]="field.key" [id]="field.key" [name]="field.key" [maxlength]="field.maxlength" customDir/>
+                  <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                </mat-form-field>
+              </ng-container>
+            
+              <ng-container *ngSwitchCase="'dropdown'">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                  <mat-label [attr.for]="field.key">{{ field.label }}</mat-label>
+                  <mat-select [formControlName]="field.key" [id]="field.key" [name]="field.key" 
+                    (selectionChange)="TargetChange(field.key, field.targetid, $event.value)">
+                    <mat-option *ngFor="let opt of field.options" [value]="opt.value">{{ opt.key }}</mat-option>
+                  </mat-select>
+                  <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                </mat-form-field>
+              </ng-container>
+
+              <!-- <ng-container *ngSwitchCase="'multidropdown'">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                  <mat-label [attr.for]="field.key">{{ field.label }} </mat-label>
+                  <mat-select [formControlName]="field.key" [id]="field.key" [name]="field.key" multiple>
+                    <mat-option *ngFor="let opt of field.options" [value]="opt.value">{{ opt.key }}</mat-option>
+                  </mat-select>
+                  <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                </mat-form-field>
+              </ng-container> -->
+
+              <ng-container *ngSwitchCase="'date'">
+                <mat-form-field class="example-full-width mb-3" appearance="outline">
+                  <mat-label [attr.for]="field.key">{{ field.label }}</mat-label>
+                  <input matInput [matDatepicker]="datePicker"
+                    [name]="field.key" [id]="field.key" [formControlName]="field.key"
+                    placeholder="Choose a date"
+                    (dateChange)="changeDate($event, field.key)"/>
+                  <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                  <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                  <mat-datepicker #datePicker></mat-datepicker>
+                </mat-form-field>
+              </ng-container>
+
+            </ng-tempate>
+            <!-- Form Controls -->
+          </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+          <button class="btn btn-primary btn-lg btn-block waves-effect btn-space" mat-raised-button [class.auth-spinner]="submitEffect" [disabled]="submitEffect" (click)="searchFilter()">Search</button>
+          <button class="btn btn-base btn-lg btn-block waves-effect" mat-raised-button [class.auth-spinner]="submitEffect" [disabled]="submitEffect" (click)="clearFilter()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</mat-menu>

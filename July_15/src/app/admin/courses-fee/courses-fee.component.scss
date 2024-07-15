@@ -1,0 +1,25 @@
+
+.edit-icon{
+  cursor: pointer;
+  color: blue;
+  font-size: x-large;
+}
+.add-icon{
+  cursor: pointer;
+  color:green;
+  font-size: x-large;
+}
+hr{
+  border: solid 1.3px !important;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+input[readonly]{
+  background-color:transparent;
+  border: 0;
+  font-size: 1em;
+}
+::ng-deep .selected {
+  background-color: #eae7e7 !important; /* Change this to your desired color */
+}
+

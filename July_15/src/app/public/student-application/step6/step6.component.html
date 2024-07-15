@@ -1,0 +1,112 @@
+<div class="sticky-breadcrumb card">
+  <div class="d-flex justify-content-between ref-header">
+    <h6 style="color: #4c2be2">Student Online Application: Step-6/7</h6>
+    <h6 style="color: #000">Application reference ID: <span style="color:#4c2be2">{{appRefId}}</span></h6>
+  </div>
+  <!-- <div align="end">
+    <button mat-icon-button color="warn" matTooltip="Previous" (click)="gotostep5()"><mat-icon>fast_rewind</mat-icon></button>
+    <button mat-icon-button color="primary" matTooltip="Next" (click)="gotostep7()"><mat-icon>fast_forward</mat-icon></button>
+  
+  </div> -->
+ 
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="85"
+    aria-valuemin="0" aria-valuemax="100" style="width:85%">
+      85%  Complete
+    </div>
+  </div>
+
+</div>
+<div class="row section-margin">
+  <div class="col-md-12">
+  
+
+      <div class="body">
+        <div class="container-fluid mt-1">
+          <div class="glassmorphism" data-aos="fade-up-left" data-aos-duration="1200">
+            <div class="header-text">Upload Document</div>
+            <hr />
+            <div class="snackbar-msg">
+              <p> <mat-icon class="icon c-icon">check </mat-icon>
+                Your application is almost complete . In this step you simply upload your revelnt documents .
+                to us For Approval The accepted file format can be .pdf ,gif, .img or Jpeg . the maximum file upload
+                size limit is 5MB . Please ensure that your files , especially your photo and copy of passport are
+                resized before uploading . it is mandatory to upload all the compulsory files .
+              </p>
+            </div>
+
+            <!-- table -->
+            <div class="table-responsive">
+              <table class="table table-bordered w-50">
+                <caption>
+                  <span class=""> <mat-icon>visibility</mat-icon>
+                    Document List </span>
+                </caption>
+                <tbody>
+                  <tr>
+                    <th scope="col">Document Name</th>
+                    <th scope="col">Compulsory</th>
+                    <th scope="col"></th>
+
+
+
+                  </tr>
+                  <tr title="">
+
+                    <td>
+                      <span>
+                        Passport
+                      </span>
+                    </td>
+                    <td>
+                      <span>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      </span>
+                    </td>
+                    <td>
+                      <span>
+                        <!-- <form [formGroup]="uploadDocFormGroup"> -->
+
+<!-- 
+                          <input class="form-control" (change)="onHandleChangeOfuploadDocument($event)"
+                            formControlName="upload_doc" type="file" id="uploadMultipleDocs" multiple> -->
+                          
+                        <!-- </form> -->
+                        <button mat-mini-fab (click)="openFileInput()" color="primary">
+                          <mat-icon>attach_file</mat-icon>
+                        </button>
+                         <!-- <input matInput placeholder="choose file"
+                          [value]="selectedFileName" #fileInputField readonly >
+                         
+                          <input #fileInput type="file" id="upload_doc" name="upload_doc"
+                          (change)="onfileSelected($event)" style="display: none;"> -->
+                          
+                      </span>
+
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+
+          </div>
+
+          <div class="col-md-12 buttons-sticky">
+            <div class="float-end">
+              <a mat-raised-button color="primary" (click)="gotostep5()"
+                style="margin-left: 30px; margin-bottom: 10px;">Previous</a>
+              <a mat-raised-button color="accent" (click)="gotostep7()"
+                style="margin-left: 30px; margin-bottom: 10px;">Next</a>
+            </div>
+            </div>
+
+        </div>
+
+
+      </div>
+     
+   
+  </div>
+</div>

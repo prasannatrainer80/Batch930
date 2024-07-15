@@ -1,0 +1,282 @@
+<div class="sticky-breadcrumb card">
+  <div class="d-flex justify-content-between ref-header">
+    <h6 style="color: rgb(226, 198, 43);"> <mat-icon class="material-symbols-outlined lap-ic-clr">
+      laptop_windows
+    </mat-icon> Agent Registration</h6>
+    <!-- <h6 style="color: #000">Application reference ID: <span style="color:rgb(226, 198, 43)"></span></h6> -->
+  </div>
+</div>
+
+
+<div class="row section-margin">
+  <div class="col-md-12">
+    <div class="card">
+     
+      <div class="card-body">
+        <div class="container-fluid">
+          <div class="glassmorphism mb-3">
+            <div class="header-text">Agent Application Details</div>
+            <hr/>
+            <form [formGroup]="agentApplicationDtls">
+              <div class="row">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Agency Name</mat-label>
+                    <input matInput type="text" formControlName="agencyName" placeholder="Enter Agency Name" required>
+                    <mat-error
+                      *ngIf="agentApplicationDtls.controls.agencyName.touched && agentApplicationDtls.controls.agencyName.invalid">
+                      <span *ngIf="agentApplicationDtls.controls.agencyName.errors?.required">This
+                        field is Mandatory</span>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Other Name</mat-label>
+                    <input matInput type="text" formControlName="otherName" placeholder="Enter Other Name">
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Contact Person</mat-label>
+                    <input matInput type="text" formControlName="contactPerson" placeholder="Enter Contact Person" required>
+                    <mat-error
+                      *ngIf="agentApplicationDtls.controls.contactPerson.touched && agentApplicationDtls.controls.contactPerson.invalid">
+                      <span *ngIf="agentApplicationDtls.controls.contactPerson.errors?.required">This
+                        field is Mandatory</span>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Primary Email (mandatory)</mat-label>
+                    <input matInput type="text" formControlName="primaryEmail" placeholder="Enter Primary Email" required>
+                    <mat-error
+                      *ngIf="agentApplicationDtls.controls.primaryEmail.touched && agentApplicationDtls.controls.primaryEmail.invalid">
+                      <span *ngIf="agentApplicationDtls.controls.primaryEmail.errors?.required">This
+                        field is Mandatory</span>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Alternate Email</mat-label>
+                    <input matInput type="text" formControlName="alternateEmail" placeholder="Enter Alternate Email">
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Website</mat-label>
+                    <input matInput type="text" formControlName="website" placeholder="Enter Website">
+                    <span matTextPrefix>http://&nbsp;</span>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Tel</mat-label>
+                    <input matInput type="text" formControlName="tel" placeholder="Enter Tel" required>
+                    <mat-hint>(Country code - City Code - Number)</mat-hint>
+                    <mat-error
+                      *ngIf="agentApplicationDtls.controls.tel.touched && agentApplicationDtls.controls.tel.invalid">
+                      <span *ngIf="agentApplicationDtls.controls.tel.errors?.required">This
+                        field is Mandatory</span>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Fax</mat-label>
+                    <input matInput type="text" formControlName="fax" placeholder="Enter Fax">
+                    <mat-hint>(Country code - City Code - Number)</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Mobile1</mat-label>
+                    <input matInput type="text" formControlName="mobile1" placeholder="Enter Mobile1">
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Mobile2</mat-label>
+                    <input matInput type="text" formControlName="mobile2" placeholder="Enter Mobile2">
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Number of Employees</mat-label>
+                    <input matInput type="text" formControlName="numOfEmployees" placeholder="Enter Number of Employees">
+                    <span matTextSuffix>Employee(s)</span>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Agent/Company Notes</mat-label>
+                    <textarea matInput type="text" formControlName="agentOrCompayNotes" placeholder="Enter Agent/Company Notes"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="glassmorphism mb-3">
+            <div class="header-text">Agency Address</div>
+            <hr/>
+            <div class="d-flex align-items-center checkBox-txt-color">
+              <mat-icon class="material-symbols-outlined me-1">
+                info
+              </mat-icon>
+              <input type="checkbox" >
+              <span class="ms-1">** Please tick the checkbox if you have postal address</span>
+              <span class="m-1">|</span>
+              <input type="checkbox" >
+              <span class="ms-1">** Please tick the checkbox if you have corporate address</span>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="glassmorphism mt-3">
+                <div class="header-text">Office Address (Required)</div>
+                <hr/>
+                <form [formGroup]="officeAddress">
+                  <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Country</mat-label>
+                        <mat-select placeholder="select Country" formControlName="country" >
+                          <mat-option value="Australia">Australia</mat-option>
+                          <mat-option value="Hon">Hon. </mat-option>
+                          <mat-option value="not-specified">Not Specified </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100" >
+                        <mat-label>Address</mat-label>
+                        <input matInput formControlName="address" type="text" placeholder="Enter Address" required>
+                        <mat-error
+                          *ngIf="officeAddress.controls.address.touched && officeAddress.controls.address.invalid">
+                          <span *ngIf="officeAddress.controls.address.errors?.required">This
+                            field is Mandatory</span>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>City/Town/Suburb</mat-label>
+                        <input matInput formControlName="cityOrTownOrSuburb" type="text" placeholder="Enter City/Town/Suburb" required>
+                        <mat-error
+                          *ngIf="officeAddress.controls.cityOrTownOrSuburb.touched && officeAddress.controls.cityOrTownOrSuburb.invalid">
+                          <span *ngIf="officeAddress.controls.cityOrTownOrSuburb.errors?.required">This
+                            field is Mandatory</span>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>State/Province</mat-label>
+                        <mat-select placeholder="select State/Province" formControlName="stateOrProvince">
+                          <mat-option value="ACT">ACT</mat-option>
+                          <mat-option value="Hon">Hon. </mat-option>
+                          <mat-option value="not-specified">Not Specified </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Postcode</mat-label>
+                        <input matInput type="text" formControlName="postcode" placeholder="Enter Postcode" required>
+                        <mat-error
+                          *ngIf="officeAddress.controls.postcode.touched && officeAddress.controls.postcode.invalid">
+                          <span *ngIf="officeAddress.controls.postcode.errors?.required">This
+                            field is Mandatory</span>
+                        </mat-error>
+                      </mat-form-field>
+                      
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>ACN</mat-label>
+                        <input matInput formControlName="acn" type="text" placeholder="Enter ACN" >
+                      </mat-form-field>
+                    </div>  
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>ABN</mat-label>
+                        <input matInput formControlName="abn" type="text" placeholder="Enter ABN" >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="glassmorphism mt-3">
+            <div class="header-text">Agency Status</div>
+            <hr/>
+            <div class="d-flex align-items-center agency-status">
+              <div>Initial Status</div>
+              <mat-icon class="material-symbols-outlined me-1">
+                info
+              </mat-icon>
+              <span>New Application Request</span>
+            </div>
+          </div>
+          <div class="glassmorphism mt-3">
+            <div class="header-text">Target Recruitment Country</div>
+            <hr/>
+            <form [formGroup]="targetRecruitmentCntry">
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Primary Country</mat-label>
+                    <mat-select placeholder="select Primary country" formControlName="primaryCountry" required>
+                      <mat-option value="Australia">Australia</mat-option>
+                      <mat-option value="Hon">Hon. </mat-option>
+                      <mat-option value="not-specified">Not Specified </mat-option>
+                    </mat-select>
+                    <mat-error
+                      *ngIf="targetRecruitmentCntry.controls.primaryCountry.touched && targetRecruitmentCntry.controls.primaryCountry.invalid">
+                      <span *ngIf="targetRecruitmentCntry.controls.primaryCountry.errors?.required">This
+                        field is Mandatory</span>
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Secondary Country</mat-label>
+                    <mat-select placeholder="select Secondary Country" formControlName="secoundaryCountry" >
+                      <mat-option value="Australia">Australia</mat-option>
+                      <mat-option value="Hon">Hon. </mat-option>
+                      <mat-option value="not-specified">Not Specified </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="glassmorphism mt-3">
+            <div class="header-text">Upload Supporting Documents</div>
+            <hr/>
+            <div class="noDataTable">
+              <span class="empty-caption"><mat-icon class="icon">table_view</mat-icon>  <span>Documents to upload</span></span>
+              <div class="empty-data">
+                <mat-icon class="icon">warning</mat-icon> 
+                <div>No Documents found</div>
+              </div>
+              <div class="empty-data mt-4 w-100">
+                <mat-icon class="icon">warning</mat-icon> 
+                <div class="fw-bold">only .pdf, .jpg, .gif</div>
+              </div>
+            </div>
+          </div>
+          <div id="btn-agent-reg">
+            <button>
+              Register
+            </button>
+            <button>
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

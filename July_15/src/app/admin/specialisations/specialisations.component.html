@@ -1,0 +1,128 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header" *ngFor="let breadscrum of breadscrums">
+            <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" 
+            [active_item]="breadscrum.active">
+            </app-breadcrumb>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="body overflow-auto">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <mat-label>Select Course</mat-label>
+                                            <mat-select placeholder="Course" [(ngModel)]="coursecode" id="ddlcourses"
+                                                name="course" (selectionChange)="onChangeCourse($event.value)" >
+                                                <mat-option *ngFor="let cs of coursesList"
+                                                    [value]="cs.code">{{cs.name}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 mt-3">
+                                        <div class="m-l-10" matTooltip="Add Specialisation">
+                                            <button mat-mini-fab color="primary" (click)="addNew()">
+                                                <mat-icon class="col-white">add</mat-icon>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="body table-responsive">
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th>Status</th>
+                                                <th>Specialisation Name</th>
+                                                <th>Subjects</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let spl of speclList">
+                                                <td scope="row" style="width: 8%;">
+                                                    <span class="badge badge-solid-green" *ngIf="spl.status == 1">
+                                                        Active</span>
+                                                    <span class="badge badge-solid-red" *ngIf="spl.status == 0">
+                                                        Inactive</span>
+                                                </td>
+                                                <td style="width: 17%;">{{spl.specialisation}}</td>
+                                                <td style="width: 65%;">
+                                                    <div class="row" *ngIf="spl.splSubjects.length > 0">
+                                                        <div class="col-md-12">
+                                                            <table class="table" id="tblsub">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Subject Name</th>
+                                                                        <th></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr *ngFor="let splSub of spl.splSubjects">
+                                                                        <td style="width: 80%;">{{splSub.subname}}</td>
+                                                                        <td style="width: 20%;">
+                                                                            <ng-container *ngIf="splSub.status == 1">
+                                                                                <button mat-icon-button
+                                                                                    (click)="SubjectStatusChange(spl,splSub,0)"
+                                                                                    class="tbl-action-btn"
+                                                                                    matTooltip="Deactivate">
+                                                                                    <app-feather-icons
+                                                                                        [icon]="'x-circle'"
+                                                                                        [class]="'tbl-fav-delete'"></app-feather-icons>
+                                                                                </button>
+                                                                            </ng-container>
+                                                                            <ng-container *ngIf="splSub.status == 0">
+                                                                                <button mat-icon-button
+                                                                                    (click)="SubjectStatusChange(spl,splSub,1)"
+                                                                                    class="tbl-action-btn"
+                                                                                    matTooltip="Activate">
+                                                                                    <app-feather-icons
+                                                                                        [icon]="'check-square'"
+                                                                                        [class]="'tbl-fav-check'"></app-feather-icons>
+                                                                                </button>
+                                                                            </ng-container>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td style="width: 10%;">
+                                                    <button mat-icon-button (click)="AddSubject(spl)"
+                                                        class="tbl-action-btn" matTooltip="Add Subject">
+                                                        <app-feather-icons [icon]="'plus-circle'"
+                                                            [class]="'tbl-fav-check'"></app-feather-icons>
+
+                                                    </button>
+                                                    <ng-container *ngIf="spl.status == 1">
+                                                        <button mat-icon-button (click)="StatusChange(spl,0)"
+                                                            class="tbl-action-btn" matTooltip="Deactivate">
+                                                            <app-feather-icons [icon]="'x-circle'"
+                                                                [class]="'tbl-fav-delete'"></app-feather-icons>
+                                                        </button>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="spl.status == 0">
+                                                        <button mat-icon-button (click)="StatusChange(spl,1)"
+                                                            class="tbl-action-btn" matTooltip="Activate">
+                                                            <app-feather-icons [icon]="'check-square'"
+                                                                [class]="'tbl-fav-check'"></app-feather-icons>
+                                                        </button>
+                                                    </ng-container>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

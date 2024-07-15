@@ -1,0 +1,35 @@
+<h5 mat-dialog-title>{{ dialogTitle }}</h5>
+<hr/>
+<mat-dialog-content>
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h4 class="font-18">
+          Current Status: <span class="weight-600 font-25 pt-1">{{itemStatusName}}</span>
+        </h4>
+        <p></p>
+        <p class="font-18 max-width-600">Are you sure, do you want to change the status?</p>
+    </div>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <mat-form-field class="example-full-width mb-3" appearance="outline">
+        <mat-label>New Status</mat-label>
+        <mat-select [(ngModel)]="itemStatus">
+          <mat-option *ngFor="let opt of statusList" [value]="opt.value">{{opt.key}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-raised-button
+    class="btn-space"
+    color="primary"
+    [class.auth-spinner]="submitEffect"
+    [disabled]="submitEffect"
+    (click)="submitForm()"
+  >
+    Submit
+  </button>
+  <button mat-raised-button (click)="closeDialog()" color="warn">Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,412 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header d-flex justify-content-between align-items-center "
+        *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+        <div class=" ">
+          <mat-button-toggle-group>
+            <mat-button-toggle mat-icon-button *ngFor="let button of buttonData" [matTooltip]="button.tooltip"
+              (click)="onButtonClick(button)">
+              <mat-icon [color]="button.selected?'primary':'accent'">{{ button.icon }}</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
+        <div class="">
+          <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+              class="col-green font-weight-bold">
+              {{campusName}}</span>
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- <div fxLayout="row" align="end" class="mb-2">
+      <mat-button-toggle-group>
+        <mat-button-toggle mat-icon-button *ngFor="let button of buttonData" [matTooltip]="button.tooltip">
+          <mat-icon>{{ button.icon }}</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div> -->
+
+
+    <div class="row clearfix">
+      <div class="col-lg-4 col-md-12">
+        <div class="card border border-3">
+          <div>
+            <div class="contact-grid" style="height: 220px;">
+              <div class="profile-header bg-indigo">
+                <div class="user-name">
+                  {{studentId}} <br> {{groupedData?.studentInfo?.title+" "+ groupedData?.studentInfo?.firstname + " "
+                  +groupedData?.studentInfo?.lastname }}
+                </div>
+                <div class="name-center">
+                  Nationality: {{groupedData?.studentInfo?.nationality}}
+                </div>
+                <!-- <div>
+                  <span class="phone">
+                    <i class="material-icons">phone</i>{{groupedData?.studentInfo?.mobileno}}</span>
+                </div> -->
+              </div>
+              <img
+                [src]="groupedData?.studentInfo?.gender=='M' ?'assets/images/banner/male.png' :groupedData?.studentInfo?.gender=='F'?'assets/images/banner/img3.png':'assets/images/banner/role.png'"
+                alt="" style="width: 100px; height: 100px;margin-top: -40px;" />
+
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <div class="row clearfix">
+          <div class="col-lg-12 col-md-12">
+            <div class="row clearfix">
+              <div class="col-lg-4 col-md-12 mb-4">
+                <mat-accordion class="w-25 mb-1">
+                  <mat-expansion-panel #panel2 [expanded]="panel2Expanded">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Fee Status
+                      </mat-panel-title>
+                      <!-- <mat-panel-description></mat-panel-description> -->
+                    </mat-expansion-panel-header>
+                    <!-- Chart here -->
+                    <div id="fee-chart-o" style="width: 100%; height: 140px;"></div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+              <div class="col-lg-4 col-md-12 mb-4">
+                <mat-accordion class="w-25 mb-1">
+                  <mat-expansion-panel #panel3 [expanded]="panel3Expanded">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title style="width: 50px;">
+                        Attendance </mat-panel-title>
+                      <!-- <mat-panel-description></mat-panel-description> -->
+                    </mat-expansion-panel-header>
+                    <!-- Chart here -->
+                    <div id="attendance-chart-o" style="width: 100%; height: 140px;"></div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+              <div class="col-lg-4 col-md-12 mb-4">
+                <mat-accordion class="w-25 mb-1">
+                  <mat-expansion-panel #panel4 [expanded]="panel4Expanded">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title style="width: 50px;">
+                        Assignments Score</mat-panel-title>
+                      <!-- <mat-panel-description></mat-panel-description> -->
+                    </mat-expansion-panel-header>
+                    <!-- Chart here -->
+                    <div id="assignment-chart-o" style="width: 100%; height: 140px;"></div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+
+
+
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div class="col-lg-12 col-md-12 mb-4 personalInfo">
+        <div class="card mb-4">
+          <mat-tab-group>
+
+            <mat-tab>
+              <ng-template mat-tab-label style="margin-left: 100px;">
+                <mat-icon class="example-tab-icon msr-2">face</mat-icon>
+                Personal Information
+
+              </ng-template>
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="project_widget">
+                  <div class="body border border-3">
+                    <div class="row">
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Id</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.stdId}}</p>
+                      </div>
+
+
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Full Name</strong>
+                        <br />
+                        <p class="text-muted"> {{groupedData?.studentInfo?.title}}
+                          {{groupedData?.studentInfo?.firstname}} {{groupedData?.studentInfo?.middlename}}</p>
+                      </div>
+
+
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Email</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.emailid}}</p>
+                      </div>
+
+
+
+
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>status</strong>
+                        <br />
+                        <p class="text-muted">{{statusdescription}}</p>
+                      </div>
+
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Gender</strong>
+                        <br />
+                        <p class="text-muted">{{ groupedData?.studentInfo?.gender === 'M' ? 'Male' : 'Female' }}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Date of Birth</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.dob | date}}</p>
+                      </div>
+
+
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Nationality</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.nationality }}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>
+                          Country Birth</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.countrybirth }}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Birth Place</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.birthplace }}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Student Type</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.studenttype }}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Origin</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.origin }}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Passport No</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.passportno }}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>Passport Expiry Date</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.passportexpirydate | date }}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>visanumber</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.visanumber }}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>visaexpirydate</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.visaexpirydate | date }}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>visatype</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.visatype }}</p>
+                      </div>
+                      <!-- <div class="col-md-2 col-6 b-r">
+                        <strong>createdtime</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.createtime}}</p>
+                      </div>
+                      <div class="col-md-2 col-6 b-r">
+                        <strong>updatetime</strong>
+                        <br />
+                        <p class="text-muted">{{groupedData?.studentInfo?.updatetime}}</p>
+                      </div> -->
+
+
+
+                    </div>
+
+                    <br />
+                  </div>
+                </div>
+              </div>
+
+            </mat-tab>
+            <mat-tab>
+              <ng-template mat-tab-label style="margin-left: 100px;">
+                <mat-icon class="example-tab-icon msr-2">school</mat-icon>
+                Course Information
+
+              </ng-template>
+
+              <div class="col-lg-12 col-md-12 mb-4" *ngIf="studentappliedcoursesList?.length==0">
+
+                <h1 class="align-center m-lg-5">No courses are Enrolled</h1>
+              </div>
+              <div class="col-lg-12 col-md-12 mb-4" *ngIf="studentappliedcoursesList?.length>0">
+                <mat-card>
+                  <mat-card-header>
+                    <mat-icon>school</mat-icon>
+                    <h6 style="margin-left: 10px;">Course Details</h6>
+                  </mat-card-header>
+                  <table mat-table [dataSource]="studentappliedcoursesList" class="mat-elevation-z8">
+
+
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="id">
+                      <th mat-header-cell *matHeaderCellDef>Id </th>
+                      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="closedate">
+                      <th mat-header-cell *matHeaderCellDef>Closed Date</th>
+                      <td mat-cell *matCellDef="let element"> {{element.closedate | date}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="agentcode">
+                      <th mat-header-cell *matHeaderCellDef> Agent Code</th>
+                      <td mat-cell *matCellDef="let element"> {{element.agentcode}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="agentName">
+                      <th mat-header-cell *matHeaderCellDef> Agent Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.agentName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="ctypecode">
+                      <th mat-header-cell *matHeaderCellDef> ctypecode </th>
+                      <td mat-cell *matCellDef="let element"> {{element.coursetype}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="coursefinishdate">
+                      <th mat-header-cell *matHeaderCellDef> coursefinishdate </th>
+                      <td mat-cell *matCellDef="let element"> {{element.coursefinishdate | date}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="duration">
+                      <th mat-header-cell *matHeaderCellDef> duration </th>
+                      <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef> name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.selectedcourse}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="coursecode">
+                      <th mat-header-cell *matHeaderCellDef> coursecode </th>
+                      <td mat-cell *matCellDef="let element"> {{element.coursecode}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="intakeyear">
+                      <th mat-header-cell *matHeaderCellDef> Intake Year </th>
+                      <td mat-cell *matCellDef="let element"> {{element.intakeyear }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="intakecode">
+                      <th mat-header-cell *matHeaderCellDef> Intake Code </th>
+                      <td mat-cell *matCellDef="let element"> {{element.intakecode}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="selectedcourse">
+                      <th mat-header-cell *matHeaderCellDef> Selected Course </th>
+                      <td mat-cell *matCellDef="let element"> {{element.selectedcourse}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="startdate">
+                      <th mat-header-cell *matHeaderCellDef>startdate </th>
+                      <td mat-cell *matCellDef="let element"> {{element.startdate | date}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="startfinish">
+                      <th mat-header-cell *matHeaderCellDef> Start Finish </th>
+                      <td mat-cell *matCellDef="let element"> {{element.startfinish}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="enrollmentfee">
+                      <th mat-header-cell *matHeaderCellDef> Enrollment Fee </th>
+                      <td mat-cell *matCellDef="let element"> {{element.enrollmentfee}}</td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="tutionfee">
+                      <th mat-header-cell *matHeaderCellDef> Tution Fee </th>
+                      <td mat-cell *matCellDef="let element"> {{element.tutionfee}}</td>
+
+                    </ng-container>
+
+                    <ng-container matColumnDef="materialfee">
+                      <th mat-header-cell *matHeaderCellDef> Material Fee </th>
+                      <td mat-cell *matCellDef="let element"> {{element.materialfee}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="studyreason">
+                      <th mat-header-cell *matHeaderCellDef> Study Reason </th>
+                      <td mat-cell *matCellDef="let element"> {{element.studyreason}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="status">
+                      <th mat-header-cell *matHeaderCellDef> Status </th>
+                      <td mat-cell *matCellDef="let element"> {{element.status==1?"Enrolled":""
+                        ||element.status==2?"Current":""||element.status==2?"Completed":""}}</td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="studentappliedcoursesList_displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: studentappliedcoursesList_displayedColumns;"></tr>
+                  </table>
+                </mat-card>
+
+              </div>
+            </mat-tab>
+
+          </mat-tab-group>
+        </div>
+      </div>
+      <!-- <div class="col-lg-12 col-md-12 mb-4">
+        <h5>Communication Summary</h5>
+        <table mat-table [dataSource]="CommunicationSummarydataSource" class="mat-elevation-z8">
+
+
+     
+          <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef>Data</th>
+            <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef> Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+          </ng-container>
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+          </ng-container>
+          <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef> Subject </th>
+            <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="commentby">
+            <th mat-header-cell *matHeaderCellDef> Comment By</th>
+            <td mat-cell *matCellDef="let element"> {{element.commentby}} </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="CommunicationSummarydisplayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: CommunicationSummarydisplayedColumns;"></tr>
+        </table>
+
+
+      </div> -->
+    </div>
+
+
+
+  </div>
+</section>
+
+
+<mat-spinner class="modal-spinner" *ngIf="loading" [diameter]="10"></mat-spinner>

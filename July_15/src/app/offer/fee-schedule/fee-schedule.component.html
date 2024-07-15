@@ -1,0 +1,112 @@
+<mat-toolbar color="accent">
+    <span>Fee Schedule</span>
+    <span class="spacer"></span>
+    <button mat-mini-fab mat-dialog-close color="accent"><mat-icon >close</mat-icon></button> 
+  </mat-toolbar>
+<mat-dialog-content>
+  <div class="row d-flex">
+    <div class="col col-md-6"> 
+     <table class="table" >
+      <tbody>
+         <tr>
+           <td>Offer Id: <span style="font-weight: 500;">{{stdData.code}}</span></td>
+           <td> Course: 
+             <!-- <mat-form-field appearance="outline"> -->
+               <!-- <mat-label>Select Course</mat-label> -->
+               <select>
+                 <option>Select Course</option>
+                 <option *ngFor="let course of courseTable" [value]="course.coursecode">
+                   {{course.selectedcourse}}
+                 </option>
+               </select>
+             <!-- </mat-form-field> -->
+           </td>
+          </tr>
+          <tr>
+           <td>Start Date: <span style="font-weight: 500;">{{stdData.startdate}}</span></td>
+           <td>End Date: <span style="font-weight: 500;">{{stdData.closedate}}</span></td>
+          </tr>
+          <tr >
+           <td>Course Duration: <span style="font-weight: 500;">{{stdData.duration}} Weeks</span></td>
+           <td>Course Fee: <span style="font-weight: 500;">xxxx</span></td>
+           
+          </tr>
+          <tr>
+            <td>Upfornt Fee: <span style="font-weight: 500;">xxxx</span></td>
+           <td>Remaining Fee to Schedule: <span style="font-weight: 500;">xxx</span></td>
+          </tr>
+          <tr>
+           <td>Invoice Due Date: 
+             <!-- <input type="date"> -->
+             <mat-form-field appearance="outline">
+               <mat-label>Choose a date</mat-label>
+               <input matInput [matDatepicker]="datepicker">
+               <mat-hint>MM/DD/YYYY</mat-hint>
+               <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+               <mat-datepicker #datepicker>
+                 <mat-datepicker-actions>
+                   <button mat-button matDatepickerCancel>Cancel</button>
+                   <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                 </mat-datepicker-actions>
+               </mat-datepicker>
+             </mat-form-field>
+   
+           </td>
+           <td>
+            No. of Installments:
+            <mat-form-field appearance="outline">
+             <!-- <mat-label>Enter No. of Installments:</mat-label> -->
+              <input matInput type="number" [(ngModel)]="inputCount"  min="1" class="no-arrows">
+            </mat-form-field>
+           </td>
+          </tr>
+       </tbody>
+     </table>
+     <button mat-raised-button type="submit" (click)="generate()">Generate Schedule</button>
+    </div>
+    <div class="col col-md-6">
+      <form [formGroup]="formGroup">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th style="width: 33.33%;">#</th>
+              <th style="width: 33.33%;">Due Date</th>
+              <th style="width: 33.33%;">Installment Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let control of inputs.controls.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize); let i = index" [formGroupName]="pageIndex * pageSize + i">
+              <td style="width: 33.33%;">
+                <span style="font-weight: 400;">{{pageIndex * pageSize + i + 1}}</span>
+              </td>
+              <td style="width: 33.33%;">
+                <input type="text" formControlName="{{pageIndex * pageSize + i + 1}}" style="border-radius: 2px; margin-bottom: 5px;">
+              </td>
+              <td style="width: 33.33%;">
+                <input type="text" formControlName="{{pageIndex * pageSize + i + 1}}" style="border-radius: 2px; margin-bottom: 5px;">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+      
+      
+        
+     
+  
+      <mat-paginator [length]="inputCount" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" (page)="handlePageEvent($event)">
+</mat-paginator>
+      <!-- Optionally display the array of values -->
+      <div *ngIf="values.length">
+        <h3>Submitted Values:</h3>
+        <ul>
+          <li *ngFor="let value of values">{{ value }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ 
+
+      
+
+</mat-dialog-content>

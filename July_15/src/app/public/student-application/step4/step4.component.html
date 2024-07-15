@@ -1,0 +1,470 @@
+<div class="sticky-breadcrumb card">
+  <div class="d-flex justify-content-between ref-header">
+    <h6 style="color: #4c2be2">Student Online Application: Step-4/7</h6>
+    <h6 style="color: #000">Application reference ID: <span style="color:#4c2be2">{{appRefId}}</span></h6>
+  </div>
+  <!-- <div align="end" *ngIf="!fromPreviewStep">
+    <button mat-icon-button color="warn" matTooltip="Previous"
+      (click)="gotoStep3()"><mat-icon>fast_rewind</mat-icon></button>
+    <button mat-icon-button color="primary" matTooltip="Next"
+      (click)="gotoStep5()"><mat-icon>fast_forward</mat-icon></button>
+  </div> -->
+
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+      aria-valuemax="100" style="width:50%">
+      50% Complete
+    </div>
+  </div>
+
+  <div class="col-md-12 top-buttons-sticky">
+    <div class="float-end">
+      <a mat-raised-button color="primary" 
+        style="margin-left: 30px; margin-bottom: 10px;" *ngIf="!fromPreviewStep" (click)="gotoStep3()">Previous</a>
+
+
+      <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+              (click)="gotoStep5()" [disabled]="!disability.valid && !accountmanager.valid && !admissionstaff.valid" *ngIf="!fromPreviewStep" >Next</button>
+
+      <!-- <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+        (click)="gotoPreviewwithUpdate()" *ngIf="disability.valid && accountmanager.valid && admissionstaff.valid" >Update & Next</button> -->
+
+
+      <a mat-raised-button *ngIf="fromPreviewStep" color="accent" (click)="OnClickOfCancel()" 
+        style="margin-left: 30px; margin-bottom: 10px;">Cancel</a>
+
+
+      <a mat-raised-button *ngIf="fromPreviewStep" color="primary" (click)="gotoPreviewwithUpdate()"
+        style="margin-left: 30px; margin-bottom: 10px;" >Update</a>
+
+
+    </div>
+  </div>
+
+
+</div>
+<div class="row section-margin">
+  <div class="col-md-12">
+
+    <div class="">
+      <div class="container-fluid mt-3">
+
+        <div class="glassmorphism animate__animated animate__bounceInUp">
+          <form action="" [formGroup]="addservicerequest">
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="header-text">Additional Service Request</div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="service" class="form-label">Service</label>
+                    <select class="form-select" formControlName="service" id="service">
+                      <!-- <option selected>Select Service</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let service of servicesList" [value]="service.service_description">
+                        {{service.service_description}} </option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="categeory" class="form-label">Categeory</label>
+                    <select class="form-select" formControlName="categeory" id="categeory">
+                      <!-- <option selected>Select Categeory</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let service of serviceCategoryList"
+                        [value]="service.service_category_Description">{{service.service_category_Description}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="facility" class="form-label">Facility</label>
+                    <select class="form-select" formControlName="facility" id="facility">
+                      <!-- <option selected>Select Facility</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let facility of facilitiesList" [value]="facility.facility_Description">
+                        {{facility.facility_Description}} </option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="provider" class="form-label">Service Provider</label>
+                    <select class="form-select" formControlName="provider" id="provider">
+                      <!-- <option selected>Select Service Provider</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let facility of providersList" [value]="facility.facility_category_Description">
+                        {{facility.facility_category_Description
+                        }}</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" formControlName="price" placeholder="Enter Price" class="form-control" id="price"
+                      required
+                      [ngClass]="{ 'is-invalid': addservicerequest.controls['price'].touched && addservicerequest.controls['price'].errors }" />
+
+                    <span class="form-text text-success fw-bold ms-2">per Service</span>
+
+
+
+
+                    <div
+                      *ngIf="addservicerequest.controls['price'].touched && addservicerequest.controls['price'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="addservicerequest.controls['price'].errors['required']">price is required</div>
+                    </div>
+
+
+                  </div>
+
+
+
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="servicestartdate" class="form-label">Service Start Date <small> (MM/DD/YYYY)</small></label> 
+                    <input matInput [matDatepicker]="picker" (focus)="picker.open()" id="servicestartdate"
+                      formControlName="servicestartdate" class=" form-control" readonly="true"
+                      [ngClass]="{ 'is-invalid': addservicerequest.controls['servicestartdate'].touched && addservicerequest.controls['servicestartdate'].errors }" />
+                    <mat-datepicker #picker></mat-datepicker>
+                   
+
+
+                    <div
+                      *ngIf="addservicerequest.controls['servicestartdate'].touched && addservicerequest.controls['servicestartdate'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="addservicerequest.controls['servicestartdate'].errors['required']">servicestartdate is
+                        required</div>
+                    </div>
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
+                    <label for="comment" class="form-label">Comment</label>
+                    <textarea formControlName="comment" rows="3"  placeholder="Enter Comment" class="form-control"
+                      id="comment" required></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="header-text">OverSeas Student Health Care</div>
+                <hr />
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <mat-radio-group formControlName="studenthealthcover"  aria-label="Select an option">
+                      <mat-label>Is Health Cover Available?</mat-label>
+                      <mat-radio-button value="Yes">Yes</mat-radio-button>
+                      <mat-radio-button value="No">No</mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="OSHCprovider" class="form-label">OSHC Provider</label>
+                    <select class="form-select" formControlName="OSHCprovider" id="OSHCprovider">
+                      <!-- <option selected>Select OSHC Provider</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let oshc of OSHCProvidersList" [value]="oshc.name">{{oshc.name}}</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="snackbar-msg w-100">
+                      <p> <mat-icon class="icon c-icon">info </mat-icon>
+                        We Recommend Students oshc duration should be <span>15</span> month (s)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="OSHCtype" class="form-label">OSHC Type</label>
+                    <select class="form-select" formControlName="OSHCtype" id="OSHCtype">
+                      <!-- <option selected>Select OSHC Type</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let oshc of OSHCTypesList" [value]="oshc.code">{{oshc.name}}</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="fee" class="form-label">OSHC Fee</label>
+                    <input type="number" formControlName="fee" placeholder="Enter OSHC Fee" class="form-control"
+                      id="fee" required>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="coverduration" class="form-label">Cover Duration</label>
+                    <select class="form-select" formControlName="coverduration" id="coverduration">
+                      <!-- <option selected>Select Cover Duration</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="startdate" class="form-label">OSHC Start Date</label>
+
+                    <input matInput [matDatepicker]="oshcdatestart" (focus)="oshcdatestart.open()" id="startdate"
+                      formControlName="startdate" class=" form-control" readonly="true"
+                      [ngClass]="{ 'is-invalid': addservicerequest.controls['startdate'].touched && addservicerequest.controls['startdate'].errors }" />
+                    <mat-datepicker #oshcdatestart></mat-datepicker>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+
+                    <div
+                      *ngIf="addservicerequest.controls['startdate'].touched && addservicerequest.controls['startdate'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="addservicerequest.controls['startdate'].errors['required']">startdate is required
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="text-center mt-5" *ngIf="flagSO === 'N'">
+            <button mat-raised-button color="accent" class="btn btn-warning" [disabled]="!addservicerequest.valid"
+              (click)="addService()">Add Service
+            </button>
+          </div>
+          <div class="text-center mt-5" *ngIf="flagSO === 'Y'">
+            <button mat-raised-button color="accent" class="btn btn-warning" [disabled]="!addservicerequest.valid"
+              (click)="updateService()">Update Service
+            </button>
+          </div>
+          <div class="row mt-4">
+            <div class="col-sm-12 col-md-12 col-lg-12" *ngIf="groupedData != undefined">
+              <div class="table-responsive">
+                <table class="table table-bordered ">
+                  <caption>
+                    <span class=""> <mat-icon>visibility</mat-icon>
+                      Service List </span>
+                  </caption>
+                  <tbody>
+                    <tr>
+                      <th scope="col">Service Name</th>
+                      <th scope="col">Category Name</th>
+                      <th scope="col">Facility Name</th>
+                      <th scope="col">Provideer Name</th>
+                      <th scope="col">Service Start</th>
+                      <th scope="col">Service End</th>
+                      <th scope="col">Std Price</th>
+                      <th scope="col">Comment</th>
+                    </tr>
+                    <tr title="">
+                      <td>
+                        <span>
+                          {{groupedData?.["Services&OSHC"]?.service}}
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          {{groupedData?.["Services&OSHC"]?.categeory}}
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          {{groupedData?.["Services&OSHC"]?.facility}}
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          {{groupedData?.["Services&OSHC"]?.provider}}
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          {{groupedData?.["Services&OSHC"]?.servicestartdate |date}}
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          Jun 25, 2025
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          {{groupedData?.["Services&OSHC"]?.price}}
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          {{groupedData?.["Services&OSHC"]?.comment}}
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="glassmorphism" data-aos="zoom-out-down" data-aos-duration="2000">
+          <form action="" [formGroup]="disability">
+            <div class="row">
+              <div class="col-sm-6 col-md-7 col-lg-7">
+                <div class="header-text">Disability</div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-12 mb-3">
+                    <mat-radio-group formControlName="disability" aria-label="Select an option" >
+                      <mat-label>Do you consider yourself to have a disability ,impairmrnt or long term
+                        condition ?</mat-label>
+                      <mat-radio-button value="Yes">Yes</mat-radio-button>
+                      <mat-radio-button value="No">No</mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                  <div class="col-md-12 col-lg-12 mb-3">
+                    <mat-radio-group formControlName="liketorecive" aria-label="Select an option" >
+                      <mat-label>Would You Like to receive advice on support services, equipment and facilities which
+                        may assist you ?</mat-label>
+                      <mat-radio-button value="Yes">Yes</mat-radio-button>
+                      <mat-radio-button value="No">No</mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-5 col-lg-5">
+                <div class="header-text">Guardian Contact</div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="contactname" class="form-label">Contact Name</label>
+                    <input type="text" formControlName="contactname" placeholder="Enter Contact Name"
+                      class="form-control" id="contactname" required
+                      [ngClass]="{ 'is-invalid': disability.controls['contactname'].touched && disability.controls['contactname'].errors }" />
+
+                    <div
+                      *ngIf="disability.controls['contactname'].touched && disability.controls['contactname'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="disability.controls['contactname'].errors['required']">contactname is required</div>
+                    </div>
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="contacttype" class="form-label">Contact Type</label>
+                    <input type="text" formControlName="contacttype" placeholder="Enter Contact Type"
+                      class="form-control" id="contacttype" required>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="relationship" class="form-label">Relationship</label>
+                    <input type="text" formControlName="relationship" placeholder="Enter Relationship"
+                      class="form-control" id="relationship" required>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="number" formControlName="phone" placeholder="Enter Phone" class="form-control"
+                      id="phone" required
+                      [ngClass]="{ 'is-invalid': disability.controls['phone'].touched && disability.controls['phone'].errors }" />
+
+
+                    <div *ngIf="disability.controls['phone'].touched && disability.controls['phone'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="disability.controls['phone'].errors['required']">phone is required</div>
+                    </div>
+
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" formControlName="email" placeholder="Enter email" class="form-control" id="email"
+                      required
+                      [ngClass]="{ 'is-invalid': disability.controls['email'].touched && disability.controls['email'].errors }" />
+
+                    <div *ngIf="disability.controls['email'].touched && disability.controls['email'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="disability.controls['email'].errors['required']">email is required</div>
+                    </div>
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4 mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea formControlName="address" rows="3" placeholder="Enter Address" class="form-control"
+                      id="address" required></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="header-text">Account Manager</div>
+              <hr />
+              <form action="" [formGroup]="accountmanager">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
+                    <label for="accountmanager" class="form-label">Account Manager</label>
+                    <select class="form-select" formControlName="accountmanager" id="accountmanager">
+                      <!-- <option selected>Select Account Manager</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let acctMgr of accountManagersData" [value]="acctMgr.accountmanager">
+                        {{acctMgr.accountmanager}}</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="header-text">Admission Staff</div>
+              <hr />
+              <fo rm action="" [formGroup]="admissionstaff">
+                <div class="row">
+                  <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
+                    <label for="admstaff" class="form-label">Admission Staff</label>
+                    <select class="form-select" formControlName="admstaff" id="admstaff">
+                      <!-- <option selected>Select Admission Staff</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let staff of admissionStaffData" [value]="staff.staffname">{{staff.staffname}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </fo>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 buttons-sticky">
+          <div class="float-end">
+            <a mat-raised-button color="primary" 
+              style="margin-left: 30px; margin-bottom: 10px;" *ngIf="!fromPreviewStep" (click)="gotoStep3()">Previous</a>
+      
+      
+            <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+              (click)="gotoStep5()" [disabled]="!disability.valid && !accountmanager.valid && !admissionstaff.valid" *ngIf="!fromPreviewStep" >Next</button>
+
+            <!-- <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+              (click)="gotoPreviewwithUpdate()" *ngIf="disability.valid && accountmanager.valid && admissionstaff.valid" >Update & Next</button> -->
+      
+      
+            <a mat-raised-button *ngIf="fromPreviewStep" color="accent" (click)="OnClickOfCancel()" 
+              style="margin-left: 30px; margin-bottom: 10px;">Cancel</a>
+      
+      
+            <a mat-raised-button *ngIf="fromPreviewStep" color="primary" (click)="gotoPreviewwithUpdate()"
+              style="margin-left: 30px; margin-bottom: 10px;" >Update</a>
+      
+      
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+</div>

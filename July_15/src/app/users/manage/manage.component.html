@@ -1,0 +1,159 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+
+    <div class="row clearfix">
+      <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+        <div class="card">
+          <div class="header">
+            <h5 class="col-cyan">{{ dialogTitle }}</h5>
+          </div>
+          <div class="body">
+            <div class="row">
+
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Title</mat-label>
+                  <mat-select name="title" id="title" [(ngModel)]="userInfo.title" required>
+                    <mat-option value="Mr">Mr</mat-option>
+                    <mat-option value="Mrs">Mrs</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="col-xl-9 col-lg-9 col-md-9 col-sm-8">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>User Name</mat-label>
+                  <input name="username" matInput [(ngModel)]="userInfo.username" [maxlength]="50" required />
+                </mat-form-field>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Email Id</mat-label>
+                  <input name="loginid" matInput [(ngModel)]="userInfo.loginid" [maxlength]="250" required
+                    [disabled]="action == 'edit'" />
+                </mat-form-field>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Mobile Number</mat-label>
+                  <input name="txtmobileno" id="txtmobileno" matInput [(ngModel)]="userInfo.mobileno" [maxlength]="15"
+                    required Numerical />
+                </mat-form-field>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Country</mat-label>
+                  <mat-select name="countryid" id="countryid" [(ngModel)]="userInfo.countryid" required>
+                    <mat-option *ngFor="let cs of countriesList" [value]="cs.countryid">{{ cs.name }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Post Code</mat-label>
+                  <input name="txtzipcode" id="zipcode" matInput [(ngModel)]="userInfo.zipcode" [maxlength]="10"
+                    Numerical />
+                </mat-form-field>
+              </div>
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>City</mat-label>
+                  <textarea matInput [(ngModel)]="userInfo.city" name="txtcity" id="city" maxlength="50"
+                    AlphaNumeric></textarea>
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Address</mat-label>
+                  <textarea matInput [(ngModel)]="userInfo.address" id="txtaddress" name="address"
+                    maxlength="250"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <ng-container *ngIf="currUserInfo.roleType != '1'">
+              <div class="row mt-3">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label> Roles </mat-label>
+                    <mat-select name="proles" id="proles" [(ngModel)]="userInfo.proles" required multiple
+                      (selectionChange)="userRoleChange($event.value)">
+                      <mat-option *ngFor="let ur of userRoles" [value]="ur.roleid">{{ ur.name }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Role</mat-label>
+                    <mat-select name="roleid" id="roleid" [(ngModel)]="userInfo.roleid" required>
+                      <mat-option *ngFor="let ur of priorityRoles" [value]="ur.roleid">
+                        {{ ur.name }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label> Associated Campus </mat-label>
+                    <mat-select name="pcampuses" id="pcampuses" [(ngModel)]="userInfo.pcampuses" required multiple
+                      (selectionChange)="userCampusChange($event.value)">
+                      <mat-option *ngFor="let cl of campusList" [value]="cl.id">{{ cl.name }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Priority Campus</mat-label>
+                    <mat-select [(ngModel)]="userInfo.campusid" id="ddlcampus" name="campus" required>
+                      <mat-option *ngFor="let ct of priorityCampuses" [value]="ct.id">{{
+                        ct.name
+                        }}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="currUserInfo.roleType == '1'">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Role</mat-label>
+                  <mat-select name="roleid" id="roleid" [(ngModel)]="userInfo.roleid" required>
+                    <mat-option *ngFor="let ur of userRoles" [value]="ur.roleid">
+                      {{ ur.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </ng-container>
+
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                <button class="btn-space" mat-raised-button color="primary" (click)="onSubmit()">
+                  Submit
+                </button>
+                <button class="btn-space" mat-raised-button color="warn">
+                  Cancel
+                </button>
+              </div>
+              <!-- <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar> -->
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

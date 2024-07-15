@@ -1,0 +1,166 @@
+h4 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 9.5pt;
+}
+.s1 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 9pt;
+}
+.s2 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 9pt;
+}
+h1 {
+  color: black;
+  font-family: "Century Gothic", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 12pt;
+}
+.s3 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 9.5pt;
+}
+.s4 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 8pt;
+}
+.s5 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 9.5pt;
+}
+.s6 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 9.5pt;
+}
+.s7 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 9.5pt;
+}
+.s8 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 12pt;
+}
+.h2 {
+  color: black;
+  font-family: "Century Gothic", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 11.5pt;
+}
+.h3,
+h3 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 10pt;
+}
+.p,
+p {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 10pt;
+  margin: 0pt;
+}
+.s9 {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 10pt;
+}
+a {
+  color: #0562c1;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: underline;
+  font-size: 10pt;
+}
+.s10 {
+  color: #0562c1;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 10pt;
+}
+li {
+  display: block;
+}
+#l1 {
+  padding-left: 0pt;
+}
+#l1 > li > *:first-child:before {
+  content: "• ";
+  color: black;
+  font-family: Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 9.5pt;
+}
+li {
+  display: block;
+}
+#l2 {
+  padding-left: 0pt;
+}
+#l2 > li > *:first-child:before {
+  content: " ";
+  color: black;
+  font-family: Symbol, serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 10pt;
+}
+table,
+tbody {
+  vertical-align: top;
+  overflow: visible;
+}

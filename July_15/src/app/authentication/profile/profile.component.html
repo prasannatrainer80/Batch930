@@ -1,0 +1,86 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header" *ngFor="let breadscrum of breadscrums">
+            <!-- breadcrumb -->
+            <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+            </app-breadcrumb>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-4">
+                <div class="card border-apply">
+                  <div class="m-b-20">
+                    <div class="contact-grid">
+                      <div class="profile-header l-bg-orange">
+                        <div class="user-name">{{userInfo.userName }}</div>
+                        <div class="name-center">{{userInfo.roleName}}</div>
+                      </div>
+                        <img src="assets/images/user/user1.png" class="user-img" alt="">
+                        <p>
+                            <label class="label-size"> Login Id:</label> &nbsp; <label>
+                                {{userInfo.loginId}}</label>
+                        </p>
+                        <p>
+                            <label class="label-size"> Last Login:</label> &nbsp; <label> {{userInfo.lastLogin |
+                                date: 'yyyy-MM-dd HH:mm:ss'}}</label>
+                        </p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card">
+                    <mat-card>
+                        <div class="header">
+                            <h2><strong>Security</strong> Settings <app-feather-icons [icon]="'info'" (click)="showCustomHtml()" [class]="'tbl-fav-check'"></app-feather-icons></h2>
+                        </div>
+
+                        <mat-card-content>
+                            <div class="body">
+                                <div class="row mt-2">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <mat-label>Old Password</mat-label>
+                                            <input matInput [(ngModel)]="pwdInfo.oldpassword"
+                                                [type]="hide ? 'password' : 'text'" required>
+                                            <mat-icon matSuffix (click)="hide = !hide">
+                                                {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <mat-label>New Password</mat-label>
+                                            <input matInput [(ngModel)]="pwdInfo.newpassword"
+                                                [type]="hide1 ? 'password' : 'text'" required>
+                                            <mat-icon matSuffix (click)="hide1 = !hide1">
+                                                {{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                        <mat-form-field class="example-full-width" appearance="outline">
+                                            <mat-label>Confirm Password</mat-label>
+                                            <input matInput [(ngModel)]="pwdInfo.confirmpassword"
+                                                [type]="hide2 ? 'password' : 'text'" required>
+                                            <mat-icon matSuffix (click)="hide2 = !hide2">
+                                                {{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                        <button class="btn-space" mat-raised-button color="primary"  [class.auth-spinner]="submitEffect" [disabled]="submitEffect" 
+                                            (click)="onChangePassword()">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

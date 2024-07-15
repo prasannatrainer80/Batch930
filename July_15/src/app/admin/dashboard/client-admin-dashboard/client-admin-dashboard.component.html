@@ -1,0 +1,203 @@
+<div class="content-block">
+  <div class="block-header" *ngFor="let breadscrum of breadscrums">
+    <!-- breadcrumb -->
+    <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+    </app-breadcrumb>
+  </div>
+  <div class="campus-and-totalStudents">
+
+    <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+        class="col-green font-weight-bold">
+        {{campusName}}</span></p>
+    <!-- <p class="details"><img src="assets/images/banner/img1.png" alt=""> Total Students : <span
+        class="col-green font-weight-bold">
+        {{totalCountofStudents}}</span></p> -->
+
+  </div>
+  <!-- cards -->
+  <div class="row">
+
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+
+        <div class="card card-statistic-2">
+
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Roles
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click here for Details...
+                  <mat-icon>account_circle</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div echarts [options]="rolesChartOption" class="pie-chart" style="width: 100%; height: 300px;"></div>
+            </mat-expansion-panel>
+
+
+          </mat-accordion>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12">
+
+        <div class="card card-statistic-2">
+
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Course
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click here for Course Details...
+                  <mat-icon>auto_stories</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <div echarts [options]="courseChartOption" class="column-chart" style="width: 100%; height: 300px;"></div>
+
+            </mat-expansion-panel>
+
+
+          </mat-accordion>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+
+        <div class="card card-statistic-2">
+
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Total Students Applied List
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click here for Details...
+                  <mat-icon>auto_stories</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <div echarts [options]="totalstudentsappliedListChartOption" class="column-chart" style="width: 100%; height: 200px;"></div>
+
+            </mat-expansion-panel>
+
+
+          </mat-accordion>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12 col-sm-12">
+
+        <div class="card card-statistic-2">
+
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Fee Pending
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click here for Details...
+                  <mat-icon>book_3</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <!-- code goes here -->
+              <div echarts [options]="feePendingChartOption" class="pie-chart" style="width: 100%; height: 200px;"></div>
+
+            </mat-expansion-panel>
+
+
+          </mat-accordion>
+        </div>
+      </div>
+     
+
+      <!-- <div class="col-lg-4 col-md-12 col-sm-12">
+
+        <div class="card card-statistic-2">
+
+          <mat-accordion class=" example-headers-align" multi>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Assignments
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click here for Assignments Details...
+                  <mat-icon>inventory</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+           
+              <div echarts [options]="assignmentsChartOption" class="pie-chart" style="width: 100%; height: 200px;">
+              </div>
+
+            </mat-expansion-panel>
+
+
+          </mat-accordion>
+        </div>
+      </div> -->
+
+      <!-- <div class="col-lg-4 col-md-12 col-sm-12">
+
+        <div class="card card-statistic-2">
+
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Fees
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click here for Fees Details...
+                  <mat-icon>monetization_on</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+            
+              <div echarts [options]="feesChartOption" class="pie-chart" style="width: 100%; height: 200px;"></div>
+
+            </mat-expansion-panel>
+
+
+          </mat-accordion>
+        </div>
+      </div> -->
+
+
+
+      
+      <div class="col-lg-4 col-md-12 col-sm-12">
+
+        <div class="card card-statistic-2">
+
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel [expanded]="true">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Attendence
+                </mat-panel-title>
+                <mat-panel-description>
+                  Click here for Attendence Details...
+                  <mat-icon>school</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <!-- code goes here -->
+              <div echarts [options]="attendenceChartOption" class="pie-chart" style="width: 100%; height: 200px;">
+              </div>
+
+            </mat-expansion-panel>
+
+
+          </mat-accordion>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,96 @@
+<div class="sticky-breadcrumb card">
+  <div class="d-flex justify-content-between ref-header">
+    <h6 style="color: #4c2be2">Student Online Application: Step-7/7</h6>
+    <h6 style="color: #000">Application reference ID: <span style="color:#4c2be2">{{appRefId}}</span></h6>
+  </div>
+  <!-- <div align="end">
+    <button mat-icon-button color="warn" matTooltip="Previous"  (click)="gotostep6()"><mat-icon>fast_rewind</mat-icon></button>
+
+  </div> -->
+
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+      aria-valuemax="100" style="width:100%">
+      100% Complete
+    </div>
+  </div>
+
+</div>
+
+
+<div class="row section-margin">
+  <div class="col-md-12">
+
+    <div class="body">
+
+      <div class="container-fluid mt-1">
+        <div class="glassmorphism" data-aos="fade-down-left" data-aos-duration="1200">
+
+
+          <h5 class="head-label mb-4">
+            <mat-icon class="icon c-icon">info </mat-icon>Thank you for the student Online Application
+          </h5>
+          <div class="snackbar-msg">
+            <p> <mat-icon class="icon c-icon">check </mat-icon>
+              The student application has been logged successfully .Please approve the offer Using the Offer
+              Management section and forward to the applicants nominated email address.
+            </p>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 mb-5 mt-4 card ">
+            <table class="listViewtable">
+              <div class="row  clearfix">
+
+                <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+
+                  <tr>
+                    <td>Offer Reference Id :
+                    </td>
+                    <td>
+                      {{groupedData?.studentInfo?.code}}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Applicants Name :
+                    </td>
+                    <td>
+                      {{groupedData?.studentInfo?.firstname}} {{groupedData?.studentInfo?.lastname}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>E Mail
+                      :
+                    </td>
+                    <td>
+                      {{groupedData?.studentInfo?.emailid}}
+                    </td>
+                  </tr>
+                </div>
+              </div>
+            </table>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-12 buttons-sticky">
+
+          <div class="float-end">
+            <a mat-raised-button color="primary" (click)="gotostep6()" style="margin-left: 30px; margin-bottom: 10px;">Previous</a>
+            <a mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;"
+              (click)="Done()">Done</a>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+  </div>
+</div>

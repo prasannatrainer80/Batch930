@@ -1,0 +1,25 @@
+<h5 mat-dialog-title>{{ dialogTitle }}</h5>
+<hr />
+<div mat-dialog-content>
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Template Type</mat-label>
+                <input name="tmpltype" id="tmpltype" matInput [(ngModel)]="tmpltype"
+                    [maxlength]="50" required />
+            </mat-form-field>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Template Name</mat-label>
+                <input name="tmplname" id="tmplname" matInput [(ngModel)]="tmplname"
+                    [maxlength]="50" required />
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button class="btn-space" color="primary" (click)="onSubmit()" 
+    [class.auth-spinner]="submitEffect" [disabled]="submitEffect">Submit</button>
+    <button mat-raised-button class="btn-space" color="warn" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

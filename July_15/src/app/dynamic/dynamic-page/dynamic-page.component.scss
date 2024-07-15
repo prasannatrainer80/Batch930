@@ -1,0 +1,49 @@
+.feedCard1{
+    border: 1px solid #d6d6d6;
+    min-height: 200px;
+    border-radius: 10px;
+    position: fixed;
+    top: 150px;
+    right: 0;
+    /*bottom: 50px;*/
+    padding: 20px;
+    padding-left: 20px;
+    margin-right: 45px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.feedBody{
+    border-left: 2px dotted #d6d6d6;
+    margin-left: 20px !important;
+    padding-top: 0px !important;
+}
+.feedBody li {
+    padding-left: 20px !important;
+    margin-bottom: 30px !important;
+}
+.feedBody li .feed-user-img{
+    position: absolute !important;
+    left: -20px !important;
+    top: -8px !important;
+}
+.groupname{
+    width: 24px !important;
+    height: 24px !important;
+    margin-left: 8px !important;
+    margin-top: 8px  !important;
+}
+.bodyScroll{
+    padding: 0px 20px !important;
+}
+.cur-pointer{
+    cursor: pointer;
+}
+.info-custom{
+    border-color: #dae1f3;
+    background-color: #dae1f3;
+    border-radius: 10px;
+    padding: 10px 10px;
+    display: inline-block;
+    width: 100%;
+}
+  

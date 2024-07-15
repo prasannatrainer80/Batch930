@@ -1,0 +1,70 @@
+.section-margin {
+    margin: 110px 30px !important;
+}
+
+.bordered-div {
+    position: relative;
+    padding: 20px;
+    border: 2px solid #013128;
+    border-radius: 5px;
+}
+
+.header-text {
+    position: absolute;
+    top: -0.75em;
+    left: 10px;
+    background-color: #fff;
+    padding: 0 10px;
+    font-weight: bold;
+    color: #013128;
+
+}
+
+.icon {
+    position: relative;
+    top: 5px;
+    margin: 0 10px;
+}
+
+
+
+
+.head-label {
+    border-radius: 10px;
+    color: rgb(66, 36, 68);
+    padding: 2px 10px;
+    display: inline-block;
+    margin-left: 3px;
+}
+
+table{
+    th{
+        background: #eeeec2 ;
+    color: rgb(33, 92, 22);
+    text-align: left;
+    padding: .2em;
+    border: 1px solid #fff;
+    }
+    td{
+        padding: 6px;
+        &:last-child{
+            color: #006699;
+        }
+    }
+}
+.odd {
+    td {
+
+        background: #f8fbfc;
+        border: 1px solid #f8fbfc;
+    }
+
+}
+
+.even {
+    td {
+
+        background: #e5f1f4;
+        border: 1px solid #e5f1f4;
+    }
+}

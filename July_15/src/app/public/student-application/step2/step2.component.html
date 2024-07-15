@@ -1,0 +1,245 @@
+<div class="sticky-breadcrumb card">
+  <div class="d-flex justify-content-between ref-header">
+    <h6 style="color: #4c2be2">Student Online Application: Step-2/7</h6>
+    <h6 style="color: #000">Application reference ID: <span style="color:#4c2be2">{{appRefId}}</span></h6>
+  </div>
+  <!-- <div align="end" *ngIf="!frompreview">
+    <button mat-icon-button color="warn" matTooltip="Previous"
+      (click)="gotoStep1()"><mat-icon>fast_rewind</mat-icon></button>
+    <button mat-icon-button color="primary" matTooltip="Next"
+      (click)="gotoStep3()"><mat-icon>fast_forward</mat-icon></button>
+
+  </div> -->
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+      aria-valuemax="100" style="width:20%">
+      20% Complete
+    </div>
+  </div>
+
+  <div class="col-md-12 top-buttons-sticky">
+    <div class="float-end">
+      <a mat-raised-button color="primary" 
+        style="margin-left: 30px; margin-bottom: 10px;" *ngIf="!fromPreviewStep" (click)="gotoStep1()">Previous</a>
+
+
+      <!-- <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+        (click)="gotoStep3()" *ngIf="(fromPreviewStep == undefined) && (fromPrevious == undefined)" >Next</button> -->
+      <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+            (click)="gotoStep3()" *ngIf="!fromPreviewStep" [disabled]="!language.valid && !englishtest.valid" >Next</button>
+
+      <!-- <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+        (click)="gotoPreviewwithUpdate()" *ngIf="(fromPrevious != undefined) || (fromPreviewStep != undefined)" >Update & Next</button> -->
+
+
+      <a mat-raised-button *ngIf="fromPreviewStep" color="accent" (click)="OnClickOfCancel()" 
+        style="margin-left: 30px; margin-bottom: 10px;">Cancel</a>
+
+
+      <a mat-raised-button *ngIf="fromPreviewStep" color="primary" (click)="gotoPreviewwithUpdate()"
+        style="margin-left: 30px; margin-bottom: 10px;" >Update</a>
+
+
+    </div>
+  </div>
+
+</div>
+<div class="row section-margin">
+  <div class="col-md-12">
+
+    <div class="container-fluid mt-1 ">
+
+      <div class="glassmorphism animate__animated animate__bounceIn">
+        <div class="header-text">Language and Cultural Diversity</div>
+        <hr />
+        <form action="" [formGroup]="language">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-radio-group formControlName="aboriginal" aria-label="Select an option">
+                    <mat-label>Are you Austrilian Aboriginal or tories</mat-label>
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <mat-radio-group formControlName="engmain" aria-label="Select an option">
+                  <mat-label>is English Your Main Language?</mat-label>
+                  <mat-radio-button value="Yes">Yes</mat-radio-button>
+                  <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="col-sm-12 col-md-4 col-lg-4" *ngIf="language.get('engmain').value=='No'">
+                <label for="spokenhouse" class="form-label">If No what is your language spoken at home ?</label>
+                <select formControlName="spokenhouse" class="form-select" id="spokenhouse" required>
+                  <!-- <option selected>Select Language</option> -->
+                  <option value="undefined" selected disabled>Select option</option>
+
+                  <option *ngFor="let language of languagesData" [value]="language.name">
+                    {{language.name}} </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3 mt-3">
+              <mat-radio-group formControlName="secondary" aria-label="Select an option">
+                <mat-label>was English the language of instruction in previous secondary or terirory
+                  studies?</mat-label>
+                <mat-radio-button value="Yes">Yes</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="col-md-12 mb-3">
+              <mat-radio-group formControlName="testenglish" aria-label="Select an option">
+                <mat-label>Have you completed a test of English language Proficiency?</mat-label>
+                <mat-radio-button value="Yes">Yes</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-md-7">
+            <form action="" [formGroup]="englishtest">
+              <div class="header-text">English Test</div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                  <label for="testname" class="form-label">If Yes,What the test did you sit?</label>
+                  <select formControlName="testname" class="form-select" id="testname" required>
+                    <!-- <option selected>Select Test English</option> -->
+                    <option value="undefined" selected disabled>Select option</option>
+
+                    <option *ngFor="let engTest of engtestsData" [value]="engTest.eng_test_name">
+                      {{engTest.eng_test_name}} </option>
+                  </select>
+
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="dob" class="form-label">When</label><br>
+                  <input matInput [matDatepicker]="picker" (focus)="picker.open()" id="dateOfBirth" class="dobClass"
+                    readonly="true" formControlName="whencomplete" required
+                    [ngClass]="{ 'is-invalid': englishtest.controls.whencomplete.touched && englishtest.controls.whencomplete.errors }" />
+                  <mat-datepicker #picker></mat-datepicker>
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+
+                  <div *ngIf="englishtest.controls.whencomplete.touched && englishtest.controls.whencomplete.errors "
+                    class="invalid-feedback">
+                    <div *ngIf="englishtest.controls.whencomplete.errors['required']">English Test Date is Required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-5">
+                    <mat-radio-group formControlName="scoretype" aria-label="Select an option">
+                      <mat-label>Score Type</mat-label>
+                      <mat-radio-button value="4skills">4Skills</mat-radio-button>
+                      <mat-radio-button value="overallonly">Overall only</mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="row" *ngIf="englishtest.get('scoretype').value == 'overallonly'">
+                      <div class="col-md-3">
+                        <label for="birthplace" class="form-label">Over All</label>
+                        <input type="number" formControlName="overallscore" class="form-control" id="birthplace"
+                          placeholder="Enter Over All Score">
+
+                      </div>
+                    </div>
+                    <div class="row" *ngIf="englishtest.get('scoretype').value == '4skills'">
+                      <div class="col-md-3">
+                        <label for="birthplace" class="form-label">Listening</label>
+                        <input type="number" formControlName="listeningscore" class="form-control" id="birthplace"
+                          placeholder="Enter Listening Score">
+
+                      </div>
+                      <div class="col-md-3">
+                        <label for="birthplace" class="form-label">Reading</label>
+                        <input type="number" formControlName="readingscore" class="form-control" id="birthplace"
+                          placeholder="Enter Reading Score">
+
+                      </div>
+                      <div class="col-md-3">
+                        <label for="birthplace" class="form-label">Writing</label>
+                        <input type="number" formControlName="writingscore" class="form-control" id="birthplace"
+                          placeholder="Enter Writing Score">
+
+                      </div>
+                      <div class="col-md-3">
+                        <label for="birthplace" class="form-label">Speaking</label>
+                        <input type="number" formControlName="speakingscore" class="form-control" id="birthplace"
+                          placeholder="Enter Speaking">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-5">
+            <form action="" [formGroup]="schooling">
+              <div class="header-text">Schooling</div>
+              <hr />
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <mat-radio-group formControlName="stillsecondary" aria-label="Select an option">
+                    <mat-label>Are you Still attending Secondary School</mat-label>
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                  </mat-radio-group>
+
+
+                </div>
+                <div class="col-md-8 mb-3">
+                  <label for="highestschool" class="form-label">What is your highest completed school level ?</label>
+                  <select formControlName="highestschool" class="form-select">
+                    <!-- <option value="" [selected]="'isSelected'">@@ -Not Specified</option> -->
+                    <option value="undefined" selected disabled>Select option</option>
+
+                    <option *ngFor="let school of schoolingData" [value]="school.schoolingtype">
+                      {{school.schoolingtype}} </option>
+
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 buttons-sticky">
+        <div class="float-end">
+          <a mat-raised-button color="primary" 
+            style="margin-left: 30px; margin-bottom: 10px;" *ngIf="!fromPreviewStep" (click)="gotoStep1()">Previous</a>
+    
+    
+          <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+            (click)="gotoStep3()" *ngIf="!fromPreviewStep" [disabled]="!language.valid && !englishtest.valid" >Next</button>
+
+          <!-- <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+            (click)="gotoPreviewwithUpdate()" *ngIf="englishtest.valid" >Update & Next</button> -->
+    
+    
+          <a mat-raised-button *ngIf="fromPreviewStep" color="accent" (click)="OnClickOfCancel()" 
+            style="margin-left: 30px; margin-bottom: 10px;">Cancel</a>
+    
+    
+          <a mat-raised-button *ngIf="fromPreviewStep" color="primary" (click)="gotoPreviewwithUpdate()"
+            style="margin-left: 30px; margin-bottom: 10px;" >Update</a>
+    
+    
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</div>

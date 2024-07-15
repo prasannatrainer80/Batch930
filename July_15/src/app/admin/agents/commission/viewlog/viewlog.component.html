@@ -1,0 +1,146 @@
+<div class="editContainer">
+  <div class="modalHeader">
+    <div class="editRowModal">
+      <div class="modalHeader clearfix">
+        <div class="modal-about">
+          {{dialogTitle}}
+        </div>
+      </div>
+    </div>
+    <button mat-icon-button (click)="onCancel()" class="modal-close-button" aria-label="Close dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="materialTableHeader">
+        </div>
+        <div class="body overflow-auto">
+
+          <div class="table-responsive">
+            <table class="table table-hover w-100">
+              <thead>
+                <tr>
+                  <th *ngFor="let item of columns">
+                    <span (click)="sortBy(item.key, item.sorting)"
+                          class="sorting-header">{{item.name}}</span><i class="{{sortIcon(item.key)}} sort-spacing"></i>
+                  </th>
+                  <th *ngIf="actions.hidden!='Y'">{{actions.name}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let row of rows">
+                  <td *ngFor="let item of columns">
+                    <div *ngIf="item.key =='status';else other_content"
+                    class="">{{(row[item.key])}}</div>
+                    <ng-template #other_content>
+                      <div [ngSwitch]="item.key">
+                        <ng-container *ngSwitchCase="'validfrom'"><div>{{row[item.key]| date:'dd/MM/yyyy'}}</div></ng-container>
+                        <ng-container *ngSwitchCase="'validto'"><div>{{row[item.key]| date:'dd/MM/yyyy'}}</div></ng-container>
+                        <ng-container *ngSwitchDefault><div>{{row[item.key]}}</div></ng-container>
+                      </div>
+                    </ng-template>
+                  </td>
+                  <!--<td *ngIf="actions.hidden!='Y'" width="120px"
+                      class="mat-mdc-row cdk-row mat-ripple">
+                    <button mat-icon-button [matMenuTriggerFor]="appMenu" aria-label=""
+                            (click)="selectedElement = row">
+                      <mat-icon>more_vert</mat-icon>
+                    </button>
+                  </td>-->
+                </tr>
+              </tbody>
+            </table>
+
+            <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+            <pagination *ngIf="showPagination" [totalItems]="totalItems"
+                        (changePage)="onChangePage($event)" [pageLimits]="pageSizeOptions"
+                        [pageSize]="pageSize">
+            </pagination>
+          </div>
+          <!--<mat-menu #appMenu="matMenu" [overlapTrigger]="true">
+            <button mat-menu-item (click)="CommissionEdit(selectedElement)">
+              <span>Edit</span>
+            </button>
+            <ng-container *ngIf="selectedElement.status =='1'">
+              <button mat-menu-item (click)="StatusChange(selectedElement,0)">
+                <span>Status Change</span>
+              </button>
+            </ng-container>
+            <ng-container *ngIf="selectedElement.status =='0'">
+              <button mat-menu-item (click)="StatusChange(selectedElement,1)">
+                <span>Status Change</span>
+              </button>
+            </ng-container>
+          </mat-menu>
+
+          <div class="responsive_table">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+
+              <ng-container matColumnDef="coursecode">
+                <th mat-header-cell *matHeaderCellDef>Course ID</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.coursecode }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="agentcode">
+                <th mat-header-cell *matHeaderCellDef>Agent ID</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.agentcode }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="validfrom">
+                <th mat-header-cell *matHeaderCellDef>From Date</th>
+                <td mat-cell *matCellDef="let element">{{ element.validfrom| date: 'dd/MM/yyyy' }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="validto">
+                <th mat-header-cell *matHeaderCellDef>To Date</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.validto| date: 'dd/MM/yyyy' }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>Action</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.action }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="changedby">
+                <th mat-header-cell *matHeaderCellDef>Changed By</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.changedby }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="changedtime">
+                <th mat-header-cell *matHeaderCellDef>Changed Time</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.changedtime }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="remarks">
+                <th mat-header-cell *matHeaderCellDef>Remarks</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.remarks }}
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+
+            <mat-paginator #paginator [length]="totalRows" [pageIndex]="currentPage"
+                           [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)"
+                           aria-label="Select page">
+            </mat-paginator>
+          </div>-->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

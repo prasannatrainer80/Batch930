@@ -1,0 +1,271 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header d-flex justify-content-between align-items-center "
+        *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+        <div class=" ">
+          <mat-button-toggle-group>
+            <mat-button-toggle mat-icon-button *ngFor="let button of buttonData" [matTooltip]="button.tooltip"
+              (click)="onButtonClick(button)">
+              <mat-icon [color]="button.selected?'primary':'accent'">{{ button.icon }}</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
+        <div class="">
+          <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+              class="col-green font-weight-bold">
+              {{campusName}}</span>
+          </p>
+        </div>
+      </div>
+
+
+
+      <!-- Code start here-->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="agents-title-txt-clr flex-center-items p-3 mb-2 fs-5">
+              <div class="ms-1">Generate Letter / Send Letter</div>
+            </div>
+            <div class="container-fluid">
+              <div class="glassmorphism mb-3">
+                <div class="header-text">View Letter Content</div>
+                <hr />
+                <form action="" [formGroup]="sendLetter">
+                  <div class="row">
+                    <div class="col-sm-3 col-md-4 col-lg-3 mb-3">
+                      <p>Date : <small>29 June 2924</small></p>
+                      <p>Student ID:
+                        <small> WIL4048</small>
+                      </p>
+                      <p>Student name:
+
+                        <small> Mr Subash Lamichhane</small>
+                      </p>
+                    </div>
+                    
+                    
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Course Name</mat-label>
+                        <mat-select placeholder="select Course Applied List" formControlName="courseAppliedList">
+                          <mat-option
+                            value="Certificate III in Light Vehicle Mechanical Technology (Attempt: 1)">Certificate
+                            III in Light Vehicle Mechanical Technology (Attempt: 1)</mat-option>
+                          <mat-option value="Hon">Hon. </mat-option>
+                          <mat-option value="not-specified">Not Specified </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <!-- <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Report Name</mat-label>
+                        <input matInput type="text" placeholder="Enter Agent Name" formControlName="agentName">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Select Letter</mat-label>
+                        <input matInput type="text" placeholder="Enter Student Name" formControlName="studentName">
+                      </mat-form-field>
+                    </div> -->
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Report Name</mat-label>
+                        <mat-select placeholder="select From" formControlName="from">
+                          <mat-option value="Me : veera83.au@gmail.com">Me : veera83.au@gmail.com</mat-option>
+                          <mat-option value="Hon">Hon. </mat-option>
+                          <mat-option value="not-specified">Not Specified </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Select Letter</mat-label>
+                        <mat-select placeholder="select Send To" formControlName="sendTo">
+                          <mat-option value="Student">Student</mat-option>
+                          <mat-option value="Agent">Agent</mat-option>
+                          <mat-option value="Both">Both</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <hr/>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>From</mat-label>
+                        <mat-select placeholder="select Send To" formControlName="sendTo">
+                          <mat-option value="Student">Student</mat-option>
+                          <mat-option value="Agent">Agent</mat-option>
+                          <mat-option value="Both">Both</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Agent Email</mat-label>
+                        <mat-select placeholder="select Send To" formControlName="sendTo">
+                          <mat-option value="Student">Student</mat-option>
+                          <mat-option value="Agent">Agent</mat-option>
+                          <mat-option value="Both">Both</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>CC </mat-label>
+                        <mat-select placeholder="select Send To" formControlName="sendTo">
+                          <mat-option value="Student">Student</mat-option>
+                          <mat-option value="Agent">Agent</mat-option>
+                          <mat-option value="Both">Both</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Subject </mat-label>
+                        <mat-select placeholder="select Send To" formControlName="sendTo">
+                          <mat-option value="Student">Student</mat-option>
+                          <mat-option value="Agent">Agent</mat-option>
+                          <mat-option value="Both">Both</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-12">
+                      <div class="fs-6">Letter Editor</div>
+                    </div>
+                    <hr/>
+                    <!-- <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>To</mat-label>
+                        <mat-select placeholder="select To" formControlName="to">
+                          <mat-option value="supertest@gmail.com">supertest@gmail.com</mat-option>
+                          <mat-option value="Agent">Agent</mat-option>
+                          <mat-option value="Both">Both</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>CC</mat-label>
+                        <input matInput type="text" placeholder="select CC" formControlName="cc">
+                        <mat-hint>Provide multiple emails separated by comms (email1,email2,..)</mat-hint>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Template Type</mat-label>
+                        <mat-select placeholder="select Template Type" formControlName="templateType">
+                          <mat-option value="Student">Student</mat-option>
+                          <mat-option value="Agent">Agent</mat-option>
+                          <mat-option value="Both">Both</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Email Template</mat-label>
+                        <mat-select placeholder="select Email Template" formControlName="emailTemplate">
+                          <mat-option value="No Template Found">No Template Found</mat-option>
+                          <mat-option value="Agent">Agent</mat-option>
+                          <mat-option value="Both">Both</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Subject</mat-label>
+                        <input matInput type="text" placeholder="select Subject" formControlName="subject" required>
+                        <mat-error *ngIf="sendLetter.controls.subject.touched && sendLetter.controls.subject.invalid">
+                          <span *ngIf="sendLetter.controls.subject.errors?.required">This
+                            field is Mandatory</span>
+                        </mat-error>
+                      </mat-form-field>
+                    </div> -->
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <angular-editor formControlName="mbody" [config]="editorConfig"></angular-editor>
+
+
+
+
+                      <!-- <mat-form-field appearance="outline" class="w-100">
+                          <mat-label>Body</mat-label>
+                          <textarea matInput type="text" placeholder="select Body" formControlName="body"
+                            required></textarea>
+                          <mat-error *ngIf="sendLetter.controls.body.touched && sendLetter.controls.body.invalid">
+                            <span *ngIf="sendLetter.controls.body.errors?.required">This
+                              field is Mandatory</span>
+                          </mat-error>
+                        </mat-form-field> -->
+                    </div>
+                    <div class="row mt-3">
+                      <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                          <div class="col-12">
+                            <div class="fs-6">Send Letter</div>
+                          </div>
+                          <hr />
+                          <div class="row">
+                            <p>Attach More File:</p>
+                            <div class="col-sm-1 col-md-1 col-lg-1">
+                              <label class="form-label">Files: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                              <div class="mb-3">
+                                <input class="form-control" type="file" id="formFile">
+                                <div class="form-text">Supports multiple Attachments</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
+                          <mat-checkbox><span class="text-success">Add to Student  Communication Log</span></mat-checkbox>
+                        </div>
+                        <div>
+                          <button mat-raised-button color="accent" (click)="SendLetter()">Send Email</button>
+                        </div>
+                      </div>
+                      <div class="col-sm-12 col-md-6 col-lg-6">
+                        <div class="col-12">
+                          <div class="fs-6">Generate Letter</div>
+                        </div>
+                        <hr/>
+                        <div class="col-sm-12 col-md-12 col-lg-12 mb-3">
+                          <mat-form-field appearance="outline" class="w-100">
+                            <mat-label>Template Type </mat-label>
+                            <mat-select placeholder="select Send To" formControlName="sendTo">
+                              <mat-option value="Willows Education Australia Pty Ltd">Willows Education Australia Pty Ltd</mat-option>
+                              <mat-option value="Agent">Agent</mat-option>
+                              <mat-option value="Both">Both</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+
+                          <div>
+                            <button  mat-raised-button color="primary" >Generate Letter</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                      <mat-checkbox>Attach Offer Letter</mat-checkbox>
+                      <mat-checkbox>Attach Student Payment Invoice</mat-checkbox>
+                    </div> -->
+                    
+                  </div>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>

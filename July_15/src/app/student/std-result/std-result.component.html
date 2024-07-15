@@ -1,0 +1,508 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header d-flex justify-content-between align-items-center "
+        *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+        <div class=" ">
+          <mat-button-toggle-group>
+            <mat-button-toggle mat-icon-button *ngFor="let button of buttonData" [matTooltip]="button.tooltip"
+              (click)="onButtonClick(button)">
+              <mat-icon [color]="button.selected?'primary':'accent'">{{ button.icon }}</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
+        <div class="">
+          <p class=""> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+              class="col-green font-weight-bold">
+              {{campusName}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="agents-title-txt-clr flex-center-items p-3 mb-2 fs-5">
+            <div class="ms-1">Student Subject Enrolment Page (set-up Study Plan)</div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                  <!-- <caption class="w-100">
+                  <mat-icon>visibility</mat-icon>
+                  <span>
+                    Total Units Enrolled 10, Total Completed: 0 </span>
+                  </caption> -->
+                  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="semester_term">
+                      <th mat-header-cell *matHeaderCellDef> Semester/Term </th>
+                      <td mat-cell *matCellDef="let element"> {{element.semester_term}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="course_stage">
+                      <th mat-header-cell *matHeaderCellDef> Course Stage </th>
+                      <td mat-cell *matCellDef="let element"> {{element.course_stage}} </td>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="subject_module">
+                      <th mat-header-cell *matHeaderCellDef> Subject/Module </th>
+                      <td mat-cell *matCellDef="let element"> {{element.subject_module}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="batch">
+                      <th mat-header-cell *matHeaderCellDef> Study Period </th>
+                      <td mat-cell *matCellDef="let element"> {{element.batch}} </td>
+                    </ng-container>
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="study_period">
+                      <th mat-header-cell *matHeaderCellDef> Study Period </th>
+                      <td mat-cell *matCellDef="let element"> {{element.study_period}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="final_outcome">
+                      <th mat-header-cell *matHeaderCellDef> Final Outcome </th>
+                      <td mat-cell *matCellDef="let element"> {{element.final_outcome}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="grade">
+                      <th mat-header-cell *matHeaderCellDef> Grade </th>
+                      <td mat-cell *matCellDef="let element"> {{element.grade}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="marks">
+                      <th mat-header-cell *matHeaderCellDef> Marks(%) </th>
+                      <td mat-cell *matCellDef="let element"> {{element.marks}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="unit_details">
+                      <th mat-header-cell *matHeaderCellDef> Unit Details(Competency & Activity Period)/Competency Date </th>
+                      <td mat-cell *matCellDef="let element"> {{element.unit_details}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                      <th mat-header-cell *matHeaderCellDef> Action </th>
+                      <td mat-cell *matCellDef="let element"> <mat-icon >delete</mat-icon> </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
+
+                  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                showFirstLastButtons
+                                aria-label="Select page of periodic elements">
+                  </mat-paginator>
+                </div>
+              </div>
+          <!-- <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+            <div class="table-responsive">
+              <table class="table table-bordered ">
+                
+
+                <tbody>
+                  <tr>
+                    <th scope="col">Semester/Term</th>
+                    <th scope="col">Course Stage</th>
+                    <th scope="col">Subject/Module</th>
+                    <th scope="col">Batch</th>
+                    <th scope="col">Study Period</th>
+                    <th scope="col">Final Outcome</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Marks(%)</th>
+                    <th scope="col">Unit Details(Competency & Activity Period)/Competency Date</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                  <tr title="">
+
+                    <td>
+                      <span>
+                        Nov Cert IV
+                      </span>
+                      <div>(Term 2)</div>
+                    </td>
+                    <td>
+                      <span>
+                        1
+                      </span>
+                    </td>
+                  
+                    <td>
+                      <span>
+                        AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace(Attempt 1)
+                      </span>
+                      <div>Comment: Individual Enrolment</div>
+                    </td>
+                    
+                    <td>
+                      <span>
+                        No Batch
+                      </span>
+
+                    </td>
+                    <td>
+                      <span>
+                        20/11/2023 - 19/05/2024
+                      </span>
+                    </td>
+                    <td>
+                      <span>
+                        Enrolled
+                      </span>
+
+                    </td>
+                    <td>
+                      <span>                            
+                        Enrolled
+                      </span>
+                    </td>
+                    <td>
+                      <span>
+                        
+                      </span>
+                    </td>
+                    <td>
+                      <span>
+                        -Unit 1:AURAEA004 Enrolled (20/11/2023 - 19/05/2024)
+                      </span>
+                    </td>
+                    <td>
+                      <span>
+                        <mat-icon >delete</mat-icon>
+                        
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </div> -->
+            <mat-tab-group>
+              <mat-tab label="Student Enrolment Information"> 
+                <form action="" class="mt-3 mb-3" [formGroup]="studentEnrlmntInfo">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Student Id</mat-label>
+                        <input matInput type="text" placeholder="Enter Student Id" formControlName="studentId" value="WIL4048">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Student Name</mat-label>
+                        <input matInput type="text" placeholder="Enter Student Name" formControlName="studentName" value="Mr Subash Lamichhane">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Status</mat-label>
+                        <input matInput type="text" placeholder="Enter Status" formControlName="status" value="Current Student">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Course</mat-label>
+                        <mat-select placeholder="Select Course" formControlName="course" >
+                          <mat-option value="AUR40216:Certificate IV In Automotive Mechanical Diagnosis-20/11/2023-Current Student">AUR40216:Certificate IV In Automotive Mechanical Diagnosis-20/11/2023-Current Student</mat-option>
+                          <mat-option value="Hon">Hon. </mat-option>
+                          <mat-option value="not-specified">Not Specified </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Start Date</mat-label>
+                        <input matInput type="text" placeholder="Enter Start Date" formControlName="startDate" value="20/11/2023">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Finish Date</mat-label>
+                        <input matInput type="text" placeholder="Enter Finish Date" formControlName="finishDate" value="19/05/2024">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Student Course Template</mat-label>
+                        <input matInput type="text" placeholder="Enter Start Date" formControlName="stdntCourseTmplt" value="Certificate 4 AMD">
+                        <mat-hint>View Template Structure</mat-hint>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Result Calculation Method</mat-label>
+                        <input matInput type="text" placeholder="Enter Result Calculation Method" formControlName="resultCalcMethod" value="Subject Based">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Semester</mat-label>
+                        <mat-select placeholder="Select Semester" formControlName="semester" >
+                          <mat-option value="Nov Cert IV">Nov Cert IV</mat-option>
+                          <mat-option value="Hon">Hon. </mat-option>
+                          <mat-option value="not-specified">Not Specified </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Term</mat-label>
+                        <mat-select placeholder="Select Term" formControlName="term" >
+                          <mat-option value="1">1</mat-option>
+                          <mat-option value="2">2</mat-option>
+                          <mat-option value="3">3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </form>
+              </mat-tab>
+              <mat-tab label="Enrolment Action">
+                <form action="" class="mb-3 mt-3" [formGroup]="enrolmentAction">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Type of Enrolment</mat-label>
+                        <mat-select placeholder="Select Type of Enrolment" formControlName="typeOfEnrolment" >
+                          <mat-option value="Course">Course</mat-option>
+                          <mat-option value="Subject">Subject</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <mat-checkbox>Use Course Template?</mat-checkbox>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Course Stage</mat-label>
+                        <mat-select placeholder="Select Course Stage" formControlName="courseStage" >
+                          <mat-option value="1">1</mat-option>
+                          <mat-option value="2">2</mat-option>
+                          <mat-option value="3">3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-4">
+                      <mat-accordion class="w-25">
+                        <mat-expansion-panel class="accordion-bg" [expanded]="true">
+                          <mat-expansion-panel-header>
+                            <mat-panel-title style="width: 50px;">
+                              Select Subject To Enrol - Subject Details
+                            </mat-panel-title>
+                            <!-- <mat-panel-description></mat-panel-description> -->
+                          </mat-expansion-panel-header>
+                          <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                              <mat-checkbox>Select All?</mat-checkbox>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <mat-checkbox>AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace</mat-checkbox>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <mat-checkbox>AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace</mat-checkbox>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <mat-checkbox>AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace</mat-checkbox>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <mat-checkbox>AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace</mat-checkbox>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <mat-checkbox>AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace</mat-checkbox>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <mat-checkbox>AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace</mat-checkbox>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <mat-checkbox>AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace</mat-checkbox>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <mat-checkbox>AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace</mat-checkbox>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <mat-checkbox>AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace</mat-checkbox>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-4">
+                              <mat-checkbox>AURAEA004 Manage Environmental and sustainability best practice in an automotive workplace</mat-checkbox>
+                            </div>
+                          </div>
+                        </mat-expansion-panel>
+                      </mat-accordion>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Activity Start Date</mat-label>
+                        <input matInput type="text" placeholder="Enter Activity Start Date" formControlName="activityStartDate" value="20/11/2023">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Activity Finish Date</mat-label>
+                        <input matInput type="text" placeholder="Enter Activity Finish Date" formControlName="activityFinishDate" value="19/05/2024">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Study Reason</mat-label>
+                        <mat-select placeholder="Select Study Reason" formControlName="studyReason" >
+                          <mat-option value="@@ - Not Specified">@@ - Not Specified</mat-option>
+                          <mat-option value="2">2</mat-option>
+                          <mat-option value="3">3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Venue/Training Location</mat-label>
+                        <mat-select placeholder="Select Venue/Training Location" formControlName="venueTraningLocation" >
+                          <mat-option value="SA:WI_HO - Head Office">SA:WI_HO - Head Office</mat-option>
+                          <mat-option value="2">2</mat-option>
+                          <mat-option value="3">3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Funding Source State</mat-label>
+                        <mat-select placeholder="Select Funding Source State" formControlName="fundingState" >
+                          <mat-option value="SA:FFI - International Onshore Client(31)">SA:FFI - International Onshore Client(31)</mat-option>
+                          <mat-option value="2">2</mat-option>
+                          <mat-option value="3">3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Funding Source NAT</mat-label>
+                        <mat-select placeholder="Select Funding Source NAT" formControlName="fundingNAT" >
+                          <mat-option value="31 - International Onshore Client - other revenue(valid from 2020 data resporting)">31 - International Onshore Client - other revenue(valid from 2020 data resporting)</mat-option>
+                          <mat-option value="2">2</mat-option>
+                          <mat-option value="3">3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>SACE Student ID</mat-label>
+                        <input matInput type="text" placeholder="Enter SACE Student ID" formControlName="saceStudentId">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Select Final Outcome</mat-label>
+                        <mat-select placeholder="Select Final Outcome" formControlName="finalOutCome" >
+                          <mat-option value="Enrolled">Enrolled</mat-option>
+                          <mat-option value="2">2</mat-option>
+                          <mat-option value="3">3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="text-start">
+                      <button mat-raised-button color="primary" >Enrol</button>
+                    </div>
+                  </div>
+                </form>
+              </mat-tab>
+            </mat-tab-group>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Code start here-->
+
+    <!-- <div class="row  clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+          <div class="col-lg-8 col-md-12 col-sm-12 ">
+            <div class="card mb-4 border border-3">
+              <mat-tab-group>
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon msr-2">payment</mat-icon>
+                    Results </ng-template>
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="project_widget">
+                      <div class="body">
+                        <div class="row">
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Student Id</strong>
+                            <br />
+                            <p class="text-muted">s32012</p>
+                          </div>
+
+
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Status</strong>
+                            <br />
+                            <p class="text-muted">rg</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Course</strong>
+                            <br />
+                            <p class="text-muted">eadef</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Summary</strong>
+                            <br />
+                            <p class="text-muted">4r3wqrwq3</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Start Date</strong>
+                            <br />
+                            <p class="text-muted">q3r</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>End Date</strong>
+                            <br />
+                            <p class="text-muted">32189321</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Status </strong>
+                            <br />
+                            <p class="text-muted">done</p>
+                          </div>
+                          <div class="col-md-2 col-6 b-r">
+                            <strong>Fee Due</strong>
+                            <br />
+                            <p class="text-muted">$783</p>
+                          </div>
+                        </div>
+
+                        <br />
+                      </div>
+                    </div>
+                  </div>
+
+                </mat-tab>
+
+              </mat-tab-group>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+    </div> -->
+
+
+
+  </div>
+</section>

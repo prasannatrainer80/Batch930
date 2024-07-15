@@ -1,0 +1,372 @@
+<div class="sticky-breadcrumb card">
+  <div class="d-flex justify-content-between ref-header">
+    <h6 style="color: #4c2be2">Student Online Application: Step-3/7</h6>
+    <h6 style="color: #000">Application reference ID: <span style="color:#4c2be2">{{appRefId}}</span></h6>
+  </div>
+  <!-- <div align="end" *ngIf="!frompreview">
+    <button mat-icon-button color="warn" matTooltip="Previous"
+      (click)="gotoStep2()"><mat-icon>fast_rewind</mat-icon></button>
+    <button mat-icon-button color="primary" matTooltip="Next"
+      (click)="gotoStep4()"><mat-icon>fast_forward</mat-icon></button>
+
+  </div> -->
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="35" aria-valuemin="0"
+      aria-valuemax="100" style="width:35%">
+      35% Complete
+    </div>
+  </div>
+
+  <div class="col-md-12 top-buttons-sticky">
+    <div class="float-end" style="margin-top: 10px;">
+      <a mat-raised-button color="primary" *ngIf="!fromPreviewStep"
+        style="margin-left: 30px; margin-bottom: 10px;" (click)="gotoStep2()">Previous</a>
+
+
+      <a mat-raised-button color="accent" *ngIf="!fromPreviewStep" (click)="gotoStep4()"
+        style="margin-left: 30px; margin-bottom: 10px;">Next</a>
+
+
+
+
+      <a mat-raised-button *ngIf="fromPreviewStep" color="accent" (click)="OnClickOfCancel()"
+        style="margin-left: 30px; margin-bottom: 10px;">Cancel</a>
+
+      <a mat-raised-button *ngIf="fromPreviewStep" color="primary" (click)="gotoPreviewwithUpdate()"
+        style="margin-left: 30px; margin-bottom: 10px;">Update</a>
+    </div>
+  </div>
+
+
+</div>
+
+
+<div class="row section-margin">
+  <div class="col-md-12">
+    <div class="">
+
+
+
+      <div class="container-fluid mt-3 ">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+
+            <div class="glassmorphism animate__animated animate__bounceInDown">
+              <div class="header-text">Enrolment Details</div>
+              <hr />
+
+              <form class="needs-validation" [formGroup]="studentcourse">
+                <div class="row">
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="coursetype" class="form-label">Course Type</label>
+                    <select class="form-select" formControlName="coursetype" id="coursetype"
+                      [ngClass]="{ 'is-invalid': f['coursetype'].touched && f['coursetype'].errors }">
+                      <!-- <option selected>Select Course Type</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let type of courseTypes" [value]="type">{{ type }}</option>
+                    </select>
+
+
+
+                    <div
+                      *ngIf="f['coursetype'].touched && f['coursetype'].errors && f['coursetype'].errors['required'] "
+                      class="invalid-feedback">
+                      course Type is Required
+
+                    </div>
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="selectedcourse" class="form-label">Selected Course</label>
+                    <select class="form-select" formControlName="selectedcourse" id="selectedcourse"
+                      [ngClass]="{ 'is-invalid': studentcourse.controls.selectedcourse.touched && studentcourse.controls.selectedcourse.errors }">
+                      <!-- <option selected>Select Course</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let course of filteredCourses" [value]="course.name">{{course.name}}</option>
+
+
+                    </select>
+                    <div
+                      *ngIf="studentcourse.controls.selectedcourse.touched && studentcourse.controls.selectedcourse.errors && studentcourse.controls.selectedcourse.errors['required'] "
+                      class="invalid-feedback">
+                      selected Course is Required
+                    </div>
+
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="underagent" class="form-label">Under Agent</label>
+                    <select class="form-select" formControlName="underagent" id="underagent"
+                      (change)="onAgentChange($event.target.value)"
+                      [ngClass]="{ 'is-invalid': submitted ||studentcourse.controls.underagent.touched && studentcourse.controls.underagent.errors }">
+                      <!-- <option selected>Select Agent</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let agent of agentsList" [value]="agent.agentname">{{agent.agentname}}</option>
+                    </select>
+
+                    <div
+                      *ngIf="studentcourse.controls.underagent.touched && studentcourse.controls.underagent.errors?.['required'] "
+                      class="invalid-feedback">
+                      Under Agent is Required
+                    </div>
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="agentcode" class="form-label">Agent Code</label>
+                    <input type="text" formControlName="agentcode" placeholder="Enter Agent Code" class="form-control"
+                      id="agentcode" required readonly>
+                    <!-- <div
+                      *ngIf="studentcourse.controls.agentcode.touched && studentcourse.controls.agentcode.errors?.['required'] "
+                      class="invalid-feedback">
+                      Agent Code is Required
+                    </div> -->
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="intakeyear" class="form-label">Intake Year</label>
+                    <select formControlName="intakeyear" class="form-select" id="intakeyear" required="true"
+                    (change)="onIntakeyearChange($event.target.value)"
+                      [ngClass]="{ 'is-invalid': f['intakeyear'].touched && f['intakeyear'].errors }">
+                      <option value="undefined" selected disabled>Select option</option>
+                      <option *ngFor="let intakedates of availableyears" [value]="intakedates" >{{intakedates}}</option>
+                      
+
+                      
+
+                    </select>
+                    <div *ngIf="f['intakeyear'].touched && f['intakeyear'].errors" class="invalid-feedback">
+                      <span *ngIf="studentcourse.controls.intakeyear.errors.required">
+                        Intake Year is Required
+                      </span>
+
+                    </div>
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="courseintakename" class="form-label">Intake Name</label>
+                    <select formControlName="courseintakename" class="form-select" id="courseintakename" required="true">
+                      <option value="undefined" selected disabled>Select option</option>
+                      <option *ngFor="let intakenames of availableIntakenames" [value]="intakenames.courseintakename" >{{intakenames.courseintakename}}</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="scholarship" class="form-label">Scholarship</label>
+                    <input type="number" formControlName="scholarship" placeholder="Enter Scholarship"
+                      class="form-control" id="scholarship" required
+                      [ngClass]="{ 'is-invalid': studentcourse.controls.scholarship.touched && studentcourse.controls.scholarship.errors }">
+
+                    <div
+                      *ngIf="studentcourse.controls.scholarship.touched && studentcourse.controls.scholarship.errors?.['required'] "
+                      class="invalid-feedback"> Scholarship is Required
+                    </div>
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="studyreason" class="form-label">Study Reason</label>
+                    <input type="text" class="form-control" formControlName="studyreason"
+                      placeholder="Enter Study Reason" id="studyreason" required [pattern]="nameRegx"
+                      [ngClass]="{ 'is-invalid': f['studyreason'].touched && f['studyreason'].errors }">
+
+                    <div *ngIf="f['studyreason'].touched && f['studyreason'].errors" class="invalid-feedback">
+                      <span *ngIf="studentcourse.controls.studyreason.errors.required">
+                        Study Reason is Required
+                      </span>
+
+                      <span *ngIf="studentcourse.controls.studyreason.errors.pattern">
+                        Invalid Study Reason it accepts only letters
+                      </span>
+
+                    </div>
+
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="coursecode" class="form-label">Course Code</label>
+                    <input type="text" formControlName="coursecode" placeholder="Course Code" class="form-control"
+                      id="coursecode" required readonly>
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="start" class="form-label">Starting Date </label>
+                    <input readonly formControlName="start" placeholder="Starting Date" class="form-control" id="start"
+                      required />
+
+
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="finish" class="form-label">Ending Date </label>
+                    <input type="text" readonly formControlName="finish" placeholder="End Date" class="form-control"
+                      id="start" required>
+
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="intakecode" class="form-label">Intake Code</label>
+                    <input type="text" formControlName="intakecode" placeholder="Intake Code" class="form-control"
+                      id="intakecode" required readonly>
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="tuitionfee" class="form-label">Tution Fee</label>
+                    <input type="text" formControlName="tuitionfee" placeholder="Tution Fee" class="form-control"
+                      id="tuitionfee" required readonly>
+
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="materialfee" class="form-label">Material Fee</label>
+                    <input type="text" formControlName="materialfee" placeholder="Material Fee" class="form-control"
+                      id="materialfee" required readonly>
+
+
+                  </div>
+                  
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="enrollmentfee" class="form-label">Enrolment Fee</label>
+                    <input type="text" formControlName="enrollmentfee" placeholder="Enrolment Fee" class="form-control"
+                      id="enrollmentfee" required readonly>
+
+                  </div>
+                  <div class="col-sm-12 col-md-3 col-lg-3 mb-3">
+                    <label for="upfronfee_total" class="form-label">Upfront Fee</label>
+                    <input type="text" formControlName="upfronfee_total" placeholder="Upfront Fee" class="form-control"
+                      id="upfronfee_total" required readonly>
+
+                  </div>
+                  
+                </div>
+                <div class="text-center">
+                  <button mat-raised-button color="accent" (click)="applyCourse()">{{isBtnUpdateEnable?'Update Course':'Add New Course'}}</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="glassmorphism mt-2" *ngIf="courseList?.length > 0">
+        <div class="header-text">Enrolled Courses List For this Application </div>
+        <hr />
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <mat-icon>visibility</mat-icon>
+          <span class="">
+            Applied Course(s) List </span>
+          <div class="table-responsive">
+            <table class="table table-bordered ">
+
+              <tbody>
+                <tr>
+                  <th scope="col">Course Code</th>
+                  <th scope="col">Course Name</th>
+                  <th scope="col">Agent Name</th>
+                  <th scope="col">Start date</th>
+                  <th scope="col">Finish date</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Tution Fee</th>
+                  <th scope="col">Enrolled Fee</th>
+                  <th scope="col">Material Fee</th>
+                  <th scope="col">Actions</th>
+
+
+                </tr>
+                <tr title="" *ngFor="let course of courseList">
+                  <td>
+                    <span>
+                      {{course.coursecode}}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {{course.selectedcourse}}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {{course.underagent}}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {{course.startDate}}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {{course.finishDate}}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {{course.status}}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {{course.tutionfee}}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {{course.enrollmentfee}}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {{course.materialfee}}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+
+                      <mat-icon (click)="editCourse(course)" class="edit-icon" >edit</mat-icon>
+                      <mat-icon (click)="deleteCourse(course)" class="delete-icon">delete</mat-icon>
+
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="col-md-12 buttons-sticky">
+      <div class="float-end" style="margin-top: 10px;">
+        <a mat-raised-button color="primary"  
+          style="margin-left: 30px; margin-bottom: 10px;" *ngIf="!fromPreviewStep" (click)="gotoStep2()">Previous</a>
+  
+  
+        <a mat-raised-button color="accent" (click)="gotoStep4()"
+          style="margin-left: 30px; margin-bottom: 10px;" *ngIf="!fromPreviewStep" >Next</a>
+        
+  
+  
+  
+  
+        <a mat-raised-button *ngIf="fromPreviewStep" color="accent" (click)="OnClickOfCancel()" 
+          style="margin-left: 30px; margin-bottom: 10px;">Cancel</a>
+  
+        <a mat-raised-button *ngIf="fromPreviewStep" color="primary" (click)="gotoPreviewwithUpdate()"
+          style="margin-left: 30px; margin-bottom: 10px;">Update</a>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,817 @@
+<div class="sticky-breadcrumb card">
+  <div class="d-flex justify-content-between ref-header">
+    <h6 style="color: rgb(43, 49, 226);">Student Online Application: Step-1/7</h6>
+
+    <h6 style="color: #000;">
+      Application reference ID:
+      <span style="color: #4c2be2;">{{appRefId}}</span>
+    </h6>
+  </div>
+  <!-- <div align="end" *ngIf="!frompreview">
+    <button mat-icon-button color="primary"  (click)="gotoStep2()" matTooltip="Next" [disabled]="!originFormGroup.valid && !personalInformationFormGroup.valid &&
+    !usiAndAddressFormGroup.valid &&
+    !currentAddresFormGroup.valid &&
+    !overseasAddresFormGroup.addValidators "><mat-icon>fast_forward</mat-icon></button>
+
+  </div> -->
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+      aria-valuemax="100" style="width:0%">
+      0
+    </div>
+  </div>
+  <div class="col-md-12 top-buttons-sticky">
+    <div class="float-end">
+      <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+        (click)="gotoStep2()" *ngIf="!fromPreviewStep" [disabled]="!personalInformationFormGroup.valid && !usiAndAddressFormGroup.valid && !currentAddresFormGroup.valid" >Next</button>
+        <!-- <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+          (click)="gotoPreviewwithUpdate()" *ngIf="(fromPrevious != undefined) || (fromPreviewStep != undefined)" >Update & Next</button> -->
+      <a mat-raised-button *ngIf="fromPreviewStep" color="accent" (click)="OnClickOfCancel()" 
+        style="margin-left: 30px; margin-bottom: 10px;">Cancel</a>
+      <a mat-raised-button *ngIf="fromPreviewStep" color="primary" (click)="gotoPreviewwithUpdate()"
+        style="margin-left: 30px; margin-bottom: 10px;" >Update</a>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="row section-margin ">
+  <div class="col-md-12">
+    <div class="">
+      <div class="">
+        <div class="container-fluid mt-1">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+
+              <div class="glassmorphism animate__animated animate__bounce" data-aos="fade-up">
+                <div class="header-text">Are you?</div>
+                <hr />
+
+
+                <form class="row g-3 needs-validation" [formGroup]="originFormGroup" novalidate>
+
+
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <label for="origin" class="form-label">Origin</label>
+
+                    <select formControlName="origin" class="form-select" id="origin" required [ngClass]="{
+                        'is-invalid': originFormGroup.controls['origin'].touched && originFormGroup.controls['origin'].errors
+                      }">
+                        <option value="undefined" selected disabled>Select option</option>
+                      <!-- <option [value]="PleaseSelectAValue" selected>Select Origin</option> -->
+                      <option *ngFor="let origin of originData" [value]="origin.code">{{ origin.name }}</option>
+                    </select>
+
+
+                    <div
+                      *ngIf="originFormGroup.controls['origin'].touched && originFormGroup.controls['origin'].errors  "
+                      class="invalid-feedback">
+                      <div *ngIf="originFormGroup.controls['origin'].errors['required']">Origin is Required</div>
+                    </div>
+
+
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <label for="studenttype" class="form-label">Student Type</label>
+                    <select class="form-select" formControlName="studenttype" id="studenttype"
+                      [ngClass]="{ 'is-invalid': originFormGroup.controls['studenttype'].touched && originFormGroup.controls['studenttype'].errors }">
+                      <!-- <option value="Select Student Type " [selected]="true">Select Student Type</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let std of studentTypes" [value]="std.student_type_id">{{std.student_type}}
+                      </option>
+                    </select>
+
+                    <div
+                      *ngIf="originFormGroup.controls['studenttype'].touched && originFormGroup.controls['studenttype'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="originFormGroup.controls['studenttype'].errors['required']">Student Type is Required
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+
+
+
+
+              <div class="glassmorphism animate__animated animate__fadeInUpBig">
+                <div class="header-text">Personal Information</div>
+                <hr />
+                <form class="row g-3 needs-validation" [formGroup]="personalInformationFormGroup" novalidate>
+                  <div class="col-md-3 mb-3">
+                    <label for="title" class="form-label">Title</label>
+
+                    <select formControlName="title" class="form-select" id="title" required
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['title'].touched && personalInformationFormGroup.controls['title'].errors }">
+
+                      <!-- <option value="" [selected]="'isSelected'">Select Title</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let title of availableTitles" [value]="title.title">
+                        {{title.title}}</option>
+                    </select>
+
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['title'].touched && personalInformationFormGroup.controls['title'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['title'].errors['required']">Title is Required
+                      </div>
+                    </div>
+
+
+
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="firstname" class="form-label">First Name</label>
+                    <input type="text" formControlName="firstname" placeholder="Enter First Name" class="form-control"
+                      id="firstname" required
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['firstname'].touched && personalInformationFormGroup.controls['firstname'].errors }">
+
+
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['firstname'].touched && personalInformationFormGroup.controls['firstname'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['firstname'].errors['required']">
+                        First Name is Required
+                      </div>
+                      <div *ngIf="personalInformationFormGroup.controls['firstname'].errors['minlength']">
+                        At least 3 Characters required
+                      </div>
+                      <div *ngIf="personalInformationFormGroup.controls['firstname'].errors?.pattern">
+                        Invalid Name it accepts only letters
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="middlename" class="form-label">Middle Name</label>
+                    <input type="text" formControlName="middlename" placeholder="Enter Middle Name" class="form-control"
+                      id="middlename"/>
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="lastname" class="form-label">Family Name</label>
+                    <input type="text" formControlName="lastname" placeholder="Enter Family Name" class="form-control"
+                      id="lastname" required
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['lastname'].touched && personalInformationFormGroup.controls['lastname'].errors }" />
+
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['lastname'].touched && personalInformationFormGroup.controls['lastname'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['lastname'].errors['required']">Family name is
+                        required</div>
+                      <div *ngIf="personalInformationFormGroup.controls['lastname'].errors['minlength']">
+                        at least 3 characters required
+                      </div>
+                      <div *ngIf="personalInformationFormGroup.controls['lastname'].errors?.pattern">
+                        Invalid Family name it accepts only letters
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="preferedname" class="form-label">Prefered Name</label>
+                    <input type="text" formControlName="preferedname" placeholder="Enter Prefered Name"
+                      class="form-control" id="preferedname" required />
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="emailid" class="form-label">Email</label>
+                    <input type="text" formControlName="emailid" placeholder="Enter Email" class="form-control"
+                      id="emailid" required
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['emailid'].touched && personalInformationFormGroup.controls['emailid'].errors }" />
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['emailid'].touched && personalInformationFormGroup.controls['emailid'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['emailid'].errors['required']">emailid is
+                        required</div>
+                      <span *ngIf="personalInformationFormGroup.controls['emailid'].errors['pattern']">Email pattern is
+                        invalid</span>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="nationality" class="form-label">Nationality</label>
+                    <select formControlName="nationality" class="form-select"
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['nationality'].touched && personalInformationFormGroup.controls['nationality'].errors }">
+
+                      <!-- <option value="" [selected]="'isSelected'">Select Nationality</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+
+                      <option [value]="country.nationality" *ngFor="let country of countries">
+                        {{country.nationality}}</option>
+                    </select>
+
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['nationality'].touched && personalInformationFormGroup.controls['nationality'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['nationality'].errors['required']">Nationality
+                        is Required</div>
+                    </div>
+
+
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <!-- <mat-form-field appearance="outline"> -->
+                    <label>Date of Birth </label> <small> (MM/DD/YYYY)</small><br>
+                    <input matInput [matDatepicker]="picker" (focus)="picker.open()" id="dateOfBirth"
+                      formControlName="dob" class="dobClass form-control" readonly="true" placeholder="Select Date"
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['dob'].touched && personalInformationFormGroup.controls['dob'].errors }" />
+                    <mat-datepicker #picker></mat-datepicker>
+
+
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['dob'].touched && personalInformationFormGroup.controls['dob'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['dob'].errors['required']">DOB is Required</div>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select formControlName="gender" class="form-select"
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['gender'].touched && personalInformationFormGroup.controls['gender'].errors }">
+
+                      <!-- <option value="" [selected]="'isSelected'">Select Gender</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let gender of availableGenders" [value]="gender.gendercode">
+                        {{gender.gender}}</option>
+                    </select>
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['gender'].touched && personalInformationFormGroup.controls['gender'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['gender'].errors['required']">Gender is Required
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="birthplace" class="form-label">Birth Place</label>
+                    <input type="text" formControlName="birthplace" class="form-control" id="birthplace"
+                      placeholder="Enter Birth Place" />
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="countrybirth" class="form-label">Country of Birth</label>
+                    <select class="form-select" formControlName="countrybirth"
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['countrybirth'].touched && personalInformationFormGroup.controls['countrybirth'].errors }">
+
+                      <!-- <option selected>Select Country Of Birth</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option [value]="country.name" *ngFor="let country of countries">{{country.name}}</option>
+                    </select>
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['countrybirth'].touched && personalInformationFormGroup.controls['countrybirth'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['countrybirth'].errors['required']">Country
+                        Birth
+                        is Required</div>
+                    </div>
+
+
+
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <label for="passportno" class="form-label">Passport No</label>
+                    <input type="text" class="form-control" formControlName="passportno" placeholder="Enter Passport No"
+                      id="passportno" required
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['passportno'].touched && personalInformationFormGroup.controls['passportno'].errors }">
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['passportno'].touched && personalInformationFormGroup.controls['passportno'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['passportno'].errors['required']">passportno is
+                        required</div>
+
+                      <div *ngIf="personalInformationFormGroup.controls['passportno'].errors?.pattern">
+                        InValid passportno</div>
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="passportexpirydate" class="form-label">Passport Expiry Date</label> <small>
+                      (MM/DD/YYYY)</small>
+                    <input type="text" class="form-control" matInput [matDatepicker]="epicker" (focus)="epicker.open()"
+                      formControlName="passportexpirydate" id="passportexpirydate" required placeholder="Select Date"
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['passportexpirydate'].touched && personalInformationFormGroup.controls['passportexpirydate'].errors }">
+                    <mat-datepicker #epicker></mat-datepicker>
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['passportexpirydate'].touched && personalInformationFormGroup.controls['passportexpirydate'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['passportexpirydate'].errors['required']">
+                        Passport Expiry Date is Required</div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="visanumber" class="form-label">visa number </label>
+                    <input type="text" class="form-control" formControlName="visanumber" placeholder="Enter Visa No"
+                      id="visanumber" required
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['visanumber'].touched && personalInformationFormGroup.controls['visanumber'].errors }">
+                    <div
+                      *ngIf="personalInformationFormGroup.controls['visanumber'].touched && personalInformationFormGroup.controls['visanumber'].errors "
+                      class="invalid-feedback">
+                      <div *ngIf="personalInformationFormGroup.controls['visanumber'].errors['required']">visanumber is
+                        required</div>
+
+                      <div *ngIf="personalInformationFormGroup.controls['visanumber'].errors?.pattern">
+                        InValid visanumber</div>
+                    </div>
+
+
+                  </div>
+
+
+                  <div class="col-md-3 mb-3">
+                    <label for="visatype" class="form-label">Visa Type</label>
+                    <select class="form-select" formControlName="visatype">
+                      <!-- <option selected>Select Visa Type</option> -->
+                      <option value="undefined" selected disabled>Select option</option>
+
+                      <option *ngFor="let visa of visatypes" [value]="visa.visatype">{{visa.visatype}}</option>
+                    </select>
+
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="visaexpirydate" class="form-label">VISA Expiry Date</label> <small> (MM/DD/YYYY)</small>
+                    <!-- <input type="text" class="form-control" formControlName="visaexpirydate" id="visaexpirydate"
+                        required /> -->
+                    <input type="text" class="form-control" matInput [matDatepicker]="ppicker" (focus)="ppicker.open()"
+                      formControlName="visaexpirydate" id="visaexpirydate" required placeholder="Select Date"
+                      [ngClass]="{ 'is-invalid': personalInformationFormGroup.controls['visaexpirydate'].touched && personalInformationFormGroup.controls['visaexpirydate'].errors }">
+                    <mat-datepicker #ppicker></mat-datepicker>
+
+
+                  </div>
+                </form>
+              </div>
+
+              <div class="glassmorphism " data-aos="fade-down" data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000">
+                <div class="header-text">USI: Unique Student Identifier</div>
+                <hr />
+                <form class="row g-3 needs-validation" [formGroup]="usiAndAddressFormGroup" novalidate>
+                  <div class="col-md-5">
+                    <label for="uniquestudentidentifier" class="form-label">Do you have USI Available now ?</label>
+                    <input type="text" class="form-control" formControlName="uniquestudentidentifier"
+                      id="uniquestudentidentifier" placeholder="Enter USI Available now" required />
+                    <span class="form-text">You can leave this field blank if you dont have the USI
+                      or cant recall at this stage
+                    </span>
+
+                  </div>
+                </form>
+              </div>
+
+              <div class="" data-aos="fade-up">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="glassmorphism" data-aos="fade-right" data-aos-duration="500">
+                      <div class="header-text">Current Address</div>
+                      <hr />
+                      <form class="row g-3 needs-validation" [formGroup]="currentAddresFormGroup" novalidate>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_country" class="form-label">Country</label>
+                          <select class="form-select" formControlName="current_country" placeholder="Select Country"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'COUNTRY')"
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_country'].touched && currentAddresFormGroup.controls['current_country'].errors }">
+                            <!-- <option selected>Select Country</option> -->
+                        <option value="undefined" selected disabled>Select option</option>
+
+                            <option [value]="country.name" *ngFor="let country of countries">{{country.name}}</option>
+                          </select>
+
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_country'].touched && currentAddresFormGroup.controls['current_country'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="currentAddresFormGroup.controls['current_country'].errors['required']">
+                              Current Country is Required</div>
+                          </div>
+
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_buldingpropertyname" class="form-label">Building/Property Name</label>
+                          <input type="text" class="form-control" formControlName="current_buldingpropertyname"
+                            placeholder="Enter Building/Property Name" id="current_buldingpropertyname"
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_buldingpropertyname'].touched && currentAddresFormGroup.controls['current_buldingpropertyname'].errors }"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'BUILDINGNAME')" />
+
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_buldingpropertyname'].touched && currentAddresFormGroup.controls['current_buldingpropertyname'].errors "
+                            class="invalid-feedback">
+                            <div
+                              *ngIf="currentAddresFormGroup.controls['current_buldingpropertyname'].errors['required']">
+                              Current Bulding Property Name
+                              is Required</div>
+                          </div>
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_flatno" class="form-label">Flat/Unit Details</label>
+                          <input type="text" class="form-control" placeholder="Enter Flat/Unit Details"
+                            formControlName="current_flatno" id="current_flatno" required
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_flatno'].touched && currentAddresFormGroup.controls['current_flatno'].errors }"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'FLATDETAILS')" />
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_flatno'].touched && currentAddresFormGroup.controls['current_flatno'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="currentAddresFormGroup.controls['current_flatno'].errors['required']">
+                              Current Flat No is Required</div>
+                          </div>
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_streetno" class="form-label">Street No</label>
+                          <input type="text" class="form-control" formControlName="current_streetno"
+                            id="current_streetno" placeholder="Enter Street No"
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_streetno'].touched && currentAddresFormGroup.controls['current_streetno'].errors }"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'STREETNO')" />
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_streetno'].touched && currentAddresFormGroup.controls['current_streetno'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="currentAddresFormGroup.controls['current_streetno'].errors['required']">
+                              Current Street No is Required</div>
+                          </div>
+
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_streetname" class="form-label">Street Name</label>
+                          <input type="text" class="form-control" id="current_streetname"
+                            formControlName="current_streetname" placeholder="Enter Street Name"
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_streetname'].touched && currentAddresFormGroup.controls['current_streetname'].errors }"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'STREETNAME')" />
+
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_streetname'].touched && currentAddresFormGroup.controls['current_streetname'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="currentAddresFormGroup.controls['current_streetname'].errors['required']">
+                              current_streetname is Required
+                            </div>
+                          </div>
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_citytown" class="form-label">City/Town/Suburb</label>
+                          <input type="text" class="form-control" formControlName="current_citytown"
+                            id="current_citytown" placeholder="Enter City/Town/Suburb" required
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_citytown'].touched && currentAddresFormGroup.controls['current_citytown'].errors }"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'CITYORTOWN')" />
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_citytown'].touched && currentAddresFormGroup.controls['current_citytown'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="currentAddresFormGroup.controls['current_citytown'].errors['required']">
+                              Current City Town is Required</div>
+                          </div>
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_state" class="form-label">State</label>
+                          <input type="text" class="form-control" formControlName="current_state" id="current_state"
+                            placeholder="Enter State" required
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_state'].touched && currentAddresFormGroup.controls['current_state'].errors }"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'STATE')" />
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_state'].touched && currentAddresFormGroup.controls['current_state'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="currentAddresFormGroup.controls['current_state'].errors['required']">
+                              Current State is Required</div>
+                          </div>
+
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_postcode" class="form-label">PostCode</label>
+                          <input type="text" class="form-control" formControlName="current_postcode"
+                            id="current_postcode" placeholder="Enter PostCode" required
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_postcode'].touched && currentAddresFormGroup.controls['current_postcode'].errors }"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'POSTCODE')" />
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_postcode'].touched && currentAddresFormGroup.controls['current_postcode'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="currentAddresFormGroup.controls['current_postcode'].errors['required']">
+                              Current Postcode is Required</div>
+                            <div *ngIf="currentAddresFormGroup.controls['current_postcode'].errors['pattern']">It
+                              accepts Numbers only</div>
+                            <div *ngIf="currentAddresFormGroup.controls['current_postcode'].errors['minLength']">Only 4
+                              numbers</div>
+                          </div>
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_housephone" class="form-label">Home Phone</label>
+                          <input type="text" class="form-control" formControlName="current_housephone"
+                            id="current_housephone" placeholder="Enter Home Phone"
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_housephone'].touched && currentAddresFormGroup.controls['current_housephone'].errors }"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'HOMEPHONE')" />
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_housephone'].touched && currentAddresFormGroup.controls['current_housephone'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="currentAddresFormGroup.controls['current_housephone'].errors['required']">
+                              Current House Phone is Required
+                            </div>
+                            <div *ngIf="currentAddresFormGroup.controls['current_housephone'].errors['pattern']">10
+                              Numbers are req</div>
+
+
+                          </div>
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_workphone" class="form-label">Work Phone</label>
+                          <input type="text" class="form-control" formControlName="current_workphone"
+                            id="current_workphone" placeholder="Enter Work Phone"
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_workphone'].touched && currentAddresFormGroup.controls['current_workphone'].errors }"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'WORKPHONE')" />
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_workphone'].touched && currentAddresFormGroup.controls['current_workphone'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="currentAddresFormGroup.controls['current_workphone'].errors['required']">
+                              Current Work Phone is Required</div>
+                            <div *ngIf="currentAddresFormGroup.controls['current_workphone'].errors['pattern']">10
+                              Numbers are req</div>
+
+                          </div>
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="current_mobileno" class="form-label">Mobile Phone</label>
+                          <input type="text" class="form-control" formControlName="current_mobileno"
+                            id="current_mobileno" placeholder="Enter Mobile Phone"
+                            [ngClass]="{ 'is-invalid': currentAddresFormGroup.controls['current_mobileno'].touched && currentAddresFormGroup.controls['current_mobileno'].errors }"
+                            (change)="sendDataCrntAddrsToSameAddrs($event,'MOBILEPHONE')" />
+
+                          <div
+                            *ngIf="currentAddresFormGroup.controls['current_mobileno'].touched && currentAddresFormGroup.controls['current_mobileno'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="currentAddresFormGroup.controls['current_mobileno'].errors['required']">
+                              Current Mobile No is Required</div>
+                            <div *ngIf="currentAddresFormGroup.controls['current_mobileno'].errors['pattern']">10
+                              Numbers are req</div>
+                          </div>
+
+
+
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="glassmorphism" data-aos="fade-left" data-aos-duration="700">
+                      <div class="header-text">
+                        Overseas/Permanent Address
+                      </div>
+                      <hr />
+                      <form class="row g-3 needs-validation" [formGroup]="overseasAddresFormGroup" novalidate>
+                        <div class="col-md-6 mb-3">
+                          <mat-checkbox (change)="copyCurrentAddress($event)" [checked]="ischecked">Same as Current Address</mat-checkbox>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_country" class="form-label">Country</label>
+                          <select class="form-select" formControlName="overseas_country" placeholder="Select Country"
+                            [ngClass]="{ 'is-invalid': overseasAddresFormGroup.controls['overseas_country'].touched && overseasAddresFormGroup.controls['overseas_country'].errors }"
+                            [disabled]="isSameAddrsFieldsDisable">
+                            <!-- <option value="" [selected]="'isSelected'">Select Country</option> -->
+                        <option value="undefined" selected disabled>Select option</option>
+
+                            <option [value]="country.name" *ngFor="let country of countries">{{country.name}}</option>
+                          </select>
+
+                          <div
+                            *ngIf="overseasAddresFormGroup.controls['overseas_country'].touched && overseasAddresFormGroup.controls['overseas_country'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_country'].errors['required']">
+                              Overseas Country is Required</div>
+                          </div>
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_buldingpropertyname" class="form-label">Building/Property Name</label>
+                          <input type="text" class="form-control" formControlName="overseas_buldingpropertyname"
+                            placeholder="Enter Building/Property Name" id="overseas_buldingpropertyname"
+                            [ngClass]="{ 'is-invalid': overseasAddresFormGroup.controls['overseas_buldingpropertyname'].touched && overseasAddresFormGroup.controls['overseas_buldingpropertyname'].errors }"
+                            [readOnly]="isSameAddrsFieldsDisable" />
+
+
+                          <div
+                            *ngIf="overseasAddresFormGroup.controls['overseas_buldingpropertyname'].touched && overseasAddresFormGroup.controls['overseas_buldingpropertyname'].errors "
+                            class="invalid-feedback">
+                            <div
+                              *ngIf="overseasAddresFormGroup.controls['overseas_buldingpropertyname'].errors['required']">
+                              Overseas Bulding Property Name is Required</div>
+                          </div>
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_flatno" class="form-label">Flat/Unit Details</label>
+                          <input type="text" class="form-control" placeholder="Enter Flat/Unit Details"
+                            formControlName="overseas_flatno" id="overseas_flatno" required
+                            [readOnly]="isSameAddrsFieldsDisable" [readOnly]="isSameAddrsFieldsDisable" />
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_streetno" class="form-label">Street No</label>
+                          <input type="text" class="form-control" formControlName="overseas_streetno"
+                            id="overseas_streetno" placeholder="Enter Street No"
+                            [ngClass]="{ 'is-invalid': overseasAddresFormGroup.controls['overseas_streetno'].touched && overseasAddresFormGroup.controls['overseas_streetno'].errors }"
+                            [readOnly]="isSameAddrsFieldsDisable" />
+
+                          <div
+                            *ngIf="overseasAddresFormGroup.controls['overseas_streetno'].touched && overseasAddresFormGroup.controls['overseas_streetno'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_streetno'].errors['required']">
+                              Overseas street No is Required</div>
+                          </div>
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_streetname" class="form-label">Street Name</label>
+                          <input type="text" class="form-control" id="overseas_streetname"
+                            formControlName="overseas_streetname" placeholder="Enter Street Name"
+                            [ngClass]="{ 'is-invalid': overseasAddresFormGroup.controls['overseas_streetname'].touched && overseasAddresFormGroup.controls['overseas_streetname'].errors }"
+                            [readOnly]="isSameAddrsFieldsDisable" />
+
+
+                          <div
+                            *ngIf="overseasAddresFormGroup.controls['overseas_streetname'].touched && overseasAddresFormGroup.controls['overseas_streetname'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_streetname'].errors['required']">
+                              Overseas Streetname is Required
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_citytown" class="form-label">City/Town/Suburb</label>
+                          <input type="text" class="form-control" formControlName="overseas_citytown"
+                            id="overseas_citytown" placeholder="Enter City/Town/Suburb"
+                            [readOnly]="isSameAddrsFieldsDisable" required />
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_state" class="form-label">State</label>
+                          <input type="text" class="form-control" formControlName="overseas_state" id="overseas_state"
+                            placeholder="Enter State" [readOnly]="isSameAddrsFieldsDisable" required />
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_postcode" class="form-label">PostCode</label>
+                          <input type="text" class="form-control" formControlName="overseas_postcode"
+                            id="overseas_postcode" placeholder="Enter PostCode"
+                            [ngClass]="{ 'is-invalid': overseasAddresFormGroup.controls['overseas_postcode'].touched && overseasAddresFormGroup.controls['overseas_postcode'].errors }"
+                            [readOnly]="isSameAddrsFieldsDisable" />
+
+                          <div
+                            *ngIf="overseasAddresFormGroup.controls['overseas_postcode'].touched && overseasAddresFormGroup.controls['overseas_postcode'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_postcode'].errors['required']">
+                              Overseas Postcode is Required</div>
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_postcode'].errors['pattern']">It
+                              accepts Numbers only</div>
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_postcode'].errors['minLength']">Only
+                              4 numbers</div>
+                          </div>
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_housephone" class="form-label">Home Phone</label>
+                          <input type="text" class="form-control" formControlName="overseas_housephone"
+                            id="overseas_housephone" placeholder="Enter Home Phone" required
+                            [ngClass]="{ 'is-invalid': overseasAddresFormGroup.controls['overseas_housephone'].touched && overseasAddresFormGroup.controls['overseas_housephone'].errors }"
+                            [readOnly]="isSameAddrsFieldsDisable" />
+
+                          <div
+                            *ngIf="overseasAddresFormGroup.controls['overseas_housephone'].touched && overseasAddresFormGroup.controls['overseas_housephone'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_housephone'].errors['required']">
+                              Overseas Housephone is Required
+                            </div>
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_housephone'].errors['pattern']">10
+                              Numbers are req</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_workphone" class="form-label">Work Phone</label>
+                          <input type="text" class="form-control" formControlName="overseas_workphone"
+                            id="overseas_workphone" placeholder="Enter Work Phone"
+                            [ngClass]="{ 'is-invalid': overseasAddresFormGroup.controls['overseas_workphone'].touched && overseasAddresFormGroup.controls['overseas_workphone'].errors }"
+                            [readOnly]="isSameAddrsFieldsDisable" />
+
+                          <div
+                            *ngIf="overseasAddresFormGroup.controls['overseas_workphone'].touched && overseasAddresFormGroup.controls['overseas_workphone'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_workphone'].errors['required']">
+                              Overseas Workphone is Required
+                            </div>
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_workphone'].errors['pattern']">10
+                              Numbers are req</div>
+
+                          </div>
+
+
+
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="overseas_mobileno" class="form-label">Mobile Phone</label>
+                          <input type="text" class="form-control" formControlName="overseas_mobileno"
+                            id="overseas_mobileno" placeholder="Enter Mobile Phone"
+                            [ngClass]="{ 'is-invalid':  overseasAddresFormGroup.controls['overseas_mobileno'].touched && overseasAddresFormGroup.controls['overseas_mobileno'].errors }"
+                            [readOnly]="isSameAddrsFieldsDisable" />
+
+                          <div
+                            *ngIf="overseasAddresFormGroup.controls['overseas_mobileno'].touched && overseasAddresFormGroup.controls['overseas_mobileno'].errors "
+                            class="invalid-feedback">
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_mobileno'].errors['required']">
+                              Overseas Mobileno is Required</div>
+                            <div *ngIf="overseasAddresFormGroup.controls['overseas_mobileno'].errors['pattern']">10
+                              Numbers are req</div>
+
+                          </div>
+
+
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+            <div class="col-md-12 buttons-sticky">
+              <div class="float-end">
+                <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+                  (click)="gotoStep2()" *ngIf="!fromPreviewStep" [disabled]="!personalInformationFormGroup.valid &&  !usiAndAddressFormGroup.valid && !currentAddresFormGroup.valid" >Next</button>
+                <!-- <button mat-raised-button color="accent" style="margin-left: 30px; margin-bottom: 10px;" 
+                  (click)="gotoPreviewwithUpdate()" *ngIf="(fromPrevious != undefined) || (fromPreviewStep != undefined)" >Update & Next</button> -->
+                <a mat-raised-button *ngIf="fromPreviewStep" color="accent" (click)="OnClickOfCancel()" 
+                  style="margin-left: 30px; margin-bottom: 10px;">Cancel</a>
+                <a mat-raised-button *ngIf="fromPreviewStep" color="primary" (click)="gotoPreviewwithUpdate()"
+                  style="margin-left: 30px; margin-bottom: 10px;" >Update</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

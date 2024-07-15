@@ -1,0 +1,156 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header d-flex justify-content-between align-items-center " *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+        <div class=" ">
+          <mat-button-toggle-group>
+            <mat-button-toggle mat-icon-button *ngFor="let button of buttonData" [matTooltip]="button.tooltip"
+              (click)="onButtonClick(button)">
+              <mat-icon [color]="button.selected?'primary':'accent'">{{ button.icon }}</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+  
+        <div class="">
+          <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+              class="col-green font-weight-bold">
+              {{campusName}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="agents-title-txt-clr flex-center-items mb-2 fs-4">
+        
+            <h6 class="">Course deferral, holiday or suspension</h6>
+          </div>
+          <div class="card-body">
+            <div class="container-fluid">
+              <div class="glassmorphism mb-3">
+                <form action="" [formGroup]="courseDeferral" >
+                  <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Student Id</mat-label>
+                        <input matInput type="text" placeholder="Enter Student Id" formControlName="studentId" value="WIL4049">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Name</mat-label>
+                        <input matInput type="text" placeholder="Enter Name" formControlName="name" value="Mr Suresh Sedhain">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Course</mat-label>
+                        <mat-select placeholder="select Course" formControlName="course" >
+                          <mat-option value="AUR40216:Certificate IV In Automotive Mechanical Diagnosis-20/11/2023">AUR40216:Certificate IV In Automotive Mechanical Diagnosis-20/11/2023</mat-option>
+                          <mat-option value="Hon">Hon. </mat-option>
+                          <mat-option value="not-specified">Not Specified </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Course Duration</mat-label>
+                        <input matInput type="text" placeholder="Enter Course Duration" formControlName="courseDuration" value="20/11/2023 - 19/05/2024">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Status</mat-label>
+                        <input matInput type="text" placeholder="Enter Status" formControlName="status" value="Current Student">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Type</mat-label>
+                        <mat-select placeholder="select Type" formControlName="type" >
+                          <mat-option value="Approved Leave - AL">Approved Leave - AL</mat-option>
+                          <mat-option value="Hon">Hon. </mat-option>
+                          <mat-option value="not-specified">Not Specified </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Reason</mat-label>
+                        <mat-select placeholder="select Reason" formControlName="reason" >
+                          <mat-option value="Change in personal cicrumstance">Change in personal cicrumstance</mat-option>
+                          <mat-option value="Hon">Hon. </mat-option>
+                          <mat-option value="not-specified">Not Specified </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Request Date</mat-label>
+                        <input matInput type="text" placeholder="Enter Request Date" formControlName="requestDate" value="24/06/2024">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Deferral Start Date</mat-label>
+                        <input matInput type="text" placeholder="Enter Deferral Start Date" formControlName="deferralStartDate" value="24/06/2024">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>New Start Date</mat-label>
+                        <input matInput type="text" placeholder="Enter New Start Date" formControlName="newStartDate">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Deferral Finish Date</mat-label>
+                        <input matInput type="text" placeholder="Enter Deferral Finish Date" formControlName="deferralFinishDate" value="24/06/2024">
+                        <mat-hint><span>Click to View Proposed Course Finish Date</span></mat-hint>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Approval Status</mat-label>
+                        <mat-select placeholder="select Approval Status" formControlName="approvalStatus" >
+                          <mat-option value="Approved">Approved</mat-option>
+                          <mat-option value="Not Approved">Not Approved</mat-option>
+                        </mat-select>
+                      </mat-form-field> 
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                      <div class="d-flex align-items-center text-primary">
+                        <mat-icon>info </mat-icon>
+                        <div class="">Proposed Course Length: 20/11/2023 - 20/05/2024</div>
+                      </div>
+                      <div class="d-flex align-items-center text-primary">
+                        <mat-icon>info </mat-icon>
+                        <div class="">Course Finish Date = Course Start Date + Actual Course Duration + Deferral Weeks</div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12 mt-1">
+                      <mat-checkbox ><span class="text-success fs-6">Select to update course finish date</span></mat-checkbox>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Comments</mat-label>
+                        <textarea matInput type="text" placeholder="Enter Comments" formControlName="comments"></textarea>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button  mat-raised-button color="accent">Defer Course</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>

@@ -1,0 +1,364 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <app-breadcrumb
+        [title]="breadscrum.title"
+        [items]="breadscrum.items"
+        [active_item]="breadscrum.active"
+      >
+      </app-breadcrumb>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+        <div class="card">
+          <div *ngIf="shimmerEffect">
+            <shimmer [width]="300" [height]="30" ></shimmer>
+          </div>
+          <div class="header" *ngIf="!shimmerEffect">
+            <h5 class="col-cyan">{{pageTitle}}</h5><mat-icon class="m-l-10 cur-pointer" *ngIf="helpText!=''" (click)="showHelpText = !showHelpText">info_outline</mat-icon>
+          </div>
+          <div class="body">
+            <div class="info-custom" *ngIf="helpText!='' && showHelpText" [innerHtml]="helpText"></div>
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- <ng-scrollbar  [style.height]="listMaxHeight + 'px'" visibility="hover"> -->
+                <div *ngIf="shimmerEffect">
+                  
+                  <div class="row bodyScroll">
+                    <table style="width: 100%;" *ngIf="shimmerEffect">
+                      <tbody>
+                        <tr *ngFor='let row of [0,1,2,3,4,5,6,7,8,9]'>
+                          <td><shimmer [height]="70"></shimmer></td>
+                          <td><shimmer [height]="70"></shimmer></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <form [formGroup]="form" *ngIf="this.form && !shimmerEffect">
+                 
+                  <input *ngFor="let hdn of hiddenFields"
+                            type="hidden"
+                            [formControlName]="hdn.key"
+                            [id]="hdn.key"
+                            [name]="hdn.key"
+                            value="hdn.value"
+                          />
+
+                    <!-- PAGE CONTENT -->
+                    
+                    
+                          <div class="row bodyScroll">
+                            <div *ngFor="let field of formFields" [class]="field.className" [hidden]="field.hidden">
+                              <!-- Form Controls -->
+                              <ng-tempate [ngSwitch]="field.controlType">
+                                <!-- <ng-container *ngSwitchCase="'hidden'">
+                                  <input  
+                                      type="hidden"
+                                      [formControlName]="field.key"
+                                      [id]="field.key"
+                                      [name]="field.key"
+                                      value="field.value"
+                                    />
+                                </ng-container> -->
+                                <ng-container *ngSwitchCase="'header'">
+                                  <div class="row" #sectionElement>
+                                    <div class="header">
+                                      <h2 id="{{field.key}}">{{ field.label }}</h2>
+                                    </div>
+                                    <hr />
+                                  </div>                                  
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'textbox'">
+                                  <mat-form-field class="example-full-width mb-3" appearance="outline" 
+                                  >
+                                    <mat-label [attr.for]="field.key">{{
+                                      field.label
+                                    }}</mat-label>
+
+                                    <input
+                                      matInput
+                                      [formControlName]="field.key"
+                                      [id]="field.key"
+                                      [name]="field.key"
+                                      [attr.required]="field.required || null"
+                                      [validatetype]="field.validatetype"
+                                      [maxlength]="field.maxlength"
+                                      customDir
+                                    />
+                                    <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                                    <mat-error
+                                      *ngIf="form.get(field.key)?.hasError('required')"
+                                    >
+                                      {{ field.label }} is required
+                                    </mat-error>
+                                  </mat-form-field>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'password'">
+                                  <mat-form-field class="example-full-width mb-3" appearance="outline" 
+                                  >
+                                    <mat-label [attr.for]="field.key">{{
+                                      field.label
+                                    }}</mat-label>
+
+                                    <input
+                                      matInput
+                                      type="password"
+                                      [formControlName]="field.key"
+                                      [id]="field.key"
+                                      [name]="field.key"
+                                      [attr.required]="field.required || null"
+                                      [validatetype]="field.validatetype"
+                                      [maxlength]="field.maxlength"
+                                      customDir
+                                    />
+                                    <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                                    <mat-error
+                                      *ngIf="form.get(field.key)?.hasError('required')"
+                                    >
+                                      {{ field.label }} is required
+                                    </mat-error>
+                                  </mat-form-field>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'email'">
+                                  <mat-form-field
+                                    class="example-full-width mb-3"
+                                    appearance="outline"
+                                  >
+                                    <mat-label [attr.for]="field.key">{{
+                                      field.label
+                                    }}</mat-label>
+
+                                    <input
+                                      matInput
+                                      [formControlName]="field.key"
+                                      [id]="field.key"
+                                      [name]="field.key"
+                                      [attr.required]="field.required || null"
+                                      [pattern]="field.pattern"
+                                      [maxlength]="field.maxlength"
+                                    />
+                                    <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                                    <mat-error
+                                      *ngIf="form.get(field.key)?.hasError('required')"
+                                    >
+                                      {{ field.label }} is required
+                                    </mat-error>
+                                    <mat-error *ngIf="form.get(field.key)?.hasError('pattern')">
+                                      Invalid {{ field.label }}
+                                    </mat-error>
+                                  </mat-form-field>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'textarea'">
+                                  <mat-form-field
+                                    class="example-full-width mb-3"
+                                    appearance="outline"
+                                  >
+                                    <mat-label>{{ field.label }}</mat-label>
+                                    <textarea
+                                      matInput
+                                      [formControlName]="field.key"
+                                      [id]="field.key"
+                                      [name]="field.key"
+                                      [attr.required]="field.required || null"
+                                      [readonly]="field.disabled || null"
+                                    ></textarea>
+                                    <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                                    <mat-error
+                                      *ngIf="form.get(field.key)?.hasError('required')"
+                                    >
+                                      {{ field.label }} is required
+                                    </mat-error>
+                                  </mat-form-field>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'label'">
+                                  <mat-label>{{ field.label }}</mat-label>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'labelvalue'">
+                                  <mat-label>{{ field.value }}</mat-label>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'checkbox'">
+                                  <mat-checkbox
+                                    [formControlName]="field.key"
+                                    [id]="field.key"
+                                    [name]="field.key"
+                                    [attr.required]="field.required || null"
+                                    (change)="checkboxSelection($event,field.key)"
+                                  >
+                                    {{ field.label }}
+                                  </mat-checkbox>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'dropdown'">
+                                  <mat-form-field
+                                    class="example-full-width mb-3"
+                                    appearance="outline"
+                                  >
+                                    <mat-label>{{ field.label }}</mat-label>
+
+                                    <mat-select *ngIf="!field.altctrl"
+                                      [formControlName]="field.key"
+                                      [id]="field.key" 
+                                      [attr.required]="field.required || null" 
+                                      (selectionChange)="TargetChange(field.key, field.targetid, $event.value)" 
+                                    >
+                                      <mat-option
+                                        *ngFor="let opt of field.options"
+                                        [value]="opt.value"
+                                        >{{ opt.key }}</mat-option
+                                      >
+                                    </mat-select>
+
+                                    <input *ngIf="field.altctrl"
+                                      matInput
+                                      [formControlName]="field.key"
+                                      [id]="field.key"
+                                      [name]="field.key"
+                                      [attr.required]="field.required || null"
+                                      [maxlength]="field.maxlength"
+                                      customDir
+                                    />
+
+                                    <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                                    <mat-error
+                                      *ngIf="form.get(field.key)?.hasError('required')"
+                                    >
+                                      Select Any {{ field.label }}
+                                    </mat-error>
+                                  </mat-form-field>
+
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'multidropdown'">
+                                  <mat-form-field
+                                    class="example-full-width mb-3"
+                                    appearance="outline"
+                                  >
+                                    <mat-label>{{ field.label }} </mat-label>
+                                    <mat-select
+                                      [formControlName]="field.key"
+                                      multiple
+                                      [id]="field.key"
+                                      [attr.required]="field.required || null"
+                                    >
+                                      <mat-checkbox [indeterminate]="isIndeterminate(field)" [checked]="isChecked(field)"
+                                          (click)="$event.stopPropagation()" (change)="toggleSelection($event,field)">
+                                          Select All
+                                      </mat-checkbox>
+                                      <mat-option
+                                        *ngFor="let opt of field.options"
+                                        [value]="opt.value"
+                                        >{{ opt.key }}</mat-option
+                                      >
+                                    </mat-select>
+                                    <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                                    <mat-error
+                                      *ngIf="form.get(field.key)?.hasError('required')"
+                                    >
+                                      Select Any {{ field.label }}
+                                    </mat-error>
+                                  </mat-form-field>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'radio'">
+                                  <mat-radio-group [formControlName]="field.key">
+                                    <mat-radio-button
+                                      *ngFor="let opt of field.options"
+                                      [value]="opt.value"
+                                      [attr.required]="field.required || null"
+                                    >
+                                      {{ opt.key }}
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'date'">
+                                  <mat-form-field
+                                    class="example-full-width mb-3"
+                                    appearance="outline"
+                                  >
+                                    <mat-label>{{ field.label }}</mat-label>
+                                    <input
+                                      matInput
+                                      [matDatepicker]="datePicker"
+                                      [name]="field.key"
+                                      [id]="field.key"
+                                      [formControlName]="field.key"
+                                      [attr.required]="field.required || null"
+                                      placeholder="Choose a date"
+                                      (dateChange)="changeDate($event, field.key)"
+                                    />
+                                    <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                                    <mat-datepicker-toggle
+                                      matSuffix
+                                      [for]="datePicker"
+                                    ></mat-datepicker-toggle>
+                                    <mat-datepicker #datePicker></mat-datepicker>
+                                  </mat-form-field>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'url'">
+                                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                                      <mat-label [attr.for]="field.key">{{field.label}}</mat-label>
+                      
+                                      <input matInput [formControlName]="field.key" [id]="field.key" [name]="field.key"
+                                          [attr.required]="field.required || null" 
+                                          [pattern]="field.pattern" [maxlength]="field.maxlength">
+                                      <mat-icon *ngIf="field.tooltip!=''" matSuffix matTooltip="{{field.tooltip}}">info_outline</mat-icon>
+                                      <mat-error *ngIf="form.get(field.key)?.hasError('required')">
+                                          {{field.label}} is required
+                                      </mat-error>
+                                      <mat-error *ngIf="form.get(field.key)?.hasError('pattern')">
+                                          Invalid {{field.label}}
+                                      </mat-error>
+                                  </mat-form-field>
+                                </ng-container>
+
+                              <ng-container *ngSwitchCase="'fileupload'">
+                                <label>{{field.label}}</label>
+                                <app-file-upload [formControlName]="field.key" [id]="field.key" [name]="field.key" [attr.required]="field.required || null" ></app-file-upload>
+                              </ng-container>
+
+                            </ng-tempate>
+                              <!-- Form Controls -->
+
+                            </div>
+                          </div>
+                    
+                    <!-- PAGE CONTENT -->    
+                  <div class="row" *ngIf="this.form">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                      <button *ngIf="actionType!='view'" class="btn-space" mat-raised-button color="primary" [class.auth-spinner]="submitEffect" [disabled]="submitEffect" (click)="submitForm()">{{customActionText}}</button>
+                      <button *ngIf="cancelURL != ''" class="btn-space" mat-raised-button color="warn" [routerLink]="cancelURL">Cancel</button>
+                    </div>
+                    <!-- <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar> -->
+                  </div>
+                </form>
+                <!-- </ng-scrollbar> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" *ngIf="this.form && actionType!='view'">
+        <!-- RIGHT MENU -->
+        <div class="card" *ngIf="tabHeaders.length>0">
+          <div class="body">
+            <ul class="feedBody" #stickyMenu>
+              <li *ngFor="let tabItem of tabHeaders; index as tabid" (click)="scrollToElement(tabid)" class="cur-pointer">
+                <a mat-mini-fab class="mini-fab-btn groupname feed-user-img active">
+                  {{ tabid + 1 }}
+                </a>
+                <span>{{ tabItem.label }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- RIGHT MENU -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+

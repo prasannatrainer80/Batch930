@@ -1,0 +1,148 @@
+<section class="content">
+    <div class="content-block">
+        <div class="block-header" *ngFor="let breadscrum of breadscrums">
+            <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active" >
+            </app-breadcrumb>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="materialTableHeader">
+                        <div class="left">
+                            <ul class="header-buttons-left ms-0">
+                                <!-- <li class="tbl-search-box">
+                                      <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                                      <input placeholder="Search" type="text" class="browser-default search-field"
+                                       aria-label="Search box" #input>
+                                  </li> -->
+                            </ul>
+                        </div>
+                        <div class="right">
+                            <ul class="tbl-export-btn">
+                                <li class="tbl-header-btn">
+                                    <div class="m-l-10" matTooltip="ADD" matTooltipPosition="right">
+                                        <button mat-mini-fab color="primary" (click)="EnrollFeeNew()">
+                                            <mat-icon class="col-white">add</mat-icon>
+                                        </button>
+                                    </div>
+                                </li>
+                                <li class="tbl-header-btn">
+                                    <div class="m-l-10" matTooltip="REFRESH" matTooltipPosition="right">
+                                        <button mat-mini-fab color="primary">
+                                            <mat-icon class="col-white">refresh</mat-icon>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="body overflow-auto">
+                        <div class="responsive_table">
+                            <mat-accordion>
+                                <mat-expansion-panel *ngFor="let rg of resultGrades;index as i"  [expanded]="step === i" (opened)="onPanelClick(rg,i)" hideToggle="true">
+                                    <mat-expansion-panel-header >
+                                         Grading Type:<strong>{{rg.name}}</strong> &nbsp; |  Use Marks:  <strong> {{
+                                            rg.isusemarks =='1' ?"YES":"NO"}}</strong>
+                                        <ng-container *ngIf="rg.isusemarks =='1'">
+                                            &nbsp;  | Max Marks: <strong>{{rg.maxmarks}}</strong>
+                                        </ng-container>
+                                    </mat-expansion-panel-header>
+                                    <ng-template matExpansionPanelContent>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive" >
+                                                    <table mat-table [dataSource]="dataSource" matSort class="table table-hover w-100">
+
+                                                        <ng-container matColumnDef="status">
+                                                            <th mat-header-cell *matHeaderCellDef>Status</th>
+                                                            <td mat-cell *matCellDef="let element">
+                                                                <span class="badge col-green"
+                                                                    *ngIf="element.status == 1"> Active</span>
+                                                                <span class="badge col-red"
+                                                                    *ngIf="element.status == 0"> Inactive</span>
+                                                            </td>
+                                                        </ng-container>
+                                                        <ng-container matColumnDef="grade">
+                                                            <th mat-header-cell *matHeaderCellDef>Grade</th>
+                                                            <td mat-cell *matCellDef="let element"> {{ element.grade }}
+                                                            </td>
+                                                        </ng-container>
+                                                        <ng-container matColumnDef="finaloutcomecode">
+                                                            <th mat-header-cell *matHeaderCellDef>Final Outcome Code
+                                                            </th>
+                                                            <td mat-cell *matCellDef="let element">{{
+                                                                element.finaloutcomecode }}</td>
+                                                        </ng-container>
+                                                        <ng-container matColumnDef="finaloutcome">
+                                                            <th mat-header-cell *matHeaderCellDef>Final Outcome</th>
+                                                            <td mat-cell *matCellDef="let element">{{
+                                                                element.finaloutcome }}</td>
+                                                        </ng-container>
+                                                        transcriptdisplay
+                                                        <ng-container matColumnDef="transcriptdisplay">
+                                                            <th mat-header-cell *matHeaderCellDef>Transcript Display</th>
+                                                            <td mat-cell *matCellDef="let element">{{
+                                                                element.transcriptdisplay }}</td>
+                                                        </ng-container>
+                                                        <ng-container matColumnDef="description">
+                                                            <th mat-header-cell *matHeaderCellDef>Description</th>
+                                                            <td mat-cell *matCellDef="let element">{{
+                                                                element.description }}</td>
+                                                        </ng-container>
+                                                        <ng-container matColumnDef="createtime">
+                                                            <th mat-header-cell *matHeaderCellDef>created Date</th>
+                                                            <td mat-cell *matCellDef="let element">
+                                                                {{ element.createtime }}
+                                                            </td>
+                                                        </ng-container>
+
+                                                        <ng-container matColumnDef="code">
+                                                            <th mat-header-cell *matHeaderCellDef>Actions</th>
+                                                            <td mat-cell *matCellDef="let element">
+                                                                <button mat-icon-button (click)="EditResultGrade(rg,element)" class="tbl-action-btn"
+                                                                    matTooltip="Edit Enrolled Fee" matTooltipPosition="right">
+                                                                    <app-feather-icons [icon]="'edit'"
+                                                                        [class]="'tbl-fav-check'"></app-feather-icons>
+                                                                </button>
+                                                                <ng-container *ngIf="element.status == 1">
+                                                                    <button mat-icon-button
+                                                                        (click)="StatusChange(element,0)"
+                                                                        class="tbl-action-btn" matTooltip="Deactivate"  matTooltipPosition="right">
+                                                                        <app-feather-icons [icon]="'x-circle'"
+                                                                            [class]="'tbl-fav-delete'"></app-feather-icons>
+                                                                    </button>
+                                                                </ng-container>
+                                                                <ng-container *ngIf="element.status == 0">
+                                                                    <button mat-icon-button
+                                                                        (click)="StatusChange(element,1)"
+                                                                        class="tbl-action-btn" matTooltip="Activate"  matTooltipPosition="right">
+                                                                        <app-feather-icons [icon]="'check-square'"
+                                                                            [class]="'tbl-fav-check'"></app-feather-icons>
+                                                                    </button>
+                                                                </ng-container>
+                                                            </td>
+                                                        </ng-container>
+
+                                                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                                        <tr mat-row *matRowDef="let row; columns: displayedColumns">
+                                                        </tr>
+                                                    </table>
+
+                                                    <mat-paginator #paginator [length]="totalRows"
+                                                        [pageIndex]="currentPage" [pageSize]="pageSize"
+                                                        [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)"
+                                                        aria-label="Select page">
+                                                    </mat-paginator>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

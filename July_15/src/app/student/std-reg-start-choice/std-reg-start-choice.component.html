@@ -1,0 +1,1820 @@
+<section class="content" style="background-color: #fff;">
+  <div class="content-block">
+    <div class="sticky-breadcrumb card">
+      <div class="block-header test" *ngFor="let breadscrum of breadscrums">
+        <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+        </app-breadcrumb>
+      </div>
+      <div class="campus">
+        <p class="details"> <img src="assets/images/banner/campus.png" alt="" /> Campus :<span
+            class="col-green font-weight-bold">
+            {{campusName}}</span>
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="row card clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class=" mt-2" *ngIf="appRefId">
+          <h6>Appication Ref. Id: <span style="color:rgb(226, 198, 43)">{{appRefId+ " "}}
+              {{personalInformationFormGroup.controls['emailid'].value}}</span></h6>
+        </div>
+        <mat-horizontal-stepper #stepper labelPosition="bottom" [selectedIndex]="appStatus">
+          <!--are You ? -->
+          <!-- <mat-step  [completed]="selectedIndex > 0" [editable]="false" errorMessage="Fill All Details for this step." [stepControl]="origin" >
+            
+            <form [formGroup]="origin">
+              <ng-template matStepLabel>
+                <div matTooltip="Are You ?">Are You ?</div>
+              </ng-template>
+              <div class="row card clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Type Of Student</mat-label>
+                    <mat-select formControlName="origin" required>
+                      <mat-option *ngFor="let typeofstd of originData" [value]="typeofstd.value">
+                        {{typeofstd.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                </div>
+              </div>
+
+              <div>
+                <button mat-stroked-button matStepperNext (click)="areyouNextButtonClick()"
+                  color="primary">Next</button>
+              </div>
+            </form>
+          </mat-step> -->
+          <!--  personal Information-->
+          <mat-step [stepControl]="personalInformationFormGroup" [completed]="selectedIndex > 0" [editable]="false"
+            errorMessage="Fill All Details for this step.">
+            <form [formGroup]="origin">
+              <!-- <ng-template matStepLabel>
+                <div matTooltip="Are You ?">Are You ?</div>
+              </ng-template> -->
+              <div class="row card clearfix d-flex"> 
+                <div class="row d-flex">
+                  <div class="col-lg-4 col-md-12 col-sm-12">
+                    <mat-form-field appearance="outline">
+                      <mat-label for="origin">Origin</mat-label>
+                      <mat-select formControlName="origin" required (selectionChange)="onOriginSection($event)">
+                        <mat-option *ngFor="let typeofstd of originData" [value]="typeofstd.value">
+                          {{typeofstd.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                  </div>
+                  <!-- <div class="col-lg-4 col-md-12 col-sm-12">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Type Of Student</mat-label>
+                      <mat-select formControlName="studenttype" required>
+                        <mat-option *ngFor="let typeofstd of originData" [value]="typeofstd.value">
+                          {{typeofstd.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+  
+                  </div> -->
+                </div>
+
+              </div>
+
+            </form>
+            <form [formGroup]="personalInformationFormGroup">
+              <ng-template matStepLabel>
+                <div matTooltip="Personal Information">Personal Information</div>
+              </ng-template>
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center ">
+
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label for="title">Title</mat-label>
+                        <mat-select formControlName="title" requried>
+                          <mat-option value="Mr">Mr. </mat-option>
+                          <mat-option value="Mrs">Mrs. </mat-option>
+                          <mat-option value="Miss">Miss. </mat-option>
+                          <mat-option value="Ms">Ms. </mat-option>
+                          <mat-option value="Mr">Dr. </mat-option>
+                          <mat-option value="Rev">Rev. </mat-option>
+                          <mat-option value="Hon">Hon. </mat-option>
+                          <mat-option value="not-specified">Not Specified </mat-option>
+                        </mat-select>
+
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="Enter Your First Name" formControlName="firstname" required>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Middle Name</mat-label>
+                        <input matInput placeholder="Enter Your Middle Name" formControlName="middlename" required>
+                      </mat-form-field>
+                    </div>
+
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Enter Your Last Name" formControlName="lastname" required>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Preffered Name</mat-label>
+                        <input matInput placeholder="Enter Your Nick Name" formControlName="nickname" required>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Gender</mat-label>
+                        <mat-select formControlName="gender" >
+                          <mat-option value="M">Male </mat-option>
+                          <mat-option value="F">Female </mat-option>
+                          <mat-option value="O">Others </mat-option>
+                        </mat-select>
+
+                      </mat-form-field>
+                    </div>
+
+                  </div>
+
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>E-Mail</mat-label>
+                        <input matInput placeholder="Enter Your E Mail" formControlName="emailid" required>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Date Of Birth</mat-label>
+                        <input matInput [matDatepicker]="dobPicker" formControlName="dob" requried>
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                        <mat-datepicker #dobPicker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+
+                      <mat-form-field appearance="outline">
+                        <mat-label>Alternate Email Id</mat-label>
+                        <input matInput placeholder="Alternate Email id" formControlName="alternameemail" required>
+                      </mat-form-field>
+                    </div>
+
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Country of Birth</mat-label>
+                        <mat-select formControlName="countrybirth" requried>
+                          <mat-option *ngFor="let country of countries" [value]="country.name">{{country.name}}
+                          </mat-option>
+
+                        </mat-select>
+
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Nationality</mat-label>
+                        <mat-select formControlName="nationality" requried>
+                          <mat-option *ngFor="let country of countries"
+                            [value]="country.nationality">{{country.nationality}} </mat-option>
+
+                        </mat-select>
+
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 ">
+
+                      <mat-form-field appearance="outline">
+                        <mat-label>Passport No.</mat-label>
+                        <input matInput placeholder="Enter Your Passport Number" formControlName="passportno" required>
+                      </mat-form-field>
+                    </div>
+
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                    <div class="col-lg-3 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Passport Expiry date</mat-label>
+                        <input matInput [matDatepicker]="passportexpirypicker" formControlName="passportexpirydate"
+                          required>
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="passportexpirypicker"></mat-datepicker-toggle>
+                        <mat-datepicker #passportexpirypicker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-12 ">
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Visa Type:</mat-label>
+                        <mat-select formControlName="visatype" requried>
+                          <mat-option *ngFor="let visa of visatypes" [value]="visa.visatype">
+                            {{visa.visatype}}</mat-option>
+
+                        </mat-select>
+
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-12 ">
+
+
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Visa Number</mat-label>
+                        <input matInput placeholder="Enter Your Visa Number" formControlName="visanumber" required>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-12 ">
+
+                      <mat-form-field appearance="outline">
+                        <mat-label>Visa Expiry date</mat-label>
+                        <input matInput [matDatepicker]="visaexpirypicker" formControlName="visaexpirydate" required>
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="visaexpirypicker"></mat-datepicker-toggle>
+                        <mat-datepicker #visaexpirypicker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div>
+                <!-- <button mat-stroked-button matStepperPrevious color="warn">Back</button> -->
+                <button mat-stroked-button matStepperNext (click)="personalInformationNextButtonClick()"
+                  color="primary">Save & Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <!-- usi And Address-->
+          <mat-step [stepControl]="usiAndAddressFormGroup" [completed]="selectedIndex > 0" [editable]="false"
+            errorMessage="Fill All Details for this step.">
+            <form [formGroup]="usiAndAddressFormGroup">
+              <ng-template matStepLabel>
+
+                <div matTooltip="USI & Address">USI & Address</div>
+
+              </ng-template>
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 card ">
+                    <div class="card-title mtrbl-10">USI: Unique Student Identifier</div>
+                    <div class="card-body">
+                      <form [formGroup]="usiAndAddressFormGroup">
+                        <mat-form-field appearance="outline" class="w-75">
+                          <mat-label>Do you have your USI number available now?</mat-label>
+                          <input matInput placeholder="Enter Your Valid USI here"
+                            formControlName="uniquestudentidentifier" required>
+                        </mat-form-field>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+                    <div class="col-lg-6 col-md-12 col-sm-12 card p-3">
+                      <div class="card-title">Current Address </div>
+                      <form [formGroup]="usiAndAddressFormGroup">
+                        <!-- Current address form fields -->
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Country</mat-label>
+                          <mat-select formControlName="current_country" required>
+                            <mat-option *ngFor="let country of countries"
+                              [value]="country.name">{{country.name}}</mat-option>
+
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Flat/Unit Details</mat-label>
+                          <input matInput placeholder="Enter Your Flat/Unit Details" formControlName="current_flatno"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Street No</mat-label>
+                          <input matInput placeholder="Enter Your Street Name" formControlName="current_streetno"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Street Name</mat-label>
+                          <input matInput placeholder="Enter Your Street Name" formControlName="current_streetname"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>State</mat-label>
+                          <input matInput placeholder="Enter Your State" formControlName="current_state" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Home Phone</mat-label>
+                          <input matInput placeholder="Enter Your Home Phone" formControlName="current_housephone"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Mobile Phone</mat-label>
+                          <input matInput placeholder="Enter Your Mobile Phone" formControlName="current_mobileno"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Work Phone</mat-label>
+                          <input matInput placeholder="Enter Your Work Phone" formControlName="current_workphone"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Building Property Name</mat-label>
+                          <input matInput placeholder="Enter Building Property Name"
+                            formControlName="current_buldingpropertyname" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>City</mat-label>
+                          <input matInput placeholder="Enter City Name" formControlName="current_citytown" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>PostCode</mat-label>
+                          <input matInput placeholder="Enter PostCode" formControlName="current_postcode" required>
+                        </mat-form-field>
+                      </form>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 card p-3">
+                      <div class="card-title">Overseas/Permanent address </div>
+                      <form [formGroup]="usiAndAddressFormGroup">
+                        <mat-checkbox (change)="copyCurrentAddress($event)">Same as Current Address</mat-checkbox>
+                        <!-- Current address form fields -->
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Country</mat-label>
+                          <mat-select formControlName="overseas_country" required>
+                            <mat-option value="usa">USA</mat-option>
+                            <mat-option value="Ind">INDIA</mat-option>
+                            <mat-option value="scotland">Scotland</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Flat/Unit Details</mat-label>
+                          <input matInput placeholder="Enter Your Flat/Unit Details" formControlName="overseas_flatno"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Street No</mat-label>
+                          <input matInput placeholder="Enter Your Street Name" formControlName="overseas_streetno"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Street Name</mat-label>
+                          <input matInput placeholder="Enter Your Street Name" formControlName="overseas_streetname"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>State</mat-label>
+                          <input matInput placeholder="Enter Your State" formControlName="overseas_state" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Home Phone</mat-label>
+                          <input matInput placeholder="Enter Your Home Phone" formControlName="overseas_housephone"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Mobile Phone</mat-label>
+                          <input matInput placeholder="Enter Your Mobile Phone" formControlName="overseas_mobileno"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Work Phone</mat-label>
+                          <input matInput placeholder="Enter Your Work Phone" formControlName="overseas_workphone"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Building Property Name</mat-label>
+                          <input matInput placeholder="Enter Building Property Name"
+                            formControlName="overseas_buldingpropertyname" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>City</mat-label>
+                          <input matInput placeholder="Enter City Name" formControlName="overseas_citytown" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>PostCode</mat-label>
+                          <input matInput placeholder="Enter PostCode" formControlName="overseas_postcode" required>
+                        </mat-form-field>
+                      </form>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div>
+                <!-- <button mat-stroked-button matStepperPrevious color="warn">Back</button> -->
+                <button mat-stroked-button matStepperNext (click)="usiAndAddressNextButtonClick()" color="primary">Save
+                  & Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <!-- Language and cultural Diversity-->
+          <mat-step [stepControl]="language" [completed]="selectedIndex > 0" [editable]="false"
+            errorMessage="Fill All Details for this step.">
+
+            <ng-template matStepLabel>
+              <div matTooltip="Language and English">Language and English</div>
+            </ng-template>
+            <div class="container">
+              <div class="row">
+                <form [formGroup]="language">
+                  <div class="col-lg-12 col-md-12 col-sm-12 card  p-3">
+                    <div class="card-title">Language and cultural Diversity </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <mat-form-field appearance="outline" class="w-75">
+                        <mat-label>Are you of Austaralian Aboriginal or Torres Strait islander origin?
+                        </mat-label>
+                        <mat-select formControlName="origin" requried placeholder="Are you of Austaralian Aboriginal or Torres Strait islander origin?
+                            ">
+                          <mat-option value="yes">Yes </mat-option>
+                          <mat-option value="no">No </mat-option>
+                        </mat-select>
+                        <mat-hint>(For persons of both Austaralian Aboriginal or Torres Strait islander
+                          origin,select the last item)</mat-hint>
+                      </mat-form-field>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+                      <div class="col-lg-6 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Is English your main language?</mat-label>
+                          <mat-select formControlName="engmain" requried
+                            (selectionChange)="selectionChangeOfengMain($event)"
+                            placeholder="Is English your main language?">
+                            <mat-option value="yes">Yes </mat-option>
+                            <mat-option value="no">No </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="w-95" *ngIf="languageSpokenatHome_Field">
+                          <mat-label>If No,What is your language spoken at home? </mat-label>
+                          <mat-select requried formControlName="spokenhouse"
+                            placeholder="Is English your main language?">
+                            <mat-option value="Telugu">Telugu </mat-option>
+                            <mat-option value="Hindi">Hindi </mat-option>
+                            <mat-option value="Kannada">Kannada </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Was English the language of instruction in previous secondary or teritary
+                            studies?</mat-label>
+                          <mat-select requried formControlName="secondary"
+                            placeholder="Was English the language of instruction in previous secondary or teritary  studies?">
+                            <mat-option value="yes">Yes </mat-option>
+                            <mat-option value="no">No </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Have you completed the test of English Language Proficiency?</mat-label>
+                          <mat-select requried formControlName="testenglish"
+                            placeholder="Have you completed the test of English Language Proficiency?">
+                            <mat-option value="yes">Yes </mat-option>
+                            <mat-option value="no">No </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+
+                      </div>
+                    </div>
+
+                  </div>
+                </form>
+                <form [formGroup]="englishtest">
+                  <div class="col-lg-12 col-md-12 col-sm-12 card  p-3">
+                    <div class="card-title">English test</div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+                      <div class="col-lg-6 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>If Yes,What the test did you sit?</mat-label>
+                          <mat-select requried formControlName="testname"
+                            placeholder="If Yes,What the test did you sit?">
+                            <mat-option value="IELTS">IELTS </mat-option>
+                            <mat-option value="TEST2">TEST 2 </mat-option>
+                            <mat-option value="TEST2">TEST 3 </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>When</mat-label>
+                          <input matInput [matDatepicker]="when_test_picker" formControlName="whencomplete" required>
+                          <mat-hint>MM/DD/YYYY</mat-hint>
+                          <mat-datepicker-toggle matIconSuffix [for]="when_test_picker"></mat-datepicker-toggle>
+                          <mat-datepicker #when_test_picker></mat-datepicker>
+                        </mat-form-field>
+
+
+                      </div>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+
+                     
+
+                    </div>
+
+                  </div>
+                </form>
+
+              </div>
+            </div>
+            <div>
+              <!-- <button mat-stroked-button matStepperPrevious color="warn">Back</button> -->
+              <button mat-stroked-button matStepperNext (click)="LanguageNextButtonClick()" color="primary">Save &
+                Next</button>
+            </div>
+
+          </mat-step>
+
+          <!-- Schooling and Employment-->
+          <mat-step [stepControl]="schooling" [completed]="selectedIndex > 0" [editable]="false"
+            errorMessage="Fill All Details for this step.">
+
+            <ng-template matStepLabel>
+              <div matTooltip="Schooling and Employment">Schooling and Employment</div>
+            </ng-template>
+            <div class="container">
+              <div class="row">
+                <form [formGroup]="schooling">
+                  <div class="col-lg-12 col-md-12 col-sm-12 card  p-3">
+                    <div class="card-title">Schooling</div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <mat-form-field appearance="outline">
+                        <mat-label>What is your highest complted school level?
+                        </mat-label>
+                        <mat-select formControlName="highestschool" requried placeholder="What is your highest complted school level?
+                        ">
+                          <mat-option value="yes">Yes </mat-option>
+                          <mat-option value="no">No </mat-option>
+                        </mat-select>
+                        <mat-hint>(For persons of both Austaralian Aboriginal or Torres Strait islander
+                          origin,select the last item)</mat-hint>
+                      </mat-form-field>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Are you still attending secoundary school
+                        </mat-label>
+                        <mat-select formControlName="stillsecondary" requried placeholder="Are you still attending secoundary school
+                        ">
+                          <mat-option value="yes">Yes </mat-option>
+                          <mat-option value="no">No </mat-option>
+                        </mat-select>
+                        <mat-hint>(For persons of both Austaralian Aboriginal or Torres Strait islander
+                          origin,select the last item)</mat-hint>
+                      </mat-form-field>
+
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Previous Qualification
+                        </mat-label>
+                        <mat-select formControlName="previousqualifications" requried placeholder="Previous Qualification
+                        ">
+                          <mat-option value="btech">btech </mat-option>
+                          <mat-option value="degree">degree </mat-option>
+                        </mat-select>
+
+                      </mat-form-field>
+
+                    </div>
+
+                  </div>
+                </form>
+
+                <form [formGroup]="employment">
+                  <div class="col-lg-12 col-md-12 col-sm-12 card  p-3">
+                    <div class="card-title">Employment</div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+
+                      <div class="col-lg-6 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Which best describes your current employment status?
+                          </mat-label>
+                          <mat-select formControlName="currentemploymentstatus" requried placeholder="Which best describes your current employment status?
+                      ">
+                            <mat-option value="yes">Yes </mat-option>
+                            <mat-option value="no">No </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12">
+
+
+                        <mat-form-field appearance="outline">
+                          <mat-label>Previous Employee Details
+                          </mat-label>
+                          <mat-select formControlName="previousemployeedetails" requried placeholder="Previous Employee Details
+                      ">
+                            <mat-option value="yes">Yes </mat-option>
+                            <mat-option value="no">No </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+                      <div class="col-lg-6 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Holiday Breaks</mat-label>
+                          <input matInput placeholder="Enter Your Holiday Breaks" formControlName="holidaybreaks"
+                            required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label> Study Location</mat-label>
+                          <input matInput placeholder="Enter Your Study Location" formControlName="studylocation"
+                            required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-6 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline">
+                          <mat-label>Study Mode</mat-label>
+                          <input matInput placeholder="Enter Your Study Mode" formControlName="studymode" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                          <mat-label>Tution Weeks</mat-label>
+                          <input matInput placeholder="Enter Your Tution Weeks" formControlName="tutionweeks" required>
+                        </mat-form-field>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+            <div>
+              <!-- <button mat-stroked-button matStepperPrevious color="warn">Back</button> -->
+              <button mat-stroked-button matStepperNext (click)="schoolingAndEmploymentNextButtonClick()"
+                color="primary">Save
+                & Next</button>
+            </div>
+
+          </mat-step>
+          <!--Course-->
+          <mat-step [stepControl]="addservicerequest" [completed]="selectedIndex > 0" [editable]="false"
+            errorMessage="Fill All Details for this step.">
+
+            <ng-template matStepLabel>
+              <div matTooltip="Course">Course</div>
+            </ng-template>
+            <div class="container">
+              <div class="row">
+                <form [formGroup]="studentcourse">
+                  <div class="col-lg-12 col-md-12 col-sm-12 d-flex card  p-3">
+
+                    <div class="card-title" style="font-weight: bold; font-size: 18px;">Student course</div>
+                    <div class="row col-lg-12 col-md-12 col-sm-12 d-flex">
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Course Type</mat-label>
+                          <mat-select matInput placeholder="Enter Your Selected Course" formControlName="coursetype"
+                            requried>
+                            <mat-option *ngFor="let type of courseTypes" [value]="type">{{ type }}</mat-option>
+
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Selected Course</mat-label>
+                          <mat-select matInput placeholder="Enter Your Selected Course" formControlName="selectedcourse"
+                            requried>
+                            <mat-option *ngFor="let course of filteredCourses" [value]="course.name">{{ course.name
+                              }}</mat-option>
+
+
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Course Code</mat-label>
+                          <input matInput formControlName="coursecode">
+
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Under Agent</mat-label>
+                          <mat-select formControlName="underagent" (selectionChange)="onAgentChange($event.value)">
+                            <mat-option *ngFor="let agent of agentsList"
+                              [value]="agent.agentname">{{agent.agentname}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Agent Code</mat-label>
+                          <input matInput formControlName="agentcode">
+                        </mat-form-field>
+                      </div>
+
+
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Starting Date</mat-label>
+                          <input matInput formControlName="start">
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Ending Date</mat-label>
+                          <input matInput formControlName="finish">
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>ScholarShip</mat-label>
+                          <input matInput placeholder="Enter Your ScholarShip Fee" formControlName="scholarship"
+                            required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Study Reason</mat-label>
+                          <input matInput placeholder="Enter Your Nominal Fee" formControlName="studyreason" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Intake Year</mat-label>
+                          <input matInput formControlName="intakeyear" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Intake Code</mat-label>
+                          <input matInput formControlName="intakecode" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Tution Fee</mat-label>
+                          <input matInput formControlName="tuitionfee" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Material Fee</mat-label>
+                          <input matInput formControlName="materialfee" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Upfront Fee</mat-label>
+                          <input matInput formControlName="upfronfee_total" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Enrolment Fee</mat-label>
+                          <input matInput formControlName="enrollmentfee" required>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                </form>
+              </div>
+            </div>
+            <div>
+              <!-- <button mat-stroked-button matStepperPrevious color="warn">Back</button> -->
+              <button mat-stroked-button matStepperNext (click)="studentcourseNextButtonClick()" color="primary">Save
+                & Next</button>
+            </div>
+
+          </mat-step>
+
+          <!--Services-->
+          <mat-step [stepControl]="addservicerequest" [completed]="selectedIndex > 0" [editable]="false"
+            errorMessage="Fill All Details for this step.">
+
+            <ng-template matStepLabel>
+              <div matTooltip="Services & Health Cover">Services & Health Cover</div>
+            </ng-template>
+            <div class="container">
+              <div class="row card ">
+                <form [formGroup]="addservicerequest">
+                  <div class="col-lg-12 col-md-12 col-sm-12 d-flex card  p-3">
+
+                    <div class="card-title">Additional service request</div>
+                    <div class="card-body row">
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Service</mat-label>
+                          <mat-select formControlName="service" requried>
+                            <mat-option *ngFor="let service of servicesList"
+                              [value]="service.service_description">{{service.service_description}} </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Categeory</mat-label>
+                          <mat-select formControlName="categeory" requried>
+                            <mat-option *ngFor="let service of serviceCategoryList"
+                              [value]="service.service_category_Description">{{service.service_category_Description}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Facility</mat-label>
+                          <mat-select formControlName="facility" requried>
+                            <mat-option *ngFor="let facility of facilitiesList"
+                              [value]="facility.facility_Description">{{facility.facility_Description}} </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Service Provider</mat-label>
+                          <mat-select formControlName="provider" requried>
+                            <mat-option *ngFor="let facility of providersList"
+                              [value]="facility.facility_category_Description">{{facility.facility_category_Description
+                              }}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Price</mat-label>
+                          <input matInput formControlName="price">
+                          <mat-hint style="color:green">per Service</mat-hint>
+                        </mat-form-field>
+
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Service Start Date: </mat-label>
+                          <input matInput [matDatepicker]="whenTestPicker" formControlName="servicestartdate" required>
+                          <mat-hint>MM/DD/YYYY</mat-hint>
+                          <mat-datepicker-toggle matIconSuffix [for]="whenTestPicker"></mat-datepicker-toggle>
+                          <mat-datepicker #whenTestPicker></mat-datepicker>
+                        </mat-form-field>
+
+
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Comment</mat-label>
+                          <textarea matInput formControlName="comment"></textarea>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Is Health Cover Available?</mat-label>
+                          <mat-select formControlName="studenthealthcover" requried>
+                            <mat-option value="Yes">YES</mat-option>
+                            <mat-option value="No">NO</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>OSHC Provider:</mat-label>
+                          <mat-select formControlName="OSHCprovider" requried>
+                            <mat-option *ngFor="let oshc of OSHCProvidersList"
+                              [value]="oshc.name">{{oshc.name}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>OSHC Type:</mat-label>
+                          <mat-select formControlName="OSHCtype" requried>
+                            <mat-option *ngFor="let oshc of OSHCTypesList"
+                              [value]="oshc.code">{{oshc.name}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Cover Duration:</mat-label>
+                          <mat-select formControlName="coverduration" requried>
+                            <mat-option value="0">0</mat-option>
+                            <mat-option value="0">1</mat-option>
+                            <mat-option value="0">2</mat-option>
+                            <mat-option value="0">3</mat-option>
+                            <mat-option value="0">4</mat-option>
+                            <mat-option value="0">5</mat-option>
+                            <mat-option value="0">6</mat-option>
+                            <mat-option value="0">7</mat-option>
+                            <mat-option value="0">8</mat-option>
+                            <mat-option value="0">9</mat-option>
+                            <mat-option value="0">10</mat-option>
+                            <mat-option value="0">11</mat-option>
+                            <mat-option value="0">12</mat-option>
+                          </mat-select>
+                          <mat-hint>in Months</mat-hint>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>OSHC Fee</mat-label>
+                          <input matInput formControlName="fee">
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>OSHC Start Date: </mat-label>
+                          <input matInput [matDatepicker]="whenPicker" formControlName="startdate" required>
+                          <mat-hint>MM/DD/YYYY</mat-hint>
+                          <mat-datepicker-toggle matIconSuffix [for]="whenPicker"></mat-datepicker-toggle>
+                          <mat-datepicker #whenPicker></mat-datepicker>
+                        </mat-form-field>
+
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div>
+              <!-- <button mat-stroked-button matStepperPrevious color="warn">Back</button> -->
+              <button mat-stroked-button matStepperNext (click)="servicesNextButtonClick()" color="primary">Save
+                & Next</button>
+            </div>
+
+          </mat-step>
+
+
+          <!--Health cover-->
+          <mat-step [stepControl]="disability" [completed]="selectedIndex > 0" [editable]="false"
+            errorMessage="Fill All Details for this step.">
+
+            <ng-template matStepLabel>
+              <div matTooltip="Disability">Disability</div>
+            </ng-template>
+            <div class="container">
+              <div class="row">
+                <form [formGroup]="disability">
+                  <div class="col-lg-12 col-md-12 col-sm-12 card  p-3">
+                    <div class="card-title">Disability</div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Do you consider yourself to have a disability ,impairmrnt or long term
+                          condition</mat-label>
+                        <mat-select formControlName="disability"
+                          placeholder="Do you consider yourself to have a disability,impairmrnt or long term condition"
+                          requried>
+                          <mat-option value="yes">Yes </mat-option>
+                          <mat-option value="no">No </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+
+                      <mat-form-field appearance="outline" class="w-95">
+                        <mat-label>Would You Like to receive advice on support services, equipment and facilities
+                          which may assist you</mat-label>
+                        <mat-select formControlName="liketorecive"
+                          placeholder="Would You Like to receive advice on support services, equipment and facilities which may assist you"
+                          requried>
+                          <mat-option value="yes">Yes </mat-option>
+                          <mat-option value="no">No </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 card  p-3">
+                    <div class="card-title">Emergency Contact</div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Contact Name</mat-label>
+                          <input matInput placeholder="Enter Your Contact Name" formControlName="contactname" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Contact Type</mat-label>
+                          <input matInput placeholder="Enter Your Contact Type" formControlName="contacttype" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>RelationShip</mat-label>
+                          <input matInput placeholder="Enter Your RelationShip" formControlName="relationship" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Address</mat-label>
+                          <input matInput placeholder="Enter Your Address" formControlName="address" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-lg-4 col-md-12 col-sm-12">
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Phone</mat-label>
+                          <input matInput placeholder="Enter Your Phone" formControlName="phone" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="w-95">
+                          <mat-label>Email</mat-label>
+                          <input matInput placeholder="Enter Your Email" formControlName="email" required>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <form [formGroup]="accountmanager">
+                  <div class="col-lg-12 col-md-12 col-sm-12 card  p-3">
+                    <div class="card-title">Account Manager</div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Account Manager</mat-label>
+                        <mat-select requried placeholder="Score Type" formControlName="accountmanager">
+                          <mat-option value="Manager1">Manager 1 </mat-option>
+                          <mat-option value="Manager2">Manager 2 </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </form>
+                <form [formGroup]="admissionstaff">
+                  <div class="col-lg-12 col-md-12 col-sm-12 card  p-3">
+                    <div class="card-title">Admission Staff</div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Admission Staff</mat-label>
+                        <mat-select requried placeholder="Score Type" formControlName="admstaff">
+                          <mat-option value="Staff1">Staff 1 </mat-option>
+                          <mat-option value="staff2">Staff 2 </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+            <div>
+              <!-- <button mat-stroked-button matStepperPrevious color="warn">Back</button> -->
+              <button mat-stroked-button matStepperNext (click)="disbilityNextButtonClick()" color="primary">Save
+                & Next</button>
+            </div>
+
+          </mat-step>
+
+          <!--preview-->
+          <mat-step [stepControl]="PreviewFormGroup" [completed]="selectedIndex > 0" [editable]="false"
+            errorMessage="Fill All Details for this step.">
+            <form [formGroup]="PreviewFormGroup">
+              <ng-template matStepLabel>
+                <div matTooltip="Preview">Preview</div>
+              </ng-template>
+              <div class="container">
+                <!-- showing preview -->
+                <h4 style="color: green;">Application preview</h4>
+
+                <div class="row  clearfix">
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-card>
+                      <mat-card-header>
+                        <div class="header-title-for-preview">
+                          <mat-icon>school</mat-icon>
+                          <h6>Personal Information</h6>
+                        </div>
+                        <div class="menuoptions">
+                          <mat-icon>edit</mat-icon>
+                        </div>
+                      </mat-card-header>
+                      <hr />
+                      <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                        <table class="listViewtable">
+                          <div class="row  clearfix">
+                            <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+                              <tr>
+                                <td>Application ID :
+                                </td>
+                                <td>{{groupedData?.studentInfo?.code}}
+                                </td>
+                              </tr>
+
+
+                              <tr>
+                                <td>Full Name :
+                                </td>
+                                <td>
+
+                                  <h6>{{groupedData?.studentInfo?.firstname}} {{groupedData?.studentInfo?.lastname}}
+                                  </h6>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>Student Type :
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.studenttype}}
+
+
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Date of Birth:
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.dob |date}}
+
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Country of Birth:
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.countrybirth}}
+
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Passport No:
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.passportno}}
+                                </td>
+                              </tr>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+                              <tr>
+                                <td>Preffered name :
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.firstname}}
+
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Email:
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.emailid}}
+
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Gender :
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.gender}}
+
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Birth Place :
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.countrybirth}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Nationality:
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.nationality}}
+
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Passport Expiry Date:
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.passportexpirydate |date}}
+                                </td>
+                              </tr>
+
+
+                            </div>
+                          </div>
+                        </table>
+
+                      </div>
+
+
+                    </mat-card>
+
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-card>
+                      <mat-card-header>
+                        <div class="header-title-for-preview">
+                          <mat-icon>school</mat-icon>
+                          <h6>Address</h6>
+                        </div>
+                        <div class="menuoptions">
+                          <mat-icon>edit</mat-icon>
+                        </div>
+
+                      </mat-card-header>
+                      <hr />
+                      <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                        <table class="listViewtable">
+                          <div class="row  clearfix">
+                            <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+                              <h6 class="trlabel">Current Street Address (Primary Address)</h6>
+                              <tr>
+                                <td>Address :
+                                </td>
+                                <td> {{groupedData?.currentaddress?.flatno}} {{groupedData?.currentaddress?.streetno}}
+                                  {{groupedData?.currentaddress?.citytown}} {{groupedData?.currentaddress?.postcode}}
+                                </td>
+                              </tr>
+
+
+                              <tr>
+                                <td>Phone :
+                                </td>
+                                <td>
+                                  {{groupedData?.currentaddress?.housephone}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Mobile :
+                                </td>
+                                <td>
+                                  {{groupedData?.currentaddress?.current_mobileno}}
+
+
+                                </td>
+                              </tr>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+                              <h6 class="trlabel">Overseas/Permanant Address</h6>
+                              <tr>
+                                <td>Address :
+                                </td>
+                                <td>{{groupedData?.overseasaddress?.overseas_country}}
+                                  {{groupedData?.overseasaddress?.overseas_flatno}}
+                                  {{groupedData?.overseasaddress?.overseas_citytown}}
+                                  {{groupedData?.overseasaddress?.overseas_postcode}}
+                                </td>
+                              </tr>
+
+
+                              <tr>
+                                <td>Phone :
+                                </td>
+                                <td>
+                                  {{groupedData?.overseasaddress?.overseas_workphone}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Mobile :
+                                </td>
+                                <td>
+                                  {{groupedData?.overseasaddress?.overseas_mobileno}}
+
+                                </td>
+                              </tr>
+                            </div>
+                          </div>
+                        </table>
+
+                      </div>
+
+
+                    </mat-card>
+
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-card>
+                      <mat-card-header>
+                        <div class="header-title-for-preview">
+                          <mat-icon>school</mat-icon>
+                          <h6>Language And Cultural Diversity</h6>
+                        </div>
+                        <div class="menuoptions">
+                          <mat-icon>edit</mat-icon>
+                        </div>
+
+                      
+                      </mat-card-header>
+                      <hr />
+                      <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                        <table class="listViewtable languageandCulturalDiversity">
+                          <div class="row  clearfix">
+                            <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+
+                              <tr>
+                                <td>Are You of Australian Aboriginal or Toress strait islander origin :
+                                </td>
+                                <td>{{groupedData?.["Language&EnglishTest"]?.origin}}
+                                </td>
+                              </tr>
+
+
+                              <tr>
+                                <td>First language :
+                                </td>
+                                <td>
+                                  {{groupedData?.["Language&EnglishTest"]?.engmain}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>English Was the Language of instruction in previous secondary or teritary Studies :
+                                </td>
+                                <td>
+                                  {{groupedData?.["Language&EnglishTest"]?.secondary}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>English Language Profecency Test :
+                                </td>
+                                <td>
+                                  {{groupedData?.["Language&EnglishTest"]?.testname}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>When :
+                                </td>
+                                <td>
+                                  {{groupedData?.["Language&EnglishTest"]?.whencomplete | date}}
+
+                                </td>
+                              </tr>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+
+                              <tr>
+                                <td>Listening Score :
+                                </td>
+                                <td> {{groupedData?.["Language&EnglishTest"]?.listeningscore }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Reading Score :
+                                </td>
+                                <td>{{groupedData?.["Language&EnglishTest"]?.readingscore }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Writing Score :
+                                </td>
+                                <td>{{groupedData?.["Language&EnglishTest"]?.writingscore }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Speaking Score :
+                                </td>
+                                <td>{{groupedData?.["Language&EnglishTest"]?.speakingscore }}
+                                </td>
+                              </tr>
+                              <tr *ngIf="  groupedData?.['Language&EnglishTest']?.overallscore">
+                                <td>OverAll Score :
+                                </td>
+
+                                <td>
+
+                                  {{groupedData?.["Language&EnglishTest"]?.overallscore}}
+                                </td>
+                              </tr>
+                            </div>
+                          </div>
+                        </table>
+
+                      </div>
+
+
+                    </mat-card>
+
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-card>
+                      <mat-card-header>
+                        <mat-icon>school</mat-icon>
+                        <h6 style="margin-left: 10px;">Education History</h6>
+
+                      </mat-card-header>
+                      <hr />
+                      <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                        <table class="listViewtable Educationhistory ">
+                          <div class="row  clearfix">
+                            <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+
+                              <tr>
+                                <td> What is your Highest Completed School Level ?:
+                                </td>
+                                <td> {{groupedData?.["Schooling&Employment"]?.highestschool}}
+                                </td>
+                              </tr>
+
+
+                              <tr>
+                                <td>Are you Still Attending Secondary School :
+                                </td>
+                                <td>
+                                  {{groupedData?.["Schooling&Employment"]?.stillsecondary}}
+                                </td>
+                              </tr>
+
+                            </div>
+
+                          </div>
+                        </table>
+
+                      </div>
+
+
+                    </mat-card>
+
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-card>
+                      <mat-card-header>
+                        <div class="header-title-for-preview">
+                          <mat-icon>school</mat-icon>
+                          <h6>Enrollment Details</h6>
+                        </div>
+                        <div class="menuoptions">
+                          <mat-icon>edit</mat-icon>
+                        </div>
+
+                       
+
+                      </mat-card-header>
+                      <hr />
+                      <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                        <table class="listViewtable enrolment ">
+                          <div class="row  clearfix">
+                            <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+
+                              <tr>
+                                <td> Provider Name:
+                                </td>
+                                <td>{{groupedData?.["Services&OSHC"]?.provider}}
+                                </td>
+                              </tr>
+
+
+                              <tr *ngIf="groupedData?.studentInfo?.agentid">
+                                <td>Agent Name :
+                                </td>
+                                <td>
+                                  {{groupedData?.studentInfo?.agentname}}
+                                </td>
+                              </tr>
+
+                            </div>
+
+                          </div>
+                        </table>
+
+
+
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table table-bordered ">
+
+                          <caption>
+                            <span class="trlabel"> <mat-icon>visibility</mat-icon>
+                              Applied Course(s) List</span>
+                          </caption>
+                          <tbody>
+                            <tr>
+                              <th scope="col">Course Id</th>
+                              <th scope="col">Course Name</th>
+
+                              <th scope="col">Start Date</th>
+                              <th scope="col">Finish Date</th>
+                              <th scope="col">Status</th>
+                              <th scope="col">Course Fee</th>
+                              <th scope="col">Enroll Fee</th>
+
+
+                            </tr>
+                            <tr title="">
+                              <td>
+                                <span>{{groupedData?.courseList?.["0"]?.coursecode}}
+                                </span>
+                              </td>
+                              <td>
+                                <span>{{groupedData?.courseList?.["0"]?.name}}</span>
+                              </td>
+
+                              <td>
+                                <span>{{groupedData?.courseList?.["0"]?.startdate | date}}</span>
+                              </td>
+                              <td>
+                                <span>{{groupedData?.courseList?.["0"]?.coursefinishdate | date}}</span>
+
+                              </td>
+                              <td>
+                                <span>Enrolled</span>
+                              </td>
+                              <td>
+                                <span>$1000</span>
+                              </td>
+                              <td>
+                                <span>$1000</span>
+                              </td>
+
+
+
+                            </tr>
+
+                          </tbody>
+                        </table>
+                      </div>
+
+                    </mat-card>
+
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <mat-card>
+                      <mat-card-header>
+                        <div class="header-title-for-preview">
+                          <mat-icon>school</mat-icon>
+                          <h6>Additional Service Request</h6>
+                        </div>
+                        <div class="menuoptions">
+                          <mat-icon>edit</mat-icon>
+                        </div>
+
+
+                      </mat-card-header>
+                      <hr />
+                      <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                        <table class="listViewtable">
+                          <div class="row  clearfix">
+                            <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+                              <h6 class="trlabel">OSHC</h6>
+                              <tr>
+                                <td>OSHC Duration Month :
+                                </td>
+                                <td> {{groupedData?.["Services&OSHC"]?.coverduration}}
+                                </td>
+                              </tr>
+
+
+                              <tr>
+                                <td>OSHC Fee :
+                                </td>
+                                <td>
+                                  {{groupedData?.["Services&OSHC"]?.fee}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>OSHC Start Date :
+                                </td>
+                                <td>
+                                  {{groupedData?.["Services&OSHC"]?.startdate |date}}
+                                </td>
+                              </tr>
+                              <h6 class="trlabel">Disability</h6>
+                              <tr>
+                                <td style="width:65%">Do you Consider Yourself to have Disability :
+                                </td>
+                                <td>{{groupedData?.["Disability&Emergency"]?.disability}}
+                                </td>
+                              </tr>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+                              <h6 class="trlabel">Emergency Contact</h6>
+                              <tr>
+                                <td>Contact Name :
+                                </td>
+                                <td>{{groupedData?.["Disability&Emergency"]?.contactname}}
+                                </td>
+                              </tr>
+
+
+                              <tr>
+                                <td>Contact Type :
+                                </td>
+                                <td>
+                                  {{groupedData?.["Disability&Emergency"]?.contacttype}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>RelationShip
+                                </td>
+                                <td>
+                                  {{groupedData?.["Disability&Emergency"]?.relationship}}
+                                </td>
+                              </tr>
+                            </div>
+                          </div>
+                        </table>
+
+                      </div>
+
+                      <!-- table -->
+                      <div class="table-responsive">
+                        <table class="table table-bordered ">
+                          <caption>
+                            <span class="trlabel"> <mat-icon>visibility</mat-icon>
+                              Service List </span>
+                          </caption>
+                          <tbody>
+                            <tr>
+                              <th scope="col">Service Name</th>
+                              <th scope="col">Category Name</th>
+                              <th scope="col">Facility Name</th>
+                              <th scope="col">Provideer Name</th>
+                              <th scope="col">Service Start</th>
+                              <th scope="col">Service End</th>
+                              <th scope="col">Std Price</th>
+                              <th scope="col">Comment</th>
+
+
+                            </tr>
+                            <tr title="">
+
+                              <td>
+                                <span>{{groupedData?.["Services&OSHC"]?.service}} </span>
+                              </td>
+                              <td>
+                                <span>{{groupedData?.["Services&OSHC"]?.categeory}} </span>
+                              </td>
+                              <td>
+                                <span>{{groupedData?.["Services&OSHC"]?.facility}} </span>
+
+                              </td>
+                              <td>
+                                <span>{{groupedData?.["Services&OSHC"]?.provider}} </span>
+                              </td>
+                              <td>
+                                <span>{{groupedData?.["Services&OSHC"]?.servicestartdate |date}} </span>
+                              </td>
+                              <td>
+                                <span> Jun 25, 2025</span>
+
+                              </td>
+                              <td>
+                                <span>{{groupedData?.["Services&OSHC"]?.price}} </span>
+                              </td>
+                              <td>
+                                <span>{{groupedData?.["Services&OSHC"]?.comment}} </span>
+
+                              </td>
+
+
+
+
+                            </tr>
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </mat-card>
+
+                  </div>
+
+
+                </div>
+
+
+
+              </div>
+              <div>
+                <!-- <button mat-stroked-button matStepperPrevious color="warn">Back</button> -->
+                <button mat-stroked-button matStepperNext color="primary">Save
+                  & Next</button>
+              </div>
+            </form>
+          </mat-step>
+
+
+
+          <!--upload document-->
+          <mat-step [stepControl]="uploadDocFormGroup" [completed]="selectedIndex > 0" [editable]="false"
+            errorMessage="Fill All Details for this step.">
+            <form [formGroup]="uploadDocFormGroup">
+              <ng-template matStepLabel>
+                <div matTooltip="Preview">Uploads</div>
+              </ng-template>
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12 card">
+                    <div class="card-body">Upload documentUpload documentUpload documentUpload documentUpload
+                      documentUpload document</div>
+
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 card  p-3">
+                    <div class="card-title">Upload document</div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+
+                      <div class="mb-3">
+                        <mat-label for="uploadMultipleDocs" class="form-label">Files</mat-label>
+                        <input class="form-control" (change)="onHandleChangeOfuploadDocument($event)"
+                          formControlName="upload_doc" type="file" id="uploadMultipleDocs" multiple>
+                      </div>
+
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div>
+                <!-- <button mat-stroked-button matStepperPrevious color="warn">Back</button> -->
+                <button mat-stroked-button matStepperNext (click)="usiAndAddressNextButtonClick()" color="primary">Save
+                  & Next</button>
+              </div>
+            </form>
+          </mat-step>
+
+          <!-- done -->
+          <mat-step>
+            <ng-template matStepLabel>
+              <div matTooltip="Done">Done</div>
+            </ng-template>
+
+            <div>
+              <h5 class="head-label mb-4">
+                <mat-icon class="icon c-icon">computer </mat-icon>Thank you for the student Online Application
+              </h5>
+              <div class="snackbar-msg">
+                <p> <mat-icon class="icon c-icon">check </mat-icon>
+                  The student application has been logged successfully .Please approve the offer Using the Offer
+                  Management section and forward to the applicants nominated email address.
+                </p>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-5 mt-4 card ">
+                <table class="listViewtable">
+                  <div class="row  clearfix">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 mb-1 p-2">
+                    
+                      <tr>
+                        <td>Offer Reference Id :
+                        </td>
+                        <td>{{groupedData?.studentInfo?.code}}
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>Applicants Name :
+                        </td>
+                        <td> {{groupedData?.studentInfo?.firstname}} {{groupedData?.studentInfo?.lastname}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>E Mail
+                          :
+                        </td>
+                        <td>
+                          {{groupedData?.studentInfo?.emailid}}
+                        </td>
+                      </tr>
+                    </div>
+                  </div>
+                </table>
+
+              </div>
+            </div>
+            <div>
+              <div>
+                <app-offer-letter [stdData]="groupedData"></app-offer-letter>
+              </div>
+              <!-- <button mat-stroked-button matStepperPrevious color="warn">Back</button> -->
+              <button mat-stroked-button color="Primary">Done</button>
+              <button mat-stroked-button (click)="stepper.reset()">Reset</button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+</section>

@@ -1,0 +1,32 @@
+
+
+.idcardfront {
+  width: 500px;
+  height: 270px;
+  border: 2px solid black;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.stdimg {
+  height: 130px;
+}
+.nameInformation{
+  position: relative;
+  top: 40px;
+  left: 20px;
+}
+
+.backInformation{
+  padding: 41px 47px;
+}
+
+.sigpart{
+  width: 360px;
+  height: 120px;
+  border: 2px solid black;
+  border-radius: 20px;
+}

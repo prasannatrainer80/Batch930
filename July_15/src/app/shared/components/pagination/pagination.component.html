@@ -1,0 +1,32 @@
+<div class="ngx-datatable material">
+    <div class="datatable-footer">
+        <div class="datatable-footer-inner">
+            <div class="page-count" *ngIf="totalItems>0">Total: {{totalItems}}</div>
+            <div class="datatable-pager">
+                <ul *ngIf="pager && pager.pages?.length" class="pager">
+                    <li>
+                        <span>Items per page:</span>
+                        <select class="pagerlimit" [(ngModel)]="pageSize" (change)="setPage(1)">
+                            <option *ngFor="let item of pageLimits">{{item}}</option>
+                        </select>
+                    </li>
+                    <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="pages">
+                        <a (click)="setPage(1)" class="page-link"><i class="datatable-icon-prev"></i></a>
+                    </li>
+                    <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="pages">
+                        <a (click)="setPage(pager.currentPage - 1)" class="page-link"><i class="datatable-icon-left"></i></a>
+                    </li>
+                    <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage === page }" class="pages">
+                        <a (click)="setPage(page)" class="page-link">{{page}}</a>
+                    </li>
+                    <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="pages">
+                        <a (click)="setPage(pager.currentPage + 1)" class="page-link"><i class="datatable-icon-right"></i></a>
+                    </li>
+                    <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="pages">
+                        <a (click)="setPage(pager.totalPages)" class="page-link"><i class="datatable-icon-skip"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
