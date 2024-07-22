@@ -1,0 +1,12 @@
+<p>customer-dash-board works!</p>
+<a [routerLink]="['/customerDashBoard',{outlets:{'sonix':['customerInfo']}}]">Customer Info</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/customerDashBoard',{outlets:{'sonix':['customerWalletShow']}}]">Customer Wallet Show</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/customerDashBoard',{outlets:{'sonix':['customerOrders']}}]">Customer Orders</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a [routerLink]="['/customerDashBoard',{outlets:{'sonix':['customerPendingOrders']}}]">Customer Pending Orders</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<hr/>
+<router-outlet name="sonix"></router-outlet>

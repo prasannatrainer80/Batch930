@@ -1,0 +1,15 @@
+<p>customer-wallet-show works!</p>
+<table border="3" align="center">
+    <tr>
+        <th>Customer Id</th>
+        <th>Wallet Id</th>
+        <th>Wallet Source</th>
+        <th>Wallet Amount</th>
+    </tr>
+    <tr *ngFor="let w of wallets">
+        <td>{{w.cusId}}</td>
+        <td>{{w.walId}}</td>
+        <td>{{w.walSource}}</td>
+        <td>{{w.walAmount}}</td>
+    </tr>
+</table>
